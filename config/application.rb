@@ -25,6 +25,7 @@ module Seedpod
     # config.i18n.default_locale = :de
 
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
-
+    config.assets.initialize_on_precompile = false
+      
   end
 end
