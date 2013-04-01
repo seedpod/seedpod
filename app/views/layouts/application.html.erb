@@ -18,7 +18,12 @@
   </div>
 
   <div class='container'>
+    
+    <% if notice %><div class="alert alert-info"><%= notice %></div><% end %>
+    <% if alert %><div class="alert alert-error"><%= alert %></div><% end %>
+
     <%= yield %>
+    
   </div>
 
   <div class='container'>
