@@ -5,6 +5,9 @@ class ShipmentsController < ApplicationController
 
   def index
     @shipments = @pod.shipments
+    unless params[:all].present?
+      @shipments = @shipments.where(:shipped => false)
+    end
   end
 
   def show

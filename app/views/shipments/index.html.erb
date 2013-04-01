@@ -1,1 +1,25 @@
 <h1>Shipments for <%= @pod.month.strftime("%Y-%m") %></h1>
+<% unless params[:all] == 'true' %>
+  <p><small><%= link_to 'Show all shipments', pod_shipments_path(@pod, :all => true) %></small></p>
+<% end %>
+
+<table class='table table-striped'>
+  <tr>
+    <th>User</th>
+    <th>Address</th>
+    <th>Ship It!</th>
+  </tr>
+  <% @shipments.each do |shipment| %>
+    <tr>
+      <td><%= shipment.user.email %></td>
+      <td><%= shipment.user.address %></td>
+      <td>
+        <% if shipment.shipped %>
+          <span class="label label-important">Shipped</span>
+        <% else %>
+          <a href='#' class='btn btn-primary btn-mini'>Ship It!</a>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>

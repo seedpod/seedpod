@@ -13,5 +13,9 @@ class User < ActiveRecord::Base
     # most likely
     true
   end
-
+  
+  def address
+    "29 Acacia Avenue, Dandytown"
+  end
+   
 end
