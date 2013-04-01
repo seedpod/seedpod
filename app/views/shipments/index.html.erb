@@ -7,17 +7,19 @@
   <tr>
     <th>User</th>
     <th>Address</th>
-    <th>Ship It!</th>
+    <th>Crops</th>
+    <th>Status</th>
   </tr>
   <% @shipments.each do |shipment| %>
     <tr>
       <td><%= shipment.user.email %></td>
       <td><%= shipment.user.address %></td>
+      <td><%= shipment.crops.map{|x| x.name}.join(', ') %></td>
       <td>
         <% if shipment.shipped %>
-          <span class="label label-important">Shipped</span>
+          <span class="label label-success">Shipped</span>
         <% else %>
-          <a href='#' class='btn btn-primary btn-mini'>Ship It!</a>
+          <a href='#' class='btn btn-danger btn-mini'>Ship It!</a>
         <% end %>
       </td>
     </tr>
