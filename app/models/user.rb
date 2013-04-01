@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
   end
   
   def address
+    # Need to collect user delivery addresses
     "29 Acacia Avenue, Dandytown"
   end
    
