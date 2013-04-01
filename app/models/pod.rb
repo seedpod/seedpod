@@ -14,4 +14,8 @@ class Pod < ActiveRecord::Base
     end
   end
   
+  def to_param
+    month.strftime("%Y-%m")
+  end
+  
 end
