@@ -18,4 +18,8 @@ class Pod < ActiveRecord::Base
     month.strftime("%Y-%m")
   end
   
+  def self.next_to_ship
+    Pod.where(month: (Date.today + 21.days).beginning_of_month).first
+  end
+  
 end
