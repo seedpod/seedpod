@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130401191108) do
+ActiveRecord::Schema.define(version: 20130401194946) do
 
   create_table "admins", force: true do |t|
     t.string   "email",               null: false
@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(version: 20130401191108) do
     t.date     "month"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "published",  default: false
+    t.text     "summary"
   end
 
   create_table "rails_admin_histories", force: true do |t|
