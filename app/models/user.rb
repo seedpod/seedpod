@@ -5,4 +5,12 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
+
+  def paid_for?(pod)
+    # Need some logic here around whether a user has paid for a particular pod
+    # This will test the date of their last payment against the date of the pod,
+    # most likely
+    true
+  end
+
 end
