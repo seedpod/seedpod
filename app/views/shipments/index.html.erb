@@ -1,0 +1,14 @@
+<h1>Shipments for <%= @pod.month.strftime("%Y-%m") %></h1>
+<% unless params[:all] == 'true' %>
+  <p><small><%= link_to 'Show all shipments', pod_shipments_path(@pod, :all => true) %></small></p>
+<% end %>
+
+<table class='table table-striped'>
+  <tr>
+    <th>User</th>
+    <th>Address</th>
+    <th>Crops</th>
+    <th>Status</th>
+  </tr>
+  <%= render @shipments %>
+</table>

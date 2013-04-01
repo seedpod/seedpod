@@ -5,4 +5,18 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :shipments
+
+  def paid_for?(pod)
+    # Need some logic here around whether a user has paid for a particular pod
+    # This will test the date of their last payment against the date of the pod,
+    # most likely
+    true
+  end
+  
+  def address
+    # Need to collect user delivery addresses
+    "29 Acacia Avenue, Dandytown"
+  end
+   
 end
