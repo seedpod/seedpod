@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>Seedpod</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
@@ -8,7 +8,18 @@
 </head>
 <body>
 
-<%= yield %>
+  <div class="navbar">
+    <div class="navbar-inner">
+      <a class="brand" href="/">Seedpod</a>
+      <ul class="nav">
+        <li><a href="/pods/this-month">This Month</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class='container'>
+    <%= yield %>
+  </div>
 
 </body>
 </html>
