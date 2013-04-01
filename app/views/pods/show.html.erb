@@ -1,4 +1,4 @@
-<h1>Pod <%= @pod.month %></h1>
+<h1><%= @pod.month.strftime("%B %Y") %></h1>
 
 <% @pod.instructions.each do |instruction| %>
 
