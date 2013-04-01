@@ -6,7 +6,10 @@
     <% if shipment.shipped %>
       <span class="label label-success">Shipped</span>
     <% else %>
-      <a href='#' class='btn btn-danger btn-mini'>Ship It!</a>
+      <%= form_for [@pod, shipment], :remote => true do |f| %>
+        <%= f.hidden_field(:shipment, :value => 'true') %>
+        <%= f.submit 'Ship It!', :class=> 'btn btn-danger btn-mini' %>
+      <% end %>    
     <% end %>
   </td>
 </tr>

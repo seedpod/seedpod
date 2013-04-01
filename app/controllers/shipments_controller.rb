@@ -10,7 +10,10 @@ class ShipmentsController < ApplicationController
     end
   end
 
-  def show
+  def update
+    @shipment = @pod.shipments.find(params[:id])
+    @shipment.shipped = true
+    @shipment.save!
   end
 
   private

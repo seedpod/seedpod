@@ -1,0 +1,1 @@
+$('#shipment-<%= @shipment.id %>').replaceWith("<%= escape_javascript(render :partial => "shipment", :locals => {:shipment => @shipment})%>");
