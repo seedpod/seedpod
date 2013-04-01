@@ -1,26 +1,18 @@
+<div class+"hero-unit">
+  
 <h1>Welcome to SeedPod!</h1>
 
 <p class='lead'>
   So you'd like to start growing your own food, but you're a little unsure where to start? Have no fear! We help by taking away the worry of planning what and when to sow. We also remove the hassle of remembering when to harvest. 
 </p>
 
-
 <p>
-  At SeedPod we make the whole process of growing your own vegetables easier: our bespoke growing programme means you sow the right seeds, at the right time. Each monthly SeedPod is delivered straight to your letter box, and contains three types of organic vegetable seed. We also provide you with the guidance you need for sowing the seeds and nurturing the plants.
+<% if user_signed_in? %>
+  <%= link_to "This Month's Pod", '/pods/this-month', class: 'btn btn-large btn-primary'%>
+<% else %>
+  <%= link_to 'Get Growing', new_user_registration_path, class: 'btn btn-large btn-primary'%>
+<% end %>
 </p>
-  
-<p>
-Best of all we let you know when we think it might be time to harvest the vegetables, and ways you might like to cook and eat them too. That's why we call it 'Guided Vegetable Growing': we're with you at every step from sowing to eating.
-</p>
-
-
-<div class="row centered">
-    <% if user_signed_in? %>
-      <%= link_to "This Month's Pod", '/pods/this-month', class: 'btn btn-large btn-primary'%>
-    <% else %>
-      <%= link_to 'Get Growing', new_user_registration_path, class: 'btn btn-large btn-primary'%>
-    <% end %>
-</div>
 
 <p>
 <div class="row">
