@@ -14,6 +14,14 @@
       <ul class="nav">
         <li><a href="/pods/this-month">This Month</a></li>
       </ul>
+      <ul class="nav pull-right">
+        <% if user_signed_in? %>
+          <li><%= link_to 'My Account', edit_user_registration_path %></li>
+          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to 'My Account', new_user_session_path %></li>
+        <% end %>
+      </ul>
     </div>
   </div>
 

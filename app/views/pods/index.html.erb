@@ -1,5 +1,11 @@
 <h1>Welcome to Seedpod!</h1>
 
+<% if user_signed_in? %>
+  <%= link_to "This Month's Pod", '/pods/this-month', class: 'btn btn-large btn-primary pull-right'%>
+<% else %>
+  <%= link_to 'Get Growing', new_user_registration_path, class: 'btn btn-large btn-primary pull-right'%>
+<% end %>
+
 <p class='lead'>
   Bacon ipsum dolor sit amet broccoli laboris broccoli quis commodo. Tempor in sed, dolore broccoli sunt deserunt velit. Broccoli sunt proident broccoli, broccoli adipisicing velit. Broccoli consectetur fugiat broccoli.
 </p>
