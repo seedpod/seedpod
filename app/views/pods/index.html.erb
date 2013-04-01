@@ -1,13 +1,16 @@
 <h1>Welcome to SeedPod!</h1>
 
+
+<p class='lead'>
+  We want to get more people growing their own food. We know that food you've grown yourself tastes better. How can we prove that? Well you know it yourself whenever you make a meal from scratch rather than just heating a packet in the microwave. Tucking into a meal you've put thought and time into is a whole lot more rewarding than eating any kind of 'ready-meal' from a supermarket. Well take it from us that cooking a meal based on vegetables you've grown yourself takes that satisfaction to a whole new level - trust us!
+</p>
+
+<p class="text-center">
 <% if user_signed_in? %>
   <%= link_to "This Month's Pod", '/pods/this-month', class: 'btn btn-large btn-primary pull-right'%>
 <% else %>
   <%= link_to 'Get Growing', new_user_registration_path, class: 'btn btn-large btn-primary pull-right'%>
 <% end %>
-
-<p class='lead'>
-  We want to get more people growing their own food. We know that food you've grown yourself tastes better. How can we prove that? Well you know it yourself whenever you make a meal from scratch rather than just heating a packet in the microwave. Tucking into a meal you've put thought and time into is a whole lot more rewarding than eating any kind of 'ready-meal' from a supermarket. Well take it from us that cooking a meal based on vegetables you've grown yourself takes that satisfaction to a whole new level - trust us!
 </p>
 
 <img src='http://placekitten.com/300/200' class='pull-right img-polaroid'/>
