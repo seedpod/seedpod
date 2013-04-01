@@ -3,7 +3,7 @@ class CreateShipments < ActiveRecord::Migration
     create_table :shipments do |t|
       t.references :pod, index: true
       t.references :user, index: true
-      t.boolean :shipped
+      t.boolean :shipped, default: false
 
       t.timestamps
     end

@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 20130401170150) do
   create_table "shipments", force: true do |t|
     t.integer  "pod_id"
     t.integer  "user_id"
-    t.boolean  "shipped"
+    t.boolean  "shipped",    default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
