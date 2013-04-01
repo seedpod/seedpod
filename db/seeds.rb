@@ -1,7 +1,15 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+carrots = Crop.create(
+            name: 'carrots', 
+            description: 'OMG CARROTS'
+          )
+
+april   = Pod.create(
+            month: Date.new(2013,4)
+          )
+
+instr   = Instruction.create(
+            crop: carrots, 
+            pod: april, 
+            summary: "It's time to plant the carrots, finally!", 
+            detail: 'Bacon ipsum dolor sit amet nisi broccoli in voluptate broccoli broccoli irure broccoli broccoli broccoli dolor broccoli qui. Broccoli broccoli broccoli laboris ex elit pariatur broccoli broccoli broccoli adipisicing broccoli deserunt exercitation broccoli. Fugiat nostrud in aute anim consequat broccoli nisi eiusmod duis broccoli ut. Est broccoli broccoli broccoli esse, duis broccoli laborum broccoli cupidatat sunt officia. Broccoli broccoli anim elit aliquip, ex broccoli. Esse ut incididunt irure ut broccoli magna. Mollit non excepteur ullamco broccoli. Ut broccoli broccoli, broccoli tempor laborum broccoli. Broccoli adipisicing aute ea broccoli ut. Broccoli irure ex, culpa mollit broccoli reprehenderit elit broccoli veniam broccoli ut dolore pariatur proident. Ut laborum qui in sunt.'
+          )
