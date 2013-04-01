@@ -1,18 +1,17 @@
 <div class+"hero-unit">
-  
-<h1>Welcome to SeedPod!</h1>
+  <h1>Welcome to SeedPod!</h1>
+  <p class='lead'>
+    So you'd like to start growing your own food, but you're a little unsure where to start? Have no fear! We help by taking away the worry of planning what and when to sow. We also remove the hassle of remembering when to harvest. 
+  </p>
 
-<p class='lead'>
-
-  So you'd like to start growing your own food, but you're a little unsure where to start? Have no fear! We help by taking away the worry of planning what and when to sow. We also remove the hassle of remembering when to harvest. 
-</p>
-
-<p>
-<% if user_signed_in? %>
-  <%= link_to "This Month's Pod", '/pods/this-month', class: 'btn btn-large btn-primary'%>
-<% else %>
-  <%= link_to 'Get Growing', new_user_registration_path, class: 'btn btn-large btn-primary'%>
-<% end %>
+  <p>
+    <% if user_signed_in? %>
+    <%= link_to "This Month's Pod", '/pods/this-month', class: 'btn btn-large btn-primary'%>
+    <% else %>
+    <%= link_to 'Get Growing', new_user_registration_path, class: 'btn btn-large btn-primary'%>
+    <% end %>
+  </p>
+</div>
 
 <p>
 <div class="row">
