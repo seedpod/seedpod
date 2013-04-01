@@ -12,14 +12,6 @@
     <% end %>
 </div>
 
-<p class="text-center">
-<% if user_signed_in? %>
-  <%= link_to "This Month's Pod", '/pods/this-month', class: 'btn btn-large btn-primary pull-right'%>
-<% else %>
-  <%= link_to 'Get Growing', new_user_registration_path, class: 'btn btn-large btn-primary pull-right'%>
-<% end %>
-</p>
-
 <p>
 <div class="row">
   <div class="span3">
