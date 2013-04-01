@@ -1,0 +1,7 @@
+<h1>All Seedpods</h1>
+
+<ul>
+  <% @pods.each do |pod| %>
+    <li><%= link_to pod.month, pod %></li>
+  <% end %>
+</ul>

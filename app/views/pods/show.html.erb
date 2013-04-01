@@ -1,0 +1,11 @@
+<h1>Pod <%= @pod.month %></h1>
+
+<% @pod.instructions.each do |instruction| %>
+
+  <h2><%= instruction.crop.name %></h2>
+
+  <p><%= instruction.summary %></p>
+
+  <p><%= instruction.detail %></p>
+
+<% end %>
