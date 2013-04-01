@@ -5,22 +5,32 @@
   We want to get more people growing their own food. We know that food you've grown yourself tastes better. How can we prove that? Well you know it yourself whenever you make a meal from scratch rather than just heating a packet in the microwave. Tucking into a meal you've put thought and time into is a whole lot more rewarding than eating any kind of 'ready-meal' from a supermarket. Well take it from us that cooking a meal based on vegetables you've grown yourself takes that satisfaction to a whole new level - trust us!
 </p>
 
-<div class="row">
-  <div class="span12">
+<div class="row centered">
     <% if user_signed_in? %>
-      <%= link_to "This Month's Pod", '/pods/this-month', class: 'btn btn-large btn-primary pull-right'%>
+      <%= link_to "This Month's Pod", '/pods/this-month', class: 'btn btn-large btn-primary'%>
     <% else %>
-      <%= link_to 'Get Growing', new_user_registration_path, class: 'btn btn-large btn-primary pull-right'%>
+      <%= link_to 'Get Growing', new_user_registration_path, class: 'btn btn-large btn-primary'%>
     <% end %>
-  </div>
-</p>
+</div>
 
 <p>
 <div class="row">
-  <div class="span3">Subscribe</div>
-  <div class="span3">Sow</div>
-  <div class="span3">Care</div>
-  <div class="span3">Eat</div>
+  <div class="span3">
+    <h2>Delivered</h2>
+    Get 3 types of organic vegetable seeds each month
+    </div>
+  <div class="span3">
+    <h2>Sow</h2>
+    Follow our step by step instructions of how to plant
+    </div>
+  <div class="span3">
+    <h2>Care</h2>
+    We help you to nurture your seedlings to grow big and strong
+    </div>
+  <div class="span3">
+    <h2>Eat</h2>
+    Harvest your crops and enjoy fresh tasty veg straight off the plant
+  </div>
 </div>
 </p>
 
