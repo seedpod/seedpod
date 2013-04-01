@@ -4,6 +4,7 @@ class ShipmentsController < ApplicationController
 
 
   def index
+    @shipments = @pod.shipments
   end
 
   def show
