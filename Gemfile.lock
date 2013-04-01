@@ -78,6 +78,7 @@ GEM
       sass-rails (>= 3.1.1)
     haml (4.0.1)
       tilt
+    high_voltage (1.2.2)
     hike (1.2.1)
     i18n (0.6.4)
     jbuilder (1.0.2)
@@ -167,6 +168,7 @@ DEPENDENCIES
   bootstrap-sass
   coffee-rails (~> 4.0.0.beta1)
   devise!
+  high_voltage
   jbuilder (~> 1.0.1)
   jquery-rails
   rails (= 4.0.0.beta1)
