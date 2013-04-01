@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130401144954) do
+ActiveRecord::Schema.define(version: 20130401154454) do
+
+  create_table "admins", force: true do |t|
+    t.string   "email",               null: false
+    t.string   "encrypted_password",  null: false
+    t.datetime "remember_created_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "admins", ["email"], name: "index_admins_on_email", unique: true
 
   create_table "crops", force: true do |t|
     t.string   "name"
