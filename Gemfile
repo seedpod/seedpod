@@ -27,6 +27,8 @@ gem 'bootstrap-sass'
 gem 'devise', github: 'plataformatec/devise', branch: 'rails4'
 gem 'gocardless'
 gem 'dotenv'
+gem 'rails_admin', github: 'Floppy/rails_admin', branch: 'rails4'
+gem "high_voltage"
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'

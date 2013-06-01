@@ -1,5 +1,9 @@
 <h1><%= @pod.month.strftime("%B %Y") %></h1>
 
+<p>
+  <%= @pod.summary %>
+</p>
+
 <% @pod.instructions.each do |instruction| %>
 
   <h2><%= instruction.crop.name %></h2>

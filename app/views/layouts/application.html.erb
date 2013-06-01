@@ -8,18 +8,26 @@
 </head>
 <body>
 
-  <div class="navbar">
+  <div class="navbar<% if admin_signed_in? %> navbar-inverse<% end %>">
     <div class="navbar-inner">
-      <a class="brand" href="/">Seedpod</a>
+      <a class="brand" href="/">Seedpod<% if admin_signed_in? %> Admin<% end %></a>
       <ul class="nav">
         <li><a href="/pods/this-month">This Month</a></li>
+        <li><%= link_to "FAQ", page_path("faq") %></li>
+
+        <% if admin_signed_in? %>
+          <li><%= link_to 'Shipments', pod_shipments_path(Pod.next_to_ship) %></li>
+          <li><%= link_to 'Administration', '/administration' %></li>
+        <% end %>
       </ul>
       <ul class="nav pull-right">
         <% if user_signed_in? %>
           <li><%= link_to 'My Account', edit_user_registration_path %></li>
-          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-        <% else %>
+        <% elsif !admin_signed_in? %>
           <li><%= link_to 'My Account', new_user_session_path %></li>
+        <% end %>
+        <% if signed_in? %>
+          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
         <% end %>
       </ul>
     </div>
@@ -36,7 +44,7 @@
 
   <div class='container'>
     <footer>
-      &copy; 2013 Seedpod
+      &copy; 2013 Seedpod. <%= link_to "Terms & Conditions", page_path("terms") %>
     </footer>
   </div>
 

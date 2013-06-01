@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130401144954) do
+ActiveRecord::Schema.define(version: 20130401194946) do
+
+  create_table "admins", force: true do |t|
+    t.string   "email",               null: false
+    t.string   "encrypted_password",  null: false
+    t.datetime "remember_created_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "admins", ["email"], name: "index_admins_on_email", unique: true
 
   create_table "crops", force: true do |t|
     t.string   "name"
@@ -27,6 +37,7 @@ ActiveRecord::Schema.define(version: 20130401144954) do
     t.integer  "pod_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "ship",       default: false
   end
 
   add_index "instructions", ["crop_id"], name: "index_instructions_on_crop_id"
@@ -36,7 +47,33 @@ ActiveRecord::Schema.define(version: 20130401144954) do
     t.date     "month"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "published",  default: false
+    t.text     "summary"
   end
+
+  create_table "rails_admin_histories", force: true do |t|
+    t.text     "message"
+    t.string   "username"
+    t.integer  "item"
+    t.string   "table"
+    t.integer  "month",      limit: 2
+    t.integer  "year",       limit: 5
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rails_admin_histories", ["item", "table", "month", "year"], name: "index_rails_admin_histories"
+
+  create_table "shipments", force: true do |t|
+    t.integer  "pod_id"
+    t.integer  "user_id"
+    t.boolean  "shipped",    default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "shipments", ["pod_id"], name: "index_shipments_on_pod_id"
+  add_index "shipments", ["user_id"], name: "index_shipments_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

@@ -1,0 +1,15 @@
+<tr id='shipment-<%= shipment.id %>'>
+  <td><%= shipment.user.email %></td>
+  <td><%= shipment.user.address %></td>
+  <td><%= shipment.crops.map{|x| x.name}.join(', ') %></td>
+  <td>
+    <% if shipment.shipped %>
+      <span class="label label-success">Shipped</span>
+    <% else %>
+      <%= form_for [@pod, shipment], :remote => true do |f| %>
+        <%= f.hidden_field(:shipment, :value => 'true') %>
+        <%= f.submit 'Ship It!', :class=> 'btn btn-danger btn-mini' %>
+      <% end %>    
+    <% end %>
+  </td>
+</tr>
