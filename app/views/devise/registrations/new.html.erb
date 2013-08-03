@@ -3,30 +3,77 @@
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'form-horizontal'}) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class='control-group'>
-		<%= f.label :email, :class => 'control-label' %>
-	  <div class='controls'>
-			<%= f.email_field :email, :autofocus => true %>
-		</div>
-	</div>
+	<fieldset>
 
-  <div class='control-group'>
-		<%= f.label :password, :class => 'control-label' %>
-	  <div class='controls'>
-			<%= f.password_field :password %>
+		<h3><%= t :account_details %></h3>
+
+	  <div class='control-group'>
+			<%= f.label :email, :class => 'control-label' %>
+		  <div class='controls'>
+				<%= f.email_field :email, :autofocus => true %>
+			</div>
 		</div>
-	</div>
+
+	  <div class='control-group'>
+			<%= f.label :password, :class => 'control-label' %>
+		  <div class='controls'>
+				<%= f.password_field :password %>
+			</div>
+		</div>
 	
-  <div class='control-group'>
-		<%= f.label :password_confirmation, :class => 'control-label' %>
-	  <div class='controls'>
-			<%= f.password_field :password_confirmation %>
+	  <div class='control-group'>
+			<%= f.label :password_confirmation, :class => 'control-label' %>
+		  <div class='controls'>
+				<%= f.password_field :password_confirmation %>
+			</div>
 		</div>
-	</div>
+
+	</fieldset>
+
+	<fieldset>
+
+		<h3><%= t :delivery_details %></h3>
+
+	  <div class='control-group'>
+			<%= f.label :name, :class => 'control-label' %>
+		  <div class='controls'>
+				<%= f.text_field :name %>
+			</div>
+		</div>
+
+	  <div class='control-group'>
+			<%= f.label :address_street, :class => 'control-label' %>
+		  <div class='controls'>
+				<%= f.text_field :address_street %>
+			</div>
+		</div>
+
+	  <div class='control-group'>
+			<%= f.label :address_locality, :class => 'control-label' %>
+		  <div class='controls'>
+				<%= f.text_field :address_locality %>
+			</div>
+		</div>
+
+	  <div class='control-group'>
+			<%= f.label :address_region, :class => 'control-label' %>
+		  <div class='controls'>
+				<%= f.text_field :address_region %>
+			</div>
+		</div>
+
+	  <div class='control-group'>
+			<%= f.label :address_postcode, :class => 'control-label' %>
+		  <div class='controls'>
+				<%= f.text_field :address_postcode %>
+			</div>
+		</div>
+		
+	</fieldset>
 
   <div class='control-group'>
 	  <div class='controls'>
-			<%= f.submit "Sign up" %>
+			<%= f.submit "Sign up", :class => 'btn btn-primary' %>
 		</div>
 	</div>
 

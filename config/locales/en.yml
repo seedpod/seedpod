@@ -1,3 +1,16 @@
 en:
   seedpod: "SeedPod"
   tagline: "Seeds and guidance, every month"
+  account_details: "Account Details"
+  delivery_details: "Delivery Details"
+  activerecord:
+    attributes:
+      user:
+        email: Email address
+        password: Password
+        password_confirmation: Confirm password
+        name: Name
+        address_street: Address
+        address_locality: City
+        address_region: County
+        address_postcode: Postcode
