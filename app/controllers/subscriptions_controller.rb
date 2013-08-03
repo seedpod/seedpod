@@ -12,7 +12,12 @@ class SubscriptionsController < ApplicationController
       :state           => params[:user_id],
       :redirect_uri    => confirm_user_subscription_url(@user),
       :user            => {
-        :email         => @user.email, 
+        :email            => @user.email,
+        :first_name       => @user.first_name,
+        :last_name        => @user.last_name,
+        :billing_address1 => @user.address_street,
+        :billing_town     => @user.address_locality,
+        :postal_code      => @user.address_postcode,
       }
     )
     redirect_to url

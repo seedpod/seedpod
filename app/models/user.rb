@@ -28,4 +28,15 @@ class User < ActiveRecord::Base
     save!
   end
    
+  # We store name as a single string and split for gocardless later on.
+  # Firstname / lastname assumption is daft.
+   
+  def first_name
+    name ? name.split(' ',2)[0] : ''
+  end
+  
+  def last_name
+    name ? name.split(' ',2)[1] : ''
+  end
+
 end
