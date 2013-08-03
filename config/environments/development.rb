@@ -27,3 +27,5 @@ Seedpod::Application.configure do
   config.assets.debug = true
 
 end
+
+GoCardless.environment = :sandbox

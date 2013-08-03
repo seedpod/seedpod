@@ -4,6 +4,7 @@ ruby '2.0.0'
 #ruby-gemset=seedpod
 
 gem 'rails', '~> 4.0.0'
+gem 'dotenv'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -23,6 +24,7 @@ end
 
 gem 'jquery-rails'
 gem 'bootstrap-sass'
+gem 'gocardless'
 gem 'devise', '~> 3.0.1'
 gem 'rails_admin', '~> 0.5.0'
 gem "high_voltage"
