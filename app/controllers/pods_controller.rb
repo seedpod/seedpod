@@ -1,5 +1,7 @@
 class PodsController < ApplicationController
 
+  before_filter :require_login!, :only => [:show]
+
   def index
   end
 
