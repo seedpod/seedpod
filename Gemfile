@@ -20,6 +20,7 @@ end
 
 group :development, :test do
   gem 'sqlite3'
+  gem 'rspec-rails'
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
   gem 'vcr'
