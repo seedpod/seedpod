@@ -15,3 +15,4 @@ deploy:
   app: seedpod
   on:
     repo: seedpod/seedpod
+  run: "rake db:migrate"
