@@ -2,6 +2,12 @@
 
 The source code that runs the http://getseedpod.com site.
 
+[![Build Status](https://travis-ci.org/seedpod/seedpod.png?branch=master)](https://travis-ci.org/seedpod/seedpod)
+[![Coverage Status](https://coveralls.io/repos/seedpod/seedpod/badge.png)](https://coveralls.io/r/seedpod/seedpod)
+[![Dependency Status](https://gemnasium.com/seedpod/seedpod.png)](https://gemnasium.com/seedpod/seedpod)
+[![Code Climate](https://codeclimate.com/github/seedpod/seedpod.png)](https://codeclimate.com/github/seedpod/seedpod)
+
+
 ## Development
 
 To run the app:
