@@ -7,6 +7,10 @@ The source code that runs the http://getseedpod.com site.
 [![Dependency Status](https://gemnasium.com/seedpod/seedpod.png)](https://gemnasium.com/seedpod/seedpod)
 [![Code Climate](https://codeclimate.com/github/seedpod/seedpod.png)](https://codeclimate.com/github/seedpod/seedpod)
 
+## License
+
+This code is open source under the MIT license. See the LICENSE.md file for 
+full details.
 
 ## Development
 
