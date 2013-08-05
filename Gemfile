@@ -25,6 +25,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'vcr'
   gem 'launchy'
+  gem 'coveralls'
 end
 
 gem 'jquery-rails'
