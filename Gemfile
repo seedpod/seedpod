@@ -31,6 +31,12 @@ group :development, :test do
   gem 'poltergeist'
 end
 
+# Gems required for Heroku
+group :production do
+  gem 'rails_12factor'
+  gem 'pg'
+end
+
 gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'gocardless'
