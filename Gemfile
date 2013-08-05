@@ -28,6 +28,7 @@ group :development, :test do
   gem 'launchy'
   gem 'coveralls'
   gem 'travis'
+  gem 'poltergeist'
 end
 
 gem 'jquery-rails'

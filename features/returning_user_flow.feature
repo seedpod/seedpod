@@ -5,7 +5,7 @@ Feature: Returning user flow
 
 Scenario: I can click a link on the homepage to sign in
   When I visit the homepage
-  And I click "My Account"
+  And I click the "My Account" link
   Then I should see the "Sign in" page
 
 

@@ -9,6 +9,12 @@ class User < ActiveRecord::Base
 
   before_destroy :cancel_subscription!
 
+  validates :name            , :presence => true
+  validates :address_street  , :presence => true
+  validates :address_locality, :presence => true
+  validates :address_region  , :presence => true
+  validates :address_postcode, :presence => true
+
   def paid_for?(pod)
     # Need some logic here around whether a user has paid for a particular pod
     # This will test the date of their last payment against the date of the pod,
