@@ -1,3 +1,9 @@
+# Seedpod
+
+The source code that runs the http://getseedpod.com site.
+
+## Development
+
 To run the app:
 
 ```
@@ -10,9 +16,3 @@ rails server
 ```
 
 To log in as an admin, go to [/admins/sign_in](http://localhost:3000/admins/sign_in).
-
-## TODO
-
-* edit delivery address
-* payment
-* allow access to a window of recent and future pods
