@@ -2,7 +2,7 @@ When(/^I visit the homepage$/) do
   visit root_path
 end
 
-When(/^I click "(.*?)"$/) do |label|
+When(/^I click the "(.*?)" link$/) do |label|
   click_link(label)
 end
 
