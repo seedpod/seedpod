@@ -27,6 +27,7 @@ group :development, :test do
   gem 'vcr'
   gem 'launchy'
   gem 'coveralls'
+  gem 'travis'
 end
 
 gem 'jquery-rails'
