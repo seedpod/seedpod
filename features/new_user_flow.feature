@@ -10,7 +10,7 @@ Scenario: I can click a button on the homepage to sign up
 
 Scenario: Viewing a pod should invite me to sign up
   When I visit the homepage
-  And I click "This Month"  
+  And I click the "This Month" link
   Then I should see the "Sign up" page
 
 Scenario: Signing up
