@@ -1,6 +1,9 @@
 To run the app:
 
 ```
+
+ensure in top level directory and then
+cd seedpod
 bundle
 rake db:migrate
 rake db:seed (if in development)
