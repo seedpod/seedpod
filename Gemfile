@@ -23,6 +23,7 @@ group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'
   gem 'cucumber-rails', require: false
+  gem 'cucumber', '1.3.5'
   gem 'database_cleaner'
   gem 'vcr'
   gem 'launchy'

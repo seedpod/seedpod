@@ -272,6 +272,7 @@ DEPENDENCIES
   bootstrap-sass
   coffee-rails (~> 4.0.0)
   coveralls
+  cucumber (= 1.3.5)
   cucumber-rails
   database_cleaner
   devise (~> 3.0.1)
