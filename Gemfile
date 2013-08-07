@@ -30,6 +30,8 @@ group :development, :test do
   gem 'coveralls'
   gem 'travis'
   gem 'poltergeist'
+  gem 'factory_girl_rails'
+  gem 'faker'
 end
 
 # Gems required for Heroku
