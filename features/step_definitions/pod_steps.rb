@@ -36,6 +36,6 @@ end
 
 Then(/^I should be redirected to the current pod$/) do
   steps %{
-    I should see content for the current pod
+    Then I should see content for the current pod
   }
 end
