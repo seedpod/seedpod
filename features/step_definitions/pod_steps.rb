@@ -22,7 +22,7 @@ When(/^I visit the next pod$/) do
   visit "/pods/#{(Date.today+1.month).strftime('%Y-%m')}"
 end
 
-Then(/^I should see content for the future pod$/) do
+Then(/^I should see content for the next pod$/) do
   page.should have_selector('h1', text: (Date.today+1.month).strftime("%B %Y"))
 end
 
