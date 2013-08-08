@@ -14,7 +14,7 @@
       <ul class="nav">
         <li><a href="/pods/this-month">This Month</a></li>
         <li><%= link_to "FAQ", page_path("faq") %></li>
-		<li><%= link_to "About us@, page_path("about")"%></li>
+		<li><%= link_to "About us", page_path("about") %></li>
 
         <% if admin_signed_in? %>
           <li><%= link_to 'Shipments', pod_shipments_path(Pod.next_to_ship) %></li>
@@ -45,7 +45,7 @@
 
   <div class='container'>
     <footer>
-      &copy; 2013 SeedPod LTD. <%= link_to "Terms & Conditions", page_path("terms") %>
+      &copy; 2013 SeedPod Ltd. <%= link_to "Terms & Conditions", page_path("terms") %>
     </footer>
   </div>
 
