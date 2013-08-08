@@ -2,8 +2,10 @@ When(/^I visit the homepage$/) do
   visit root_path
 end
 
-When(/^I visit the sign up page$/) do
-  visit new_user_registration_path
+Given(/^I fill in:$/) do |table|
+  table.rows_hash.each_pair do |field, value|
+    fill_in field, with: value
+  end
 end
 
 When(/^I click the "(.*?)" link$/) do |label|
@@ -18,6 +20,6 @@ Then(/^I should see the "(.*?)" page$/) do |title|
   page.should have_selector('h2', text: title)
 end
 
-Then(/^I should be warned that I need to fill in all the fields$/) do
-  page.should have_content("7 errors")
+Then(/^I should see the signed\-in homepage$/) do
+  page.should have_selector('a', text: "This Month's Pod")
 end
