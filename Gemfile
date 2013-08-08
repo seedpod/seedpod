@@ -23,12 +23,15 @@ group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'
   gem 'cucumber-rails', require: false
+  gem 'cucumber', '1.3.5'
   gem 'database_cleaner'
   gem 'vcr'
   gem 'launchy'
   gem 'coveralls'
   gem 'travis'
   gem 'poltergeist'
+  gem 'factory_girl_rails'
+  gem 'faker'
 end
 
 # Gems required for Heroku

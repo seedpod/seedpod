@@ -12,8 +12,10 @@ class PodsController < ApplicationController
     when 'preview'
       @pod = Pod.where(month: (Date.today - 3.months).beginning_of_month, published: true).first
     else
-      raise ActiveRecord::RecordNotFound unless admin_signed_in?
       @pod = Pod.find_by_date(params[:id])
+      if @pod.month > Date.today || @pod.published == false
+        redirect_to '/pods/this-month' unless admin_signed_in?
+      end
     end
     raise ActiveRecord::RecordNotFound if @pod.nil?
   end
