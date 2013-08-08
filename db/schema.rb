@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130803231756) do
+ActiveRecord::Schema.define(version: 20130808053156) do
 
   create_table "admins", force: true do |t|
     t.string   "email",               null: false
@@ -32,12 +32,12 @@ ActiveRecord::Schema.define(version: 20130803231756) do
 
   create_table "instructions", force: true do |t|
     t.string   "summary"
-    t.string   "detail"
+    t.text     "detail",     limit: 255
     t.integer  "crop_id"
     t.integer  "pod_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "ship",       default: false
+    t.boolean  "ship",                   default: false
   end
 
   add_index "instructions", ["crop_id"], name: "index_instructions_on_crop_id"
