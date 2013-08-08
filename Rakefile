@@ -4,3 +4,10 @@
 require File.expand_path('../config/application', __FILE__)
 
 Seedpod::Application.load_tasks
+
+unless Rails.env.production?
+  require 'coveralls/rake/task'
+  Coveralls::RakeTask.new
+
+  task :default => [:spec, :cucumber, 'coveralls:push']
+end
