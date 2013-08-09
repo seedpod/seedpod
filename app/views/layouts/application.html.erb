@@ -5,13 +5,14 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+  <%= image_tag 'seedpod-icon.ico'%>
   <link rel="shortcut icon" href="/app/assets/images/logo.png"/>
 </head>
 <body>
 
   <div class="navbar<% if admin_signed_in? %> navbar-inverse<% end %>">
     <div class="navbar-inner">
-      <a class="brand" href="/"> <%= img_tag 'logo.png' %> SeedPod<% if admin_signed_in? %> Admin<% end %></a>
+      <a class="brand" href="/"><img src="logo.png">SeedPod<% if admin_signed_in? %> Admin<% end %></a>
       <ul class="nav">
         <li><a href="/pods/this-month">This Month</a></li>
         <li><%= link_to "FAQ", page_path("faq") %></li>
