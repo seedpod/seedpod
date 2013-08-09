@@ -1,5 +1,6 @@
 Then(/^I should be sent to gocardless to set up my subscription$/) do
-  assert_redirected_to '/'
+  page.current_host.should == "https://sandbox.gocardless.com"
+  page.current_path.should == "/connect/subscriptions/new"
 end
 
 When(/^GoCardless sends a subscription confirmation$/) do
