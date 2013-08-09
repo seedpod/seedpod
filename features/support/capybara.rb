@@ -5,3 +5,6 @@ Capybara.register_driver :poltergeist do |app|
 end
 
 Capybara.javascript_driver = :poltergeist
+
+# Make mechanize available as well
+require 'capybara/mechanize/cucumber'

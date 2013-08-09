@@ -27,3 +27,14 @@ When(/^I fill in my login details$/) do
   fill_in "user_email"    , with: @user.email
   fill_in "user_password" , with: "password"
 end
+
+When(/^I fill in my details$/) do
+  fill_in "user_email"                 , with: "brian@example.com"
+  fill_in "user_password"              , with: "password"
+  fill_in "user_password_confirmation" , with: "password"
+  fill_in "user_name"                  , with: "Brian Fish"
+  fill_in "user_address_street"        , with: "42 Wallaby Way"
+  fill_in "user_address_locality"      , with: "Anytown"
+  fill_in "user_address_region"        , with: "Exampleshire"
+  fill_in "user_address_postcode"      , with: "AA1 1AA"
+end
