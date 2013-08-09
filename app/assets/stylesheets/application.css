@@ -15,3 +15,8 @@
 .centered{
 	text-align: center
 }
+
+.brand img{
+	height:16px;
+	vertical-align: top;
+}
