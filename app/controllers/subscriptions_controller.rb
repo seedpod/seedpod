@@ -39,15 +39,37 @@ class SubscriptionsController < ApplicationController
   end
   
   def gocardless_webhook
-    if GoCardless.webhook_valid?(params[:payload])
-      render :text => "true", :status => 200
-    else
+    payload = JSON.parse(params['payload'])
+    # Check validity
+    unless GoCardless.webhook_valid?(payload)
       render :text => "false", :status => 403
+      return
     end
+    # Is this a subscription, or a bill notification?
+    case payload['resource_type']
+    when "subscription"
+      process_subscription_webhook(payload)        
+    when "bill"
+      process_bill_webhook(payload)        
+    end
+    # Done
+    render :text => "true", :status => 200
   end
   
   private
   
+  def process_subscription_webhook(payload)
+    payload['subscriptions'].each do |subscription|
+      case subscription['status']
+      when 'cancelled', 'expired'
+        Subscription.cancel!(subscription['id'])
+      end
+    end
+  end
+  
+  def process_bill_webhook(payload)
+  end
+
   def get_user
     @user = User.find(params[:user_id])
     redirect_to root_path if @user != current_user
