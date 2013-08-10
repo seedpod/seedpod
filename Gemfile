@@ -24,14 +24,17 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'cucumber-rails', require: false
   gem 'cucumber', '1.3.5'
-  gem 'database_cleaner'
+  gem 'database_cleaner', '<= 1.0.1'
   gem 'vcr'
+  gem 'webmock'
   gem 'launchy'
   gem 'coveralls'
   gem 'travis'
   gem 'poltergeist'
   gem 'factory_girl_rails'
   gem 'faker'
+  gem 'capybara-mechanize'
+  gem 'timecop'
 end
 
 # Gems required for Heroku

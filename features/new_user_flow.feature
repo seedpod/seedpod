@@ -17,3 +17,10 @@ Scenario: Signing up
   When I visit the sign up page
   And I click the "Sign up" button
   Then I should be warned that I need to fill in all the fields
+
+@mechanize @vcr @hostname
+Scenario: Signing up
+  When I visit the sign up page
+  And I fill in my details
+  And I click the "Sign up" button
+  Then I should be sent to gocardless to set up my subscription
