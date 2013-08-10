@@ -16,6 +16,10 @@ Given(/^I have made a payment$/) do
   FactoryGirl.create :payment, subscription: @subscription
 end
 
+Given(/^I have made a payment which failed$/) do
+  FactoryGirl.create :payment, subscription: @subscription, state: 'failed'
+end
+
 Then(/^the payment should be marked as refunded$/) do
   payment = @subscription.payments.last
   payment.gocardless_id.should == 'XYZ987'
