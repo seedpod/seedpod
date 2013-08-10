@@ -68,6 +68,20 @@ class SubscriptionsController < ApplicationController
   end
   
   def process_bill_webhook(payload)
+    payload["bills"].each do |bill|
+      # Check right resource type
+      next if bill['source_type'] != 'subscription'
+      # Find subscription object that this payment is for
+      sub = Subscription.where(gocardless_id: bill['source_id']).first
+      next if sub.nil?
+      # Check status
+      case bill['status']
+      when 'paid'
+        sub.add_payment(bill['id'], bill['amount'], DateTime.parse(bill['paid_at']))
+      when 'failed'
+        sub.add_failed_payment(bill['id'], DateTime.parse(bill['paid_at']))
+      end
+    end      
   end
 
   def get_user
