@@ -6,6 +6,12 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :shipments
+  
+  has_many :subscriptions do
+    def active
+      where(cancelled_at: nil).first
+    end
+  end
 
   before_destroy :cancel_subscription!
 
