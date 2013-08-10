@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130810070637) do
+ActiveRecord::Schema.define(version: 20130810094946) do
 
   create_table "admins", force: true do |t|
     t.string   "email",               null: false
@@ -42,6 +42,18 @@ ActiveRecord::Schema.define(version: 20130810070637) do
 
   add_index "instructions", ["crop_id"], name: "index_instructions_on_crop_id"
   add_index "instructions", ["pod_id"], name: "index_instructions_on_pod_id"
+
+  create_table "payments", force: true do |t|
+    t.string   "gocardless_id"
+    t.integer  "subscription_id"
+    t.float    "amount"
+    t.datetime "transacted_at"
+    t.string   "state",           default: "pending"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "payments", ["subscription_id"], name: "index_payments_on_subscription_id"
 
   create_table "pods", force: true do |t|
     t.date     "month"
