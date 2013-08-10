@@ -28,7 +28,7 @@ class SubscriptionsController < ApplicationController
       # Confirm with gocardless
       GoCardless.confirm_resource(params)
       # Store subscription ID
-      @user.update_attributes!(subscription_id: params[:resource_id])
+      @user.subscriptions.create(gocardless_id: params[:resource_id])
       # Send back to main page
       redirect_to root_path
     else

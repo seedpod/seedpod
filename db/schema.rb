@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130808053156) do
+ActiveRecord::Schema.define(version: 20130810070637) do
 
   create_table "admins", force: true do |t|
     t.string   "email",               null: false
@@ -75,6 +75,16 @@ ActiveRecord::Schema.define(version: 20130808053156) do
   add_index "shipments", ["pod_id"], name: "index_shipments_on_pod_id"
   add_index "shipments", ["user_id"], name: "index_shipments_on_user_id"
 
+  create_table "subscriptions", force: true do |t|
+    t.string   "gocardless_id"
+    t.integer  "user_id"
+    t.datetime "cancelled_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "subscriptions", ["user_id"], name: "index_subscriptions_on_user_id"
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -91,7 +101,6 @@ ActiveRecord::Schema.define(version: 20130808053156) do
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.string   "subscription_id"
     t.string   "address_street"
     t.string   "address_locality"
     t.string   "address_region"
