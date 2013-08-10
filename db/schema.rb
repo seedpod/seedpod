@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20130810094946) do
     t.integer  "subscription_id"
     t.float    "amount"
     t.datetime "transacted_at"
-    t.string   "state"
+    t.string   "state",           default: "pending"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

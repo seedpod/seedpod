@@ -74,14 +74,20 @@ class SubscriptionsController < ApplicationController
       # Find subscription object that this payment is for
       sub = Subscription.where(gocardless_id: bill['source_id']).first
       next if sub.nil?
-      # Check status
+      # Get payment
+      payment = sub.payments.where(gocardless_id: bill['id']).first || sub.payments.new(gocardless_id: bill['id'])
+      # Check status and mark payment appropriately
       case bill['status']
+      when 'created'
+        payment.pending!
       when 'paid'
-        sub.add_payment(bill['id'], bill['amount'], DateTime.parse(bill['paid_at']))
+        payment.paid! bill['amount'], DateTime.parse(bill['paid_at'])
       when 'failed'
-        sub.add_failed_payment(bill['id'], DateTime.parse(bill['paid_at']))
+        payment.failed! DateTime.parse(bill['paid_at'])
       when 'chargeback'
-        sub.chargeback_payment(bill['id'])
+        payment.chargeback!
+      when 'retried'
+        payment.retried!
       end
     end      
   end

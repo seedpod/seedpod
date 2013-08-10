@@ -5,7 +5,7 @@ FactoryGirl.define do
     gocardless_id "XYZ987"
     subscription  nil
     amount        6.0
-    transacted_at "2013-08-10 12:00:00"
-    state         "paid"
+    transacted_at "1970-01-01"
+    state         "pending"
   end
 end
