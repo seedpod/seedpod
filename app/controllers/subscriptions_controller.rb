@@ -1,6 +1,6 @@
 class SubscriptionsController < ApplicationController
 
-  before_filter :get_user
+  before_filter :get_user, :except => [:gocardless_webhook]
 
   def new
     url = GoCardless.new_subscription_url(
@@ -36,6 +36,14 @@ class SubscriptionsController < ApplicationController
     end
   rescue GoCardless::ApiError => ex
     raise
+  end
+  
+  def gocardless_webhook
+    if GoCardless.webhook_valid?(params[:payload])
+      render :text => "true", :status => 200
+    else
+      render :text => "false", :status => 403
+    end
   end
   
   private
