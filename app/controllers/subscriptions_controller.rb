@@ -80,6 +80,8 @@ class SubscriptionsController < ApplicationController
         sub.add_payment(bill['id'], bill['amount'], DateTime.parse(bill['paid_at']))
       when 'failed'
         sub.add_failed_payment(bill['id'], DateTime.parse(bill['paid_at']))
+      when 'chargeback'
+        sub.chargeback_payment(bill['id'])
       end
     end      
   end

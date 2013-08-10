@@ -32,3 +32,10 @@ Scenario: Gocardless tells us a payment has failed
   And I have a subscription set up
   When GoCardless sends a bill failed notification
   Then my payment should be recorded as failed
+
+Scenario: Gocardless tells us a payment has been charged back
+  Given I am signed in
+  And I have a subscription set up
+  And I have made a payment
+  When GoCardless sends a bill chargeback notification
+  Then the payment should be marked as refunded

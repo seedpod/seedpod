@@ -18,5 +18,12 @@ class Subscription < ActiveRecord::Base
   def add_failed_payment(payment_id, paid_at)
     payments.create(gocardless_id: payment_id, paid_at: paid_at, success: false)
   end
+
+  def chargeback_payment(payment_id)
+    payment = payments.where(gocardless_id: payment_id).first
+    if payment
+      payment.update_attributes!(success: false)
+    end
+  end
   
 end
