@@ -26,11 +26,9 @@ Scenario: Gocardless tells us a payment has been made
   And I have a subscription set up
   When GoCardless sends a bill paid notification
   Then my payment should be recorded
-  And I should be able to see the next pod
   
 Scenario: Gocardless tells us a payment has failed
   Given I am signed in
   And I have a subscription set up
   When GoCardless sends a bill failed notification
   Then my payment should be recorded as failed
-  Then I should not be able to see the next pod
