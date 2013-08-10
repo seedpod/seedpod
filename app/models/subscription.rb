@@ -11,18 +11,18 @@ class Subscription < ActiveRecord::Base
     update_attributes!(cancelled_at: DateTime.now)
   end
   
-  def add_payment(payment_id, amount, paid_at)
-    payments.create(gocardless_id: payment_id, amount: amount, paid_at: paid_at, success: true)
+  def add_payment(payment_id, amount, time)
+    payments.create(gocardless_id: payment_id, amount: amount, transacted_at: time, state: "paid")
   end
   
-  def add_failed_payment(payment_id, paid_at)
-    payments.create(gocardless_id: payment_id, paid_at: paid_at, success: false)
+  def add_failed_payment(payment_id, time)
+    payments.create(gocardless_id: payment_id, transacted_at: time, state: "failed")
   end
 
   def chargeback_payment(payment_id)
     payment = payments.where(gocardless_id: payment_id).first
     if payment
-      payment.update_attributes!(success: false)
+      payment.update_attributes!(state: "refunded")
     end
   end
   

@@ -47,8 +47,8 @@ ActiveRecord::Schema.define(version: 20130810094946) do
     t.string   "gocardless_id"
     t.integer  "subscription_id"
     t.float    "amount"
-    t.datetime "paid_at"
-    t.boolean  "success"
+    t.datetime "transacted_at"
+    t.string   "state"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
