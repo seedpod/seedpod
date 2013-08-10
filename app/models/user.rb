@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
       where(cancelled_at: nil).first
     end
   end
+  has_many :payments, through: :subscriptions
 
   before_destroy :cancel_subscription!
 
@@ -25,7 +26,7 @@ class User < ActiveRecord::Base
     # Need some logic here around whether a user has paid for a particular pod
     # This will test the date of their last payment against the date of the pod,
     # most likely
-    true
+    payments.where(pod: pod, state: "paid").present?
   end
   
   def address
@@ -49,5 +50,5 @@ class User < ActiveRecord::Base
   def last_name
     name ? name.split(' ',2)[1] : ''
   end
-
+  
 end

@@ -6,6 +6,7 @@ Feature: Payment management
 Background:
   Given I am signed in
   And I have a subscription set up
+  And there is a pod for next month
 
 Scenario: Gocardless tells us a payment has been created
   When GoCardless sends a bill created notification
@@ -14,6 +15,7 @@ Scenario: Gocardless tells us a payment has been created
 Scenario: Gocardless tells us a bill has been paid
   When GoCardless sends a bill paid notification
   Then my payment should be recorded
+  And next month's pod should be paid for
   
 Scenario: Gocardless tells us a payment has failed
   When GoCardless sends a bill failed notification

@@ -23,7 +23,7 @@ class Pod < ActiveRecord::Base
   end
   
   def self.next_to_ship
-    Pod.where(month: (Date.today + 21.days).beginning_of_month).first
+    Pod.where(month: (Date.today + 1.month + 7.days).beginning_of_month).first
   end
   
 end

@@ -39,3 +39,7 @@ Then(/^I should be redirected to the current pod$/) do
     Then I should see content for the current pod
   }
 end
+
+Then(/^next month's pod should be paid for$/) do
+  @user.paid_for?(Pod.last).should be_true
+end

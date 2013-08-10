@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130810094946) do
+ActiveRecord::Schema.define(version: 20130810154204) do
 
   create_table "admins", force: true do |t|
     t.string   "email",               null: false
@@ -51,8 +51,10 @@ ActiveRecord::Schema.define(version: 20130810094946) do
     t.string   "state",           default: "pending"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "pod_id"
   end
 
+  add_index "payments", ["pod_id"], name: "index_payments_on_pod_id"
   add_index "payments", ["subscription_id"], name: "index_payments_on_subscription_id"
 
   create_table "pods", force: true do |t|
