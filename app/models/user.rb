@@ -29,6 +29,10 @@ class User < ActiveRecord::Base
     payments.where(pod: pod, state: "paid").present?
   end
   
+  def recently_signed_up?
+    subscriptions.active && subscriptions.active.awaiting_first_payment?
+  end
+  
   def address
     [:name, :address_street, :address_locality, :address_region, :address_postcode].compact.join(', ')
   end

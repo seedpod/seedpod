@@ -31,4 +31,8 @@ class Subscription < ActiveRecord::Base
     end
   end
 
+  def awaiting_first_payment?
+    payments.empty? || (payments.size == 1 && payments.first.state == "pending")
+  end
+  
 end
