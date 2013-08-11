@@ -12,6 +12,7 @@ Seedpod::Application.routes.draw do
   end
   
   resources :pods do 
+    get :getting_started, on: :collection
     resources :shipments
   end
   

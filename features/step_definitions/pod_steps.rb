@@ -1,13 +1,13 @@
 Given(/^there is a pod for the current month$/) do
-  FactoryGirl.create :pod
+  @current_pod = FactoryGirl.create :pod
 end
 
 Given(/^there is a pod for next month$/) do
-  FactoryGirl.create :next_pod
+  @next_pod = FactoryGirl.create :next_pod
 end
 
 Given(/^there is a pod for last month$/) do
-  FactoryGirl.create :previous_pod
+  @previous_pod = FactoryGirl.create :previous_pod
 end
 
 When(/^I visit the current pod$/) do
@@ -34,8 +34,16 @@ Then(/^I should see content for the previous pod$/) do
   page.should have_selector('h1', text: (Date.today-1.month).strftime("%B %Y"))
 end
 
-Then(/^I should be redirected to the current pod$/) do
+Then(/^I should be redirected to the homepage$/) do
   steps %{
-    Then I should see content for the current pod
+    Then I should see the signed-in homepage
   }
+end
+
+Then(/^next month's pod should be paid for$/) do
+  @user.paid_for?(@next_pod).should be_true
+end
+
+Then(/^I should see the getting started page$/) do
+  page.should have_selector('h1', text: 'Getting Started')
 end
