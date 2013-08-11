@@ -37,3 +37,11 @@ Then(/^my payment should be recorded as retrying$/) do
   payment.gocardless_id.should == 'XYZ987'
   payment.state.should         == "retrying"
 end
+
+Given(/^I have paid for the current pod$/) do
+  FactoryGirl.create :payment, subscription: @subscription, state:"paid", pod: @current_pod
+end
+
+Given(/^I have paid for the previous pod$/) do
+  FactoryGirl.create :payment, subscription: @subscription, state:"paid", pod: @previous_pod
+end
