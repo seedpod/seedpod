@@ -17,6 +17,25 @@
 }
 
 .brand img{
-	height:16px;
-	vertical-align: top;
+	height:30px;
+	/*vertical-align:top;*/
 }
+
+.nav {
+	/*color: red;*/
+	padding-top: 7px;
+	/*vertical-align:sub;*/
+}
+
+/*.nav{
+	font-family: Sanchez Regular, Regular;
+}
+.box{
+	border: 1px solid green ; 
+	background: linear-gradient(
+		white, white 50%, black 50%, black
+	); 
+	transition: all 0.2 ease;
+}
+*/
+
