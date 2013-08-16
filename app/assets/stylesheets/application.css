@@ -19,23 +19,76 @@
 .brand img{
 	height:30px;
 	/*vertical-align:top;*/
+	
 }
 
 .nav {
+	text-align:center;
 	/*color: red;*/
-	padding-top: 7px;
+	/*padding-top: 7px;*/
 	/*vertical-align:sub;*/
 }
 
-/*.nav{
-	font-family: Sanchez Regular, Regular;
+.body{
+	background-image: <%= image_tag 'care.svg' %> 
 }
+
+.thrugy{
+	padding-top: 50px;
+	font-size: 50px;
+	color: #78A22F;
+	font-family: Futura;
+}
+
+.hfur{
+	font-family: Futura;
+}
+
+.navbar li{
+	display:inline;
+	padding-left:13px;
+	padding-right:13px;
+}
+
+/* .navbar .nav-pills >li >a {
+    color: #005580;
+ }
+   .navbar .nav-pills > li > a:hover {
+      background-color: #0088cc;
+ }
+ .navbar .nav-pills .active > a {
+    background-color:#ccc;
+    color:#0088cc;
+}
+*/
+.navbar{
+/*	border: none;
+	border-bottom: 1px solid #000;
+	background: red; */
+	font-size: 18px;
+	color: red;
+	font-family: Futura;
+}
+
+.explan{
+	text-align:center;
+	color:#78A22F;
+	font-family:Futura;
+	text-shadow: 1px 1px brown;
+	font-size: 25px;
+}
+
+
 .box{
-	border: 1px solid green ; 
+	border: 2px solid brown ; 
+	padding: 10px;
+	text-align:justify;
+	color: #888888;
+/*	background-color:yellow;
 	background: linear-gradient(
 		white, white 50%, black 50%, black
 	); 
 	transition: all 0.2 ease;
-}
 */
+}
 

@@ -6,28 +6,42 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
   <%= favicon_link_tag 'icon.png'%>
-
 </head>
 <body>
+ <div class="container">
+  	<div class="thrugy">  
+	  <!--<p class="text-center">Welcome to</p> -->
+  	  <%= image_tag 'seedpod-logo-long.svg'%>
+  </div>
+  
 
   <div class="navbar<% if admin_signed_in? %> navbar-inverse<% end %>">
     <div class="navbar-inner">
-      <a class="brand" href="/"><%= image_tag 'seedpod-logo-long.svg'%><% if admin_signed_in? %> Admin<% end %></a>
-      <ul class="nav">
-        <li><a href="/pods/this-month">This Month</a></li>
+<!--      <a class="brand" href="/"><%= image_tag 'seedpod-logo-long.svg'%><% if admin_signed_in? %> Admin<% end %></a>  -->
+      <ul class="nav">  
+		<li class="active"><a href="/">HOME <% if admin_signed_in? %> Admin <% end %></a></li>
+		<li class="divider-vertical"></li>  
+        <li><a href="/pods/this-month">THIS MONTH</a></li>
+		<li class="divider-vertical"></li>
         <li><%= link_to "FAQ", page_path("faq") %></li>
-		<li><%= link_to "About us", page_path("about") %></li>
-
+		<li class="divider-vertical"></li>
+		<li><%= link_to "ABOUT US", page_path("about") %></li>
+		<li class="divider-vertical"></li>
         <% if admin_signed_in? %>
           <li><%= link_to 'Shipments', pod_shipments_path(Pod.next_to_ship) %></li>
           <li><%= link_to 'Administration', '/administration' %></li>
         <% end %>
+		
+<!--		<% if signed_in? %>
+		  <li><%= link_to "Get Ready", page_path("getready") %></li>
+		<% end %>
+-->		
       </ul>
       <ul class="nav pull-right">
         <% if user_signed_in? %>
-          <li><%= link_to 'My Account', edit_user_registration_path %></li>
+          <li><%= link_to 'MY ACCOUNT', edit_user_registration_path %></li>
         <% elsif !admin_signed_in? %>
-          <li><%= link_to 'My Account', new_user_session_path %></li>
+          <li><%= link_to 'MY ACCOUNT', new_user_session_path %></li>
         <% end %>
         <% if signed_in? %>
           <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
@@ -35,7 +49,7 @@
       </ul>
     </div>
   </div>
-
+</div>
   <div class='container'>
     
     <% if notice %><div class="alert alert-info"><%= notice %></div><% end %>

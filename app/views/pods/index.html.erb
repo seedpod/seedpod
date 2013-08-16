@@ -1,9 +1,10 @@
-<div class="hero-unit">
+<!--
+  <div class="hero-unit">
   <h1>Welcome to SeedPod!</h1>
-  <p class='lead'>
+-->  <p class='explan'>
     The simplest path to eating delicious home-grown vegetables throughout the year. 
   </p>
-
+  <!--
   <p>
     <% if user_signed_in? %>
     <%= link_to "This Month's Pod", '/pods/this-month', class: 'btn btn-large btn-primary'%>
@@ -12,33 +13,36 @@
     <% end %>
   </p>
 </div>
-
+-->
 <p>
+	<div class="boxed">
+<div class="hfur">	
 <div class="row">	
   <div class="span3">
   <div class="box">  
-    <h2>Get</h2>
-    For just £6.00/month, receive 2 types of vegetable seeds delivered straight to your letterbox    
+    <h2>Get</h2><%= image_tag 'get.svg'%>
+    For just £6.00 per month, receive 2 types of vegetable seeds delivered straight through your letterbox    
 	</div>
     </div>
   <div class="span3">
   <div class="box">
-	<h2>Sow</h2>
-    Follow our bespoke growing programme to sow the right seeds at the right time
+	<h2>Sow</h2><%= image_tag 'sow.svg'%>
+    Follow our bespoke growing programme to sow the right seeds at the right time following simple instructions
 	</div>
     </div>
   <div class="span3">
   <div class="box">
-	<h2>Care</h2>
-    Nurture your plants to grow big and strong following our tutorials and guidance
+	<h2>Care</h2><%= image_tag 'care.svg'%>
+    Nurture your plants to grow big and strong following our tutorials and guidance every step of the way
 	</div>
 	</div>
   <div class="span3">
   <div class="box">
-    <h2>Eat</h2>
+    <h2>Eat</h2><%= image_tag 'eat.svg'%>
     We advise you when the time may be right to harvest your crops and enjoy fresh and tasty veg, straight off the plant
 	</div>
 	</div>
+</div>
 </div>
 
 <!--	<img src="http://placekitten.com/100/100" 
