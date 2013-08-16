@@ -29,10 +29,6 @@
 	/*vertical-align:sub;*/
 }
 
-.body{
-	background-image: <%= image_tag 'care.svg' %> 
-}
-
 div.logo{
 	padding-top: 50px;
 	font-size: 50px;
