@@ -4,7 +4,7 @@
 
 <style>
   path {
-    fill: rgb(120,162,47);
+    fill: white;
   }
 </style>
 

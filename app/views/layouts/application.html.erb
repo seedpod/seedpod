@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
   <%= favicon_link_tag 'icon.png'%>
 </head>
-<body>
+<body class='<%= @body_class %>'>
  <div class="container">
   <div class="navbar<% if admin_signed_in? %> navbar-inverse<% end %>">
     <div class="navbar-inner">
@@ -52,13 +52,6 @@
     <%= yield %>
     
   </div>
-
-  <div class='container'>
-    <footer>
-      &copy; 2013 SeedPod Ltd. <%= link_to "Terms & Conditions", page_path("terms") %>
-    </footer>
-  </div>
-
 
 </body>
 </html>

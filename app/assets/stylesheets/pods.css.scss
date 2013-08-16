@@ -14,3 +14,9 @@
   font-weight: 400;
   font-family: Futura;
 }
+
+body.homepage {
+  background-image: asset-url('cabbage.jpg');
+  background-position: center;
+  background-size: cover;
+}

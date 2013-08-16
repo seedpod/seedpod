@@ -4,6 +4,7 @@ class PodsController < ApplicationController
   before_filter :get_pod, :except => [:index, :getting_started]
   
   def index
+    @body_class = 'homepage'
   end
 
   def show
