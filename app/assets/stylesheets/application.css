@@ -36,6 +36,21 @@ div.logo{
 	font-family: Futura;
 }
 
+.carousel .item {
+    min-height: 400px;
+}
+.carousel img {
+    height: 200px;
+}
+.carousel-inner{
+	font-family: Futura;
+	font-size: 30px;
+	text-align: center;
+	padding: 100px;
+	overflow:auto;
+	line-height:40px;
+}
+
 .tagline{
 	text-align:center;
 	color:white;
@@ -86,6 +101,7 @@ div.logo{
 .words{
 	color: rgba(255,255,255,1);
     margin:30px 40px;
+	display:inline;
     /*font-weight:bold;*/
 }
 /*.box{

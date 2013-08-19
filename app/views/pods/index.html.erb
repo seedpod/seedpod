@@ -2,7 +2,7 @@
   <%= image_tag 'logo-with-text.svg'%>
 </div>
 
-<!--<div class='tagline'>
+<div class='tagline'>
   Guided growing, for tasty veg all year round
 </div>
 
@@ -15,7 +15,7 @@
     <% end %>
   </p>
 </div>-->
-
+<!--
 <div class="row">	
 <div class="intros">
   <div class="col-md-4">
@@ -27,7 +27,7 @@
 		<li><i class="icon-li icon-leaf"></i>Delivered straight through your letterbox</li>
 		
 	</ul>
-    </div>
+    </div> 
   </div>	
   </div>
   <div class="col-md-4">
@@ -55,3 +55,50 @@
   </div>
 </div>  
 </div>
+-->
+<div id="carousel" class="carousel slide">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="get" data-slide-to="0" class="active"></li>
+    <li data-target="grow" data-slide-to="1"></li>
+    <li data-target="eat" data-slide-to="2"></li>
+  </ol>
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+      <div class="item active">
+	      <h1><i>Get</i></h1>
+	  	  <ul id="my-bullets">
+	  		<p><i class="icon-li icon-leaf"></i> Two vegetable seed varieties each month</p>
+	  		<p><i class="icon-li icon-home"></i> Delivered straight through your letterbox</p>
+		
+	  	  </ul>
+        
+      </div>
+	  <div class="item">
+	  	<h1><i>Grow</i></h1>
+	  	<ul>
+	  		<p><i class="icon-li icon-check"></i> The right seeds at the right time</p>
+	  		<p><i class="icon-li icon-search"></i> Nothing to remember or research</p>
+	  		<p><i class="icon-li icon-calendar"></i> Monthly step-by-step guidance to get the most out of your plants</p>
+	  	</ul>
+	  </div>
+	  <div class="item">
+		  <h1><i>Eat</i></h1>
+		  <ul>
+		     <p><i class="icon-li icon-resize-horizontal"></i> Maximise and prolong your harvest</p>
+		  	 <p><i class="icon-li icon-food"></i> Enjoy fresh and tasty veg straight off the plant</p>
+		  </ul>
+	  </div>
+    </div>
+    <!-- Controls -->
+    <a class="left carousel-control" href="#eat" data-slide="prev">
+      <span class="icon-prev"></span>
+    </a>
+    <a class="right carousel-control" href="#grow" data-slide="next">
+      <span class="icon-next"></span>
+    </a>
+	<script>
+	$('.carousel').carousel()
+	</script>
+  </div>
+  
