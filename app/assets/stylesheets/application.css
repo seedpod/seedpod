@@ -86,26 +86,25 @@ div.logo{
 .words{
 	color: rgba(255,255,255,1);
     margin:30px 40px;
-    font-weight:bold;
-    color:#000000;
+    /*font-weight:bold;*/
 }
-.box{
-   /* width:300px;
+/*.box{
+    width:300px;
     height:180px;
-    margin:10px 10px;*/
+    margin:10px 10px;
     background-color: #ffffff;
     border:1px solid black;
     opacity:0.5;
-    filter:alpha(opacity=50); /* For IE8 and earlier */
-/*	border: 2px, red;
+    filter:alpha(opacity=50); /* For IE8 and earlier 
+	border: 2px, red;
 	padding: 10px;
 	text-align:justify;
 	background-color: rgba(255,255,255,0.5);
-	/*opacity:0.5;*/
-/*	background: linear-gradient(
+	opacity:0.5;
+	background: linear-gradient(
 		white, white 50%, black 50%, black
 	); 
 	transition: all 0.2 ease;
-*/
-}
 
+}
+*/

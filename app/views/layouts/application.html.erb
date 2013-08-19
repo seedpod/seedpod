@@ -6,6 +6,8 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
   <%= favicon_link_tag 'icon.png'%>
+  <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 </head>
 <body class='<%= @body_class %>'>
 
@@ -32,10 +34,24 @@
       <li><%= link_to 'Administration', '/administration' %></li>
 	  <li><%= link_to 'My Account', edit_user_registration_path %></li>
     <% end %>
-	  <li class='twitter-glyph'><%= link_to image_tag("glyphicons_twitter.png"), edit_user_registration_path%></li>
-	  <li class='facebook-glyph'><%= link_to image_tag("glyphicons_facebook.png"), edit_user_registration_path%></li>
-	  <li class='contact-glyph'><%= link_to image_tag("glyphicons_contact.png"), edit_user_registration_path%></li>
-	  <li class='settings-glyph'><%= link_to image_tag("glyphicons_settings.png"), edit_user_registration_path%></li>
+
+  <a href="https://twitter.com/seedpod"><span class="icon-stack icon-2x">
+	  <i class="icon-circle icon-stack-base icon-light"></i>
+	  <i class="icon-twitter icon-dark"></i></a>
+  </span>
+  <a href="https://www.facebook.com/getseedpod"><span class="icon-stack icon-2x">
+	  <i class="icon-circle icon-stack-base icon-light"></i>
+	  <i class="icon-facebook icon-dark"></i></a>
+  </span>
+  <a href="mailto:greetings@getseedpod.com"><span class="icon-stack icon-2x">
+	  <i class="icon-circle icon-stack-base icon-light"></i>
+	  <i class="icon-envelope icon-dark"></i></a>
+  </span>
+  <span class="icon-stack icon-2x">
+	  <i class="icon-circle icon-stack-base"></i>
+	  <i class="icon-cog icon-dark"></i>
+  </span>
+
 
 <!--    <% if user_signed_in? %>
       <li><%= link_to 'My Account', edit_user_registration_path %></li>
