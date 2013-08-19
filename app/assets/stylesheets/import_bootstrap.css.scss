@@ -23,7 +23,8 @@ body {
 }
 
 .navbar .nav > li {
-  min-width: 150px;
+	padding-left:40px;
+  min-width: 180px;
 }
 
 nav .container {
@@ -31,10 +32,10 @@ nav .container {
 }
 
 li.navbar-logo {
-  top: -20px;
+  top: -40px;
   background: #f8f8f8;
-  border-top-left-radius: 150px;
-  border-top-right-radius: 150px;
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
   width: 50px;
 }
 
@@ -49,7 +50,7 @@ li.navbar-logo {
   }
 
   li.navbar-logo img {
-    width: 50px;
+    width: 80px;
   }
 
   .navbar {
