@@ -51,6 +51,11 @@ div.logo{
 	display:inline;
 	padding-left:13px;
 	padding-right:13px;
+
+}
+
+.intros{
+	font-size: 25px;
 }
 
 /* .navbar .nav-pills >li >a {
@@ -71,15 +76,33 @@ div.logo{
 	font-size: 18px;
 	color: red;
 	font-family: Futura;
+	text-transform:uppercase;
 }
 
+.twitter-glyph{
+	color: #ffffff;
+}
+
+.words{
+	color: rgba(255,255,255,1);
+    margin:30px 40px;
+    font-weight:bold;
+    color:#000000;
+}
 .box{
-	border: 2px solid brown ; 
+   /* width:300px;
+    height:180px;
+    margin:10px 10px;*/
+    background-color: #ffffff;
+    border:1px solid black;
+    opacity:0.5;
+    filter:alpha(opacity=50); /* For IE8 and earlier */
+/*	border: 2px, red;
 	padding: 10px;
 	text-align:justify;
-	color: #888888;
-/*	background-color:yellow;
-	background: linear-gradient(
+	background-color: rgba(255,255,255,0.5);
+	/*opacity:0.5;*/
+/*	background: linear-gradient(
 		white, white 50%, black 50%, black
 	); 
 	transition: all 0.2 ease;

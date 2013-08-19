@@ -16,7 +16,7 @@
       	  <li><%= link_to "Get Ready", page_path("getready") %></li>
           <li><a href="/pods/this-month">This Month</a></li>
       	<% else %>
-          <li><%= link_to "Subscribe", new_user_session_path %></li>
+          <li><%= link_to "Get Growing", new_user_session_path %></li>
           <li><a href="/pods/preview">This Month</a></li>
         <% end %>
     		<li class='navbar-logo'><%= link_to image_tag("icon.png"), root_url %></li>
@@ -30,11 +30,17 @@
     <% if admin_signed_in? %>
       <li><%= link_to 'Shipments', pod_shipments_path(Pod.next_to_ship) %></li>
       <li><%= link_to 'Administration', '/administration' %></li>
+	  <li><%= link_to 'My Account', edit_user_registration_path %></li>
     <% end %>
-    <% if user_signed_in? %>
+	  <li class='twitter-glyph'><%= link_to image_tag("glyphicons_twitter.png"), edit_user_registration_path%></li>
+	  <li class='facebook-glyph'><%= link_to image_tag("glyphicons_facebook.png"), edit_user_registration_path%></li>
+	  <li class='contact-glyph'><%= link_to image_tag("glyphicons_contact.png"), edit_user_registration_path%></li>
+	  <li class='settings-glyph'><%= link_to image_tag("glyphicons_settings.png"), edit_user_registration_path%></li>
+
+<!--    <% if user_signed_in? %>
       <li><%= link_to 'My Account', edit_user_registration_path %></li>
     <% end %>
-    <% if signed_in? %>
+-->    <% if signed_in? %>
       <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
     <% end %>
   </ul>
