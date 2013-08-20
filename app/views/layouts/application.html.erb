@@ -27,7 +27,7 @@
      	  <li class='navbar-logo'><%= link_to image_tag("icon-hdpi.png"), root_url %></li>
       
 		  <li><%= link_to "About Us", page_path("about") %></li>
-          <li><%= link_to "Any Questions", page_path("faq") %></li>	  
+          <li><%= link_to "Questions?", page_path("faq") %></li>	  
       </ul>
     </div>
   </nav>
@@ -38,24 +38,24 @@
       <li><%= link_to 'Administration', '/administration' %></li>
 	  <li><%= link_to 'My Account', edit_user_registration_path %></li>
     <% end %>
-
+<div class="social">
   <a href="https://twitter.com/seedpod"><span class="icon-stack icon-2x">
-	  <i class="icon-circle icon-stack-base icon-light"></i>
+	  <i class="icon-circle icon-stack-base"></i>
 	  <i class="icon-twitter"></i></a>
   </span>
   <a href="https://www.facebook.com/getseedpod"><span class="icon-stack icon-2x">
-	  <i class="icon-circle icon-stack-base icon-light"></i>
+	  <i class="icon-circle icon-stack-base"></i>
 	  <i class="icon-facebook"></i></a>
   </span>
   <a href="mailto:greetings@getseedpod.com"><span class="icon-stack icon-2x">
-	  <i class="icon-circle icon-stack-base icon-light"></i>
+	  <i class="icon-circle icon-stack-base"></i>
 	  <i class="icon-envelope"></i></a>
   </span>
   <%= link_to"<span class='icon-stack icon-2x'>
-	  <i class='icon-circle icon-stack-base icon-light'></i>
+	  <i class='icon-circle icon-stack-base'></i>
 	  <i class='icon-cog'></i>
   </span>".html_safe, edit_user_registration_path, title: 'account settings' %>
-  
+</div>  
 
 
 

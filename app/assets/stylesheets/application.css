@@ -31,10 +31,7 @@
 }
 
 div.logo{
-	padding-top: 50px;
-	font-size: 50px;
-	color: white;
-	font-family: Gill Sans;
+	padding-top:50px
 }
 
 .hugeTitle{
@@ -76,6 +73,7 @@ div.logo{
 }
 .aboutColumns{
 	padding-top:20px;
+	padding-bottom:50px;
 }
 
 .tagline{
@@ -115,19 +113,18 @@ div.logo{
 .icon-li{
 	padding-right:20px;
 }
-.icon-twitter{
-	color: #503e2b;
+.faq{
+	font-family: Gill Sans;
+	color:#503e2b;
+	font-size:17px;
+	text-align:justify;
+	line-height:25px;
+	padding:40px;
 }
-.icon-facebook{
-	color: #503e2b;
+.accordion-toggle{
+	font-size:25px;
+	font-weight:100;
 }
-.icon-envelope{
-	color: #503e2b;
-}
-.icon-cog{
-	color: #503e2b;
-}
-
 
 .navbar{
 /*	border: none;
@@ -136,6 +133,10 @@ div.logo{
 	font-size: 18px;
 	font-family: Gill Sans;
 	text-transform:uppercase;
+}
+
+.social{
+	padding: 10px;
 }
 
 .words{
