@@ -22,9 +22,11 @@ body {
   vertical-align: top;
 }
 
-.navbar .nav > li {
+.navbar .nav > li > a{
 	padding-left:40px;
   min-width: 180px;
+  color: #ffffff !important;
+  text-shadow:none !important;
 }
 
 nav .container {
@@ -32,29 +34,41 @@ nav .container {
 }
 
 li.navbar-logo {
-  top: -40px;
-  background: #f8f8f8;
+  top: -30px;
+/*  background: #f8f8f8;
   border-top-left-radius: 100px;
   border-top-right-radius: 100px;
   width: 50px;
+*/
 }
-
 .navbar {
-  height: 50px;
+  height: 100px;
+  font-size:150%;
+  padding:30px;
+  background-color: rgba(120,162,47,0.9)
+}
+li.navbar-logo img{
+	width:80px;
 }
 
 .homepage {
 
-  .navbar {
-    font-size: 150%;
-  }
-
+  .navbar .nav >li >a{
+		color:#503e2b !important;
+	}
   li.navbar-logo img {
     width: 80px;
   }
+  
+  .navbar-inner{
+	background-color: #000;		 
+	background-image: none;
+	  background-repeat: no-repeat;
+	  filter: none; 
+  }
 
   .navbar {
-    height: 90px;
+     background-color: rgba(255,255,255,0.8);	
   }
 
 }

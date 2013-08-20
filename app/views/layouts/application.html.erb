@@ -15,6 +15,7 @@
   <nav class="navbar navbar-fixed-bottom" role="navigation">
     <div class="container">                          
       <ul class="nav navbar-nav">
+	  
       	<% if signed_in? %>
       	  <li><%= link_to "Get Ready", page_path("getready") %></li>
           <li><a href="/pods/this-month">This Month</a></li>
@@ -22,9 +23,11 @@
           <li><%= link_to "Get Growing", new_user_session_path %></li>
           <li><a href="/pods/preview">This Month</a></li>
         <% end %>
-    		<li class='navbar-logo'><%= link_to image_tag("icon.png"), root_url %></li>
-        <li><%= link_to "About Us", page_path("about") %></li>
-        <li><%= link_to "Any Questions", page_path("faq") %></li>
+	  
+     	  <li class='navbar-logo'><%= link_to image_tag("icon-hdpi.png"), root_url %></li>
+      
+		  <li><%= link_to "About Us", page_path("about") %></li>
+          <li><%= link_to "Any Questions", page_path("faq") %></li>	  
       </ul>
     </div>
   </nav>
@@ -38,19 +41,19 @@
 
   <a href="https://twitter.com/seedpod"><span class="icon-stack icon-2x">
 	  <i class="icon-circle icon-stack-base icon-light"></i>
-	  <i class="icon-twitter icon-dark"></i></a>
+	  <i class="icon-twitter"></i></a>
   </span>
   <a href="https://www.facebook.com/getseedpod"><span class="icon-stack icon-2x">
 	  <i class="icon-circle icon-stack-base icon-light"></i>
-	  <i class="icon-facebook icon-dark"></i></a>
+	  <i class="icon-facebook"></i></a>
   </span>
   <a href="mailto:greetings@getseedpod.com"><span class="icon-stack icon-2x">
 	  <i class="icon-circle icon-stack-base icon-light"></i>
-	  <i class="icon-envelope icon-dark"></i></a>
+	  <i class="icon-envelope"></i></a>
   </span>
   <%= link_to"<span class='icon-stack icon-2x'>
 	  <i class='icon-circle icon-stack-base icon-light'></i>
-	  <i class='icon-cog icon-dark'></i>
+	  <i class='icon-cog'></i>
   </span>".html_safe, edit_user_registration_path, title: 'account settings' %>
   
 
