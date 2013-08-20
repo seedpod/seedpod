@@ -8,6 +8,7 @@
   <%= favicon_link_tag 'icon.png'%>
   <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
   <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+  
 </head>
 <body class='<%= @body_class %>'>
 
@@ -50,7 +51,9 @@
   <%= link_to"<span class='icon-stack icon-2x'>
 	  <i class='icon-circle icon-stack-base icon-light'></i>
 	  <i class='icon-cog icon-dark'></i>
-  </span>".html_safe, edit_user_registration_path %>
+  </span>".html_safe, edit_user_registration_path, title: 'account settings' %>
+  
+
 
 
 <!--    <% if user_signed_in? %>

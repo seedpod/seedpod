@@ -56,49 +56,48 @@
 </div>  
 </div>
 -->
-<div id="carousel" class="carousel slide">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="get" data-slide-to="0" class="active"></li>
-    <li data-target="grow" data-slide-to="1"></li>
-    <li data-target="eat" data-slide-to="2"></li>
-  </ol>
+<div id="myCarousel" class="carousel slide">
+
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
       <div class="item active">
-	      <h1><i>Get</i></h1>
-	  	  <ul id="my-bullets">
-	  		<p><i class="icon-li icon-leaf icon-large"></i> Two vegetable seed varieties each month</p>
-	  		<p><i class="icon-li icon-home icon-large"></i> Delivered straight through your letterbox</p>
-		
-	  	  </ul>
-        
+	      <div class="miniTitle"><p><i class="icon-li icon-home icon-large"></i>Get</p></div>
+	  	  <div class="words">
+			<p>Two vegetable seed varieties each month</p>
+			<p>Delivered straight through your letterbox</p>
+		  </div>
       </div>
 	  <div class="item">
-	  	<h1><i>Grow</i></h1>
-	  	<ul>
-	  		<p><i class="icon-li icon-check icon-large"></i> The right seeds at the right time</p>
-	  		<p><i class="icon-li icon-search icon-large"></i> Nothing to remember or research</p>
-	  		<p><i class="icon-li icon-calendar icon-large"></i> Monthly step-by-step guidance to get the most out of your plants</p>
-	  	</ul>
+	  	  <div class="miniTitle"><p><i class="icon-li icon-leaf icon-large"></i>Grow</p></div>
+		  <div class="words">
+	  	    <p>The right seeds at the right time</p>
+	  		<p>Nothing to remember or research</p>
+	  		<p>Monthly step-by-step guidance to get the most out of your plants</p>
+		</div>
 	  </div>
 	  <div class="item">
-		  <h1><i>Eat</i></h1>
-		  <ul>
-		     <p><i class="icon-li icon-resize-horizontal icon-large"></i> Maximise and prolong your harvest</p>
-		  	 <p><i class="icon-li icon-food icon-large"></i> Enjoy fresh and tasty veg straight off the plant</p>
-		  </ul>
+		  <div class="miniTitle"><i class="icon-li icon-food icon-large"></i>Eat</p></div>
+		  <div class="words">
+		     <p>Maximise and prolong your harvest</p>
+		  	 <p>Enjoy fresh and tasty veg straight off the plant</p>
+		 </div>
 	  </div>
     </div>
     <!-- Controls -->
-    <a class="left carousel-control" href="#eat" data-slide="prev">
-      <span class="icon-prev"></span>
+    <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+      <span class="icon-chevron-sign-left"></span>
     </a>
-    <a class="right carousel-control" href="#grow" data-slide="next">
-      <span class="icon-next"></span>
+    <a class="carousel-control right" href="#myCarousel" data-slide="next">
+      <span class="icon-chevron-sign-right"></span>
     </a>
+    <!-- Indicators -->
+    <div class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </div>
 	<script>
-	$('.carousel').carousel()
+	$('.carousel').carousel({interval:7000})
 	</script>
   </div>
   

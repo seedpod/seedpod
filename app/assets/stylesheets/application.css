@@ -11,6 +11,7 @@
  *= require_self
  *= require_tree .
  */
+@import url('//netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/css/bootstrap-combined.min.css');
 
 .centered{
 	text-align: center
@@ -36,19 +37,20 @@ div.logo{
 	font-family: Futura;
 }
 
-.carousel .item {
-    min-height: 400px;
+.hugeTitle{
+	font-size:200px;
+	font-family:Futura;
+	padding:100px;
+	text-align:center;
 }
-.carousel img {
-    height: 200px;
-}
+
 .carousel-inner{
 	font-family: Futura;
-	font-size: 25px;
-	text-align: center;
-	padding: 100px;
+	text-align: left;
+	padding: 40px;
 	line-height:40px;
 	font-style:italic;
+	text-align:center;
 }
 .space{
 	word-spacing:3em;
@@ -58,7 +60,10 @@ div.logo{
 	text-align:center;
 	color:white;
 	font-family:Futura;
-	font-size: 30px;
+	font-size: 40px;
+	font-weight:100;
+	padding-top: 50px;
+	padding-bottom: 50px;
 }
 
 .hfur{
@@ -67,9 +72,12 @@ div.logo{
 
 .navbar li{
 	display:inline;
-	padding-left:13px;
-	padding-right:13px;
+	padding-left:15px;
+	padding-right:15px;
 
+}
+.miniTitle{
+	font-size:50px;
 }
 
 .intros{
@@ -100,14 +108,8 @@ div.logo{
 	text-transform:uppercase;
 }
 
-.twitter-glyph{
-	color: #ffffff;
-}
-
 .words{
-	color: rgba(255,255,255,1);
-    margin:30px 40px;
-	display:inline;
+	font-size:30px;
     /*font-weight:bold;*/
 }
 /*.box{
