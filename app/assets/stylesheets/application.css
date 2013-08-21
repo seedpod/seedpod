@@ -124,6 +124,7 @@ div.logo{
 .accordion-toggle{
 	font-size:25px;
 	font-weight:100;
+	color:#503e2b;
 }
 
 .navbar{
@@ -141,6 +142,11 @@ div.logo{
 
 .words{
 	font-size:30px;
+}
+
+.signUp{
+	font-family: Gill Sans;
+	color: #503e2b;
 }
 /*.box{
     width:300px;
