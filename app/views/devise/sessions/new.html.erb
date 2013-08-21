@@ -4,13 +4,30 @@
 
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-horizontal'}) do |f| %>
 <div class ="signUp">
+	<p>Welcome to SeedPod. We'd love you to have you on board. Here's what you'll get from our unique growing programme if you subscribe:</p>
+	<ul>
+		<li>Receive two varieties of seasonally appropriate vegetable seeds each month</li> 
+		<li>Gain access to our monthly step-by-step guidance</li> 
+		<li>Prepare for your first pod with our "Get Ready" advice</li> 
+	</ul>
+    <p>All for just £6.00 per month, with free p&p, and no contractual tie-in.</p>
+  
+
+
   <div class='form-group'>
 		<%= f.label :email, :class => 'col-lg-2 control-label' %>
 	  <div class='col-lg-10'>
 			<%= f.email_field :email, :autofocus => true %>
 		</div>
 	</div>
-
+	Are you already a SeedPodder?
+	
+  	<div class="radio">
+  	  <label>
+  	    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" checked>
+  		Yes, my password is:
+  	  </label>
+	</div>
   <div class='form-group'>
 		<%= f.label :password, :class => 'col-lg-2 control-label' %>
 	  <div class='col-lg-10'>
@@ -25,6 +42,19 @@
 				<%= f.check_box :remember_me %>
 			</div>
 		</div>
+		<div class="radio">
+		  <label>
+		    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
+			No, sign me up!  
+		  </label>
+	    </div>
+	    <div class="radio">
+	       <label>
+	         <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
+		     I want to buy a gift for someone else, because I'm lovely.  
+	       </label>
+        </div>
+	</div>
 	<% end %>
 
   <div class='form-group'>
@@ -32,6 +62,8 @@
 			<%= f.submit "Sign in" %>
 		</div>
 	</div>
+	<p>By signing in you agree to our <%= link_to "Terms and Conditions", page_path("terms") %></p>
+	<p>We promise we will never sell, rent or share any of your data to/with a third party.</p><p>Never.</p><p> No ifs, no buts.</p>
 </div>
 
 <% end %>

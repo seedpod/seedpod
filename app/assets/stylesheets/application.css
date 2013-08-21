@@ -34,17 +34,17 @@ div.logo{
 }
 
 .hugeTitle{
-	font-size:200px;
+	font-size:150px;
 	font-family:Gill Sans;
 
 	text-align:center;
-	color: #78A22F;
+	color: #F04A18;
 }
 
 .carousel-inner{
 	font-family: Gill Sans;
 	text-align: left;
-	padding: 40px;
+
 	line-height:40px;
 	font-style:none;
 	text-align:center;
@@ -147,7 +147,9 @@ div.logo{
 .signUp{
 	font-family: Gill Sans;
 	color: #503e2b;
+	font-size: 17px;
 }
+
 /*.box{
     width:300px;
     height:180px;
