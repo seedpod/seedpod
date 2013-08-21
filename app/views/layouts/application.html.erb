@@ -6,7 +6,6 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
   <%= favicon_link_tag 'icon.png'%>
-  <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
   <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
   
 </head>
@@ -24,7 +23,7 @@
           <li><a href="/pods/preview">This Month</a></li>
         <% end %>
 	  
-     	  <li class='navbar-logo'><%= link_to image_tag("icon-hdpi.png"), root_url %></li>
+     	  <li class='navbar-logo'><%= link_to image_tag(@body_class == 'homepage' ? "icon-hdpi.png" : "icon-white.png"), root_url %></li>
       
 		  <li><%= link_to "About Us", page_path("about") %></li>
           <li><%= link_to "Questions?", page_path("faq") %></li>	  

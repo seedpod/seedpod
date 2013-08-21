@@ -11,7 +11,6 @@
  *= require_self
  *= require_tree .
  */
-@import url('//netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/css/bootstrap-combined.min.css');
 
 .centered{
 	text-align: center

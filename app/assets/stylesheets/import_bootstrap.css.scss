@@ -10,7 +10,7 @@ html {
 
 body { 
   min-height: 100%;
-  padding-bottom: 70px; /* Pad bottom of body to avoid navbar */
+  padding-bottom: 100px; /* Pad bottom of body to avoid navbar */
 }
 
 .navbar .nav,
@@ -48,7 +48,7 @@ li.navbar-logo {
   background-color: rgba(120,162,47,0.9)
 }
 li.navbar-logo img{
-	width:80px;
+	height:80px;
 }
 
 .icon-twitter{
