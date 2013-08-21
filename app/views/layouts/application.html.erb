@@ -24,7 +24,7 @@
           <li><a href="/pods/preview">This Month</a></li>
         <% end %>
 	  
-     	  <li class='navbar-logo'><%= link_to image_tag("icon-hdpi.png"), root_url %></li>
+     	  <li class='navbar-logo'><%= link_to image_tag(@body_class == 'homepage' ? "icon-hdpi.png" : "icon-white.png"), root_url %></li>
       
 		  <li><%= link_to "About Us", page_path("about") %></li>
           <li><%= link_to "Questions?", page_path("faq") %></li>	  
