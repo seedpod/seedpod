@@ -13,7 +13,7 @@ Hello everyone!!
 	  <div class='form-group'>
 			<%= f.label :email, :class => 'col-lg-2 control-label' %>
 		  <div class='col-lg-10'>
-				<%= f.email_field :email, :autofocus => true, :required => true %>
+				<%= f.email_field :email, :autofocus => true, :required => true, :value => params[:email] || params[:user][:email] %>
 			</div>
 		</div>
 

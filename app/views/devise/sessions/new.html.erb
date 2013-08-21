@@ -17,15 +17,15 @@
   <div class='form-group'>
 		<%= f.label :email, :class => 'col-lg-2 control-label' %>
 	  <div class='col-lg-10'>
-			<%= f.email_field :email, :autofocus => true %>
+			<%= f.email_field :email, autofocus: true, required: true %>
 		</div>
 	</div>
 	Are you already a SeedPodder?
 	
   	<div class="radio">
   	  <label>
-  	    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" checked>
-  		Yes, my password is:
+  	    <%= radio_button_tag :sign_in_action, 'sign_in', checked: true %>
+        Yes, my password is:
   	  </label>
 	</div>
   <div class='form-group'>
@@ -44,14 +44,14 @@
 		</div>
 		<div class="radio">
 		  <label>
-		    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
-			No, sign me up!  
+  	    <%= radio_button_tag :sign_in_action, 'sign_up' %>
+        No, sign me up!  
 		  </label>
 	    </div>
 	    <div class="radio">
 	       <label>
-	         <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
-		     I want to buy a gift for someone else, because I'm lovely.  
+     	     <%= radio_button_tag :sign_in_action, 'gift' %>
+           I want to buy a gift for someone else, because I'm lovely.  
 	       </label>
         </div>
 	</div>
