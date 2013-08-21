@@ -2,31 +2,31 @@
 
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-horizontal'}) do |f| %>
 
-  <div class='control-group'>
-		<%= f.label :email, :class => 'control-label' %>
-	  <div class='controls'>
+  <div class='form-group'>
+		<%= f.label :email, :class => 'col-lg-2 control-label' %>
+	  <div class='col-lg-10'>
 			<%= f.email_field :email, :autofocus => true %>
 		</div>
 	</div>
 
-  <div class='control-group'>
-		<%= f.label :password, :class => 'control-label' %>
-	  <div class='controls'>
+  <div class='form-group'>
+		<%= f.label :password, :class => 'col-lg-2 control-label' %>
+	  <div class='col-lg-10'>
 			<%= f.password_field :password %>
 		</div>
 	</div>
 
   <% if devise_mapping.rememberable? -%>
-	  <div class='control-group'>
-			<%= f.label :remember_me, :class => 'control-label' %>
-		  <div class='controls'>
+	  <div class='form-group'>
+			<%= f.label :remember_me, :class => 'col-lg-2 control-label' %>
+		  <div class='col-lg-10'>
 				<%= f.check_box :remember_me %>
 			</div>
 		</div>
 	<% end %>
 
-  <div class='control-group'>
-	  <div class='controls'>
+  <div class='form-group'>
+	  <div class='col-lg-10'>
 			<%= f.submit "Sign in" %>
 		</div>
 	</div>

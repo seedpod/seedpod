@@ -7,23 +7,23 @@
 
 		<h3><%= t :account_details %></h3>
 
-	  <div class='control-group'>
-			<%= f.label :email, :class => 'control-label' %>
-		  <div class='controls'>
+	  <div class='form-group'>
+			<%= f.label :email, :class => 'col-lg-2 control-label' %>
+		  <div class='col-lg-10'>
 				<%= f.email_field :email, :autofocus => true, :required => true %>
 			</div>
 		</div>
 
-	  <div class='control-group'>
-			<%= f.label :password, :class => 'control-label' %>
-		  <div class='controls'>
+	  <div class='form-group'>
+			<%= f.label :password, :class => 'col-lg-2 control-label' %>
+		  <div class='col-lg-10'>
 				<%= f.password_field :password, :required => true %>
 			</div>
 		</div>
 	
-	  <div class='control-group'>
-			<%= f.label :password_confirmation, :class => 'control-label' %>
-		  <div class='controls'>
+	  <div class='form-group'>
+			<%= f.label :password_confirmation, :class => 'col-lg-2 control-label' %>
+		  <div class='col-lg-10'>
 				<%= f.password_field :password_confirmation, :required => true %>
 			</div>
 		</div>
@@ -34,45 +34,45 @@
 
 		<h3><%= t :delivery_details %></h3>
 
-	  <div class='control-group'>
-			<%= f.label :name, :class => 'control-label' %>
-		  <div class='controls'>
+	  <div class='form-group'>
+			<%= f.label :name, :class => 'col-lg-2 control-label' %>
+		  <div class='col-lg-10'>
 				<%= f.text_field :name, :required => true %>
 			</div>
 		</div>
 
-	  <div class='control-group'>
-			<%= f.label :address_street, :class => 'control-label' %>
-		  <div class='controls'>
+	  <div class='form-group'>
+			<%= f.label :address_street, :class => 'col-lg-2 control-label' %>
+		  <div class='col-lg-10'>
 				<%= f.text_field :address_street, :required => true %>
 			</div>
 		</div>
 
-	  <div class='control-group'>
-			<%= f.label :address_locality, :class => 'control-label' %>
-		  <div class='controls'>
+	  <div class='form-group'>
+			<%= f.label :address_locality, :class => 'col-lg-2 control-label' %>
+		  <div class='col-lg-10'>
 				<%= f.text_field :address_locality, :required => true %>
 			</div>
 		</div>
 
-	  <div class='control-group'>
-			<%= f.label :address_region, :class => 'control-label' %>
-		  <div class='controls'>
+	  <div class='form-group'>
+			<%= f.label :address_region, :class => 'col-lg-2 control-label' %>
+		  <div class='col-lg-10'>
 				<%= f.text_field :address_region, :required => true %>
 			</div>
 		</div>
 
-	  <div class='control-group'>
-			<%= f.label :address_postcode, :class => 'control-label' %>
-		  <div class='controls'>
+	  <div class='form-group'>
+			<%= f.label :address_postcode, :class => 'col-lg-2 control-label' %>
+		  <div class='col-lg-10'>
 				<%= f.text_field :address_postcode, :required => true %>
 			</div>
 		</div>
 		
 	</fieldset>
 
-  <div class='control-group'>
-	  <div class='controls'>
+  <div class='form-group'>
+	  <div class='col-lg-10'>
 			<%= f.submit "Sign up", :class => 'btn btn-primary' %>
 		</div>
 	</div>
