@@ -23,8 +23,8 @@ body {
 }
 
 .navbar .nav > li > a{
-	padding-left:40px;
-  min-width: 180px;
+
+  min-width: 100px;
   color: #ffffff !important;
   text-shadow:none !important;
 }
@@ -44,7 +44,7 @@ li.navbar-logo {
 .navbar {
   height: 100px;
   font-size:150%;
-  padding:30px;
+  padding:24px;
   background-color: rgba(120,162,47,0.9)
 }
 li.navbar-logo img{

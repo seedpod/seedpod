@@ -36,7 +36,7 @@ div.logo{
 .hugeTitle{
 	font-size:200px;
 	font-family:Gill Sans;
-	padding:100px;
+
 	text-align:center;
 	color: #78A22F;
 }
@@ -49,7 +49,7 @@ div.logo{
 	font-style:none;
 	text-align:center;
 	font-weight:100;
-	background: none repeat scroll 0 0 rgba(0, 0, 0, 0.25);
+
 }
 .carousel-control.right{
 	left:auto;
@@ -91,8 +91,8 @@ div.logo{
 
 .navbar li{
 	display:inline;
-	padding-left:20px;
-	padding-right:20px;
+	padding-left:10px;
+	padding-right:10px;
 
 }
 .miniTitle{
@@ -112,14 +112,15 @@ div.logo{
 .icon-li{
 	padding-right:20px;
 }
+
 .faq{
 	font-family: Gill Sans;
 	color:#503e2b;
 	font-size:17px;
 	text-align:justify;
 	line-height:25px;
-	padding:40px;
 }
+
 .accordion-toggle{
 	font-size:25px;
 	font-weight:100;
