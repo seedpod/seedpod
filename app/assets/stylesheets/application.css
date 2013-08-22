@@ -38,7 +38,7 @@ div.logo{
 	font-family:Gill Sans;
 
 	text-align:center;
-	color: #F04A18;
+	color: #78A22F;
 }
 
 .carousel-inner{
@@ -119,6 +119,7 @@ div.logo{
 	font-size:17px;
 	text-align:justify;
 	line-height:25px;
+	padding-top:30px;
 }
 
 .accordion-toggle{
