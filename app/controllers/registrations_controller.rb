@@ -2,6 +2,11 @@ class RegistrationsController < Devise::RegistrationsController
  
   before_filter :configure_permitted_parameters
  
+  def new
+    @email = params[:email] || (params[:user] ? params[:user][:email] : nil)
+    super
+  end
+ 
   protected
  
   # my custom fields are :name, :heard_how
