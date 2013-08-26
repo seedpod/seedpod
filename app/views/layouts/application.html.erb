@@ -35,7 +35,6 @@
     <% if admin_signed_in? %>
       <li><%= link_to 'Shipments', pod_shipments_path(Pod.next_to_ship) %></li>
       <li><%= link_to 'Administration', '/administration' %></li>
-	  <li><%= link_to 'My Account', edit_user_registration_path %></li>
     <% end %>
 <div class="social">
   <a href="https://twitter.com/seedpod"><span class="icon-stack icon-2x">
