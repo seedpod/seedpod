@@ -20,7 +20,7 @@
           <li><a href="/pods/this-month">This Month</a></li>
       	<% else %>
           <li><%= link_to "Get Growing", new_user_session_path %></li>
-          <li><a href="/pods/preview">This Month</a></li>
+          <li><%=link_to "This Month", page_path("preview")%></li>
         <% end %>
 	  
      	  <li class='navbar-logo'><%= link_to image_tag(@body_class == 'homepage' ? "icon-hdpi.png" : "icon-white.png"), root_url %></li>

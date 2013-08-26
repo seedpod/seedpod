@@ -1,11 +1,23 @@
 <div class="hugeTitle">
-	Sign up
+	Get Growing
 </div>
-Hello everyone!!
+<div class=signUp>
+<p>Welcome to SeedPod. We'd love you to have you on board. Here's what you'll get from our unique growing programme if you subscribe:</p>
+<ul>
+	<li>Receive two varieties of seasonally appropriate vegetable seeds each month</li> 
+	<li>Gain access to our monthly step-by-step guidance</li> 
+	<li>Prepare for your first pod with our "Get Ready" advice</li> 
+	<li>Have access to your last three months guidance so you never miss out</li>
+</ul>
+<p>All for just £6.00 per month, with free p&p, and no contractual tie-in.</p>
+
+
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'form-horizontal'}) do |f| %>
   <%= devise_error_messages! %>
-<div class=signUp>
+
+	<div class="row">	
+	  <div class="col-md-6">
 	<fieldset>
 
 		<h3><%= t :account_details %></h3>
@@ -30,9 +42,9 @@ Hello everyone!!
 				<%= f.password_field :password_confirmation, :required => true %>
 			</div>
 		</div>
-
 	</fieldset>
-
+</div>
+  <div class="col-md-6">
 	<fieldset>
 
 		<h3><%= t :delivery_details %></h3>
@@ -73,7 +85,8 @@ Hello everyone!!
 		</div>
 		
 	</fieldset>
-
+</div>
+</div>
   <div class='form-group'>
 	  <div class='col-lg-10'>
 			<%= f.submit "Sign up", :class => 'btn btn-primary' %>
