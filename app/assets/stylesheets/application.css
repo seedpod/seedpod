@@ -147,16 +147,18 @@ div.logo{
 	font-size:30px;
 }
 
-.signUp{
-	font-family: Gill Sans;
-	color: #503e2b;
-	font-size: 17px;
-}
-
 .boxes{
-	border: 3px solid #78A22F;
+	border: 5px solid #78A22F;
 	
 	padding: 10px;
 	margin-top: 20px;
 }
 
+.progressBar{
+	color: #78A22F;
+	font-size: 30px;
+	text-align:center;
+}
+.progressHighlight{
+	color: #F04A18;
+}

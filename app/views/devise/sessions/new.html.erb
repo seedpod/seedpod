@@ -2,70 +2,86 @@
 	Get Growing
 </div>
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-horizontal'}) do |f| %>
-<div class ="signUp">
-	<p>Welcome to SeedPod. We'd love you to have you on board. Here's what you'll get from our unique growing programme if you subscribe:</p>
-	<ul>
-		<li>Receive two varieties of seasonally appropriate vegetable seeds each month</li> 
-		<li>Gain access to our monthly step-by-step guidance</li> 
-		<li>Prepare for your first pod with our "Get Ready" advice</li> 
-	</ul>
-    <p>All for just £6.00 per month, with free p&p, and no contractual tie-in.</p>
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'form-horizontal'}) do |f| %>
+  <%= devise_error_messages! %>
+<div class ="aboutUs">
+<div class="row">	
+	<p>
+  <div class="col-md-5">
+	  <div class="boxes">
+	  <fieldset>
+		  <p><div class="miniAboutTitle">SeedPodders</div></p>
+ 
+
+    <div class='form-group'>
+  		<%= f.label :email, :class => 'col-lg-5 control-label' %>
+  	  <div class='col-lg-7'>
+  			<%= f.email_field :email, autofocus: true, required: true %>
+  		</div>
+  	</div>	
+    <div class='form-group'>
+  		<%= f.label :password, :class => 'col-lg-5 control-label' %>
+  	  <div class='col-lg-7'>
+  			<%= f.password_field :password %>
+  		
+  		<%= render "devise/shared/links" %>
+		</div>
+  	</div>
+
+    <% if devise_mapping.rememberable? -%>
+  	  <div class='form-group'>
+  			<%= f.label :remember_me, :class => 'col-lg-5 control-label' %>
+  		  <div class='col-lg-7'>
+  				<%= f.check_box :remember_me %>
+  			</div>
+  		</div>
+		<%end%>
+	    <div class='form-group'>
+	  	  <div class='col-lg-7'>
+	  			<%= f.submit "Sign in" %>
+	  		</div>
+	  	</div>
+		
+	</fieldset>
+</div>
+</p>
+<p>By signing in you agree to our <%= link_to "Terms and Conditions", page_path("terms") %></p>
+<p>We promise we will never sell, rent or share any of your data to/with a third party.</p><p>Never.</p><p> No ifs, no buts.</p>
+
+</div>
+
+	<div class="col-md-7">
+		<div class="boxes">
+			<p><div class="miniAboutTitle">Not yet a SeedPodder</div></p>
+		<fieldset>
+		<p>Welcome to SeedPod. We'd love you to have you on board. Here's what you'll get from our unique growing programme if you subscribe:</p>
+		<ul>
+			<li>Receive two varieties of seasonally appropriate vegetable seeds each month</li> 
+			<li>Gain access to our monthly step-by-step guidance</li> 
+			<li>Prepare for your first pod with our "Get Ready" advice</li> 
+		</ul>
+	    <p>All for just £6.00 per month, with free p&p, and no contractual tie-in.</p>
+		
   
-
-
   <div class='form-group'>
-		<%= f.label :email, :class => 'col-lg-2 control-label' %>
-	  <div class='col-lg-10'>
+		<%= f.label :email, :class => 'col-lg-5 control-label' %>
+	  <div class='col-lg-7'>
 			<%= f.email_field :email, autofocus: true, required: true %>
 		</div>
 	</div>
-	Are you already a SeedPodder?
-	
-  	<div class="radio">
-  	  <label>
-  	    <%= radio_button_tag :sign_in_action, 'sign_in', checked: true %>
-        Yes, my password is:
-  	  </label>
-	</div>
-  <div class='form-group'>
-		<%= f.label :password, :class => 'col-lg-2 control-label' %>
-	  <div class='col-lg-10'>
-			<%= f.password_field :password %>
-		</div>
-	</div>
-
-  <% if devise_mapping.rememberable? -%>
-	  <div class='form-group'>
-			<%= f.label :remember_me, :class => 'col-lg-2 control-label' %>
-		  <div class='col-lg-10'>
-				<%= f.check_box :remember_me %>
-			</div>
-		</div>
-		<div class="radio">
-		  <label>
-  	    <%= radio_button_tag :sign_in_action, 'sign_up' %>
-        No, sign me up!  
-		  </label>
-	    </div>
-	    <div class="radio">
-	       <label>
-     	     <%= radio_button_tag :sign_in_action, 'gift' %>
-           I want to buy a gift for someone else, because I'm lovely.  
-	       </label>
-        </div>
-	</div>
-	<% end %>
-
-  <div class='form-group'>
-	  <div class='col-lg-10'>
-			<%= f.submit "Sign in" %>
-		</div>
-	</div>
-	<p>By signing in you agree to our <%= link_to "Terms and Conditions", page_path("terms") %></p>
-	<p>We promise we will never sell, rent or share any of your data to/with a third party.</p><p>Never.</p><p> No ifs, no buts.</p>
+    <div class='form-group'>
+  	  <div class='col-lg-7'>
+  			<%= f.submit "Sign up" %>
+  		</div>
+  	</div>
+	<p>Need more info? Check out our <%= link_to "Any Questions", page_path("faq") %> page, or take a look at our <%= link_to "Sneek Peek", page_path("preview") %> growing guidance page.</p>
+    
+</fieldset>
+</div>
+</div>
 </div>
 
-<% end %>
 
-<%= render "devise/shared/links" %>
+
+</div>
+	<% end %>
