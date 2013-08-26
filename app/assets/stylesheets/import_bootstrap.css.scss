@@ -12,6 +12,12 @@ body {
   min-height: 100%;
   padding-bottom: 100px; /* Pad bottom of body to avoid navbar */
 }
+.image a{
+	display:none;
+}
+.image a:hover{
+	display:block;
+};
 
 .navbar .nav,
 .navbar .nav > li {
