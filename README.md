@@ -29,3 +29,12 @@ rails server
 ```
 
 To log in as an admin, go to [/admins/sign_in](http://localhost:3000/admins/sign_in).
+
+
+
+ISSUES TO FIX:
+
+Logo does not appear on mobile phone.
+Width of nav bar same as width of page.
+Remember me working properly?
+This month directs to sign up not sign in.

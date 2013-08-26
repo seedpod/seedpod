@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable,
   # :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable, :confirmable,
+  devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :shipments
@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   validates :name            , :presence => true
   validates :address_street  , :presence => true
   validates :address_locality, :presence => true
-  validates :address_region  , :presence => true
+  #validates :address_region  , :presence => true
   validates :address_postcode, :presence => true
 
   def paid_for?(pod)
