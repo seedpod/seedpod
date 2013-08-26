@@ -18,7 +18,7 @@
       <ul class="nav navbar-nav">
 	  
       	<% if signed_in? %>
-      	  <li><%= link_to "Get Ready", page_path("getready") %></li>
+      	  <li><%= link_to "Get Ready", getting_started_pods_path %></li>
           <li><a href="/pods/this-month">This Month</a></li>
       	<% else %>
           <li><%= link_to "Get Growing", new_user_session_path %></li>
