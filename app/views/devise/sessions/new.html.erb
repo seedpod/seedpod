@@ -37,8 +37,8 @@
   		</div>
 		<%end%>
 	    <div class='form-group'>
-	  	  <div class='col-lg-7'>
-	  			<%= f.submit "Sign in" %>
+	  	  <div class='col-lg-12'>
+	  			<%= f.submit "Log in", :class => 'btn-block' %>
 	  		</div>
 	  	</div>
 		
@@ -63,18 +63,13 @@
 	    <p>All for just £6.00 per month, with free p&p, and no contractual tie-in.</p>
 		
   
-  <div class='form-group'>
-		<%= f.label :email, :class => 'col-lg-5 control-label' %>
-	  <div class='col-lg-7'>
-			<%= f.email_field :email, autofocus: true, required: true %>
-		</div>
-	</div>
+
     <div class='form-group'>
-  	  <div class='col-lg-7'>
-  			<%= f.submit "Sign up" %>
+  	  <div class='col-lg-12'>
+	  			<%= f.submit "Subscribe", :class => 'btn-block' %>
   		</div>
   	</div>
-	<p>Need more info? Check out our <%= link_to "Any Questions", page_path("faq") %> page, or take a look at our <%= link_to "Sneek Peek", page_path("preview") %> growing guidance page.</p>
+	<p>Need more info? Check out our <%= link_to "Any Questions", page_path("faq") %> page, or take a look at our <%= link_to "Sneak Peek", page_path("preview") %> growing guidance page.</p>
     
 </fieldset>
 </div>
