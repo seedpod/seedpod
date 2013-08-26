@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   validates :name            , :presence => true
   validates :address_street  , :presence => true
   validates :address_locality, :presence => true
-  validates :address_region  , :presence => true
+  #validates :address_region  , :presence => true
   validates :address_postcode, :presence => true
 
   def paid_for?(pod)
