@@ -7,7 +7,7 @@ Given(/^I am signed in$/) do
     Given I have previously registered 
     And I visit the sign in page
     And I fill in my login details
-    And I click the "Sign in" button
+    And I click the "Log in" button
   }
 end
 

@@ -14,5 +14,5 @@ Scenario: I can click a link on the homepage to sign in
 Scenario: I can sign in
   When I visit the sign in page
   And I fill in my login details
-  And I click the "Sign in" button
+  And I click the "Log in" button
   Then I should see the signed-in homepage
