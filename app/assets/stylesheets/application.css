@@ -54,6 +54,7 @@ div.logo{
 .carousel-control.right{
 	left:auto;
 	right:55px;
+	vertical-align: bottom;
 }
 .carousel-control.left{
 	left:15px;
