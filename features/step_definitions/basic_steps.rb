@@ -17,9 +17,9 @@ When(/^I click the "(.*?)" button$/) do |label|
 end
 
 Then(/^I should see the "(.*?)" page$/) do |title|
-  page.should have_selector('h2', text: title)
+  page.should have_selector('h1', text: title)
 end
 
 Then(/^I should see the signed\-in homepage$/) do
-  page.should have_selector('a', text: "This Month's Pod")
+  page.should have_selector('a', text: "Get Ready")
 end

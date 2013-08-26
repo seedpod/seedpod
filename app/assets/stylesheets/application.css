@@ -19,23 +19,147 @@
 .brand img{
 	height:30px;
 	/*vertical-align:top;*/
+	
 }
 
 .nav {
+	text-align:center;
 	/*color: red;*/
-	padding-top: 7px;
+	/*padding-top: 7px;*/
 	/*vertical-align:sub;*/
 }
 
-/*.nav{
-	font-family: Sanchez Regular, Regular;
+div.logo{
+	padding-top:50px
 }
-.box{
-	border: 1px solid green ; 
-	background: linear-gradient(
-		white, white 50%, black 50%, black
-	); 
-	transition: all 0.2 ease;
+
+.hugeTitle{
+	font-size:150px;
+	font-family:Gill Sans;
+
+	text-align:center;
+	color: #78A22F;
 }
-*/
+
+.carousel-inner{
+	font-family: Gill Sans;
+	text-align: left;
+
+	line-height:40px;
+	font-style:none;
+	text-align:center;
+	font-weight:100;
+
+}
+.carousel-control.right{
+	left:auto;
+	right:55px;
+	vertical-align: bottom;
+}
+.carousel-control.left{
+	left:15px;
+	right:auto;
+}
+
+.space{
+	word-spacing:3em;
+}
+.aboutUs{
+	font-family: Gill Sans;
+	color:#503e2b;
+	font-size:20px;
+	text-align:justify;
+	line-height:30px;
+	padding-bottom:30px;
+}
+.aboutColumns{
+	padding-top:20px;
+	padding-bottom:50px;
+}
+
+.tagline{
+	text-align:center;
+	color:white;
+	font-family:Gill Sans;
+	font-size: 55px;
+	font-weight:100;
+	padding-top: 35px;
+	padding-bottom: 50px;
+}
+
+.hfur{
+	font-family: Gill Sans;
+}
+
+.navbar li{
+	display:inline;
+	padding-left:10px;
+	padding-right:10px;
+
+}
+.miniTitle{
+	font-size:40px;
+}
+
+.miniAboutTitle{
+	font-size:50px;
+	text-align:center;
+	padding:20px;
+	font-family:Gill Sans;
+}
+
+.intros{
+	font-size: 25px;
+}
+.icon-li{
+	padding-right:20px;
+}
+
+.faq{
+	font-family: Gill Sans;
+	color:#503e2b;
+	font-size:17px;
+	text-align:justify;
+	line-height:25px;
+	padding-top:30px;
+}
+
+.accordion-toggle{
+	font-size:25px;
+	font-weight:100;
+	color:#503e2b;
+}
+
+.navbar{
+/*	border: none;
+	border-bottom: 1px solid #000;
+	background: red; */
+	font-size: 18px;
+	font-family: Gill Sans;
+	text-transform:uppercase;
+}
+
+.social{
+	padding: 10px;
+}
+
+.words{
+	font-size:30px;
+}
+
+.boxes{
+	border: 5px solid #78A22F;
+	
+	padding: 10px;
+	margin-top: 20px;
+}
+
+.progressBar{
+	color: #78A22F;
+	font-size: 30px;
+	text-align:center;
+}
+.progressHighlight{
+	color: #F04A18;
+}
 

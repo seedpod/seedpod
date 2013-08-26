@@ -1,41 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>SeedPod</title>
+  <title>SeedPod - monthly vegetable seed subscription with a guided growing programme</title>
+  <meta tag="description=" content="">
+  <meta name="google-site-verification" content="BIbbMgXv1dXBxDmKoZ9viuEDEpZvUv5lPx7ZZGOqfOE" />
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
   <%= favicon_link_tag 'icon.png'%>
-
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+  
 </head>
-<body>
+<body class='<%= @body_class %>'>
 
-  <div class="navbar<% if admin_signed_in? %> navbar-inverse<% end %>">
-    <div class="navbar-inner">
-      <a class="brand" href="/"><%= image_tag 'seedpod-logo-long.svg'%><% if admin_signed_in? %> Admin<% end %></a>
-      <ul class="nav">
-        <li><a href="/pods/this-month">This Month</a></li>
-        <li><%= link_to "FAQ", page_path("faq") %></li>
-		<li><%= link_to "About us", page_path("about") %></li>
-
-        <% if admin_signed_in? %>
-          <li><%= link_to 'Shipments', pod_shipments_path(Pod.next_to_ship) %></li>
-          <li><%= link_to 'Administration', '/administration' %></li>
+  <nav class="navbar navbar-fixed-bottom" role="navigation">
+    <div class="container">                          
+      <ul class="nav navbar-nav">
+	  
+      	<% if signed_in? %>
+      	  <li><%= link_to "Get Ready", getting_started_pods_path %></li>
+          <li><a href="/pods/this-month">This Month</a></li>
+      	<% else %>
+          <li><%= link_to "Get Growing", new_user_session_path %></li>
+          <li><%=link_to "This Month", page_path("preview")%></li>
         <% end %>
-      </ul>
-      <ul class="nav pull-right">
-        <% if user_signed_in? %>
-          <li><%= link_to 'My Account', edit_user_registration_path %></li>
-        <% elsif !admin_signed_in? %>
-          <li><%= link_to 'My Account', new_user_session_path %></li>
-        <% end %>
-        <% if signed_in? %>
-          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-        <% end %>
+	  
+     	  <li class='navbar-logo'><%= link_to image_tag(@body_class == 'homepage' ? "icon-hdpi.png" : "icon-white.png"), root_url %></li>
+      
+		  <li><%= link_to "About Us", page_path("about") %></li>
+          <li><%= link_to "Any Questions?", page_path("faq") %></li>	  
       </ul>
     </div>
-  </div>
+  </nav>
+    
+  <ul class="nav pull-right">
+    <% if admin_signed_in? %>
+      <li><%= link_to 'Shipments', pod_shipments_path(Pod.next_to_ship) %></li>
+      <li><%= link_to 'Administration', '/administration' %></li>
+    <% end %>
+<div class="social">
+  <a href="https://twitter.com/seedpod" title="Go to our Twitter feed"><span class="icon-stack icon-2x">
+	  <i class="icon-circle icon-stack-base"></i>
+	  <i class="icon-twitter"></i></a>
+  </span>
+  <a href="https://www.facebook.com/getseedpod" title="Go to our Facebook page"><span class="icon-stack icon-2x">
+	  <i class="icon-circle icon-stack-base"></i>
+	  <i class="icon-facebook"></i></a>
+  </span>
+  <a href="mailto:greetings@getseedpod.com" title="Contact us"><span class="icon-stack icon-2x">
+	  <i class="icon-circle icon-stack-base"></i>
+	  <i class="icon-envelope"></i></a>
+  </span>
+  <%= link_to"<span class='icon-stack icon-2x'>
+	  <i class='icon-circle icon-stack-base'></i>
+	  <i class='icon-cog'></i>
+  </span>".html_safe, edit_user_registration_path, title: 'Account settings', id: 'account-link' %>
+</div>  
 
+
+
+<!--    <% if user_signed_in? %>
+      <li><%= link_to 'My Account', edit_user_registration_path %></li>
+    <% end %>
+-->    <% if signed_in? %>
+      <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+    <% end %>
+  </ul>
+		
   <div class='container'>
     
     <% if notice %><div class="alert alert-info"><%= notice %></div><% end %>
@@ -44,13 +75,6 @@
     <%= yield %>
     
   </div>
-
-  <div class='container'>
-    <footer>
-      &copy; 2013 SeedPod Ltd. <%= link_to "Terms & Conditions", page_path("terms") %>
-    </footer>
-  </div>
-
 
 </body>
 </html>

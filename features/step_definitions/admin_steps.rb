@@ -7,7 +7,7 @@ Given(/^I am signed in as an administrator$/) do
     Given an admin user exists
     And I visit the admin sign in page
     And I fill in my admin login details
-    And I click the "Sign in" button
+    And I click the "Log in" button
   }
 end
 

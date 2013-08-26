@@ -44,10 +44,10 @@ group :production do
 end
 
 gem 'jquery-rails'
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass', branch: '3'
 gem 'gocardless'
 gem 'devise', '~> 3.0.1'
-gem 'rails_admin', '~> 0.5.0'
+gem 'rails_admin', github: 'davebrace/rails_admin', branch: 'use-static-bootstrap-2'
 gem "high_voltage"
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

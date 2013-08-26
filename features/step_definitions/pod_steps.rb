@@ -45,5 +45,5 @@ Then(/^next month's pod should be paid for$/) do
 end
 
 Then(/^I should see the getting started page$/) do
-  page.should have_selector('h1', text: 'Getting Started')
+  page.should have_selector('h1', text: 'Get ready...')
 end
