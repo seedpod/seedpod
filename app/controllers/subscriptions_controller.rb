@@ -2,6 +2,8 @@ class SubscriptionsController < ApplicationController
 
   before_filter :get_user, :except => [:gocardless_webhook]
 
+  skip_before_filter :verify_authenticity_token, :only => [:gocardless_webhook]
+
   def new
     url = GoCardless.new_subscription_url(
       :interval_unit   => "month",
@@ -39,7 +41,7 @@ class SubscriptionsController < ApplicationController
   end
   
   def gocardless_webhook
-    payload = JSON.parse(params['payload'])
+    payload = params['payload']
     # Check validity
     unless GoCardless.webhook_valid?(payload)
       render :text => "false", :status => 403
