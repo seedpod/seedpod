@@ -34,7 +34,7 @@ div.logo{
 }
 
 .hugeTitle{
-	font-size:150px;
+	font-size:100px;
 	font-family:Gill Sans;
 
 	text-align:center;
@@ -70,7 +70,7 @@ div.logo{
 	font-size:20px;
 	text-align:justify;
 	line-height:30px;
-	padding-bottom:30px;
+	padding:10px;
 }
 .aboutColumns{
 	padding-top:20px;
@@ -102,7 +102,7 @@ div.logo{
 }
 
 .miniAboutTitle{
-	font-size:50px;
+	font-size:40px;
 	text-align:center;
 	padding:20px;
 	font-family:Gill Sans;
