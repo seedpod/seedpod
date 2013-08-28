@@ -1,8 +1,12 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
+<div class="hugeTitle">Account Settings</div>
+<div class="aboutUs">
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
   <%= devise_error_messages! %>
 
+<div class='col-md-6'>
+<fieldset>
+
+  <div class="miniTitle"><%= t :account_details %></div>
   <div><%= f.label :email %><br />
   <%= f.email_field :email, :autofocus => true %></div>
 
@@ -15,15 +19,37 @@
 
   <div><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></div>
+</fieldset>
+</div>
 
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+
+
+<div class="col-md-6">
+<fieldset>
+
+	<div class="miniTitle"><%= t :delivery_details %></div>
+	<div><%= f.label :name %><br />
+		<%= f.text_field :name %></div>
+	<div><%= f.label :address_street %><br />
+		<%= f.text_field :address_street %></div>
+	<div><%= f.label :address_locality %><br />
+		<%= f.text_field :address_locality %></div>
+	<div><%= f.label :address_postcode %><br />
+		<%= f.text_field :address_postcode %></div>
+	</fieldset>
+</div>
+
+<div><%= f.label :current_password %> <i>(to confirm your changes)</i><br />
   <%= f.password_field :current_password %></div>
-
+  <p>
   <div><%= f.submit "Update" %></div>
+</p>	
+		
 <% end %>
 
-<h3>Cancel my account</h3>
+<div class="miniTitle">Cancel my account</div>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
+<p>Are you sure? This will delete your SeedPod Account! By deleting your account you will no longer receive any seeds or advice each month. You will also lose access to previous month's advice, and will not have access to future guidance for the seeds you have already planted. <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
 
-<%= link_to "Back", :back %>
+
+</div>

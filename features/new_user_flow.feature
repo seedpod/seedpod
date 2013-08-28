@@ -16,12 +16,12 @@ Scenario: Viewing a pod should show me the preview page
 
 Scenario: Signing up
   When I visit the sign up page
-  And I click the "Proceed to GoCardless payment page" button
+  And I click the "Proceed to secure GoCardless payment page" button
   Then I should be warned that I need to fill in all the fields
 
 @mechanize @vcr @hostname
 Scenario: Signing up
   When I visit the sign up page
   And I fill in my details
-  And I click the "Proceed to GoCardless payment page" button
+  And I click the "Proceed to secure GoCardless payment page" button
   Then I should be sent to gocardless to set up my subscription
