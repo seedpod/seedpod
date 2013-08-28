@@ -89,4 +89,12 @@ Seedpod::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  config.middleware.use ExceptionNotification::Rack,
+    :email => {
+      :email_prefix => "[SeedPod] ",
+      :sender_address => %{"podbot" <admin@getseedpod.com>},
+      :exception_recipients => %w{admin@getseedpod.com james@floppy.org.uk}
+    }
+
 end
