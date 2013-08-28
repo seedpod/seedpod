@@ -62,7 +62,7 @@ class SubscriptionsController < ApplicationController
     payload['subscriptions'].each do |subscription|
       case subscription['status']
       when 'cancelled', 'expired'
-        Subscription.cancel!(subscription['id'])
+        Subscription.on_cancel!(subscription['id'])
       end
     end
   end

@@ -37,3 +37,7 @@ When(/^I fill in my details$/) do
   fill_in "user_address_locality"      , with: "Anytown"
   fill_in "user_address_postcode"      , with: "AA1 1AA"
 end
+
+When(/^I delete my account$/) do
+  @user.destroy
+end
