@@ -39,7 +39,7 @@ class SubscriptionsController < ApplicationController
   end
   
   def gocardless_webhook
-    payload = JSON.parse(params['payload'])
+    payload = params['payload']
     # Check validity
     unless GoCardless.webhook_valid?(payload)
       render :text => "false", :status => 403
