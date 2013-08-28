@@ -31,7 +31,7 @@ When(/^GoCardless sends a subscription cancellation$/) do
   # Set up stub for checking signature
   GoCardless.client.should_receive(:signature_valid?).once.and_return(true)
   # Post data
-  post gocardless_webhook_path, payload: payload.to_json
+  post gocardless_webhook_path, payload: payload
 end
 
 When(/^GoCardless sends a subscription expiry notification$/) do
@@ -49,7 +49,7 @@ When(/^GoCardless sends a subscription expiry notification$/) do
   # Set up stub for checking signature
   GoCardless.client.should_receive(:signature_valid?).once.and_return(true)
   # Post data
-  post gocardless_webhook_path, payload: payload.to_json
+  post gocardless_webhook_path, payload: payload
 end
 
 When(/^GoCardless sends a bill paid notification$/) do
@@ -72,7 +72,7 @@ When(/^GoCardless sends a bill paid notification$/) do
   # Set up stub for checking signature
   GoCardless.client.should_receive(:signature_valid?).once.and_return(true)
   # Post data
-  post gocardless_webhook_path, payload: payload.to_json
+  post gocardless_webhook_path, payload: payload
 end
 
 When(/^GoCardless sends a bill failed notification$/) do
@@ -95,7 +95,7 @@ When(/^GoCardless sends a bill failed notification$/) do
   # Set up stub for checking signature
   GoCardless.client.should_receive(:signature_valid?).once.and_return(true)
   # Post data
-  post gocardless_webhook_path, payload: payload.to_json
+  post gocardless_webhook_path, payload: payload
 end
 
 When(/^GoCardless sends a bill chargeback notification$/) do
@@ -118,7 +118,7 @@ When(/^GoCardless sends a bill chargeback notification$/) do
   # Set up stub for checking signature
   GoCardless.client.should_receive(:signature_valid?).once.and_return(true)
   # Post data
-  post gocardless_webhook_path, payload: payload.to_json
+  post gocardless_webhook_path, payload: payload
 end
 
 When(/^GoCardless sends a bill created notification$/) do
@@ -141,7 +141,7 @@ When(/^GoCardless sends a bill created notification$/) do
   # Set up stub for checking signature
   GoCardless.client.should_receive(:signature_valid?).once.and_return(true)
   # Post data
-  post gocardless_webhook_path, payload: payload.to_json
+  post gocardless_webhook_path, payload: payload
 end
 
 When(/^GoCardless sends a bill retried notification$/) do
@@ -164,5 +164,5 @@ When(/^GoCardless sends a bill retried notification$/) do
   # Set up stub for checking signature
   GoCardless.client.should_receive(:signature_valid?).once.and_return(true)
   # Post data
-  post gocardless_webhook_path, payload: payload.to_json
+  post gocardless_webhook_path, payload: payload
 end
