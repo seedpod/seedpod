@@ -75,7 +75,8 @@ class SubscriptionsController < ApplicationController
       next if bill['source_type'] != 'subscription'
       # Find subscription object that this payment is for
       sub = Subscription.where(gocardless_id: bill['source_id']).first
-      sub.update_payment(bill['id'], bill['status'], bill['amount'], DateTime.parse(bill['paid_at'])) if sub
+      transacted_at = DateTime.parse(bill['paid_at']) rescue nil
+      sub.update_payment(bill['id'], bill['status'], bill['amount'], transacted_at) if sub
     end      
   end
 

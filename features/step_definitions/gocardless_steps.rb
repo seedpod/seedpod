@@ -133,7 +133,6 @@ When(/^GoCardless sends a bill created notification$/) do
       "source_id"         => "ABC123",
       "amount"            => "6.0",
       "amount_minus_fees" => "5.8",
-      "paid_at"           => "2013-08-10T12:00:00Z",
       "uri"               => "https://gocardless.com/api/v1/bills/XYZ987"
     }],
     "signature"           => "f6b9e6cd8eef30c444da48370e646839c9bb9e1cf10ea16164d5cf93a50231eb"
