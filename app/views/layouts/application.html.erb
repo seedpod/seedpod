@@ -34,10 +34,7 @@
   </nav>
     
   <ul class="nav pull-right">
-    <% if admin_signed_in? %>
-      <li><%= link_to 'Shipments', pod_shipments_path(Pod.next_to_ship) %></li>
-      <li><%= link_to 'Administration', '/administration' %></li>
-    <% end %>
+  
 <div class="social">
   <a href="https://twitter.com/seedpod" title="Go to our Twitter feed"><span class="icon-stack icon-2x">
 	  <i class="icon-circle icon-stack-base"></i>
@@ -55,7 +52,7 @@
 	  <i class='icon-circle icon-stack-base'></i>
 	  <i class='icon-cog'></i>
   </span>".html_safe, edit_user_registration_path, title: 'Account settings', id: 'account-link' %>
-</div>  
+
 
 
 
@@ -63,8 +60,18 @@
       <li><%= link_to 'My Account', edit_user_registration_path %></li>
     <% end %>
 -->    <% if signed_in? %>
-      <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-    <% end %>
+	<%= link_to"<span class='icon-stack icon-2x'>
+  	  	<i class='icon-circle icon-stack-base'></i>
+  	  	<i class='icon-signout'></i>
+	</span>".html_safe, destroy_user_session_path, method: :delete, title: 'Sign Out' %>
+        <% end %>
+	</ul>
+	  <ul class="nav pull-left">
+	    <% if admin_signed_in? %>
+	      <li><%= link_to 'Shipments', pod_shipments_path(Pod.next_to_ship) %></li>
+	      <li><%= link_to 'Administration', '/administration' %></li>
+	    <% end %>
+</div>  
   </ul>
 		
   <div class='container'>
