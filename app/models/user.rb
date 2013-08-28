@@ -7,14 +7,12 @@ class User < ActiveRecord::Base
 
   has_many :shipments
   
-  has_many :subscriptions do
+  has_many :subscriptions, dependent: :destroy do
     def active
       where(cancelled_at: nil).first
     end
   end
   has_many :payments, through: :subscriptions
-
-  before_destroy :cancel_subscription!
 
   validates :name            , :presence => true
   validates :address_street  , :presence => true
@@ -35,13 +33,6 @@ class User < ActiveRecord::Base
   
   def address
     [:name, :address_street, :address_locality, :address_region, :address_postcode].compact.join(', ')
-  end
-   
-  def cancel_subscription!
-    subscription = GoCardless::Subscription.find(subscription_id)
-    subscription.cancel!
-    subscription_id = nil
-    save!
   end
    
   # We store name as a single string and split for gocardless later on.
