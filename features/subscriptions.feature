@@ -20,3 +20,8 @@ Scenario: Gocardless tells us a subscription has expired
   Given I have a subscription set up
   When GoCardless sends a subscription expiry notification
   Then my subscription should be marked as cancelled
+  
+Scenario: Subscriptions are cancelled when a user deletes their account
+  Given I have a subscription set up
+  Then my subscription should be cancelled
+  When I delete my account
