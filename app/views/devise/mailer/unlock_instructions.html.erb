@@ -1,7 +1,12 @@
 <p>Hello <%= @resource.email %>!</p>
 
-<p>Your account has been locked due to an excessive number of unsuccessful sign in attempts.</p>
+<p>Your SeedPod account has been locked due to an excessive number of unsuccessful sign in attempts.</p>
 
 <p>Click the link below to unlock your account:</p>
 
 <p><%= link_to 'Unlock my account', unlock_url(@resource, :unlock_token => @resource.unlock_token) %></p>
+
+<p>Best wishes,
+	the SeedPod team</p>
+
+<p>SeedPod is a limited company registered in England and Wales. Registered number: 8469306. Registered office: 39 Bargate Rise, Godalming, Surrey, GU7 2LR.</p>
