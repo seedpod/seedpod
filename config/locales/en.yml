@@ -1,6 +1,6 @@
 en:
-  seedpod: "SeedPod"
-  tagline: "Seeds and guidance, every month"
+  seedpod: "SeedPod subscription"
+  tagline: "Simple, guided growing, all year round"
   account_details: "Account Details"
   delivery_details: "Delivery Details"
   activerecord:
