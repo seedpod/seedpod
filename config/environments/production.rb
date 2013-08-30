@@ -93,8 +93,8 @@ Seedpod::Application.configure do
   config.middleware.use ExceptionNotification::Rack,
     :email => {
       :email_prefix => "[SeedPod] ",
-      :sender_address => %{"podbot" <admin@getseedpod.com>},
-      :exception_recipients => %w{admin@getseedpod.com james@floppy.org.uk}
+      :sender_address => %{"podbot" <greetings@getseedpod.com>},
+      :exception_recipients => %w{greetings@getseedpod.com james@floppy.org.uk}
     }
 
 end

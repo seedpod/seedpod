@@ -1,17 +1,21 @@
 <h1 class="hugeTitle"><%= @pod.month.strftime("%B %Y") %></h1>
-
+<div class="aboutUs">
 <p>
   <%= @pod.summary %>
 </p>
 <div class="row">
+	
 <% @pod.instructions.each do |instruction| %>
-<div class="col-md-4">
-  <h2><%= instruction.crop.name %></h2>
 
-  <%= image_tag "seeds.jpg", :width => 360%>
-  <p class="lead"><%= instruction.summary %></p>
+	<div class="boxes">
+  <div class=miniAboutTitle><%= instruction.crop.name %></div>
+
+  <%= image_tag "seeds.jpg", class: "img-responsive pull-left", width:"200", Hspace:"10" %>
+  <p><b><%= instruction.summary %></b></p>
 
   <p><%= instruction.detail %></p>
 </div>
+
 <% end %>
+</div>
 </div>
