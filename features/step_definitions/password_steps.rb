@@ -15,5 +15,6 @@ end
 
 Then(/^my password should be changed$/) do
   page.should_not have_text 'error'
+  @user.reload
   @user.valid_password?(@newpass).should be_true
 end
