@@ -19,7 +19,6 @@ body.homepage {
   background-image: asset-url('cabbage.jpg');
   background-position: center;
   background-size: cover;
-  padding-top: 75px;
   color: white;
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(100%, rgba(0, 0, 0, 0.5)), color-stop(0%, rgba(0, 0, 0, 0.5))), asset-url('cabbage.jpg'); /* Chrome,Safari4+ */
   background-image: -webkit-linear-gradient(bottom, transparent, rgba(0,0,0,0.5)), asset-url('cabbage.jpg'); /* Chrome10+,Safari5.1+ */
@@ -31,4 +30,10 @@ body.homepage {
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-attachment: fixed;
+  
+  #logo {
+    padding-top: 75px;
+    
+  }
+  
 }
