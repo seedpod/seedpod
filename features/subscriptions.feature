@@ -25,3 +25,13 @@ Scenario: Subscriptions are cancelled when a user deletes their account
   Given I have a subscription set up
   Then my subscription should be cancelled
   When I delete my account
+
+Scenario: I am warned if I don't have a subscription set up
+  Given I do not have a subscription set up
+  When I visit the homepage
+  Then I should see a subscription warning
+
+Scenario: I am not warned if I do have a subscription set up
+  When I have a subscription set up
+  And I visit the homepage
+  Then I should not see a subscription warning
