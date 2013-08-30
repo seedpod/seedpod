@@ -35,7 +35,7 @@ class PodsController < ApplicationController
     case params[:id]
     when 'this-month'
       if current_user && current_user.recently_signed_up?
-        redirect_to getting_started_pods_path
+        redirect_to page_path("preview")
       end
       @pod = Pod.where(month: Date.today.beginning_of_month).first
     when 'preview'

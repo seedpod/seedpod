@@ -47,3 +47,7 @@ end
 Then(/^I should see the getting started page$/) do
   page.should have_selector('h1', text: 'Get ready...')
 end
+
+Then(/^I should see the preview page$/) do
+  page.should have_selector('h1', text: 'On its way...')
+end
