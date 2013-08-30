@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130810154204) do
+ActiveRecord::Schema.define(version: 20130830213001) do
 
   create_table "admins", force: true do |t|
     t.string   "email",               null: false
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20130810154204) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "ship",       default: false
+    t.string   "image_url"
   end
 
   add_index "instructions", ["crop_id"], name: "index_instructions_on_crop_id"
