@@ -30,6 +30,21 @@ body.homepage {
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-attachment: fixed;
+
+  #myCarousel {
+    
+    padding-bottom: 40px;
+    
+    .carousel-indicators {
+      bottom: 10px;
+    }
+    
+    .carousel-control {
+      background: none;
+      padding-top: 100px;
+    }
+    
+  }
   
   #logo {
     padding-top: 75px;
