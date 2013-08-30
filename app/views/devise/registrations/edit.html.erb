@@ -38,18 +38,19 @@
 		<%= f.text_field :address_postcode %></div>
 	</fieldset>
 </div>
-
+<div class="col-md-12">
 <div><%= f.label :current_password %> <i>(to confirm your changes)</i><br />
   <%= f.password_field :current_password %></div>
   <p>
   <div><%= f.submit "Update" %></div>
 </p>	
+</div>
 		
 <% end %>
-
+<div class="col-md-12">
 <div class="miniTitle">Cancel my account</div>
 
 <p>Are you sure? This will delete your SeedPod Account! By deleting your account you will no longer receive any seeds or advice each month. You will also lose access to previous month's advice, and will not have access to future guidance for the seeds you have already planted. <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
 
-
+</div>
 </div>
