@@ -12,7 +12,7 @@ Background:
 
 Scenario: New users see a getting started page
   When I visit the current pod
-  Then I should see the getting started page
+  Then I should see the preview page
 
 Scenario: Users who have paid for the current pod can see it
   Given I have paid for the current pod

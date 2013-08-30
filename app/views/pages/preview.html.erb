@@ -1,8 +1,23 @@
 <h1 class="hugeTitle">
-Sneak Peek
+	<% if signed_in? %>
+	On its way...
+	<% else %>
+	Sneak Peek
+	<% end %>
+	
+	<!--Missed a step?-->
+	
 </h1>
 <div class="aboutUs">
+	<% if signed_in? %>
+	<p>	We'll be despatching your first SeedPod at the beginning of next month. You will receive an email once your seeds are on their way, and your growing guidance will then become available to view. </p>
+
+	<p> Do remember to use our <%= link_to "Get Ready", page_path("getting_started") %> page to ensure you're prepared to start growing. But in the meantime you'll see below a sample of the monthly guidance that you'll be receiving:</p>
+	<% else %>
 So, here's a taster of what you can expect from your monthly guidance. You'll have access to the current month's instructions as well as your previous 2 months in case you fall behind a bit. As you can see, we keep it simple and to the point. Find out more on our <%= link_to "Any Questions", page_path("faq") %> page or, if you like what you see, <%= link_to "Subscribe", new_user_session_path %> today.
+<% end %>
+
+<!--You have not yet paid for your subscription. Click here to go to our secure GoCardless payment page and gain access to your advice online. -->
 
 <div class="row">	
   <div class="col-md-12">
