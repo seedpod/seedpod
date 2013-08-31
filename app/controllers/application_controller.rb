@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   end
  
   def require_login!
-    redirect_to new_user_registration_path unless signed_in?
+    redirect_to new_user_session_path unless signed_in?
   end
   
 end
