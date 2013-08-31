@@ -11,6 +11,7 @@ env:
   - secure: b34rIlCTx1+k9Zb3/X+IOhN9cLy1a5BZINdv6tz2bBapunI2qQ1g5UCIVRwI/zE8wxjZ8+o7w4SFZeg5e3yuUjhp84VheG9tK6oyoLy/cDczmBzJL0kEH1PDLjykjWvhxDKnCNxYLS54SUkFtL+ZztofkmOhMU61L/qO9k1FNMs=
 deploy:
   provider: heroku
+  strategy: git
   api_key:
     secure: qNoExN/9+WUf3nJGQ1tLAjfwL6GRH9f/apS78aNTgjE0X0xr2cdl+akRxNyCYj/sNDPEXUTAhN/x4BMU7QOAHpPlLa8WBwSY2P34md9h7h8ft92MKWl/B1gn7tV8UOVFp4WHsV5JaQy/9Mq6TGN3nbK5YeW7JAOJbPdzqyReOXw=
   app: seedpod
