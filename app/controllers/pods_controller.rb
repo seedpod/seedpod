@@ -1,6 +1,7 @@
 class PodsController < ApplicationController
 
   before_filter :require_login!, :only => [:show, :getting_started]
+  before_filter :check_subscription, :only => [:show, :getting_started]
   before_filter :get_pod, :except => [:index, :getting_started]
   
   def index
@@ -44,6 +45,12 @@ class PodsController < ApplicationController
       @pod = Pod.find_by_date(params[:id])
     end
     raise ActiveRecord::RecordNotFound if @pod.nil?
+  end
+
+  def check_subscription
+    if user_signed_in? && !current_user.subscribed?
+      redirect_to page_path("preview")
+    end
   end
 
 end
