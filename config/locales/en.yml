@@ -14,3 +14,7 @@ en:
         address_locality: City
         address_region: County
         address_postcode: Postcode
+  notifications:
+    shipped:
+      subject: Your SeedPod is on its way!
+        
