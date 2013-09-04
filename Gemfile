@@ -28,7 +28,6 @@ group :development, :test do
   gem 'cucumber', '1.3.5'
   gem 'database_cleaner', '<= 1.0.1'
   gem 'vcr'
-  gem 'webmock'
   gem 'launchy'
   gem 'coveralls'
   gem 'travis'
@@ -37,6 +36,10 @@ group :development, :test do
   gem 'faker'
   gem 'capybara-mechanize'
   gem 'timecop'
+end
+
+group :test do
+  gem 'webmock'
 end
 
 # Gems required for Heroku
