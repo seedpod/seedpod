@@ -13,6 +13,7 @@ class SubscriptionsController < ApplicationController
       :description     => t(:tagline),
       :state           => params[:user_id],
       :redirect_uri    => confirm_user_subscription_url(@user),
+      :cancel_uri      => edit_user_registration_url(@user),
       :user            => {
         :email            => @user.email,
         :first_name       => @user.first_name,

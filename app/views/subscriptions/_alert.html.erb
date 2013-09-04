@@ -1,0 +1,8 @@
+<% if current_user && !current_user.subscribed? %>
+
+  <div class='alert alert-danger'>
+    <strong>WARNING:</strong> You don't have an active subscription right now.
+    <%= link_to 'Click here to fix this', new_user_subscription_path(current_user), class: 'alert-link' %> and get growing once again!
+  </div>
+
+<% end %>
