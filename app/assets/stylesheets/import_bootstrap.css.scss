@@ -17,7 +17,7 @@ body {
 }
 .image a:hover{
 	display:block;
-};
+}
 
 .navbar .nav,
 .navbar .nav > li {
@@ -51,7 +51,8 @@ li.navbar-logo {
   height: 100px;
   font-size:150%;
   padding:24px;
-  background-color: rgba(120,162,47,0.9)
+  opacity: 0.9;
+  background-color: #78A22F;
 }
 li.navbar-logo img{
 	height:80px;

@@ -47,31 +47,31 @@
         </div>
       </p>
       <p>By signing in you agree to our <%= link_to "Terms & Conditions", page_path("terms") %>.</p>
-      <p>We promise we will never sell, rent or share any of your data to/with a third party.</p>
-	  <p>We use cookies throughout our website. More information as to how we use cookies, as well as how we handle your personal data, can be found on our <%= link_to "Privacy & Cookies", page_path("privacy_and_cookies") %> page.</p>
+	  <p>We use cookies throughout our website. For more information please see our <%= link_to "Privacy & Cookies", page_path("privacy_and_cookies") %> page.</p>
 
     </div>
 
     <div class="col-md-7">
       <div class="boxes">
-        <p><div class="miniAboutTitle">Not joined yet? Let's get growing!</div></p>
+        <p><div class="miniAboutTitle">Not joined yet?</div></p>
         <fieldset>
-          <p>Welcome to SeedPod. We'd love you to have you on board. Here's what you'll get from our unique growing programme if you subscribe:</p>
+		<p>Subscribe today for just £6.00 per month (inc. VAT), with free delivery, and no contractual tie-in.</p>
+        <div class='form-group'>
+          <div class='col-lg-12'>
+            <%= link_to "Subscribe", new_user_registration_path, :class => 'btn btn-block' %>
+          </div>
+        </div>
+          <p>When you subscribe, our unique growing programme will provide:</p>
           <ul>
-            <li>Receive two varieties of seasonally appropriate vegetable seeds each month</li> 
-            <li>Gain access to our monthly step-by-step guidance</li> 
-            <li>Prepare for your first pod with our "Get Ready" advice</li> 
+            <li>Two varieties of seasonally appropriate vegetable seeds each month</li> 
+            <li>Access to our monthly step-by-step guidance</li> 
+            <li>'Get Ready' advice to preparea for your first pod</li> 
           </ul>
-          <p>All for just £6.00 per month (inc. VAT), with free delivery, and no contractual tie-in.</p>
-		  <p>We send our seeds and make available the "This Month" guidance on the first of each month. But, until that date, you will have access to our "Get Ready" page to help prepare for your first delivery.</p>
+
 	
 
 
-          <div class='form-group'>
-            <div class='col-lg-12'>
-              <%= link_to "Subscribe", new_user_registration_path, :class => 'btn btn-block' %>
-            </div>
-          </div>
+       
           <p>Need more info? Check out our <%= link_to "Any Questions", page_path("faq") %> page, or take a look at our <%= link_to "Sneak Peek", page_path("preview") %> growing guidance page.</p>
   
         </fieldset>
