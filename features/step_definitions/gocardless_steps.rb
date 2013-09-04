@@ -1,6 +1,8 @@
 Then(/^I should be sent to gocardless to set up my subscription$/) do
   page.current_host.should == "https://sandbox.gocardless.com"
   page.current_path.should == "/connect/subscriptions/new"
+  page.current_url.should include('subscription%5Bamount%5D=6.00')
+  page.current_url.should include('subscription%5Bsetup_fee%5D=0.00')
 end
 
 When(/^GoCardless sends a subscription confirmation$/) do
