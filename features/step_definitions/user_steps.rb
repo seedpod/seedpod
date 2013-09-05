@@ -11,6 +11,13 @@ Given(/^I am signed in$/) do
   }
 end
 
+Given(/^there is a user$/) do
+  steps %{
+    Given I have previously registered
+    And I have a subscription set up
+  }
+end
+
 When(/^I visit the sign up page$/) do
   visit new_user_registration_path
 end

@@ -77,7 +77,14 @@ class SubscriptionsController < ApplicationController
       # Find subscription object that this payment is for
       sub = Subscription.where(gocardless_id: bill['source_id']).first
       transacted_at = DateTime.parse(bill['paid_at']) rescue nil
-      sub.update_payment(bill['id'], bill['status'], bill['amount'], transacted_at) if sub
+      if sub
+        # Store payment details
+        sub.update_payment(bill['id'], bill['status'], bill['amount'], transacted_at) 
+        # Send welcome email if the user is recently signed up
+        if sub.user.recently_signed_up?
+          Notifications.welcome(sub.user).deliver
+        end
+      end
     end      
   end
 
