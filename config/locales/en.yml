@@ -17,4 +17,6 @@ en:
   notifications:
     shipped:
       subject: Your SeedPod is on its way!
+    welcome:
+      subject: Welcome to SeedPod!
         

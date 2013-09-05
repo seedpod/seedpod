@@ -350,6 +350,7 @@ DEPENDENCIES
   launchy
   pg
   poltergeist
+  pry
   rails (~> 4.0.0)
   rails_12factor
   rails_admin!
