@@ -45,3 +45,14 @@ end
 Given(/^I have paid for the previous pod$/) do
   FactoryGirl.create :payment, subscription: @subscription, state:"paid", pod: @previous_pod
 end
+
+Given(/^I have paid for the next pod$/) do
+  FactoryGirl.create :payment, subscription: @subscription, state:"paid", pod: @next_pod
+end
+
+Given(/^that user has paid for the next pod$/) do
+  steps %{
+    Given I have paid for the next pod
+  }
+end
+
