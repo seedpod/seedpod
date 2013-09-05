@@ -9,6 +9,7 @@ class SubscriptionsController < ApplicationController
       :interval_unit   => "month",
       :interval_length => 1,
       :amount          => "6.00",
+      :setup_fee       => "0.00",
       :name            => t(:seedpod),
       :description     => t(:tagline),
       :state           => params[:user_id],
