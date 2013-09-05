@@ -17,6 +17,8 @@ class ShipmentsController < ApplicationController
     @shipment = @pod.shipments.find(params[:id])
     @shipment.shipped = true
     @shipment.save!
+    # Tell the user!
+    Notifications.shipped(@shipment.user).deliver
   end
 
   private
