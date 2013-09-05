@@ -37,6 +37,7 @@ group :development, :test do
   gem 'faker'
   gem 'capybara-mechanize'
   gem 'timecop'
+  gem 'email_spec'
 end
 
 # Gems required for Heroku
