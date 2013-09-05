@@ -7,6 +7,7 @@ Then(/^I should see the user in the shipping list$/) do
 end
 
 Then(/^the shipment should be marked as shipped$/) do
+  sleep(0.1) # wait for ajax action to happen before checking result
   @user.shipments.first.shipped.should be_true
   page.should have_text("Shipped")
 end
