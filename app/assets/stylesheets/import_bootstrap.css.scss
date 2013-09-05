@@ -35,6 +35,10 @@ body {
   text-shadow:none !important;
 }
 
+.nav > li > a:hover, .nav > li > a:focus {
+  background-color: transparent;
+}
+
 nav .container {
   text-align:center;  
 }
