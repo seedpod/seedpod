@@ -33,14 +33,12 @@
 
 .hugeTitle{
 	font-size:100px;
-	font-family:Gill Sans;
 
 	text-align:center;
 	color: #78A22F;
 }
 
 .carousel-inner{
-	font-family: Gill Sans;
 	text-align: left;
 
 	line-height:40px;
@@ -63,7 +61,6 @@
 	word-spacing:3em;
 }
 .aboutUs{
-	font-family: Gill Sans;
 	color:#503e2b;
 	font-size:20px;
 	text-align:justify;
@@ -78,15 +75,10 @@
 .tagline{
 	text-align:center;
 	color:white;
-	font-family:Gill Sans;
 	font-size: 55px;
 	font-weight:100;
 	padding-top: 35px;
 	padding-bottom: 50px;
-}
-
-.hfur{
-	font-family: Gill Sans;
 }
 
 .navbar li{
@@ -98,14 +90,12 @@
 .miniTitle{
 	font-size:40px;
 	padding:20px;
-	font-family:Gill Sans;
 }
 
 .miniAboutTitle{
 	font-size:40px;
 	text-align:center;
 	padding:20px;
-	font-family:Gill Sans;
 }
 
 .intros{
@@ -116,7 +106,6 @@
 }
 
 .faq{
-	font-family: Gill Sans;
 	color:#503e2b;
 	font-size:17px;
 	text-align:justify;
@@ -135,7 +124,6 @@
 	border-bottom: 1px solid #000;
 	background: red; */
 	font-size: 18px;
-	font-family: Gill Sans;
 	text-transform:uppercase;
 }
 
