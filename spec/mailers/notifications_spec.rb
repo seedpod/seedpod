@@ -12,7 +12,7 @@ describe Notifications do
     it "renders the headers" do
       mail.subject.should eq("Your SeedPod is on its way!")
       mail.to.should eq([@user.email])
-      mail.from.should eq(["paul@getseedpod.com"])
+      mail.from.should eq(["greetings@getseedpod.com"])
     end
 
     it "renders the body" do
