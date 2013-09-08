@@ -1,17 +1,25 @@
 $font-family-sans-serif: "Gill Sans", "Gill Sans MT", "Calibri", sans-serif;
 
-$brand-primary:     #428bca;
+$brand-primary:     #902A5E;
 $brand-success:     #5cb85c;
 $brand-warning:     #f0ad4e;
 $brand-danger:      #d9534f;
 $brand-info:        #5bc0de;
 
 $btn-default-bg:    #eeeeee;
+input:focus{
+	outline-color: #902A5E;
+};
 
 @import "bootstrap";
 
 .btn-primary {
-  font-size: 110%;
+  font-size: 100%;
+  font-weight: 100;
+}
+.btn-default{
+	font-size: 100%;
+	font-weight: 100;
 }
 
 footer {
