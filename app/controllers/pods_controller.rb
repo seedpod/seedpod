@@ -11,17 +11,8 @@ class PodsController < ApplicationController
   def show
     # Admins can see everything
     unless admin_signed_in?
-      invisible = false
-      # Pods in the future, or unpublished, are invisible
-      if @pod.published == false
-        invisible ||= true
-      end
-      # Pods are invisible if they've not been shipped
-      unless current_user.shipped?(@pod)
-        invisible ||= true
-      end
-      # If the pod should be invisible, redirect back to homepage
-      if invisible
+      # Show only shipped and published pods
+      unless @pod.published == true && current_user.shipped?(@pod)
         redirect_to root_path
       end
     end
