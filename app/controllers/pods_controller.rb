@@ -13,7 +13,7 @@ class PodsController < ApplicationController
     unless admin_signed_in?
       invisible = false
       # Pods in the future, or unpublished, are invisible
-      if @pod.month > Date.today || @pod.published == false
+      if @pod.published == false
         invisible ||= true
       end
       # Pods are invisible if they've not been shipped

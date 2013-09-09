@@ -35,6 +35,12 @@ Scenario: Users cannot see next month's pod
   When I visit the next pod
   Then I should be redirected to the homepage
 
+Scenario: Shipped future pods are visible
+  Given I have paid for the next pod
+  And the next pod has been shipped to me
+  When I visit the next pod
+  Then I should see content for the next pod
+
 Scenario: Unshipped pods are not yet visible
   Given I have paid for the current pod
   But the current pod has not been shipped to me
