@@ -21,5 +21,6 @@ Then(/^I should see the "(.*?)" page$/) do |title|
 end
 
 Then(/^I should see the signed\-in homepage$/) do
+  page.should have_selector('.tagline')
   page.should have_selector('a', text: "Get Ready")
 end

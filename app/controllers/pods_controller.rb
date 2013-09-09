@@ -16,8 +16,8 @@ class PodsController < ApplicationController
       if @pod.month > Date.today || @pod.published == false
         invisible ||= true
       end
-      # Pods are invisible if they've not been paid for
-      unless current_user.paid_for?(@pod)
+      # Pods are invisible if they've not been shipped
+      unless current_user.shipped?(@pod)
         invisible ||= true
       end
       # If the pod should be invisible, redirect back to homepage

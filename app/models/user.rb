@@ -25,10 +25,11 @@ class User < ActiveRecord::Base
   end
 
   def paid_for?(pod)
-    # Need some logic here around whether a user has paid for a particular pod
-    # This will test the date of their last payment against the date of the pod,
-    # most likely
     payments.where(pod: pod, state: "paid").present?
+  end
+  
+  def shipped?(pod)
+    shipments.where(pod: pod, shipped: true).present?
   end
   
   def recently_signed_up?
