@@ -29,11 +29,33 @@
 	/*vertical-align:sub;*/
 }
 
+@media only screen and (max-width: 768px) {
+  .hugeTitle{
+    font-size:50px;
+  }
+  .tagline {
+  	font-size: 30px;
+  	padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .social {
+    font-size: 10px;
+  }
+}
+ 
+@media only screen and (min-width: 768px) {
+  .hugeTitle{
+    font-size:100px;
+  }
+  .tagline {
+  	font-size: 55px;
+  	padding-top: 35px;
+  	padding-bottom: 50px;
+  }
+}
 
 
 .hugeTitle{
-	font-size:100px;
-
 	text-align:center;
 	color: #78A22F;
 }
@@ -75,10 +97,7 @@
 .tagline{
 	text-align:center;
 	color:white;
-	font-size: 55px;
 	font-weight:100;
-	padding-top: 35px;
-	padding-bottom: 50px;
 }
 
 .navbar li{
@@ -129,6 +148,13 @@
 
 .social{
 	padding: 10px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+.social a:hover {
+  text-decoration: none;
 }
 
 .words{
