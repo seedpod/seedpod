@@ -9,7 +9,7 @@
   <%= csrf_meta_tags %>
   <%= favicon_link_tag 'icon.png'%>
   <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 </head>
 <body class='<%= @body_class %>'>
 
@@ -68,7 +68,7 @@
 	</ul>
 	  <ul class="nav pull-left">
 	    <% if admin_signed_in? %>
-	      <li><%= link_to 'Shipments', pod_shipments_path(Pod.next_to_ship) %></li>
+	      <li><%= link_to 'Shipments', pod_shipments_path(Pod.currently_shipping) %></li>
 	      <li><%= link_to 'Administration', '/administration' %></li>
 	    <% end %>
 		<% end %>

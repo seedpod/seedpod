@@ -24,7 +24,7 @@ Scenario: Gocardless tells us a subsequent payment has been created
 Scenario: Gocardless tells us a bill has been paid
   When GoCardless sends a bill paid notification
   Then my payment should be recorded
-  And next month's pod should be paid for
+  And this month's pod should be paid for
   
 Scenario: Gocardless tells us a payment has failed
   When GoCardless sends a bill failed notification

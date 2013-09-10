@@ -8,7 +8,7 @@ class Payment < ActiveRecord::Base
   def paid!(amount, time)
     update_attributes!(amount: amount, transacted_at: time, state: "paid")
     # Set pod if not set already
-    update_attributes!(pod: Pod.next_to_ship) if pod.nil?
+    update_attributes!(pod: Pod.currently_shipping) if pod.nil?
     # Create shipment record
     unless subscription.user.shipment_for(pod)
       Shipment.create(user: subscription.user, pod: pod)

@@ -18,4 +18,8 @@ class Pod < ActiveRecord::Base
     Pod.where(month: (Date.today + 1.month).beginning_of_month).first
   end
   
+  def self.currently_shipping
+    Pod.where(month: Date.today.beginning_of_month).first
+  end
+
 end

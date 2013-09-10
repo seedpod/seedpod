@@ -40,8 +40,8 @@ Then(/^I should be redirected to the homepage$/) do
   }
 end
 
-Then(/^next month's pod should be paid for$/) do
-  @user.paid_for?(@next_pod).should be_true
+Then(/^this month's pod should be paid for$/) do
+  @user.paid_for?(@current_pod).should be_true
 end
 
 Then(/^I should see the getting started page$/) do
