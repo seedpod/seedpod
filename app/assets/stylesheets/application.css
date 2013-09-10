@@ -38,6 +38,9 @@
   	padding-top: 10px;
     padding-bottom: 10px;
   }
+  .social {
+    font-size: 10px;
+  }
 }
  
 @media only screen and (min-width: 768px) {
@@ -145,6 +148,13 @@
 
 .social{
 	padding: 10px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+.social a:hover {
+  text-decoration: none;
 }
 
 .words{
