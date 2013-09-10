@@ -39,15 +39,18 @@ Then(/^my payment should be recorded as retrying$/) do
 end
 
 Given(/^I have paid for the current pod$/) do
-  FactoryGirl.create :payment, subscription: @subscription, state:"paid", pod: @current_pod
+  payment = FactoryGirl.create :payment, subscription: @subscription, state:"pending", pod: @current_pod
+  payment.paid!(6, 1.month.ago)
 end
 
 Given(/^I have paid for the previous pod$/) do
-  FactoryGirl.create :payment, subscription: @subscription, state:"paid", pod: @previous_pod
+  payment = FactoryGirl.create :payment, subscription: @subscription, state:"pending", pod: @previous_pod
+  payment.paid!(6, Date.today)
 end
 
 Given(/^I have paid for the next pod$/) do
-  FactoryGirl.create :payment, subscription: @subscription, state:"paid", pod: @next_pod
+  payment = FactoryGirl.create :payment, subscription: @subscription, state:"pending", pod: @next_pod
+  payment.paid!(6, Date.today)
 end
 
 Given(/^that user has paid for the next pod$/) do

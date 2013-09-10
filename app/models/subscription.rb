@@ -27,6 +27,7 @@ class Subscription < ActiveRecord::Base
     case state
     when 'created'
       payment.pending!
+      payment.update_attributes!(pod: Pod.next_to_ship)
     when 'paid'
       payment.paid! amount, transacted_at
     when 'failed'

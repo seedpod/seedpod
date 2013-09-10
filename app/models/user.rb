@@ -28,8 +28,12 @@ class User < ActiveRecord::Base
     payments.where(pod: pod, state: "paid").present?
   end
   
+  def shipment_for(pod)
+    shipments.where(pod: pod).first
+  end
+  
   def shipped?(pod)
-    shipments.where(pod: pod, shipped: true).present?
+    shipments.where(pod: pod, shipped: true).first.present?
   end
   
   def recently_signed_up?
