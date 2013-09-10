@@ -29,14 +29,14 @@
 	/*vertical-align:sub;*/
 }
 
-
-
 @media only screen and (max-width: 768px) {
   .hugeTitle{
     font-size:50px;
   }
   .tagline {
   	font-size: 30px;
+  	padding-top: 10px;
+    padding-bottom: 10px;
   }
 }
  
@@ -45,7 +45,9 @@
     font-size:100px;
   }
   .tagline {
-  	font-size: 55px;    
+  	font-size: 55px;
+  	padding-top: 35px;
+  	padding-bottom: 50px;
   }
 }
 
@@ -93,8 +95,6 @@
 	text-align:center;
 	color:white;
 	font-weight:100;
-	padding-top: 35px;
-	padding-bottom: 50px;
 }
 
 .navbar li{
