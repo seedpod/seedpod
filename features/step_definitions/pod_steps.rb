@@ -11,7 +11,7 @@ Given(/^there is a pod for last month$/) do
 end
 
 When(/^I visit the current pod$/) do
-  visit '/pods/this-month'
+  visit '/pods/this_month'
 end
 
 Then(/^I should see content for the current pod$/) do

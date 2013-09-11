@@ -19,7 +19,7 @@
 	  
       	<% if signed_in? %>
       	  <li><%= link_to "Get Ready", getting_started_pods_path %></li>
-          <li><a href="/pods/this-month">This Month</a></li>
+          <li><a href="/pods/this_month">This Month</a></li>
       	<% else %>
           <li><%= link_to "Get Growing", new_user_session_path %></li>
           <li><%=link_to "This Month", page_path("preview")%></li>

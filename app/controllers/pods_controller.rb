@@ -1,8 +1,8 @@
 class PodsController < ApplicationController
 
   before_filter :require_login!, :only => [:show, :getting_started]
-  before_filter :check_subscription, :only => [:show, :getting_started]
-  before_filter :get_pod, :except => [:index, :getting_started]
+  before_filter :check_subscription, :only => [:show, :getting_started, :this_month]
+  before_filter :get_pod, :except => [:index, :getting_started, :this_month]
   
   def index
     @body_class = 'homepage'
@@ -21,20 +21,25 @@ class PodsController < ApplicationController
   def getting_started
   end
 
+  def this_month
+    if user_signed_in?
+      if current_user.recently_signed_up?
+        redirect_to page_path("preview")  
+      else
+        redirect_to pod_path(Pod.where(month: Date.today.beginning_of_month).first)
+        #current_user.last_shipped_pod)
+      end
+    elsif admin_signed_in?
+      redirect_to pod_path(Pod.currently_shipping)
+    else
+      redirect_to pods_path
+    end
+  end
+    
   private
 
   def get_pod
-    case params[:id]
-    when 'this-month'
-      if current_user && current_user.recently_signed_up?
-        redirect_to page_path("preview")
-      end
-      @pod = Pod.where(month: Date.today.beginning_of_month).first
-    when 'preview'
-      @pod = Pod.where(month: (Date.today - 3.months).beginning_of_month).first
-    else
-      @pod = Pod.find_by_date(params[:id])
-    end
+    @pod = Pod.find_by_date(params[:id])
     raise ActiveRecord::RecordNotFound if @pod.nil?
   end
 
