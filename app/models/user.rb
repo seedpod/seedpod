@@ -36,6 +36,10 @@ class User < ActiveRecord::Base
     shipments.where(pod: pod, shipped: true).first.present?
   end
   
+  def last_shipped_pod
+    shipments.where(shipped: true).order(:created_at).last.try(:pod)
+  end
+  
   def recently_signed_up?
     subscribed? && subscriptions.active.awaiting_first_payment?
   end

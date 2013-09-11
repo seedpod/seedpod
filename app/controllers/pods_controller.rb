@@ -23,11 +23,10 @@ class PodsController < ApplicationController
 
   def this_month
     if user_signed_in?
-      if current_user.recently_signed_up?
-        redirect_to page_path("preview")  
+      if current_user.recently_signed_up? || current_user.last_shipped_pod.nil?
+        redirect_to getting_started_pods_path
       else
-        redirect_to pod_path(Pod.where(month: Date.today.beginning_of_month).first)
-        #current_user.last_shipped_pod)
+        redirect_to pod_path(current_user.last_shipped_pod)
       end
     elsif admin_signed_in?
       redirect_to pod_path(Pod.currently_shipping)

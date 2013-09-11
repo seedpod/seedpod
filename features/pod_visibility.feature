@@ -12,7 +12,7 @@ Background:
 
 Scenario: New users see a getting started page
   When I visit the current pod
-  Then I should see the preview page
+  Then I should see the getting started page
 
 Scenario: Users who have received for the current pod can see it
   Given I have paid for the current pod
@@ -41,8 +41,16 @@ Scenario: Shipped future pods are visible
   When I visit the next pod
   Then I should see content for the next pod
 
-Scenario: Unshipped pods are not yet visible
+Scenario: Unshipped pods are not yet visible - view last pod instead
+  Given I have paid for the previous pod
+  And the previous pod was shipped to me
+  And I have paid for the current pod  
+  But the current pod has not been shipped to me
+  When I visit the current pod
+  Then I should see content for the previous pod
+
+Scenario: Unshipped pods are not yet visible - view getting started if no previous
   Given I have paid for the current pod
   But the current pod has not been shipped to me
   When I visit the current pod
-  Then I should be redirected to the homepage
+  Then I should see the getting started page
