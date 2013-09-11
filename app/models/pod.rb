@@ -14,8 +14,8 @@ class Pod < ActiveRecord::Base
     month.strftime("%Y-%m")
   end
   
-  def self.next_to_ship
-    Pod.where(month: (Date.today + 1.month).beginning_of_month).first
+  def self.accepting_payments
+    Pod.where(month: (Date.today + 10.days).beginning_of_month).first
   end
   
   def self.currently_shipping
