@@ -25,14 +25,14 @@ group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'
   gem 'cucumber-rails', require: false
-  gem 'cucumber', '1.3.5'
-  gem 'database_cleaner', '<= 1.0.1'
+  gem 'cucumber'
+  gem 'database_cleaner', '< 1.1.0' # pinned awaiting fix for https://github.com/bmabey/database_cleaner/issues/224
   gem 'vcr'
   gem 'webmock'
   gem 'launchy'
   gem 'coveralls'
   gem 'travis'
-  gem 'poltergeist', github: 'jonleighton/poltergeist'
+  gem 'poltergeist'
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'capybara-mechanize'
@@ -50,7 +50,7 @@ end
 gem 'jquery-rails'
 gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
 gem 'gocardless'
-gem 'devise', '>= 3.1.0.rc2', '< 4.0.0'
+gem 'devise', '~> 3.1.0'
 gem 'rails_admin', github: 'davebrace/rails_admin', branch: 'use-static-bootstrap-2'
 gem "high_voltage"
 
