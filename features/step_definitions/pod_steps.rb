@@ -11,7 +11,7 @@ Given(/^there is a pod for last month$/) do
 end
 
 When(/^I visit the current pod$/) do
-  visit '/pods/this-month'
+  visit '/pods/this_month'
 end
 
 Then(/^I should see content for the current pod$/) do
@@ -40,8 +40,8 @@ Then(/^I should be redirected to the homepage$/) do
   }
 end
 
-Then(/^next month's pod should be paid for$/) do
-  @user.paid_for?(@next_pod).should be_true
+Then(/^this month's pod should be paid for$/) do
+  @user.paid_for?(@current_pod).should be_true
 end
 
 Then(/^I should see the getting started page$/) do

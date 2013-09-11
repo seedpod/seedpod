@@ -9,22 +9,37 @@ Background:
   And there is a pod for the current month
   And there is a pod for next month
 
-Scenario: Gocardless tells us the first payment has been created
+@timecop
+Scenario: Gocardless tells us the first payment has been created (mid month)
   Given I have not yet paid for any pods
+  And it is 11 days before the end of the month
   When GoCardless sends a bill created notification
   Then my payment should be recorded as pending
+  And my payment should be marked for this month's pod
   And I should receive a welcome email
 
-Scenario: Gocardless tells us a subsequent payment has been created
-  Given I have paid for the current pod
+@timecop
+Scenario: Gocardless tells us the first payment has been created (late month)
+  Given I have not yet paid for any pods
+  And it is 9 days before the end of the month
   When GoCardless sends a bill created notification
   Then my payment should be recorded as pending
+  And my payment should be marked for next month's pod
+  And I should receive a welcome email
+
+@timecop
+Scenario: Gocardless tells us a subsequent payment has been created
+  Given I have paid for the current pod
+  And it is 9 days before the end of the month
+  When GoCardless sends a bill created notification
+  Then my payment should be recorded as pending
+  And my payment should be marked for next month's pod
   And I should not receive a welcome email
 
 Scenario: Gocardless tells us a bill has been paid
   When GoCardless sends a bill paid notification
   Then my payment should be recorded
-  And next month's pod should be paid for
+  And this month's pod should be paid for
   
 Scenario: Gocardless tells us a payment has failed
   When GoCardless sends a bill failed notification

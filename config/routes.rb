@@ -13,6 +13,8 @@ Seedpod::Application.routes.draw do
   
   resources :pods do 
     get :getting_started, on: :collection
+    get :preview, on: :collection
+    get :this_month, on: :collection
     resources :shipments
   end
   

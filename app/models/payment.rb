@@ -7,7 +7,12 @@ class Payment < ActiveRecord::Base
 
   def paid!(amount, time)
     update_attributes!(amount: amount, transacted_at: time, state: "paid")
-    allocate_to_pod!
+    # Set pod to the current one if not set already
+    update_attributes!(pod: Pod.currently_shipping) if pod.nil?
+    # Create shipment record
+    unless subscription.user.shipment_for(pod)
+      Shipment.create(user: subscription.user, pod: pod)
+    end
   end
 
   def failed!(time)
@@ -20,17 +25,12 @@ class Payment < ActiveRecord::Base
 
   def pending!
     update_attributes!(state: "pending")
+    # Set pod if not set already
+    update_attributes!(pod: Pod.accepting_payments) if pod.nil?
   end
 
   def retried!
     update_attributes!(state: "retrying")
-  end
-
-  def allocate_to_pod!
-    # If there is no pod set for this payment, allocate it to the next one
-    if pod.nil?
-      update_attributes!(pod: Pod.next_to_ship)
-    end
   end
 
 end

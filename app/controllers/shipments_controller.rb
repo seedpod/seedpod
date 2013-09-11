@@ -4,9 +4,6 @@ class ShipmentsController < ApplicationController
 
 
   def index
-    # Update all the shipments
-    @pod.generate_shipments!
-    # Now load them and display
     @shipments = @pod.shipments
     unless params[:all].present?
       @shipments = @shipments.where(:shipped => false)
@@ -15,10 +12,7 @@ class ShipmentsController < ApplicationController
 
   def update
     @shipment = @pod.shipments.find(params[:id])
-    @shipment.shipped = true
-    @shipment.save!
-    # Tell the user!
-    Notifications.shipped(@shipment.user).deliver
+    @shipment.ship!
   end
 
   private

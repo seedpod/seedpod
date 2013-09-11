@@ -21,33 +21,36 @@ Given(/^I have made a payment which failed$/) do
 end
 
 Then(/^the payment should be marked as refunded$/) do
-  payment = @subscription.payments.last
-  payment.gocardless_id.should == 'XYZ987'
-  payment.state.should         == "refunded"
+  @payment = @subscription.payments.last
+  @payment.gocardless_id.should == 'XYZ987'
+  @payment.state.should         == "refunded"
 end
 
 Then(/^my payment should be recorded as pending$/) do
-  payment = @subscription.payments.last
-  payment.gocardless_id.should == 'XYZ987'
-  payment.state.should         == "pending"
+  @payment = @subscription.payments.last
+  @payment.gocardless_id.should == 'XYZ987'
+  @payment.state.should         == "pending"
 end
 
 Then(/^my payment should be recorded as retrying$/) do
-  payment = @subscription.payments.last
-  payment.gocardless_id.should == 'XYZ987'
-  payment.state.should         == "retrying"
+  @payment = @subscription.payments.last
+  @payment.gocardless_id.should == 'XYZ987'
+  @payment.state.should         == "retrying"
 end
 
 Given(/^I have paid for the current pod$/) do
-  FactoryGirl.create :payment, subscription: @subscription, state:"paid", pod: @current_pod
+  payment = FactoryGirl.create :payment, subscription: @subscription, state:"pending", pod: @current_pod
+  payment.paid!(6, 1.month.ago)
 end
 
 Given(/^I have paid for the previous pod$/) do
-  FactoryGirl.create :payment, subscription: @subscription, state:"paid", pod: @previous_pod
+  payment = FactoryGirl.create :payment, subscription: @subscription, state:"pending", pod: @previous_pod
+  payment.paid!(6, Date.today)
 end
 
 Given(/^I have paid for the next pod$/) do
-  FactoryGirl.create :payment, subscription: @subscription, state:"paid", pod: @next_pod
+  payment = FactoryGirl.create :payment, subscription: @subscription, state:"pending", pod: @next_pod
+  payment.paid!(6, Date.today)
 end
 
 Given(/^that user has paid for the next pod$/) do
@@ -73,4 +76,12 @@ Then(/^I should not receive a welcome email$/) do
   steps %{
     Then I should have no emails
   }
+end
+
+Then(/^my payment should be marked for this month's pod$/) do
+  @payment.pod.should == @current_pod
+end
+
+Then(/^my payment should be marked for next month's pod$/) do
+  @payment.pod.should == @next_pod
 end
