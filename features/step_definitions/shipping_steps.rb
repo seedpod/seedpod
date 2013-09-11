@@ -20,3 +20,19 @@ Then(/^the user should get a shipped email$/) do
     And they should see "Hi #{@user.name}," in the email body
   }
 end
+
+Given(/^the current pod has been shipped to me$/) do
+  FactoryGirl.create(:completed_shipment, user: @user, pod: @current_pod)
+end
+
+Given(/^the previous pod was shipped to me$/) do
+  FactoryGirl.create(:completed_shipment, user: @user, pod: @previous_pod)
+end
+
+Given(/^the next pod has been shipped to me$/) do
+  FactoryGirl.create(:completed_shipment, user: @user, pod: @next_pod)
+end
+
+Given(/^the current pod has not been shipped to me$/) do
+  FactoryGirl.create(:pending_shipment, user: @user, pod: @current_pod)
+end
