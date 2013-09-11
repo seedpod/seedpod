@@ -48,7 +48,7 @@ group :production do
 end
 
 gem 'jquery-rails'
-gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass', branch: '3'
+gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
 gem 'gocardless'
 gem 'devise', '>= 3.1.0.rc2', '< 4.0.0'
 gem 'rails_admin', github: 'davebrace/rails_admin', branch: 'use-static-bootstrap-2'
