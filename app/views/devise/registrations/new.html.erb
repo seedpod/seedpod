@@ -3,7 +3,7 @@
 </h1>
 <div class=aboutUs>
 	<p>
-	<div class=progressBar>
+	<div class="hidden-xs progressBar">
 		Subscribe <i class="icon-long-arrow-right"></i> <span class="progressHighlight">Account Details</span> <i class="icon-long-arrow-right"></i> GoCardless Payment Page <i class="icon-long-arrow-right"></i> Confirmation
 	</div>
 	</p>
@@ -18,7 +18,7 @@
 	  <div class="col-md-6">
 	<fieldset>
 
-		<h3><%= t :account_details %></h3>
+		<h3 class='hidden-xs'><%= t :account_details %></h3>
 
 	  <div class='form-group'>
 			<%= f.label :email, :class => 'col-lg-4 control-label' %>
@@ -80,7 +80,10 @@
 </div>
 </p>
   <div class='form-group'>
-	  <div class='col-lg-12'>
+	  <div class='visible-xs col-lg-12'>
+			<%= f.submit "Proceed to payment", class: 'btn btn-primary btn-block btn-lg' %>
+		</div>
+	  <div class='hidden-xs col-lg-12'>
 			<%= f.submit "Proceed to secure GoCardless payment page", class: 'btn btn-primary btn-block btn-lg' %>
 		</div>
 	</div>

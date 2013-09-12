@@ -1,0 +1,80 @@
+body.homepage {
+  background-image: asset-url('cabbage.jpg');
+  background-position: center;
+  background-size: cover;
+  color: white;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(100%, rgba(0, 0, 0, 0.5)), color-stop(0%, rgba(0, 0, 0, 0.5))), asset-url('cabbage.jpg'); /* Chrome,Safari4+ */
+  background-image: -webkit-linear-gradient(bottom, transparent, rgba(0,0,0,0.5)), asset-url('cabbage.jpg'); /* Chrome10+,Safari5.1+ */
+  background-image:    -moz-linear-gradient(bottom, transparent, rgba(0,0,0,0.5)), asset-url('cabbage.jpg'); /* FF3.6+ */
+  background-image:     -ms-linear-gradient(bottom, transparent, rgba(0,0,0,0.5)), asset-url('cabbage.jpg'); /* IE10+ */
+  background-image:      -o-linear-gradient(bottom, transparent, rgba(0,0,0,0.5)), asset-url('cabbage.jpg'); /* Opera 11.10+ */
+  background-image:         linear-gradient(to top, rgba(0,0,0,0.5)), asset-url('cabbage.jpg'); /* W3C */
+
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-attachment: fixed;
+
+  #myCarousel {
+    
+    padding-bottom: 40px;
+    
+    .carousel-indicators {
+      bottom: 10px;
+    }
+    
+    .carousel-inner{
+    	line-height:40px;
+    	text-align:center;
+    	font-weight:100;
+    }
+
+  }
+  
+  .carousel-control {
+    background: none;
+    left: auto;
+    right: auto;
+  }
+  
+  #logo {
+    padding-top: 75px;
+  }
+  
+  .navbar {
+    
+    background-color: rgba(255,255,255,0.8);	
+
+    a, .navbar-toggle {
+    	color: #503e2b;
+    }
+    
+  }
+  
+  .social {
+    .icon-twitter{
+    	color: #503e2b;
+    }
+    .icon-facebook{
+    	color: #503e2b;
+    }
+    .icon-envelope{
+    	color: #503e2b;
+    }
+    .icon-cog{
+    	color: #503e2b;
+    }
+    .icon-signout{
+  	color: #503e2b;
+    }
+    .icon-circle{
+    	color:#ffffff;
+    }
+  }
+
+  .tagline{
+  	text-align:center;
+  	color:white;
+  	font-weight:100;
+  }
+
+}

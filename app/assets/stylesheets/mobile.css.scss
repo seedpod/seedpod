@@ -1,0 +1,77 @@
+@media only screen and (max-width: 768px) {
+
+  .hugeTitle{
+    font-size:50px;
+  }
+  .tagline {
+  	font-size: 30px;
+  	padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .social {
+    font-size: 10px;
+  }
+
+  .miniTitle{
+  	font-size:30px;
+  	padding:10px;
+  }
+
+  .words {
+    font-size: 20px;
+    line-height: 20px;
+  }
+
+  .carousel-control-container.left {
+    padding-left: 5px;
+    padding-right: 0px;
+  }
+  
+  .carousel-control-container.right {
+    padding-left: 0px;
+    padding-right: 5px;
+  }
+
+  #myCarousel {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .carousel-control {
+    padding-top: 10px;
+  }
+  
+  .icon-3x {
+    font-size: 1.6em !important;
+  }
+
+  .navbar {
+    min-height: 10px;
+  }
+
+  .nav-element {
+    padding-top: 10px !important;
+    padding-bottom: 10px;
+  }
+
+  .navbar-header {
+    padding-top: 5px;
+    padding-bottom: 0px;
+  }
+  
+  .navbar-logo {
+    padding-top: 0px !important;
+  }
+
+  .navbar-logo img {
+    height: 40px !important;
+  }
+  
+  .navbar-toggle {
+    float: none;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-right: 0px;
+  }
+
+}
