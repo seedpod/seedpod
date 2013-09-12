@@ -1,0 +1,177 @@
+input:focus{
+	outline-color: #902A5E;
+};
+
+footer {
+  border-top: 1px solid black;
+}
+
+html {
+  min-height: 100%;
+}
+
+body { 
+  min-height: 100%;
+  padding-bottom: 100px; /* Pad bottom of body to avoid navbar */
+}
+
+.image { 
+  a {
+	  display:none;
+  }
+  a:hover {
+	  display:block;
+  }
+}
+
+.navbar {
+  
+  min-height: 100px;
+  opacity: 0.9;
+  background-color: #78A22F;
+	font-size: 21px;
+	text-transform:uppercase;
+	text-align:center;
+
+  a, .navbar-toggle {
+    min-width: 100px;
+    color: #ffffff;
+    text-shadow:none;
+    text-decoration: none;
+  }
+
+  a:hover, a:focus {
+    background-color: transparent;
+  }
+  
+  .navbar-logo {
+    padding-top: 10px;
+    img {
+    	height:80px;    
+    }
+  }
+
+  div {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  div.nav-element {
+    padding-top: 35px;
+  }
+
+}
+
+.icon-long-arrow-right{
+	padding: 10px;
+}
+
+.centered{
+	text-align: center
+}
+
+.brand img{
+	height:30px;
+	/*vertical-align:top;*/
+	
+}
+
+.hugeTitle{
+	text-align:center;
+	color: #78A22F;
+}
+
+.space{
+	word-spacing:3em;
+}
+
+.aboutUs{
+	color:#503e2b;
+	font-size:20px;
+	text-align:justify;
+	line-height:30px;
+	padding:10px;
+  
+  .img-responsive {
+    margin: 0 auto;
+  }
+  
+}
+.aboutColumns{
+	padding-top:20px;
+	padding-bottom:50px;
+}
+
+.miniAboutTitle{
+	font-size:40px;
+	text-align:center;
+	padding:20px;
+}
+
+.intros{
+	font-size: 25px;
+}
+.icon-li{
+	padding-right:20px;
+}
+
+.faq{
+	color:#503e2b;
+	font-size:17px;
+	text-align:justify;
+	line-height:25px;
+	padding-top:30px;
+}
+
+.accordion-toggle{
+	font-size:25px;
+	font-weight:100;
+	color:#503e2b;
+}
+
+.social{
+	padding: 10px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  
+  a:hover {
+    text-decoration: none;
+  }
+
+  .icon-twitter{
+  	color: #ffffff;
+  }
+  .icon-facebook{
+  	color: #ffffff;
+  }
+  .icon-envelope{
+  	color: #ffffff;
+  }
+  .icon-cog{
+  	color: #ffffff;
+  }
+  .icon-signout{
+  	color: #ffffff;
+  }
+  .icon-circle{
+  	color: #503e2b;
+  }
+  
+}
+
+.boxes{
+	border: 5px solid #78A22F;
+	
+	padding: 10px;
+	margin-top: 20px;
+}
+
+.progressBar{
+	color: #78A22F;
+	font-size: 30px;
+	text-align:center;
+}
+.progressHighlight{
+	color: #902A5E;
+}
