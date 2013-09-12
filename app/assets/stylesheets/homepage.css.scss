@@ -22,11 +22,13 @@ body.homepage {
       bottom: 10px;
     }
     
-    .carousel-control {
-      background: none;
-      padding-top: 100px;
-    }
-    
+  }
+  
+  .carousel-control {
+    background: none;
+    left: auto;
+    right: auto;
+    padding-top: 100px;
   }
   
   #logo {
