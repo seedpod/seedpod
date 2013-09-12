@@ -25,7 +25,7 @@ class Subscription < ActiveRecord::Base
     payment = payments.find_or_create_by(gocardless_id: payment_id)
     # Check status and mark payment appropriately
     case state
-    when 'created'
+    when 'created', 'pending'
       payment.pending!
     when 'paid'
       payment.paid! amount, transacted_at
