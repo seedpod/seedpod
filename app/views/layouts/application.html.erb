@@ -13,34 +13,43 @@
 </head>
 <body class='<%= @body_class %>'>
 
-  <nav class="navbar navbar-fixed-bottom hidden-xs" role="navigation">
-    <div class='col-sm-5'>
-    	<% if signed_in? %>
-        <div class='nav-element col-sm-7'>
-          <%= link_to "Get Ready", getting_started_pods_path %>
-        </div>
-        <div class='nav-element col-sm-5'>
-          <a href="/pods/this_month">This Month</a>
-        </div>
-    	<% else %>
-        <div class='nav-element col-sm-7'>
-          <%= link_to "Get Growing", new_user_session_path %>
-        </div>
-        <div class='nav-element col-sm-5'>
-          <%=link_to "This Month", page_path("preview")%>
-        </div>
-      <% end %>
+  <nav class="navbar navbar-fixed-bottom" role="navigation">
+    <div class="navbar-header visible-xs">
+      <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-collapse-top"></span>
+      </button>
     </div>
-    <div class='col-sm-2 navbar-logo hidden-xs'>
-      <%= link_to image_tag(@body_class == 'homepage' ? "icon-hdpi.png" : "icon-white.png"), root_url %>
-    </div>      
-    <div class='col-sm-5'>
-      <div class='nav-element col-sm-5'>
-        <%= link_to "About Us", page_path("about") %>
+      
+    <div class="collapse navbar-collapse">
+      <div class='col-sm-5'>
+      	<% if signed_in? %>
+          <div class='nav-element col-sm-7'>
+            <%= link_to "Get Ready", getting_started_pods_path %>
+          </div>
+          <div class='nav-element col-sm-5'>
+            <a href="/pods/this_month">This Month</a>
+          </div>
+      	<% else %>
+          <div class='nav-element col-sm-7'>
+            <%= link_to "Get Growing", new_user_session_path %>
+          </div>
+          <div class='nav-element col-sm-5'>
+            <%=link_to "This Month", page_path("preview")%>
+          </div>
+        <% end %>
       </div>
-      <div class='nav-element col-sm-7'>
-        <%= link_to "Any Questions?", page_path("faq") %>
-      </div>	  
+      <div class='col-sm-2 navbar-logo hidden-xs'>
+        <%= link_to image_tag(@body_class == 'homepage' ? "icon-hdpi.png" : "icon-white.png"), root_url %>
+      </div>      
+      <div class='col-sm-5'>
+        <div class='nav-element col-sm-5'>
+          <%= link_to "About Us", page_path("about") %>
+        </div>
+        <div class='nav-element col-sm-7'>
+          <%= link_to "Any Questions?", page_path("faq") %>
+        </div>	  
+      </div>
     </div>
   </nav>
     

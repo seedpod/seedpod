@@ -45,9 +45,33 @@
     font-size: 1.6em !important;
   }
 
+  .navbar {
+    min-height: 10px;
+  }
+
   .nav-element {
     padding-top: 10px !important;
     padding-bottom: 10px;
+  }
+
+  .navbar-header {
+    padding-top: 5px;
+    padding-bottom: 0px;
+  }
+  
+  .navbar-logo {
+    padding-top: 0px !important;
+  }
+
+  .navbar-logo img {
+    height: 40px !important;
+  }
+  
+  .navbar-toggle {
+    float: none;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-right: 0px;
   }
 
 }
