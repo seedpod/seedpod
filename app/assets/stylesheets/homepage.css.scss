@@ -22,13 +22,18 @@ body.homepage {
       bottom: 10px;
     }
     
+    .carousel-inner{
+    	line-height:40px;
+    	text-align:center;
+    	font-weight:100;
+    }
+
   }
   
   .carousel-control {
     background: none;
     left: auto;
     right: auto;
-    padding-top: 100px;
   }
   
   #logo {
