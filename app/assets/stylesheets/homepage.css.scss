@@ -37,21 +37,10 @@ body.homepage {
     
     background-color: rgba(255,255,255,0.8);	
 
-    .nav >li >a{
-    	color:#503e2b !important;
+    a {
+    	color: #503e2b;
     }
   
-    li.navbar-logo img {
-      width: 80px;
-    }
-  
-    .navbar-inner{
-  	background-color: #000;		 
-  	background-image: none;
-  	  background-repeat: no-repeat;
-  	  filter: none; 
-    }
-
   }
   
   .social {

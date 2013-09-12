@@ -14,22 +14,33 @@
 <body class='<%= @body_class %>'>
 
   <nav class="navbar navbar-fixed-bottom" role="navigation">
-    <div class="container">                          
-      <ul class="nav navbar-nav">
-	  
-      	<% if signed_in? %>
-      	  <li><%= link_to "Get Ready", getting_started_pods_path %></li>
-          <li><a href="/pods/this_month">This Month</a></li>
-      	<% else %>
-          <li><%= link_to "Get Growing", new_user_session_path %></li>
-          <li><%=link_to "This Month", page_path("preview")%></li>
-        <% end %>
-	  
-     	  <li class='navbar-logo'><%= link_to image_tag(@body_class == 'homepage' ? "icon-hdpi.png" : "icon-white.png"), root_url %></li>
-      
-		  <li><%= link_to "About Us", page_path("about") %></li>
-          <li><%= link_to "Any Questions?", page_path("faq") %></li>	  
-      </ul>
+    <div class='col-sm-5'>
+    	<% if signed_in? %>
+        <div class='nav-element col-sm-7'>
+          <%= link_to "Get Ready", getting_started_pods_path %>
+        </div>
+        <div class='nav-element col-sm-5'>
+          <a href="/pods/this_month">This Month</a>
+        </div>
+    	<% else %>
+        <div class='nav-element col-sm-7'>
+          <%= link_to "Get Growing", new_user_session_path %>
+        </div>
+        <div class='nav-element col-sm-5'>
+          <%=link_to "This Month", page_path("preview")%>
+        </div>
+      <% end %>
+    </div>
+    <div class='col-sm-2 navbar-logo'>
+      <%= link_to image_tag(@body_class == 'homepage' ? "icon-hdpi.png" : "icon-white.png"), root_url %>
+    </div>      
+    <div class='col-sm-5'>
+      <div class='nav-element col-sm-5'>
+        <%= link_to "About Us", page_path("about") %>
+      </div>
+      <div class='nav-element col-sm-7'>
+        <%= link_to "Any Questions?", page_path("faq") %>
+      </div>	  
     </div>
   </nav>
     

@@ -26,56 +26,38 @@ body {
 
 .navbar {
   
-  height: 100px;
-  padding:24px;
+  min-height: 100px;
   opacity: 0.9;
   background-color: #78A22F;
-	font-size: 18px;
+	font-size: 21px;
 	text-transform:uppercase;
+	text-align:center;
 
-  li {
-  	display:inline;
-  	padding-left:10px;
-  	padding-right:10px;
-  }
-
-  .nav {
-  	text-align:center;
-  }
-
-  .nav, .nav > li {
-    float:none;
-    display:inline-block;
-    *display:inline; /* ie7 fix */
-    *zoom:1; /* hasLayout ie7 trigger */
-    vertical-align: top;    
-  }
-  
-  .nav > li > a {
-
+  a {
     min-width: 100px;
-    color: #ffffff !important;
-    text-shadow:none !important;
+    color: #ffffff;
+    text-shadow:none;
+    text-decoration: none;
   }
 
-  .nav > li > a:hover, .nav > li > a:focus {
+  a:hover, a:focus {
     background-color: transparent;
   }
-
-  .container {
-    text-align:center;  
-  }
-
-  li.navbar-logo {
-    top: -30px;
-  /*  background: #f8f8f8;
-    border-top-left-radius: 100px;
-    border-top-right-radius: 100px;
-    width: 50px;
-  */
+  
+  .navbar-logo {
+    padding-top: 10px;
     img {
     	height:80px;    
     }
+  }
+
+  div {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  div.nav-element {
+    padding-top: 35px;
   }
 
 }
