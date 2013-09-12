@@ -22,12 +22,27 @@
     line-height: 20px;
   }
 
+  .carousel-control-container.left {
+    padding-left: 5px;
+    padding-right: 0px;
+  }
+  
+  .carousel-control-container.right {
+    padding-left: 0px;
+    padding-right: 5px;
+  }
+
+  #myCarousel {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
   .carousel-control {
     padding-top: 10px;
   }
   
   .icon-3x {
-    font-size: 1.8em !important;
+    font-size: 1.6em !important;
   }
 
 }
