@@ -53,6 +53,7 @@ gem 'gocardless'
 gem 'devise', '~> 3.1.0'
 gem 'rails_admin', github: 'davebrace/rails_admin', branch: 'use-static-bootstrap-2'
 gem "high_voltage"
+gem 'rack-google-analytics'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
