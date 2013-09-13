@@ -22,6 +22,9 @@
     </div>
       
     <div class="collapse navbar-collapse">
+      <div class='nav-element col-sm-5 visible-xs'>
+        <%= link_to "Home", root_url %>
+      </div>      
       <div class='col-sm-5'>
       	<% if signed_in? %>
           <div class='nav-element col-sm-7'>
