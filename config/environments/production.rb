@@ -96,5 +96,8 @@ Seedpod::Application.configure do
       :sender_address => %{"podbot" <greetings@getseedpod.com>},
       :exception_recipients => %w{greetings@getseedpod.com james@floppy.org.uk}
     }
+    
+  # Set up analytics
+  config.middleware.use Rack::GoogleAnalytics, :tracker => ENV['GOOGLE_ANALYTICS_TRACKER']
 
 end
