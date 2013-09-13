@@ -128,7 +128,7 @@ When(/^GoCardless sends a bill created notification$/) do
     "action"              => "created",
     "bills"               => [{
       "id"                => "XYZ987",
-      "status"            => "created",
+      "status"            => "pending",
       "source_type"       => "subscription",
       "source_id"         => "ABC123",
       "amount"            => "6.0",
