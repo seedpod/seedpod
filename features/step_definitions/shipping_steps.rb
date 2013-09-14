@@ -4,6 +4,10 @@ end
 
 Then(/^I should see the user in the shipping list$/) do
   page.should have_text(@user.email)
+  page.should have_text(@user.name)
+  page.should have_text(@user.address_street)
+  page.should have_text(@user.address_locality)
+  page.should have_text(@user.address_postcode)
 end
 
 Then(/^the shipment should be marked as shipped$/) do

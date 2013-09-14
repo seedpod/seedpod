@@ -1,5 +1,6 @@
 <tr id='shipment-<%= shipment.id %>'>
   <td><%= shipment.user.email %></td>
+  <td><%= shipment.user.name %></td>
   <td><%= shipment.user.address %></td>
   <td><%= shipment.crops.map{|x| x.name}.join(', ') %></td>
   <td>

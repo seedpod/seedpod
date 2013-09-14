@@ -45,7 +45,7 @@ class User < ActiveRecord::Base
   end
   
   def address
-    [:name, :address_street, :address_locality, :address_region, :address_postcode].compact.join(', ')
+    [name, address_street, address_locality, address_postcode].compact.join(', ')
   end
    
   # We store name as a single string and split for gocardless later on.
