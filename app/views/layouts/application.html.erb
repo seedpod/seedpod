@@ -77,12 +77,12 @@
       <i class="icon-envelope"></i>
     </a>
   </span>
-  <span class='icon-stack icon-2x'>
-    <%= link_to"
-  	  <i class='icon-circle icon-stack-base'></i>
-  	  <i class='icon-cog'></i>".html_safe, edit_user_registration_path, title: 'Account settings', id: 'account-link' %>
-  </span>
   <% if signed_in? %>
+    <span class='icon-stack icon-2x'>
+      <%= link_to"
+    	  <i class='icon-circle icon-stack-base'></i>
+    	  <i class='icon-cog'></i>".html_safe, edit_user_registration_path, title: 'Account settings', id: 'account-link' %>
+    </span>
     <span class='icon-stack icon-2x'>
       <%= link_to"
   	  	<i class='icon-circle icon-stack-base'></i>
@@ -95,6 +95,12 @@
 	      <li><%= link_to 'Shipments', pod_shipments_path(Pod.currently_shipping) %></li>
 	      <li><%= link_to 'Administration', '/administration' %></li>
 	    <% end %>
+		<% else %>
+      <span class='icon-stack icon-2x'>
+        <%= link_to"
+      	  <i class='icon-circle icon-stack-base'></i>
+      	  <i class='icon-signin'></i>".html_safe, new_user_session_path, title: 'Sign in', id: 'signin-link' %>
+      </span>
 		<% end %>
 </div>  
   </ul>
