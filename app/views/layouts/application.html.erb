@@ -89,19 +89,20 @@
   	  	<i class='icon-signout'></i>".html_safe, destroy_user_session_path, method: :delete, title: 'Sign out', :'data-toggle'=>"tooltip", :'data-placement' => 'bottom', :class => 'tooltip-enable' %>
     </span>
         
-	</ul>
-	  <ul class="nav pull-left">
-	    <% if admin_signed_in? %>
+    <% if admin_signed_in? %>
+  	  <ul class="nav pull-left">
 	      <li><%= link_to 'Shipments', pod_shipments_path(Pod.currently_shipping) %></li>
 	      <li><%= link_to 'Administration', '/administration' %></li>
-	    <% end %>
-		<% else %>
-      <span class='icon-stack icon-2x'>
-        <%= link_to"
-      	  <i class='icon-circle icon-stack-base'></i>
-      </span>
-		<% end %>
+      </ul>
+	  <% end %>
+	<% else %>
+    <span class='icon-stack icon-2x'>
+      <%= link_to"
+    	  <i class='icon-circle icon-stack-base'></i>
     	  <i class='icon-signin'></i>".html_safe, new_user_session_path, title: 'Sign in', id: 'signin-link' , :'data-toggle'=>"tooltip", :'data-placement' => 'bottom', :class => 'tooltip-enable' %>
+    </span>
+	<% end %>
+  
   <script>
     $(document).ready(function() {
       $('.tooltip-enable').tooltip();
@@ -109,7 +110,6 @@
   </script>
   
 </div>  
-  </ul>
 		
   <div class='container'>
     
