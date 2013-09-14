@@ -135,28 +135,20 @@ body {
   top: 0px;
   right: 0px;
   
+  a {
+    width: 100%;
+    height: 90%;
+    display: block;
+  }
+  
   a:hover {
     text-decoration: none;
   }
+    
+  .icon-twitter, .icon-facebook, .icon-envelope, .icon-cog, .icon-signout, .icon-signin {
+  	color: #ffffff;
+  }
 
-  .icon-twitter{
-  	color: #ffffff;
-  }
-  .icon-facebook{
-  	color: #ffffff;
-  }
-  .icon-envelope{
-  	color: #ffffff;
-  }
-  .icon-cog{
-  	color: #ffffff;
-  }
-  .icon-signout{
-  	color: #ffffff;
-  }
-  .icon-signin{
-  	color: #ffffff;
-  }
   .icon-circle{
   	color: #503e2b;
   }

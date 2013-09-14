@@ -52,23 +52,9 @@ body.homepage {
   }
   
   .social {
-    .icon-twitter{
-    	color: #503e2b;
-    }
-    .icon-facebook{
-    	color: #503e2b;
-    }
-    .icon-envelope{
-    	color: #503e2b;
-    }
-    .icon-cog{
-    	color: #503e2b;
-    }
-    .icon-signin{
-  	color: #503e2b;
-    }
-    .icon-signout{
-  	color: #503e2b;
+    
+    .icon-twitter, .icon-facebook, .icon-envelope, .icon-cog, .icon-signout, .icon-signin {
+      color: #503e2b;
     }
     .icon-circle{
     	color:#ffffff;
