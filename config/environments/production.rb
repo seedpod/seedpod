@@ -98,6 +98,8 @@ Seedpod::Application.configure do
     }
     
   # Set up analytics
-  config.middleware.use Rack::GoogleAnalytics, :tracker => ENV['GOOGLE_ANALYTICS_TRACKER']
+  if ENV['GOOGLE_ANALYTICS_TRACKER']
+    config.middleware.use Rack::GoogleAnalytics, :tracker => ENV['GOOGLE_ANALYTICS_TRACKER']
+  end
 
 end
