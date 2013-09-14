@@ -81,12 +81,12 @@
     <span class='icon-stack icon-2x'>
       <%= link_to"
     	  <i class='icon-circle icon-stack-base'></i>
-    	  <i class='icon-cog'></i>".html_safe, edit_user_registration_path, title: 'Account settings', id: 'account-link' %>
+    	  <i class='icon-cog'></i>".html_safe, edit_user_registration_path, title: 'Account', id: 'account-link', :'data-toggle'=>"tooltip", :'data-placement' => 'bottom', :class => 'tooltip-enable' %>
     </span>
     <span class='icon-stack icon-2x'>
       <%= link_to"
   	  	<i class='icon-circle icon-stack-base'></i>
-  	  	<i class='icon-signout'></i>".html_safe, destroy_user_session_path, method: :delete, title: 'Sign Out' %>
+  	  	<i class='icon-signout'></i>".html_safe, destroy_user_session_path, method: :delete, title: 'Sign out', :'data-toggle'=>"tooltip", :'data-placement' => 'bottom', :class => 'tooltip-enable' %>
     </span>
         
 	</ul>
@@ -99,9 +99,15 @@
       <span class='icon-stack icon-2x'>
         <%= link_to"
       	  <i class='icon-circle icon-stack-base'></i>
-      	  <i class='icon-signin'></i>".html_safe, new_user_session_path, title: 'Sign in', id: 'signin-link' %>
       </span>
 		<% end %>
+    	  <i class='icon-signin'></i>".html_safe, new_user_session_path, title: 'Sign in', id: 'signin-link' , :'data-toggle'=>"tooltip", :'data-placement' => 'bottom', :class => 'tooltip-enable' %>
+  <script>
+    $(document).ready(function() {
+      $('.tooltip-enable').tooltip();
+    });
+  </script>
+  
 </div>  
   </ul>
 		
