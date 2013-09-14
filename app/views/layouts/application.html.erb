@@ -1,126 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>SeedPod</title>
-  <meta tag="description=" content="Monthly vegetable seed subscription with a guided growing programme">
-  <meta name="google-site-verification" content="BIbbMgXv1dXBxDmKoZ9viuEDEpZvUv5lPx7ZZGOqfOE" />
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-  <%= favicon_link_tag 'icon.png'%>
-  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body class='<%= @body_class %>'>
+  <head>
+    <title>SeedPod</title>
+    <meta tag="description=" content="Monthly vegetable seed subscription with a guided growing programme">
+    <meta name="google-site-verification" content="BIbbMgXv1dXBxDmKoZ9viuEDEpZvUv5lPx7ZZGOqfOE" />
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+    <%= favicon_link_tag 'icon.png'%>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body class='<%= @body_class %>'>
 
-  <nav class="navbar navbar-fixed-bottom" role="navigation">
-    <div class="navbar-header visible-xs">
-      <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-collapse-top"></span>
-      </button>
-    </div>
-      
-    <div class="collapse navbar-collapse">
-      <div class='nav-element col-sm-5 visible-xs'>
-        <%= link_to "Home", root_url %>
-      </div>      
-      <div class='col-sm-5'>
-      	<% if signed_in? %>
-          <div class='nav-element col-sm-7'>
-            <%= link_to "Get Ready", getting_started_pods_path %>
-          </div>
-          <div class='nav-element col-sm-5'>
-            <a href="/pods/this_month">This Month</a>
-          </div>
-      	<% else %>
-          <div class='nav-element col-sm-7'>
-            <%= link_to "Get Growing", new_user_session_path %>
-          </div>
-          <div class='nav-element col-sm-5'>
-            <%=link_to "This Month", page_path("preview")%>
-          </div>
-        <% end %>
-      </div>
-      <div class='col-sm-2 navbar-logo hidden-xs'>
-        <%= link_to image_tag(@body_class == 'homepage' ? "icon-hdpi.png" : "icon-white.png"), root_url %>
-      </div>      
-      <div class='col-sm-5'>
-        <div class='nav-element col-sm-5'>
-          <%= link_to "About Us", page_path("about") %>
-        </div>
-        <div class='nav-element col-sm-7'>
-          <%= link_to "Any Questions?", page_path("faq") %>
-        </div>	  
-      </div>
-    </div>
-  </nav>
+    <%= render partial: 'layouts/main_nav' %>
     
-  <ul class="nav">
-  
-<div class="social">
-  <span class="icon-stack icon-2x">
-    <a href="https://twitter.com/seedpod" title="Go to our Twitter feed" class='hidden-xs'>
-  	  <i class="icon-circle icon-stack-base"></i>
-  	  <i class="icon-twitter"></i>
-    </a>
-  </span>
-  <span class="icon-stack icon-2x">
-    <a href="https://www.facebook.com/getseedpod" title="Go to our Facebook page" class="hidden-xs">
-  	  <i class="icon-circle icon-stack-base"></i>
-  	  <i class="icon-facebook"></i>
-    </a>
-  </span>
-  <span class="icon-stack icon-2x">
-	  <a href="mailto:greetings@getseedpod.com" title="Contact us" class="hidden-xs">
-      <i class="icon-circle icon-stack-base"></i>
-      <i class="icon-envelope"></i>
-    </a>
-  </span>
-  <% if signed_in? %>
-    <span class='icon-stack icon-2x'>
-      <%= link_to"
-    	  <i class='icon-circle icon-stack-base'></i>
-    	  <i class='icon-cog'></i>".html_safe, edit_user_registration_path, title: 'Account', id: 'account-link', :'data-toggle'=>"tooltip", :'data-placement' => 'bottom', :class => 'tooltip-enable' %>
-    </span>
-    <span class='icon-stack icon-2x'>
-      <%= link_to"
-  	  	<i class='icon-circle icon-stack-base'></i>
-  	  	<i class='icon-signout'></i>".html_safe, destroy_user_session_path, method: :delete, title: 'Sign out', :'data-toggle'=>"tooltip", :'data-placement' => 'bottom', :class => 'tooltip-enable' %>
-    </span>
-        
-    <% if admin_signed_in? %>
-  	  <ul class="nav pull-left">
-	      <li><%= link_to 'Shipments', pod_shipments_path(Pod.currently_shipping) %></li>
-	      <li><%= link_to 'Administration', '/administration' %></li>
-      </ul>
-	  <% end %>
-	<% else %>
-    <span class='icon-stack icon-2x'>
-      <%= link_to"
-    	  <i class='icon-circle icon-stack-base'></i>
-    	  <i class='icon-signin'></i>".html_safe, new_user_session_path, title: 'Sign in', id: 'signin-link' , :'data-toggle'=>"tooltip", :'data-placement' => 'bottom', :class => 'tooltip-enable' %>
-    </span>
-	<% end %>
-  
-  <script>
-    $(document).ready(function() {
-      $('.tooltip-enable').tooltip();
-    });
-  </script>
-  
-</div>  
+    <%= render partial: 'layouts/top_nav' %>
 		
-  <div class='container'>
+    <div class='container'>
     
-    <% if notice %><div class="alert alert-info"><%= notice %></div><% end %>
-    <% if alert %><div class="alert alert-error"><%= alert %></div><% end %>
+      <% if notice %><div class="alert alert-info"><%= notice %></div><% end %>
+      <% if alert %><div class="alert alert-error"><%= alert %></div><% end %>
 
-    <%= render 'subscriptions/alert' %>
+      <%= render 'subscriptions/alert' %>
 
-    <%= yield %>
+      <%= yield %>
     
-  </div>
+    </div>
 
-</body>
+  </body>
 </html>
