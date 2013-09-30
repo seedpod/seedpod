@@ -14,10 +14,6 @@ Scenario: Clicking the How it Works link should show me the How it Works page
   And I click the "How it Works" link
   Then I should see the "How it Works" page
 
-Scenario: Viewing a pod should show me the sign in page
-  When I visit the current pod
-  Then I should see the "Get Growing" page
-
 Scenario: Signing up
   When I visit the sign up page
   And I click the "Proceed to secure GoCardless payment page" button
