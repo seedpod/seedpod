@@ -22,7 +22,7 @@ Scenario: Users who have received for the current pod can see it
 
 Scenario: Users cannot see past pods if they haven't received them
   When I visit the previous pod
-  Then I should be redirected to the homepage
+  Then I should be redirected to the sign in page
   
 Scenario: Users can see past pods if they have received them
   Given I have paid for the previous pod
@@ -33,7 +33,7 @@ Scenario: Users can see past pods if they have received them
   
 Scenario: Users cannot see next month's pod
   When I visit the next pod
-  Then I should be redirected to the homepage
+  Then I should be redirected to the sign in page
 
 Scenario: Shipped future pods are visible
   Given I have paid for the next pod

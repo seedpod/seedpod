@@ -22,7 +22,7 @@ end
 
 Then(/^I should see the signed\-in homepage$/) do
   page.should have_selector('.tagline')
-  page.should have_selector('a', text: "Get Ready")
+  page.should have_selector('a', text: "Growing Guidance")
 end
 
 Given(/^it is (\d+) days before the end of the month$/) do |num|

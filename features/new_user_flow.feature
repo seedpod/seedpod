@@ -6,13 +6,13 @@ Feature: New user flow
 Scenario: I can click a button on the homepage to sign up
   When I visit the homepage
   And I click the "Get Growing" link
-  And I click the "Subscribe" link
+  And I click the "S U B S C R I B E" link
   Then I should see the "Account Details" page
 
 Scenario: Viewing a pod should show me the preview page
   When I visit the homepage
-  And I click the "This Month" link
-  Then I should see the "Sneak Peek" page
+  And I click the "How it Works" link
+  Then I should see the "How it Works" page
 
 Scenario: Signing up
   When I visit the sign up page
