@@ -40,12 +40,22 @@ Then(/^I should be redirected to the homepage$/) do
   }
 end
 
+Then(/^I should be redirected to the sign in page$/) do
+  steps %{
+    Then I should see the get growing page
+  }
+end
+
 Then(/^this month's pod should be paid for$/) do
   @user.paid_for?(@current_pod).should be_true
 end
 
 Then(/^I should see the getting started page$/) do
   page.should have_selector('h1', text: 'Get ready...')
+end
+
+Then(/^I should see the get growing page$/) do
+  page.should have_selector('h1', text: 'Get Growing')
 end
 
 Then(/^I should see the preview page$/) do
