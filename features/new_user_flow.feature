@@ -9,10 +9,14 @@ Scenario: I can click a button on the homepage to sign up
   And I click the "S U B S C R I B E" link
   Then I should see the "Account Details" page
 
-Scenario: Viewing a pod should show me the preview page
+Scenario: Clicking the How it Works link should show me the How it Works page
   When I visit the homepage
   And I click the "How it Works" link
   Then I should see the "How it Works" page
+
+Scenario: Viewing a pod should show me the sign in page
+  When I visit the current pod
+  Then I should see the "Get Growing" page
 
 Scenario: Signing up
   When I visit the sign up page
