@@ -3,6 +3,7 @@
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
   <%= devise_error_messages! %>
 
+<div class="row">
 <div class='col-md-6'>
 <fieldset>
 
@@ -38,12 +39,15 @@
 		<%= f.text_field :address_postcode %></div>
 	</fieldset>
 </div>
+</div>
+<div class="row">
 <div class="col-md-12">
 <div><%= f.label :current_password %> <i>(to confirm your changes)</i><br />
   <%= f.password_field :current_password %></div>
   <p>
   <div><%= f.submit "Update", class: "btn btn-default" %></div>
 </p>	
+</div>
 </div>
 		
 <% end %>
