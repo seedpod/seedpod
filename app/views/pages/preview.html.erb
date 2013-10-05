@@ -145,11 +145,13 @@
 </div>
   <div class="col-md-4">
   <p>
-  <div class='form-group'>
-    		<div align="center">
-		  <%= link_to "S U B S C R I B E", new_user_session_path, class: 'btn btn-lg btn-primary btn-block' %>
-	  </div>
-  </div>
+  <% unless signed_in? %>
+    <div class='form-group'>
+    	<div align="center">
+		    <%= link_to "S U B S C R I B E", new_user_session_path, class: 'btn btn-lg btn-primary btn-block' %>
+	    </div>
+    </div>
+  <% end %>
 </p>
 </p>
 </div>
