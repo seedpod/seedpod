@@ -22,4 +22,8 @@ class Pod < ActiveRecord::Base
     Pod.where(month: Date.today.beginning_of_month).first
   end
 
+  def shipped_to?(user)
+    shipments.where(user: user).first.present?
+  end
+  
 end

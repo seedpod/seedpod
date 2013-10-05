@@ -8,4 +8,8 @@ class Instruction < ActiveRecord::Base
     end
   end
   
+  def visible_to?(user)
+    ship == true || crop.shipped_to?(user)
+  end
+  
 end
