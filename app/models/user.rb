@@ -20,6 +20,14 @@ class User < ActiveRecord::Base
   #validates :address_region  , :presence => true
   validates :address_postcode, :presence => true
 
+  rails_admin do
+    edit do
+      configure :confirmation_token do
+        read_only true
+      end
+    end
+  end
+
   def subscribed?
     subscriptions.active.present?
   end
