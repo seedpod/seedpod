@@ -9,6 +9,11 @@ Scenario: Buy a gift code
   And I fill in my email address
   And I click the "Proceed to secure GoCardless payment page" button
   Then I should be sent to gocardless to pay
+
+Scenario: Use button from homepage to buy gift
+  When I visit the home page
+  And I click the gift button
+  Then I should be redirected to the buy a gift page  
   
 Scenario: When I buy a gift code I get redirected to the gift code page
   Given I have payed for a gift subscription on gocardless
