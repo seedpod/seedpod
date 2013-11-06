@@ -10,9 +10,8 @@
 	12-month subscription including a 15% discount: £61.20
 	
 	When you subscribe you will recieve a gift code that you can either forward to your lucky recipient or print out and pop in a card; or, if you prefer, you can enter their email address and we will email the code directly to them on the date you specify. All they will then need to do is sign up and enter the code instead of payment, and they will be rewarded with a fantastic variety of veggie seeds and clear, simple advice on how to make the most of them. Everytime they take a bite, they will think of you! All you need to do is select your gift option, enter your email address (so that we can send you the code) and you will be forwarded on to our secure payment page.
-	
-<!-- Single button -->
-<div class="btn-group">
+
+<div class="giftoption">
   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
     Choose length of gift subsription <span class="caret"></span>
   </button>
@@ -24,11 +23,22 @@
   </ul>
 </div>
 		
+	  <div class='form-group'>
+			<%= f.label :email, :class => 'col-lg-4 control-label' %>
+		  <div class='col-lg-12'>
+				<%= f.email_field :email, :autofocus => true, :required => true %>
+			</div>
+		</div>
+		
 <div class='form-group'>
 <input type="radio" name="giftforward" value="giver">I would like to receive the gift code, and give the gift myself<br>
 <input type="radio" name="giftforward" value="recipient">I would like the gift code to be emailed directly to the recipent
 </div>
 
+<!-->		if they select themselves, then nothing else appears here
+		if they select the recipient, then we need a recipient email address and a date of sending, both compulsory-->
+		
+	
 			
 </div>
 		
