@@ -11,16 +11,34 @@
 	
 	When you subscribe you will recieve a gift code that you can either forward to your lucky recipient or print out and pop in a card; or, if you prefer, you can enter their email address and we will email the code directly to them on the date you specify. All they will then need to do is sign up and enter the code instead of payment, and they will be rewarded with a fantastic variety of veggie seeds and clear, simple advice on how to make the most of them. Everytime they take a bite, they will think of you! All you need to do is select your gift option, enter your email address (so that we can send you the code) and you will be forwarded on to our secure payment page.
 	
-	<!--drop down menu to select gifting option>
-		email address-->
+<!-- Single button -->
+<div class="btn-group">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    Choose length of gift subsription <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu">
+    <li><a href="#">3 Months - £18.00</a></li>
+    <li><a href="#">6 Months - £34.20</a></li>
+    <li><a href="#">9 Months - £48.60</a></li>
+    <li><a href="#">12 Months - £61.20</a></li>
+  </ul>
+</div>
 		
-		<!--should we email the gift code to you or to the recipient?>
-			if they select themselves, then nothing else appears here
-			if they select the recipient, then we need a recipient email address and a date of sending, both compulsory-->
-			
-			<!-- goCardless button, which auto fills price from drop down and gifter email address-->
+<div class='form-group'>
+<input type="radio" name="giftforward" value="giver">I would like to receive the gift code, and give the gift myself<br>
+<input type="radio" name="giftforward" value="recipient">I would like the gift code to be emailed directly to the recipent
+</div>
+
 			
 </div>
 		
+<div class='form-group'>
+  <div class='visible-xs col-lg-12'>
+		<%= f.submit "Proceed to payment", class: 'btn btn-primary btn-block btn-lg' %>
+	</div>
+  <div class='hidden-xs col-lg-12'>
+		<%= f.submit "Proceed to secure GoCardless payment page", class: 'btn btn-primary btn-block btn-lg' %>
+	</div>
+</div>
 	
 	
