@@ -27,7 +27,8 @@ Scenario: When I have selected to get the gift code myself I should see the gift
   
 Scenario: When I have selected the recipient to get the gift code I cannot see it  
   Given I have been redirected to the gift code page
-  And I have selected the recipient to receive the gift code 
+  And I have selected the recipient to receive the gift code
+  And I have entered the date for the code to be sent 
   Then I should see no gift code
   And I should recieve an email reciept
   And the recipient should recieve the gift code
