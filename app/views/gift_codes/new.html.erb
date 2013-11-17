@@ -1,0 +1,75 @@
+<h1 class="Gift Subscriptions">
+</h1>
+
+<div class="aboutUs">
+	
+	<p>
+		Know someone who would love to grow their own, but has never managed to get started? Or a keen gardener who wants to take the hassle out of buying seeds? Perhaps you're looking for an original gift that's fun and great for the environment? We think our monthly vegetable seed subscriptions make perfect gifts for loads of special occasions. We offer a range of gifting options, and most of them include a discount when compared to our £6.00 month-by-month subscription. The more you spend, the more you can save! Here are the options:
+	</p>
+  	
+	<ul>
+	<li>3-month subscription: £18.00</li>
+	<li>6-month subscription including a <strong>5% discount</strong>: £34.20</li>
+	<li>9-month subscription including a <strong>10% discount</strong>: £48.60</li>
+	<li>12-month subscription including a <strong>15% discount</strong>: £61.20</li>
+	</ul>
+	
+	<p>
+	When you subscribe you will recieve a gift code that you can either forward to your lucky recipient or print out and pop in a card. If you prefer, you can let us know their email address and we will send the code directly to them on your preferred date. All they need to do is create their own account, and enter the gift code. They will then be rewarded with a fantastic variety of veggie seeds as well as receiving clear, simple advice on how to get the most from them. Everytime they take a bite from a homegrown vegetable, they will think of you! All you need to do is select your gift option, enter some details, and you will be forwarded on to our secure payment page.
+</p>
+
+<div class="giftoption">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    Choose length of gift subsription <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu">
+    <li><a href="#">3 Months - £18.00</a></li>
+    <li><a href="#">6 Months - £34.20</a></li>
+    <li><a href="#">9 Months - £48.60</a></li>
+    <li><a href="#">12 Months - £61.20</a></li>
+  </ul>
+</div>
+		
+<div class='form-group'>
+	<%= f.label :name, :class => 'col-lg-4 control-label' %>
+  <div class='col-lg-12'>
+		<%= f.text_field :name, :required => true %>
+	</div>
+</div>
+		
+	  <div class='form-group'>
+			<%= f.label :email, :class => 'col-lg-4 control-label' %>
+		  <div class='col-lg-12'>
+				<%= f.email_field :email, :autofocus => true, :required => true %>
+			</div>
+		</div>
+		
+<div class='form-group'>
+<input type="radio" name="giftforward" value="giver">I would like to receive the gift code, and give the gift myself<br>
+<input type="radio" name="giftforward" value="recipient">I would like the gift code to be emailed directly to the recipent
+</div>
+
+<!-->		if they select themselves, then nothing else appears here
+		if they select the recipient, then we need a recipient name and email address and a date of sending, both compulsory-->
+		
+	
+			
+</div>
+		
+<div class='form-group'>
+	<%= f.label :name, :class => 'col-lg-4 control-label' %>
+  <div class='col-lg-12'>
+		<%= f.text_field :name, :required => true %>
+	</div>
+</div>
+		
+<div class='form-group'>
+  <div class='visible-xs col-lg-12'>
+		<%= f.submit "Proceed to payment", class: 'btn btn-primary btn-block btn-lg' %>
+	</div>
+  <div class='hidden-xs col-lg-12'>
+		<%= f.submit "Proceed to secure GoCardless payment page", class: 'btn btn-primary btn-block btn-lg' %>
+	</div>
+</div>
+	
+	

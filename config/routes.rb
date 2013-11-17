@@ -18,6 +18,8 @@ Seedpod::Application.routes.draw do
     resources :shipments
   end
   
+  resources :gift_codes
+
   post "/webhooks/gocardless" => "subscriptions#gocardless_webhook", as: 'gocardless_webhook'
   
   root to: "pods#index"
