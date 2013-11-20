@@ -8,6 +8,7 @@ gem 'rails', '~> 4.0.0'
 gem 'dotenv'
 gem 'exception_notification'
 gem 'kramdown'
+gem 'activemerchant'
 
 # Gems used only for assets and not required
 # in production environments by default.
