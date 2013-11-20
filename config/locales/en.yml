@@ -20,4 +20,5 @@ en:
       subject: Your SeedPod is on its way!
     welcome:
       subject: Welcome to SeedPod!
-        
+  send_gift_code_to_purchaser:  "I would like to receive the gift code, and give the gift myself"
+  send_gift_code_to_recipient:  "I would like the gift code to be emailed directly to the recipent"

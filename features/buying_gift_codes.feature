@@ -2,13 +2,25 @@ Feature: Buying gift codes
   In order to be able to give seedpod as a gift
   As a member of the public
   I want to be able to buy a gift code
-  
-Scenario: Buy a gift code
+
+Scenario: Buy a gift code and get it myself
   When I visit the gift code purchase page
   And I select a gifting option
   And I enter my details as the purchaser
+  And I select to receive the code myself
   And I click the "Proceed to secure GoCardless payment page" button
-  Then I should be sent to gocardless to pay
+  Then the gift code object should be created correctly in the database
+  And I should be sent to gocardless to pay
+
+Scenario: Buy a gift code and send directly
+  When I visit the gift code purchase page
+  And I select a gifting option
+  And I enter my details as the purchaser
+  And I select to send the code directly to the recipient
+  And I enter their details as the recipient
+  And I click the "Proceed to secure GoCardless payment page" button
+  Then the gift code object should be created correctly in the database
+  And I should be sent to gocardless to pay
 
 Scenario: Use button from homepage to buy gift
   When I visit the home page
