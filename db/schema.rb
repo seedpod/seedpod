@@ -35,6 +35,10 @@ ActiveRecord::Schema.define(version: 20131111170253) do
     t.datetime "claimed_at"
     t.integer  "months"
     t.integer  "user_id"
+    t.string   "purchaser_name"
+    t.string   "purchaser_email"
+    t.string   "recipient_name"
+    t.string   "recipient_email"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

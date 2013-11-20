@@ -5,7 +5,10 @@ class CreateGiftCodes < ActiveRecord::Migration
       t.datetime :claimed_at
       t.integer :months
       t.references :user, index: true
-
+      t.string :purchaser_name
+      t.string :purchaser_email
+      t.string :recipient_name
+      t.string :recipient_email
       t.timestamps
     end
   end
