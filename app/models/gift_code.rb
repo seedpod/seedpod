@@ -15,4 +15,17 @@ class GiftCode < ActiveRecord::Base
   	end
   end
 
+  def price
+    GiftCode.prices[months]
+  end
+  
+  def self.prices
+    {
+      3  => 18.00,
+      6  => 34.20,
+      9  => 48.60,
+      12 => 61.20,
+    }
+  end
+
 end
