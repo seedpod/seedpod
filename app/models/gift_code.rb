@@ -15,6 +15,14 @@ class GiftCode < ActiveRecord::Base
   	end
   end
 
+  def purchaser_first_name
+    purchaser_name ? purchaser_name.split(' ',2)[0] : ''
+  end
+  
+  def purchaser_last_name
+    purchaser_name ? purchaser_name.split(' ',2)[1] : ''
+  end
+  
   def price
     GiftCode.prices[months]
   end
