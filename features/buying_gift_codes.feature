@@ -23,9 +23,9 @@ Scenario: Buy a gift code and send directly
   And I should be sent to gocardless to pay
 
 Scenario: Use button from homepage to buy gift
-  When I visit the home page
-  And I click the gift button
-  Then I should be redirected to the buy a gift page  
+  When I visit the homepage
+  And I click the "G I F T" link
+  Then I should see the "Gift Subscriptions" page
   
 Scenario: When I buy a gift code I get redirected to the gift code page
   Given I have paid for a gift subscription on gocardless
