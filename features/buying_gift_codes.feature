@@ -6,7 +6,7 @@ Feature: Buying gift codes
 Scenario: Buy a gift code
   When I visit the gift code purchase page
   And I select a gifting option
-  And I fill in my email address
+  And I enter my details as the purchaser
   And I click the "Proceed to secure GoCardless payment page" button
   Then I should be sent to gocardless to pay
 
