@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20131111170253) do
     t.string   "purchaser_email"
     t.string   "recipient_name"
     t.string   "recipient_email"
+    t.date     "send_date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

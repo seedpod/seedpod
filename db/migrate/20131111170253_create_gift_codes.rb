@@ -10,6 +10,7 @@ class CreateGiftCodes < ActiveRecord::Migration
       t.string :purchaser_email
       t.string :recipient_name
       t.string :recipient_email
+      t.date :send_date
       t.timestamps
     end
   end

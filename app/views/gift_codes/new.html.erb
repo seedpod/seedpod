@@ -19,6 +19,10 @@
 
   <%= form_for @gift_code, :html => {:class => 'form-horizontal'} do |f| %>
 
+    <p>
+      Which gift would you like to send?
+    </p>
+
     <div class='form-group'>
     	<%= f.label :months, :class => 'col-lg-4 control-label' %>
       <div class='col-lg-12'>
@@ -26,6 +30,10 @@
     	</div>
     </div>
 		
+    <p>
+      Who are you?
+    </p>
+
     <div class='form-group'>
     	<%= f.label :purchaser_name, :class => 'col-lg-4 control-label' %>
       <div class='col-lg-12'>
@@ -40,6 +48,10 @@
   		</div>
   	</div>
 		
+    <p>
+      Who should we send the gift to?
+    </p>
+		
     <div class='form-group'>
     	<%= f.label :send_to_recipient, :class => 'col-lg-4 control-label' %>
       <div class='col-lg-12'>
@@ -47,9 +59,6 @@
     	</div>
     </div>
 
-  <!-->		if they select themselves, then nothing else appears here
-  		if they select the recipient, then we need a recipient name and email address and a date of sending, both compulsory-->
-		
     <div class='form-group'>
     	<%= f.label :recipient_name, :class => 'col-lg-4 control-label' %>
       <div class='col-lg-12'>
@@ -64,6 +73,18 @@
   		</div>
   	</div>
 		
+    <p>
+      When should we send them their gift code?
+    </p>
+		
+    <div class='form-group'>
+  		<%= f.label :send_date, :class => 'col-lg-4 control-label' %>
+  	  <div class='col-lg-12'>
+  			<%= f.date_field :send_date, :required => true %>
+  		</div>
+  	</div>
+		
+
     <div class='form-group'>
       <div class='visible-xs col-lg-12'>
     		<%= f.submit "Proceed to payment", class: 'btn btn-primary btn-block btn-lg' %>

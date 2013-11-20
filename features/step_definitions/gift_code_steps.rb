@@ -20,3 +20,11 @@ end
 When(/^I select to send the code directly to the recipient$/) do
   select 'I would like the gift code to be emailed directly to the recipent'
 end
+
+When(/^I enter their details as the recipient$/) do
+  @recipient_email = Faker::Internet.email
+  @recipient_name = Faker::Name.name
+  fill_in 'gift_code[recipient_name]', with: @recipient_name
+  fill_in 'gift_code[recipient_email]', with: @recipient_email
+  fill_in 'gift_code[send_date]', with: 2.weeks.from_now
+end
