@@ -22,7 +22,7 @@
     <div class='form-group'>
     	<%= f.label :months, :class => 'col-lg-4 control-label' %>
       <div class='col-lg-12'>
-    		<%= f.select :months, gift_code_options_for_select %>
+    		<%= f.select :months, gift_code_options_for_select, :include_blank => true, :required => true %>
     	</div>
     </div>
 		
