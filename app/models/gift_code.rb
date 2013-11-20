@@ -6,6 +6,10 @@ class GiftCode < ActiveRecord::Base
 
   before_validation :generate_code
 
+  def to_param
+    code
+  end
+  
   def generate_code
     if self.code.nil?
     	loop do
