@@ -3,24 +3,26 @@ Feature: Buying gift codes
   As a member of the public
   I want to be able to buy a gift code
 
+@mechanize @vcr @hostname
 Scenario: Buy a gift code and get it myself
   When I visit the gift code purchase page
   And I select a gifting option
   And I enter my details as the purchaser
   And I select to receive the code myself
-  And I click the "Proceed to secure GoCardless payment page" button
+  And I click the "Pay with PayPal" button
   Then the gift code object should be created correctly in the database
-  And I should be sent to gocardless to pay
+  And I should be sent to PayPal to pay
 
+@mechanize @vcr @hostname
 Scenario: Buy a gift code and send directly
   When I visit the gift code purchase page
   And I select a gifting option
   And I enter my details as the purchaser
   And I select to send the code directly to the recipient
   And I enter their details as the recipient
-  And I click the "Proceed to secure GoCardless payment page" button
+  And I click the "Pay with PayPal" button
   Then the gift code object should be created correctly in the database
-  And I should be sent to gocardless to pay
+  And I should be sent to PayPal to pay
 
 Scenario: Use button from homepage to buy gift
   When I visit the homepage

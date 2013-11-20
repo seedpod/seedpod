@@ -7,7 +7,7 @@ class GiftCodesController < ApplicationController
   def create
     @gift_code = GiftCode.create(gift_code_params)
     if @gift_code.valid?
-      render :text => 'ok'
+      redirect_to @gift_code
     else
       render :action => 'new'
     end
