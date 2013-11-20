@@ -15,6 +15,14 @@ en:
         address_region: County
         address_postcode: Postcode
         remember_me: Keep me logged in
+      gift_code:        
+        months: Which gift would you like to give?
+        purchaser_name: Your name
+        purchaser_email: Your email
+        send_to_recipient: Who should we send the gift to?
+        recipient_name: Receipient name
+        recipient_email: Receipient email
+        send_date: When should we send the email?
   notifications:
     shipped:
       subject: Your SeedPod is on its way!

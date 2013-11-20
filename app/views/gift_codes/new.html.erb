@@ -19,10 +19,6 @@
 
   <%= form_for @gift_code, :html => {:class => 'form-horizontal'} do |f| %>
 
-    <p>
-      Which gift would you like to send?
-    </p>
-
     <div class='form-group'>
     	<%= f.label :months, :class => 'col-lg-4 control-label' %>
       <div class='col-lg-12'>
@@ -30,10 +26,6 @@
     	</div>
     </div>
 		
-    <p>
-      Who are you?
-    </p>
-
     <div class='form-group'>
     	<%= f.label :purchaser_name, :class => 'col-lg-4 control-label' %>
       <div class='col-lg-12'>
@@ -47,10 +39,6 @@
   			<%= f.email_field :purchaser_email, :required => true %>
   		</div>
   	</div>
-		
-    <p>
-      Who should we send the gift to?
-    </p>
 		
     <div class='form-group'>
     	<%= f.label :send_to_recipient, :class => 'col-lg-4 control-label' %>
@@ -72,10 +60,6 @@
   			<%= f.email_field :recipient_email, :required => true %>
   		</div>
   	</div>
-		
-    <p>
-      When should we send them their gift code?
-    </p>
 		
     <div class='form-group'>
   		<%= f.label :send_date, :class => 'col-lg-4 control-label' %>
