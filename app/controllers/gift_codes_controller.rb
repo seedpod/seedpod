@@ -42,7 +42,7 @@ class GiftCodesController < ApplicationController
   private
   
   def get_gift_code
-    @gift_code = GiftCode.find_by_code(params[:gift_code_id])
+    @gift_code = GiftCode.find_by_code(params[:gift_code_id] || params[:id])
   end
   
   def gift_code_params

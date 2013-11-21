@@ -49,15 +49,17 @@ Scenario: When my payment is cancelled, I get sent to the homepage
   And the gift code should not be marked as paid
   
 Scenario: When I have selected to get the gift code myself I should see the gift code  
-  Given I have been redirected to the gift code page
+  Given I have created a gift code
   And I have selected to receive the code myself
-  Then I should see a gift code
+  And I have paid for the gift code with PayPal
+  Then I should see the "Purchase Complete" page
+  And I should see a gift code
   And I should recieve an email with the gift code
   
 Scenario: When I have selected the recipient to get the gift code I cannot see it  
-  Given I have been redirected to the gift code page
-  And I have selected the recipient to receive the gift code
-  And I have entered the date for the code to be sent 
-  Then I should see no gift code
+  Given I have created a gift code
+  And I have selected the recipient to receive the gift code at a future date
+  And I have paid for the gift code with PayPal
+  Then I should see the "Purchase Complete" page
+  But I should not see a gift code
   And I should recieve an email reciept
-  And the recipient should recieve the gift code

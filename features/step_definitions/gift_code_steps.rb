@@ -82,3 +82,19 @@ end
 Then(/^I should see an error from PayPal$/) do
   page.should have_text("PayPal exploded!")
 end
+
+Given(/^I have selected to receive the code myself$/) do
+  @gift_code.update_attributes(send_to_recipient: false)
+end
+
+Given(/^I have selected the recipient to receive the gift code at a future date$/) do
+  @gift_code.update_attributes(send_to_recipient: true)
+end
+
+Then(/^I should see a gift code$/) do
+  page.should have_text @gift_code.code
+end
+
+Then(/^I should not see a gift code$/) do
+  page.should_not have_text @gift_code.code
+end
