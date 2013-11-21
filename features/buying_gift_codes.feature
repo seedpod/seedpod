@@ -35,6 +35,12 @@ Scenario: When I buy a gift code I get redirected to the gift code page
   Then I should see the "Purchase Complete" page
   And the gift code should be marked as paid
   
+Scenario: When my payment is cancelled, I get sent to the homepage
+  Given I have created a gift code
+  And I have cancelled the PayPal purchase
+  Then I should see the homepage
+  And the gift code should not be marked as paid
+  
 Scenario: When I have selected to get the gift code myself I should see the gift code  
   Given I have been redirected to the gift code page
   And I have selected to receive the code myself

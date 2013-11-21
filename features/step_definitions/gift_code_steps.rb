@@ -57,7 +57,16 @@ Given(/^I have paid for the gift code with PayPal$/) do
   visit gift_code_confirm_path(@gift_code, token: 'TOKEN', PayerID: 'PAYER_ID')
 end
 
+Given(/^I have cancelled the PayPal purchase$/) do
+  visit gift_code_cancel_path(@gift_code, token: 'TOKEN', PayerID: 'PAYER_ID')
+end
+
 Then(/^the gift code should be marked as paid$/) do
   code = GiftCode.find_by_code(@gift_code.code)
   code.should be_paid
+end
+
+Then(/^the gift code should not be marked as paid$/) do
+  code = GiftCode.find_by_code(@gift_code.code)
+  code.should_not be_paid
 end

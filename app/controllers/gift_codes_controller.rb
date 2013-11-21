@@ -16,6 +16,7 @@ class GiftCodesController < ApplicationController
   end
 
   def cancel
+    redirect_to root_path
   end
 
   def confirm
