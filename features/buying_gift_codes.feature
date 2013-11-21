@@ -35,6 +35,13 @@ Scenario: When I buy a gift code I get redirected to the gift code page
   Then I should see the "Purchase Complete" page
   And the gift code should be marked as paid
   
+Scenario: When Paypal response is invalid I get shown the gift code purchase page with an error
+  Given I have created a gift code
+  And I the PayPal response was invalid
+  Then I should see the "Gift Subscriptions" page
+  And the gift code should not be marked as paid
+  And I should see an error from PayPal
+  
 Scenario: When my payment is cancelled, I get sent to the homepage
   Given I have created a gift code
   And I have cancelled the PayPal purchase

@@ -30,6 +30,9 @@ class GiftCodesController < ApplicationController
     if purchase.success?
       @gift_code.update_attributes(paid: true)
       redirect_to @gift_code
+    else
+      flash[:alert] = purchase.message
+      render action: 'new'
     end
   end
 

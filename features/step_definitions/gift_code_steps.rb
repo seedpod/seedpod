@@ -57,6 +57,14 @@ Given(/^I have paid for the gift code with PayPal$/) do
   visit gift_code_confirm_path(@gift_code, token: 'TOKEN', PayerID: 'PAYER_ID')
 end
 
+Given(/^I the PayPal response was invalid$/) do
+  mock = Object.new
+  mock.should_receive(:success?).and_return(false)
+  mock.should_receive(:message).and_return("PayPal exploded!")
+  PayPalGateway.should_receive(:purchase).with(61.2, {ip: "127.0.0.1", payer_id: "PAYER_ID", token: "TOKEN"}).once.and_return(mock)
+  visit gift_code_confirm_path(@gift_code, token: 'TOKEN', PayerID: 'PAYER_ID')
+end
+
 Given(/^I have cancelled the PayPal purchase$/) do
   visit gift_code_cancel_path(@gift_code, token: 'TOKEN', PayerID: 'PAYER_ID')
 end
@@ -69,4 +77,8 @@ end
 Then(/^the gift code should not be marked as paid$/) do
   code = GiftCode.find_by_code(@gift_code.code)
   code.should_not be_paid
+end
+
+Then(/^I should see an error from PayPal$/) do
+  page.should have_text("PayPal exploded!")
 end
