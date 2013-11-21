@@ -45,3 +45,19 @@ Then(/^the gift code object should be created correctly in the database$/) do
   code.recipient_email.should == @recipient_email.to_s
   code.send_date.should == @send_date
 end
+
+Given(/^I have created a gift code$/) do
+  @gift_code = FactoryGirl.create(:gift_code)
+end
+
+Given(/^I have paid for the gift code with PayPal$/) do
+  mock = Object.new
+  mock.should_receive(:success?).and_return(true)
+  PayPalGateway.should_receive(:purchase).with(61.2, {ip: "127.0.0.1", payer_id: "PAYER_ID", token: "TOKEN"}).once.and_return(mock)
+  visit gift_code_confirm_path(@gift_code, token: 'TOKEN', PayerID: 'PAYER_ID')
+end
+
+Then(/^the gift code should be marked as paid$/) do
+  code = GiftCode.find_by_code(@gift_code.code)
+  code.should be_paid
+end

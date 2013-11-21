@@ -30,8 +30,10 @@ Scenario: Use button from homepage to buy gift
   Then I should see the "Gift Subscriptions" page
   
 Scenario: When I buy a gift code I get redirected to the gift code page
-  Given I have paid for a gift subscription on gocardless
-  Then I should be redirected to the gift code page
+  Given I have created a gift code
+  And I have paid for the gift code with PayPal
+  Then I should see the "Purchase Complete" page
+  And the gift code should be marked as paid
   
 Scenario: When I have selected to get the gift code myself I should see the gift code  
   Given I have been redirected to the gift code page

@@ -1,5 +1,7 @@
 class GiftCodesController < ApplicationController
 
+  before_filter :get_gift_code, :except => [:new, :create]
+
   def new
     @gift_code = GiftCode.new
   end
@@ -13,7 +15,31 @@ class GiftCodesController < ApplicationController
     end
   end
 
+  def cancel
+  end
+
+  def confirm
+    # Confirm payment with paypal
+    purchase = PayPalGateway.purchase(
+      @gift_code.price,
+      :ip       => request.remote_ip,
+      :payer_id => params[:PayerID],
+      :token    => params[:token]
+    )
+    if purchase.success?
+      @gift_code.update_attributes(paid: true)
+      redirect_to @gift_code
+    end
+  end
+
+  def show
+  end
+
   private
+  
+  def get_gift_code
+    @gift_code = GiftCode.find_by_code(params[:gift_code_id])
+  end
   
   def gift_code_params
     params[:gift_code].permit(:months, :purchaser_name, :purchaser_email, :send_to_recipient, :recipient_email, :recipient_name, :send_date)

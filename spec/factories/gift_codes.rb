@@ -6,5 +6,11 @@ FactoryGirl.define do
     claimed_at nil
     months 12
     user nil
+    purchaser_name { Faker::Name.name }
+    purchaser_email { Faker::Internet.email }
+    send_to_recipient false
+    recipient_name { Faker::Name.name }
+    recipient_email { Faker::Internet.email }
+    send_date { 1.week.from_now.to_date }
   end
 end

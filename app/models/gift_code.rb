@@ -44,4 +44,8 @@ class GiftCode < ActiveRecord::Base
     }
   end
 
+  def paid?
+    paid
+  end
+
 end
