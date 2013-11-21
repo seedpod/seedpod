@@ -98,3 +98,23 @@ end
 Then(/^I should not see a gift code$/) do
   page.should_not have_text @gift_code.code
 end
+
+Then(/^I should recieve an email with the gift code$/) do
+  steps %{
+    Then "#{@gift_code.purchaser_email}" should receive an email
+    When they open the email
+    Then they should see "Your SeedPod Gift Code" in the email subject
+    And they should see "Hi #{@gift_code.purchaser_name}," in the email body
+    And they should see "#{@gift_code.code}," in the email body
+  }
+end
+
+Then(/^I should recieve an email reciept$/) do
+  steps %{
+    Then "#{@gift_code.purchaser_email}" should receive an email
+    When they open the email
+    Then they should see "Your SeedPod Gift Code Receipt" in the email subject
+    And they should see "Hi #{@gift_code.purchaser_name}," in the email body
+    And they should not see "#{@gift_code.code}," in the email body
+  }
+end
