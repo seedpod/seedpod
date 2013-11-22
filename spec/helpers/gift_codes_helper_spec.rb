@@ -11,5 +11,14 @@ require 'spec_helper'
 #   end
 # end
 describe GiftCodesHelper do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  it "should generate options for gift code selection properly" do
+    helper.gift_code_options_for_select.should == [
+      [ "3 Months - £18.00", 3 ],
+      [ "6 Months - £34.20", 6 ],
+      [ "9 Months - £48.60", 9 ],
+      ["12 Months - £61.20", 12],
+    ]
+  end
+
 end

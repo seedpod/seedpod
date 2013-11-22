@@ -13,4 +13,10 @@ describe GiftCode do
     code.code.should =~ /^[a-f0-9]{8}$/
   end
 
+  it "calculates prices from months" do
+    code = GiftCode.create(months: 3)
+    code.price.should == 18.0
+    code.price_string.should == "£18.00"
+  end
+
 end
