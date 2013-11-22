@@ -20,8 +20,8 @@ en:
         purchaser_name: Your name
         purchaser_email: Your email
         send_to_recipient: Who should we send the gift to?
-        recipient_name: Receipient name
-        recipient_email: Receipient email
+        recipient_name: Recipient name
+        recipient_email: Recipient email
         send_date: When should we send the email?
   notifications:
     shipped:
