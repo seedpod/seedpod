@@ -39,6 +39,8 @@ group :development, :test do
   gem 'timecop'
   gem 'email_spec'
   gem 'pry'
+  gem 'guard-cucumber'
+  gem 'guard-rspec'
 end
 
 group :test do
