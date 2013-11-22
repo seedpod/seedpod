@@ -24,6 +24,15 @@ Scenario: Buy a gift code and send directly
   Then the gift code object should be created correctly in the database
   And I should be sent to PayPal to pay
 
+Scenario: Buy a gift code but forget recipient details
+  When I visit the gift code purchase page
+  And I select a gifting option
+  And I enter my details as the purchaser
+  And I select to send the code directly to the recipient
+  And I click the "Pay with PayPal" button
+  Then I should see the "Gift Subscriptions" page
+  And I should see an error telling me about missing recipient details
+
 Scenario: Use button from homepage to buy gift
   When I visit the homepage
   And I click the "G I F T" link

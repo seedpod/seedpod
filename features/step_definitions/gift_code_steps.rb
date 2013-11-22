@@ -33,6 +33,13 @@ When(/^I enter their details as the recipient$/) do
   fill_in 'gift_code[send_date]', with: @send_date
 end
 
+Then(/^I should see an error telling me about missing recipient details$/) do
+  page.should have_text "Recipient name can't be blank"
+  page.should have_text "Recipient email can't be blank"
+  page.should have_text "Recipient email is invalid"
+  page.should have_text "When should we send the email? can't be blank"
+end
+
 Then(/^the gift code object should be created correctly in the database$/) do
   GiftCode.count.should == 1
   code = GiftCode.first
