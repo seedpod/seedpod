@@ -3,6 +3,11 @@ class GiftCode < ActiveRecord::Base
 
   validates :code, uniqueness: true, presence: true
   validates :months, presence: true
+  validates :purchaser_name, presence: true
+  validates :purchaser_email, presence: true, format:  /@/
+  validates :recipient_name, presence: true, if: :send_to_recipient
+  validates :recipient_email, presence: true, format:  /@/, if: :send_to_recipient
+  validates :send_date, presence: true, if: :send_to_recipient
 
   before_validation :generate_code
 
@@ -17,14 +22,6 @@ class GiftCode < ActiveRecord::Base
         break if GiftCode.where(code: self.code).empty?
       end
   	end
-  end
-
-  def purchaser_first_name
-    purchaser_name ? purchaser_name.split(' ',2)[0] : ''
-  end
-  
-  def purchaser_last_name
-    purchaser_name ? purchaser_name.split(' ',2)[1] : ''
   end
   
   def price_string
