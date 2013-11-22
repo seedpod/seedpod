@@ -11,20 +11,28 @@ class Notifications < ActionMailer::Base
     mail to: user.email
   end
 
-  def gift_code_receipt_without_recipient(gift_code)
-    @code = gift_code.code
-    @months = gift_code.months
-    @price = gift_code.price_string
-    mail to: gift_code.purchaser_email
+  def gift_code_receipt_without_recipient(code)
+    @code = code.code
+    @months = code.months
+    @price = code.price_string
+    mail to: code.purchaser_email
   end
   
-  def gift_code_receipt_with_recipient(gift_code)
-    @months = gift_code.months
-    @price = gift_code.price_string
-    @recipient_name = gift_code.recipient_name
-    @recipient_email = gift_code.recipient_email
-    @send_date = gift_code.send_date
-    mail to: gift_code.purchaser_email
+  def gift_code_receipt_with_recipient(code)
+    @months = code.months
+    @price = code.price_string
+    @recipient_name = code.recipient_name
+    @recipient_email = code.recipient_email
+    @send_date = code.send_date
+    mail to: code.purchaser_email
+  end
+
+  def gift_code(code)
+    @code = code.code
+    @months = code.months
+    @recipient_name = code.recipient_name
+    @purchaser_name = code.purchaser_name
+    mail to: code.recipient_email
   end
 
 end

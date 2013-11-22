@@ -32,5 +32,7 @@ en:
       subject: Your SeedPod Gift Code
     gift_code_receipt_with_recipient:
       subject: Your SeedPod Gift Code Receipt
+    gift_code:
+      subject: Your SeedPod Gift Code
   send_gift_code_to_purchaser:  "I would like to receive the gift code, and give the gift myself"
   send_gift_code_to_recipient:  "I would like the gift code to be emailed directly to the recipent"

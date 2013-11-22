@@ -125,8 +125,59 @@ Then(/^I should recieve an email reciept$/) do
     And they should not see "#{@gift_code.code}," in the email body
     And they should see "#{@gift_code.months} months" in the email body
     And they should see "#{@gift_code.price_string}" in the email body
-    And they should see "#{@gift_code.recipient_name}" in the email body
+    And they should see "#{CGI.escapeHTML(@gift_code.recipient_name)}" in the email body
     And they should see "#{@gift_code.recipient_email}" in the email body
     And they should see "#{@gift_code.send_date.to_s(:long)}" in the email body
   }
+end
+
+Given(/^a gift code has been bought for me$/) do
+  @gift_code = FactoryGirl.create(:gift_code)
+end
+
+Given(/^it is due for delivery today$/) do
+  @gift_code.send_date = Date.today
+  @gift_code.save!
+end
+
+When(/^the gift codes are delivered$/) do
+  GiftCode.deliver_emails!
+end
+
+Then(/^I should receive an email with my gift code$/) do
+  steps %{
+    Then "#{@gift_code.recipient_email}" should receive an email
+    When they open the email
+    Then they should see "Your SeedPod Gift Code" in the email subject
+    And they should see "#{@gift_code.code}" in the email body
+    And they should see "#{@gift_code.months} months" in the email body
+    And they should see "#{CGI.escapeHTML(@gift_code.recipient_name)}" in the email body
+    And they should see "#{CGI.escapeHTML(@gift_code.purchaser_name)}" in the email body
+  }
+end
+
+Given(/^was due for delivery yesterday$/) do
+  @gift_code.send_date = Date.yesterday
+  @gift_code.save!
+end
+
+Given(/^has not been emailed yet$/) do
+  @gift_code.sent = false
+  @gift_code.save!
+end
+
+Given(/^is due for delivery tomorrow$/) do
+  @gift_code.send_date = Date.tomorrow
+  @gift_code.save!
+end
+
+Then(/^I should not receive an email with my gift code$/) do
+  steps %{
+    Then "#{@gift_code.recipient_email}" should receive no emails
+  } 
+end
+
+Given(/^has already been sent to me$/) do
+  @gift_code.sent = true
+  @gift_code.save!
 end

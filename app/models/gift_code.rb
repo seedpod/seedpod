@@ -58,4 +58,11 @@ class GiftCode < ActiveRecord::Base
     paid
   end
 
+  def self.deliver_emails!
+    GiftCode.where(sent: false).where("send_date <= ?", Date.today).each do |code|
+      Notifications.gift_code(code).deliver
+      code.update_attributes!(sent: true)
+    end
+  end
+
 end

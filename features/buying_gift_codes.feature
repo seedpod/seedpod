@@ -72,3 +72,29 @@ Scenario: When I have selected the recipient to get the gift code I cannot see i
   Then I should see the "Purchase Complete" page
   But I should not see a gift code
   And I should recieve an email reciept
+  
+Scenario: Recipients get gift codes by email
+  Given a gift code has been bought for me
+  And it is due for delivery today
+  When the gift codes are delivered
+  Then I should receive an email with my gift code
+
+Scenario: Emails are sent if they should have already been sent but haven't been
+  Given a gift code has been bought for me
+  And was due for delivery yesterday
+  But has not been emailed yet
+  When the gift codes are delivered
+  Then I should receive an email with my gift code
+
+Scenario: Emails are not sent until the right day
+  Given a gift code has been bought for me
+  And is due for delivery tomorrow
+  When the gift codes are delivered
+  Then I should not receive an email with my gift code
+
+Scenario: Emails are only sent once
+  Given a gift code has been bought for me
+  And was due for delivery yesterday
+  But has already been sent to me
+  When the gift codes are delivered
+  Then I should not receive an email with my gift code
