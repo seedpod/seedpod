@@ -104,8 +104,9 @@ Then(/^I should recieve an email with the gift code$/) do
     Then "#{@gift_code.purchaser_email}" should receive an email
     When they open the email
     Then they should see "Your SeedPod Gift Code" in the email subject
-    And they should see "Hi #{@gift_code.purchaser_name}," in the email body
-    And they should see "#{@gift_code.code}," in the email body
+    And they should see "#{@gift_code.code}" in the email body
+    And they should see "#{@gift_code.months} months" in the email body
+    And they should see "#{@gift_code.price_string}" in the email body
   }
 end
 
@@ -114,7 +115,11 @@ Then(/^I should recieve an email reciept$/) do
     Then "#{@gift_code.purchaser_email}" should receive an email
     When they open the email
     Then they should see "Your SeedPod Gift Code Receipt" in the email subject
-    And they should see "Hi #{@gift_code.purchaser_name}," in the email body
     And they should not see "#{@gift_code.code}," in the email body
+    And they should see "#{@gift_code.months} months" in the email body
+    And they should see "#{@gift_code.price_string}" in the email body
+    And they should see "#{@gift_code.recipient_name}" in the email body
+    And they should see "#{@gift_code.recipient_email}" in the email body
+    And they should see "#{@gift_code.send_date.to_s(:long)}" in the email body
   }
 end

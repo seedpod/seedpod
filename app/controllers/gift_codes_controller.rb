@@ -28,7 +28,7 @@ class GiftCodesController < ApplicationController
       :token    => params[:token]
     )
     if purchase.success?
-      @gift_code.update_attributes(paid: true)
+      @gift_code.mark_as_paid!
       redirect_to @gift_code
     else
       flash[:alert] = purchase.message

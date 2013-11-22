@@ -27,6 +27,10 @@ class GiftCode < ActiveRecord::Base
     purchaser_name ? purchaser_name.split(' ',2)[1] : ''
   end
   
+  def price_string
+    "£%.2f" % price
+  end
+  
   def price
     GiftCode.prices[months]
   end
@@ -42,6 +46,15 @@ class GiftCode < ActiveRecord::Base
       9  => 48.60,
       12 => 61.20,
     }
+  end
+
+  def mark_as_paid!
+    update_attributes!(paid: true)
+    if send_to_recipient
+      Notifications.gift_code_receipt_with_recipient(self).deliver      
+    else
+      Notifications.gift_code_receipt_without_recipient(self).deliver
+    end
   end
 
   def paid?
