@@ -197,6 +197,8 @@ GEM
     kramdown (1.2.0)
     launchy (2.4.0)
       addressable (~> 2.3)
+    letter_opener (1.1.2)
+      launchy (~> 2.2)
     listen (2.2.0)
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)
@@ -391,6 +393,7 @@ DEPENDENCIES
   jquery-rails
   kramdown
   launchy
+  letter_opener
   pg
   poltergeist
   pry

@@ -41,6 +41,7 @@ group :development, :test do
   gem 'pry'
   gem 'guard-cucumber'
   gem 'guard-rspec'
+  gem 'letter_opener'
 end
 
 group :test do
