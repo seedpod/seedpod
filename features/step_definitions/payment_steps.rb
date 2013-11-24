@@ -68,7 +68,7 @@ Then(/^I should receive a welcome email$/) do
     Then I should receive an email
     When I open the email
     Then I should see "Welcome to SeedPod!" in the email subject
-    And I should see "Hi #{@user.name}," in the email body
+    And I should see "Hi #{CGI.escapeHTML(@user.name)}," in the email body
   }
 end
 

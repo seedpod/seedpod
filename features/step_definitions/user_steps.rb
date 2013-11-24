@@ -11,6 +11,15 @@ Given(/^I am signed in$/) do
   }
 end
 
+Given(/^I am signed in as "(.*?)"$/) do |name|
+  @user = FactoryGirl.create :user, name: name
+  steps %{
+    And I visit the sign in page
+    And I fill in my login details
+    And I click the "Log in" button
+  }
+end
+
 Given(/^there is a user$/) do
   steps %{
     Given I have previously registered

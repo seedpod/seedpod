@@ -9,6 +9,9 @@ env:
   - secure: f4TFC2JpMkj1f3GRnxIzdEx8SjSznWc5JfAL77aM08eLgSbq/eLVYLlhMOedzF2mvTs5HOfeKsuyaFrpm/z7CaRojYNfERMzfBa6YV2Zi7ViwFUyKEr7pNk+mtGfY/FJ4Y0sqWTOU5xAEpXozAmHH6W4HA+39o1Si7ewWQ8TD2E=
   - secure: m/t8ZBfzsXoZKGlaxn42Z9AFodnj1F5efqpe3XQXmmvXiOJgWGBa7JtqeaKscF2uwtW8DIOFxZo86RYGaJ7pwTJFNNISuBMHG2NWh7HXvPaJUiWTBjrgzaiyhVdFWcKOUUoUUbfZBxHpsfarYIojk0wUjdwZNSWxDaKiC0elPmQ=
   - secure: b34rIlCTx1+k9Zb3/X+IOhN9cLy1a5BZINdv6tz2bBapunI2qQ1g5UCIVRwI/zE8wxjZ8+o7w4SFZeg5e3yuUjhp84VheG9tK6oyoLy/cDczmBzJL0kEH1PDLjykjWvhxDKnCNxYLS54SUkFtL+ZztofkmOhMU61L/qO9k1FNMs=
+  - secure: G8XLfcLIu6NGfFLihuV6g1lZ6xyUCZcXmdzOPFAKGSzxuKi9EnOUGB271MOz0xIpAZVHeDEpAtXiMyGTAWaqxM+yYe4ZkfgtrazY/zCN75wl9gMWKQNUfXNyCBwlPVtTzvHxBcYX849p9UXSaDt1rRyTOw/mjIqtdkT+EJUsT74=
+  - secure: Lrjf083pRYSj10dGSBMq2cVXpeZXAPCpD6JpJe06BdBVm5y8JMhC1B3nG9owyWy8fLD7TQk8938Tyed+EIZaNti36u0boOf8bti9iSHEkkZHhPaYeyVRz7su1/3qyYUdlzkKmBJmqjrBntWU+vnDTJk18BBVXhw/NZePoL/2Y4M=
+  - secure: nQ4qMxP95PZylQGXPBSOW7LJgmv+W7wvPYwYuC1Gu9bxbczoHVOjI9N8wD9eZ5HJ2LUQQ/lG6su81zEq8XW+ISdTEqevcU6dqJZEzBgoVfdA8zfQnkee5XmFS7RwuU05cBjhwCjzxEGbVEuEBm5wz0/3tDaX37qvQCaQ6tEYINk=
 deploy:
   provider: heroku
   api_key:
@@ -16,4 +19,4 @@ deploy:
   app: seedpod
   on:
     repo: seedpod/seedpod
-  run: "rake db:migrate"
+  run: rake db:migrate

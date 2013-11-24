@@ -12,6 +12,9 @@ VCR.configure do |c|
     'GOCARDLESS_APP_SECRET',
     'GOCARDLESS_APP_TOKEN',
     'GOCARDLESS_APP_MERCHANT',
+    'PAYPAL_API_USERNAME',
+    'PAYPAL_API_PASSWORD',
+    'PAYPAL_API_SIGNATURE',
   ].each do |var|
     c.filter_sensitive_data("<#{var}>") { ENV[var] }
   end
