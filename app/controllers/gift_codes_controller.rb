@@ -22,7 +22,9 @@ class GiftCodesController < ApplicationController
   def confirm
     # Confirm payment with paypal
     purchase = PayPalGateway.purchase(
-      @gift_code.price,
+      @gift_code.price*100,
+      :currency => 'GBP',
+      :locale   => I18n.locale.to_s.sub(/-/, '_'),
       :ip       => request.remote_ip,
       :payer_id => params[:PayerID],
       :token    => params[:token]
