@@ -48,7 +48,8 @@ class GiftCode < ActiveRecord::Base
   def mark_as_paid!
     update_attributes!(paid: true)
     if send_to_recipient
-      Notifications.gift_code_receipt_with_recipient(self).deliver      
+      Notifications.gift_code_receipt_with_recipient(self).deliver
+      deliver! if send_date <= Date.today
     else
       Notifications.gift_code_receipt_without_recipient(self).deliver
     end
@@ -60,9 +61,13 @@ class GiftCode < ActiveRecord::Base
 
   def self.deliver_emails!
     GiftCode.where(sent: false).where("send_date <= ?", Date.today).each do |code|
-      Notifications.gift_code(code).deliver
-      code.update_attributes!(sent: true)
+      code.deliver!
     end
+  end
+
+  def deliver!
+    Notifications.gift_code(self).deliver
+    update_attributes!(sent: true)    
   end
 
 end

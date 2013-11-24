@@ -72,6 +72,16 @@ Scenario: When I have selected the recipient to get the gift code I cannot see i
   Then I should see the "Purchase Complete" page
   But I should not see a gift code
   And I should recieve an email reciept
+  And the recipient should not receive an email
+  
+Scenario: Gift codes for today are emailed immediately
+  Given I have created a gift code
+  And I have selected the recipient to receive the gift code today
+  And I have paid for the gift code with PayPal
+  Then I should see the "Purchase Complete" page
+  But I should not see a gift code
+  And I should recieve an email reciept
+  And the recipient should receive an email with their gift code
   
 Scenario: Recipients get gift codes by email
   Given a gift code has been bought for me

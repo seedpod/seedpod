@@ -98,6 +98,10 @@ Given(/^I have selected the recipient to receive the gift code at a future date$
   @gift_code.update_attributes(send_to_recipient: true)
 end
 
+Given(/^I have selected the recipient to receive the gift code today$/) do
+  @gift_code.update_attributes(send_to_recipient: true, send_date: Date.today)
+end
+
 Then(/^I should see a gift code$/) do
   page.should have_text @gift_code.code
 end
@@ -144,6 +148,12 @@ When(/^the gift codes are delivered$/) do
   GiftCode.deliver_emails!
 end
 
+Then(/^the recipient should receive an email with their gift code$/) do
+  steps %{
+    Then I should receive an email with my gift code
+  }
+end
+
 Then(/^I should receive an email with my gift code$/) do
   steps %{
     Then "#{@gift_code.recipient_email}" should receive an email
@@ -169,6 +179,12 @@ end
 Given(/^is due for delivery tomorrow$/) do
   @gift_code.send_date = Date.tomorrow
   @gift_code.save!
+end
+
+Then(/^the recipient should not receive an email$/) do
+  steps %{
+    Then I should not receive an email with my gift code
+  }
 end
 
 Then(/^I should not receive an email with my gift code$/) do
