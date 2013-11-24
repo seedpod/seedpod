@@ -29,6 +29,8 @@ class Subscription < ActiveRecord::Base
       payment.pending!
     when 'paid'
       payment.paid! amount, transacted_at
+    when 'cancelled'
+      payment.cancelled! transacted_at
     when 'failed'
       payment.failed! transacted_at
     when 'chargeback'

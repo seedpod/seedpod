@@ -12,6 +12,12 @@ Then(/^my payment should be recorded as failed$/) do
   payment.state.should         == "failed"
 end
 
+Then(/^my payment should be recorded as cancelled$/) do
+  payment = @subscription.payments.last
+  payment.gocardless_id.should == 'XYZ987'
+  payment.state.should         == "cancelled"
+end
+
 Given(/^I have made a payment$/) do
   FactoryGirl.create :payment, subscription: @subscription
 end

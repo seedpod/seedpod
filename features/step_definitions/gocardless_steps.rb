@@ -98,6 +98,29 @@ When(/^GoCardless sends a bill failed notification$/) do
   post gocardless_webhook_path, payload: payload
 end
 
+When(/^GoCardless sends a bill cancelled notification$/) do
+  # Sample payload from gocardless
+  payload                 = {
+    "resource_type"       => "bill",
+    "action"              => "cancelled",
+    "bills"               => [{
+      "id"                => "XYZ987",
+      "status"            => "cancelled",
+      "source_type"       => "subscription",
+      "source_id"         => "ABC123",
+      "amount"            => "6.0",
+      "amount_minus_fees" => "5.8",
+      "paid_at"           => "2013-08-10T12:00:00Z",
+      "uri"               => "https://gocardless.com/api/v1/bills/XYZ987"
+    }],
+    "signature"           => "f6b9e6cd8eef30c444da48370e646839c9bb9e1cf10ea16164d5cf93a50231eb"
+  }
+  # Set up stub for checking signature
+  GoCardless.client.should_receive(:signature_valid?).once.and_return(true)
+  # Post data
+  post gocardless_webhook_path, payload: payload
+end
+
 When(/^GoCardless sends a bill chargeback notification$/) do
   # Sample payload from gocardless
   payload                 = {
