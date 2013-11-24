@@ -108,3 +108,10 @@ Scenario: Emails are only sent once
   But has already been sent to me
   When the gift codes are delivered
   Then I should not receive an email with my gift code
+
+Scenario: Gift codes aren't sent if not paid for
+  Given a gift code has been bought for me
+  And it is due for delivery today
+  But the gift code was not paid for
+  When the gift codes are delivered
+  Then I should not receive an email with my gift code

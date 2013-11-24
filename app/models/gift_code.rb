@@ -60,7 +60,7 @@ class GiftCode < ActiveRecord::Base
   end
 
   def self.deliver_emails!
-    GiftCode.where(sent: false).where("send_date <= ?", Date.today).each do |code|
+    GiftCode.where(sent: false, paid: true).where("send_date <= ?", Date.today).each do |code|
       code.deliver!
     end
   end

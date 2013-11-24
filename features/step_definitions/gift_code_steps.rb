@@ -136,7 +136,7 @@ Then(/^I should recieve an email reciept$/) do
 end
 
 Given(/^a gift code has been bought for me$/) do
-  @gift_code = FactoryGirl.create(:gift_code)
+  @gift_code = FactoryGirl.create(:gift_code, paid: true)
 end
 
 Given(/^it is due for delivery today$/) do
@@ -195,5 +195,10 @@ end
 
 Given(/^has already been sent to me$/) do
   @gift_code.sent = true
+  @gift_code.save!
+end
+
+Given(/^the gift code was not paid for$/) do
+  @gift_code.paid = false
   @gift_code.save!
 end
