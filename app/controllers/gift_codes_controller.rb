@@ -60,6 +60,7 @@ class GiftCodesController < ApplicationController
       brand_name: "SeedPod",
       :'header_image' => 'http://getseedpod.com/assets/icon-hdpi.png',
       allow_guest_checkout: 'true',
+      no_shipping: 'true',
       items: [{
         name: "SeedPod Gift Code", 
         description: @gift_code.description, 
