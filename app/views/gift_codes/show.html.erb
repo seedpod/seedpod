@@ -1,0 +1,20 @@
+<h1 class='hugeTitle'>Purchase Complete</h1>
+
+<div class="aboutUs">
+  <p>
+    Congratulations! You have just puchased a <%= @gift_code.months %> month subscription!
+  </p>
+
+  <p>
+    <% if @gift_code.send_to_recipient %>
+      A reciept has been emailed to you, and  Your gift code will be emailed to your recipient on the date you specified.
+    <% else %>
+      Your gift code is: '<strong><%= @gift_code.code%></strong>' which has also been emailed to you, to pass on to your chosen recipient.
+    <% end %>
+  </p>
+
+  <p>
+    Thank you for shopping at SeedPod, hope to see you again soon.
+  </p>
+  
+</div>

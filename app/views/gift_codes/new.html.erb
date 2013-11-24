@@ -1,0 +1,128 @@
+<h1 class="hugeTitle">Gift Subscriptions</h1>
+
+<div class="aboutUs">
+	
+	<p>
+		Know someone who would love to grow their own, but has never managed to get started? Or a keen gardener who wants to take the hassle out of buying seeds? Perhaps you're looking for an original gift that's fun and great for the environment? We think our monthly vegetable seed and advice subscriptions make perfect gifts for loads of special occasions. We offer a range of gifting options, and most of them include a discount when compared to our £6.00 month-by-month subscription. The more you spend, the more you can save! Here are the options:
+	</p>
+	<p>
+  	<div class="col-lg-6">
+	<div class="table-responsive">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+			<td>Length</td>
+			<td>Total Cost</td>
+			<td>Saving</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>3 months</td>
+				<td>£18.00</td>
+				<td>0%</td>
+			</tr>
+			<tr>
+				<td>6 months</td>
+				<td>£34.20</td>
+				<td>5%</td>
+			</tr>
+			<tr>
+				<td>9 months</td>
+				<td>£48.60</td>
+				<td>10%</td>
+			</tr>
+			<tr>
+				<td>12 months</td>
+				<td>£61.20</td>
+				<td>15%</td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+	</div>
+</p>
+	<p>
+	When you purchase a gift subscription securely through PayPal you will recieve a gift code that you can either forward to your lucky recipient or print out and pop in a card. If you prefer, you can let us know their email address and we will send the code directly to them on your preferred date. All they then need to do is sign up using the gift code and their first seeds will be on their way! Everytime they take a bite from one of their delicious homegrown vegetables, they will think of you! 
+  </p>
+
+  <%= form_for @gift_code, :html => {:class => 'form-horizontal'} do |f| %>
+
+    <%= error_messages_for @gift_code %>
+
+    <div class='form-group'>
+    	<%= f.label :months, :class => 'col-lg-4 control-label' %>
+      <div class='col-lg-12'>
+    		<%= f.select :months, gift_code_options_for_select, :required => true %>
+    	</div>
+    </div>
+		
+    <div class='form-group'>
+    	<%= f.label :purchaser_name, :class => 'col-lg-4 control-label' %>
+      <div class='col-lg-12'>
+    		<%= f.text_field :purchaser_name, :required => true %>
+    	</div>
+    </div>
+		
+    <div class='form-group'>
+  		<%= f.label :purchaser_email, :class => 'col-lg-4 control-label' %>
+  	  <div class='col-lg-12'>
+  			<%= f.email_field :purchaser_email, :required => true %>
+  		</div>
+  	</div>
+		
+    <div class='form-group'>
+    	<%= f.label :send_to_recipient, :class => 'col-lg-4 control-label' %>
+      <div class='col-lg-12'>
+    		<%= f.select :send_to_recipient, [[t(:send_gift_code_to_purchaser), false], [t(:send_gift_code_to_recipient), true]], :required => true %>
+    	</div>
+    </div>
+    
+    <script>
+      $(function() {
+        $('#recipient-details').hide();
+        $('#gift_code_send_to_recipient').change(function(){
+          if ($('#gift_code_send_to_recipient')[0].value == "false") {
+            $('#recipient-details').slideUp();
+          } else {
+            $('#recipient-details').slideDown();
+          }
+        });
+      });
+    </script>
+    
+    <div id='recipient-details'>
+
+      <div class='form-group <%= "has-error" if @gift_code.errors.has_key? :recipient_name %>'>
+      	<%= f.label :recipient_name, :class => 'col-lg-4 control-label' %>
+        <div class='col-lg-12'>
+      		<%= f.text_field :recipient_name %>
+      	</div>
+      </div>
+		
+      <div class='form-group <%= "has-error" if @gift_code.errors.has_key? :recipient_email %>'>
+    		<%= f.label :recipient_email, :class => 'col-lg-4 control-label' %>
+    	  <div class='col-lg-12'>
+    			<%= f.email_field :recipient_email %>
+    		</div>
+    	</div>
+		
+      <div class='form-group <%= "has-error" if @gift_code.errors.has_key? :send_date %>'>
+    		<%= f.label :send_date, :class => 'col-lg-4 control-label' %>
+    	  <div class='col-lg-12'>
+    			<%= f.date_field :send_date %>
+    		</div>
+    	</div>
+		
+    </div>
+
+    <div class='form-group'>
+      <div class='col-lg-12'>
+		  	<p><%= f.submit "", id: 'pay-with-paypal' %></p>
+        <p><%= image_tag "https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-100px.png", :class => 'img-responsive' %></p>
+    	</div>
+    </div>
+	
+  <% end %>
+  
+</div>

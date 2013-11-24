@@ -8,6 +8,7 @@ gem 'rails', '~> 4.0.0'
 gem 'dotenv'
 gem 'exception_notification'
 gem 'kramdown'
+gem 'activemerchant'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -28,7 +29,6 @@ group :development, :test do
   gem 'cucumber'
   gem 'database_cleaner', '< 1.1.0' # pinned awaiting fix for https://github.com/bmabey/database_cleaner/issues/224
   gem 'vcr'
-  gem 'webmock'
   gem 'launchy'
   gem 'coveralls'
   gem 'travis'
@@ -39,6 +39,13 @@ group :development, :test do
   gem 'timecop'
   gem 'email_spec'
   gem 'pry'
+  gem 'guard-cucumber'
+  gem 'guard-rspec'
+  gem 'letter_opener'
+end
+
+group :test do
+  gem 'webmock'
 end
 
 # Gems required for Heroku

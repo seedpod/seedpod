@@ -15,9 +15,24 @@ en:
         address_region: County
         address_postcode: Postcode
         remember_me: Keep me logged in
+      gift_code:        
+        months: Which gift would you like to give?
+        purchaser_name: Your name
+        purchaser_email: Your email
+        send_to_recipient: Who should we send the gift to?
+        recipient_name: Recipient name
+        recipient_email: Recipient email
+        send_date: When should we send the email?
   notifications:
     shipped:
       subject: Your SeedPod is on its way!
     welcome:
       subject: Welcome to SeedPod!
-        
+    gift_code_receipt_without_recipient:
+      subject: Your SeedPod Gift Code
+    gift_code_receipt_with_recipient:
+      subject: Your SeedPod Gift Code Receipt
+    gift_code:
+      subject: Your SeedPod Gift Code
+  send_gift_code_to_purchaser:  "I would like to receive the gift code, and give the gift myself"
+  send_gift_code_to_recipient:  "I would like the gift code to be emailed directly to the recipent"
