@@ -45,6 +45,10 @@ Scenario: Gocardless tells us a payment has failed
   When GoCardless sends a bill failed notification
   Then my payment should be recorded as failed
 
+Scenario: Gocardless tells us a payment has been cancelled
+  When GoCardless sends a bill cancelled notification
+  Then my payment should be recorded as cancelled
+
 Scenario: Gocardless tells us a payment has been charged back
   Given I have made a payment
   When GoCardless sends a bill chargeback notification

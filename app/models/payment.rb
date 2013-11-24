@@ -3,7 +3,7 @@ class Payment < ActiveRecord::Base
   belongs_to :pod
 
   validates :gocardless_id, presence: true, uniqueness: true
-  validates :state, inclusion: %w{pending paid failed refunded retrying}
+  validates :state, inclusion: %w{pending paid failed refunded retrying cancelled}
 
   def paid!(amount, time)
     update_attributes!(amount: amount, transacted_at: time, state: "paid")
@@ -17,6 +17,10 @@ class Payment < ActiveRecord::Base
 
   def failed!(time)
     update_attributes!(transacted_at: time, state: "failed")
+  end
+
+  def cancelled!(time)
+    update_attributes!(transacted_at: time, state: "cancelled")
   end
 
   def chargeback!
