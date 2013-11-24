@@ -1,3 +1,16 @@
 // Place all the styles related to the GiftCodes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+input[type="submit"]
+{
+	background:url("https://www.paypalobjects.com/en_GB/i/btn/btn_gift_LG.gif");
+	width: 179px;
+	height: 26px;
+	border: none;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
