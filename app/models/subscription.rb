@@ -17,7 +17,7 @@ class Subscription < ActiveRecord::Base
   end
 
   def cancel!
-    gocardless_subscription.cancel!
+    gocardless_subscription.cancel! if gocardless_id
     # The webhook will call us back, resulting in on_cancel! being called later
   end
 
