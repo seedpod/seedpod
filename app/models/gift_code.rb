@@ -1,5 +1,5 @@
 class GiftCode < ActiveRecord::Base
-  belongs_to :subscription
+  has_one :subscription
 
   validates :code, uniqueness: true, presence: true
   validates :months, presence: true
