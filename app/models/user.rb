@@ -20,6 +20,9 @@ class User < ActiveRecord::Base
   #validates :address_region  , :presence => true
   validates :address_postcode, :presence => true
 
+  # fake accessor for gift codes on signup
+  attr_accessor :gift_code
+
   rails_admin do
     edit do
       configure :confirmation_token do

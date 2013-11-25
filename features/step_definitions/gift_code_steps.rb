@@ -202,3 +202,7 @@ Given(/^the gift code was not paid for$/) do
   @gift_code.paid = false
   @gift_code.save!
 end
+
+When(/^I enter my gift code$/) do
+  fill_in 'user_gift_code', with: @gift_code.code
+end
