@@ -212,7 +212,7 @@ When(/^I enter a made\-up gift code$/) do
 end
 
 Then(/^I should see an invalid gift code error$/) do
-  page.should have_text("Gift code is invalid")
+  page.should have_text("Gift code does not exist")
 end
 
 Then(/^the gift code should be associated with my subscription$/) do
@@ -220,4 +220,12 @@ Then(/^the gift code should be associated with my subscription$/) do
   user.subscriptions.count.should == 1
   user.subscriptions.first.gift_code == @gift_code
   user.subscriptions.active.should be_present
+end
+
+Given(/^the gift code has already been used$/) do
+  FactoryGirl.create(:subscription, gift_code: @gift_code)
+end
+
+Then(/^I should see an already\-used gift code error$/) do
+  page.should have_text("Gift code has already been used")
 end

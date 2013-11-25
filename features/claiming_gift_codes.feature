@@ -33,3 +33,14 @@ Scenario: Sign up with an unpaid gift code
   And I click the "Join SeedPod" button
   Then I should see the "Account Details" page
   And I should see an invalid gift code error
+
+@javascript
+Scenario: Sign up with a gift code that's already been used
+  Given a gift code has been bought for me
+  But the gift code has already been used
+  When I visit the sign up page
+  And I fill in my details
+  And I enter my gift code
+  And I click the "Join SeedPod" button
+  Then I should see the "Account Details" page
+  And I should see an already-used gift code error
