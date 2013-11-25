@@ -21,7 +21,7 @@ Then(/^the user should get a shipped email$/) do
     Then "#{@user.email}" should receive an email
     When they open the email
     Then they should see "Your SeedPod is on its way!" in the email subject
-    And they should see "Hi #{@user.name}," in the email body
+    And they should see "Hi #{CGI.escapeHTML(@user.name)}," in the email body
   }
 end
 
