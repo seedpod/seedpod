@@ -206,3 +206,11 @@ end
 When(/^I enter my gift code$/) do
   fill_in 'user_gift_code', with: @gift_code.code
 end
+
+When(/^I enter a made\-up gift code$/) do
+  fill_in 'user_gift_code', with: "deadc0de"
+end
+
+Then(/^I should see an invalid gift code error$/) do
+  page.should have_text("Gift code is invalid")
+end

@@ -16,18 +16,18 @@ Scenario: Sign up with a gift code
 Scenario: Sign up with a made-up gift code
   When I visit the sign up page
   And I fill in my details
-  And I enter my gift code
+  And I enter a made-up gift code
   And I click the "Join SeedPod" button
-  Then I should see the sign up page
+  Then I should see the "Account Details" page
   And I should see an invalid gift code error
 
 @javascript
 Scenario: Sign up with an unpaid gift code
   Given a gift code has been bought for me
-  But the gift code has not been paid for
+  But the gift code was not paid for
   When I visit the sign up page
   And I fill in my details
   And I enter my gift code
   And I click the "Join SeedPod" button
-  Then I should see the sign up page
+  Then I should see the "Account Details" page
   And I should see an invalid gift code error
