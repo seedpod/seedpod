@@ -1,7 +1,7 @@
 class Subscription < ActiveRecord::Base
   belongs_to :user
   has_many :payments, dependent: :destroy
-  has_many :gift_codes, dependent: :destroy
+  has_one :gift_code, dependent: :destroy
   
   validates :gocardless_id, uniqueness: true
   
