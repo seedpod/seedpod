@@ -5,25 +5,36 @@ class SubscriptionsController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => [:gocardless_webhook]
 
   def new
-    url = GoCardless.new_subscription_url(
-      :interval_unit   => "month",
-      :interval_length => 1,
-      :amount          => "6.00",
-      :name            => t(:seedpod),
-      :description     => t(:tagline),
-      :state           => params[:user_id],
-      :redirect_uri    => confirm_user_subscription_url(@user),
-      :cancel_uri      => edit_user_registration_url(@user),
-      :user            => {
-        :email            => @user.email,
-        :first_name       => @user.first_name,
-        :last_name        => @user.last_name,
-        :billing_address1 => @user.address_street,
-        :billing_town     => @user.address_locality,
-        :postal_code      => @user.address_postcode,
-      }
-    )
-    redirect_to url
+    if params[:gift_code]
+      code = GiftCode.where(code: params[:gift_code], paid: true).first
+      if code && code.subscription.nil?
+        # Create subscription with expiry date
+        @user.subscriptions.create(gift_code_id: code.id, cancelled_at: DateTime.now + code.months.months)
+        redirect_to getting_started_pods_path
+      else
+        redirect_to root_path
+      end
+    else
+      url = GoCardless.new_subscription_url(
+        :interval_unit   => "month",
+        :interval_length => 1,
+        :amount          => "6.00",
+        :name            => t(:seedpod),
+        :description     => t(:tagline),
+        :state           => params[:user_id],
+        :redirect_uri    => confirm_user_subscription_url(@user),
+        :cancel_uri      => edit_user_registration_url(@user),
+        :user            => {
+          :email            => @user.email,
+          :first_name       => @user.first_name,
+          :last_name        => @user.last_name,
+          :billing_address1 => @user.address_street,
+          :billing_town     => @user.address_locality,
+          :postal_code      => @user.address_postcode,
+        }
+      )
+      redirect_to url
+    end
   end
 
   def confirm    

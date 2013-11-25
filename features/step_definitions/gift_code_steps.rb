@@ -219,4 +219,5 @@ Then(/^the gift code should be associated with my subscription$/) do
   user = User.first
   user.subscriptions.count.should == 1
   user.subscriptions.first.gift_code == @gift_code
+  user.subscriptions.active.should be_present
 end

@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   
   has_many :subscriptions, dependent: :destroy do
     def active
-      where(cancelled_at: nil).first
+      where("(gift_code_id IS NOT NULL AND cancelled_at > ?) OR (cancelled_at IS NULL)", DateTime.now).first
     end
   end
   has_many :payments, through: :subscriptions
