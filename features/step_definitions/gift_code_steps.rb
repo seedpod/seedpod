@@ -216,7 +216,7 @@ Then(/^I should see an invalid gift code error$/) do
 end
 
 Then(/^the gift code should be associated with my subscription$/) do
-  user = User.first
+  user = User.last
   user.subscriptions.count.should == 1
   user.subscriptions.first.gift_code == @gift_code
   user.subscriptions.active.should be_present
