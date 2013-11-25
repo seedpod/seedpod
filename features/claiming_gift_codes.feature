@@ -11,6 +11,8 @@ Scenario: Sign up with a gift code
   And I enter my gift code
   And I click the "Join SeedPod" button
   Then I should see the getting started page
+  And I should not see a subscription warning
+  And the gift code should be associated with my subscription
 
 @javascript
 Scenario: Sign up with a made-up gift code

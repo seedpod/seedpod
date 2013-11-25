@@ -214,3 +214,9 @@ end
 Then(/^I should see an invalid gift code error$/) do
   page.should have_text("Gift code is invalid")
 end
+
+Then(/^the gift code should be associated with my subscription$/) do
+  user = User.first
+  user.subscriptions.count.should == 1
+  user.subscriptions.first.gift_code == @gift_code
+end
