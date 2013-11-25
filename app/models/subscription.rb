@@ -3,7 +3,7 @@ class Subscription < ActiveRecord::Base
   has_many :payments, dependent: :destroy
   has_many :gift_codes, dependent: :destroy
   
-  validates :gocardless_id, presence: true, uniqueness: true
+  validates :gocardless_id, uniqueness: true
   
   before_destroy :cancel!
 
