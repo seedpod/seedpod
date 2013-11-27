@@ -218,8 +218,10 @@ end
 Then(/^the gift code should be associated with my subscription$/) do
   user = User.last
   user.subscriptions.count.should == 1
-  user.subscriptions.first.gift_code == @gift_code
-  user.subscriptions.active.should be_present
+  sub = user.subscriptions.first
+  sub.gift_code.should == @gift_code
+  sub.cancelled_at.to_s.should == (sub.created_at + @gift_code.months.months).to_s
+  user.subscriptions.active.should == sub
 end
 
 Given(/^the gift code has already been used$/) do

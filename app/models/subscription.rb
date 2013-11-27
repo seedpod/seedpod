@@ -6,10 +6,17 @@ class Subscription < ActiveRecord::Base
   validates :gocardless_id, uniqueness: true
   
   before_destroy :cancel!
+  after_create :set_cancellation_date_from_gift_code!
 
   def self.on_cancel!(gocardless_id)
     sub = Subscription.where(gocardless_id: gocardless_id).first
     sub.on_cancel! if sub
+  end
+  
+  def set_cancellation_date_from_gift_code!(start_date = DateTime.now)
+    if gift_code.present?
+      update_attributes!(cancelled_at: start_date + gift_code.months.months)
+    end
   end
   
   def on_cancel!

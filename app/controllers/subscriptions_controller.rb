@@ -9,7 +9,7 @@ class SubscriptionsController < ApplicationController
       code = GiftCode.where(code: params[:gift_code], paid: true).first
       if code && code.subscription.nil?
         # Create subscription with expiry date
-        @user.subscriptions.create(gift_code_id: code.id, cancelled_at: DateTime.now + code.months.months)
+        @user.subscriptions.create(gift_code_id: code.id)
         redirect_to getting_started_pods_path
       else
         redirect_to root_path
