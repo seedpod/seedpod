@@ -16,6 +16,8 @@ class Subscription < ActiveRecord::Base
   def set_cancellation_date_from_gift_code!(start_date = DateTime.now)
     if gift_code.present?
       update_attributes!(cancelled_at: start_date + gift_code.months.months)
+      # Generate a shipment immediately seeing as we've created this subscription
+      gift_code.use!      
     end
   end
   

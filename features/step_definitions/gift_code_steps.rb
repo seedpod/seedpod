@@ -231,3 +231,16 @@ end
 Then(/^I should see an already\-used gift code error$/) do
   page.should have_text("Gift code has already been used")
 end
+
+Given(/^the gift code lasts for (\d+) months$/) do |num|
+  @gift_code.update_attributes!(months: num.to_i)
+end
+
+Given(/^I claim the gift code when I sign up$/) do
+  step "I have previously registered"
+  @user.subscriptions.create(gift_code_id: @gift_code.id)
+end
+
+When(/^the gift code shipment generator runs$/) do
+  GiftCode.generate_shipments!
+end

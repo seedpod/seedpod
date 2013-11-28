@@ -1,3 +1,7 @@
+Given(/^there is a pod for "(.*?)"$/) do |date|
+  @pod = FactoryGirl.create :pod, month: Date.parse(date).beginning_of_month
+end
+
 Given(/^there is a pod for the current month$/) do
   @current_pod = FactoryGirl.create :pod
 end

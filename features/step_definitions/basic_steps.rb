@@ -33,3 +33,7 @@ end
 Given(/^it is (\d+) days before the end of the month$/) do |num|
   Timecop.freeze(Date.today.end_of_month - num.to_i.days)
 end
+
+Given(/^the date is "(.*?)"$/) do |date|
+  Timecop.freeze(Date.parse(date))
+end

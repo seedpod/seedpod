@@ -44,3 +44,27 @@ Scenario: Sign up with a gift code that's already been used
   And I click the "Join SeedPod" button
   Then I should see the "Account Details" page
   And I should see an already-used gift code error
+
+@timecop
+Scenario: Generate gift code shipments correctly
+  Given a gift code has been bought for me
+  And the gift code lasts for 3 months
+  And there is a pod for "2013-09-01"
+  And there is a pod for "2013-10-01"
+  And there is a pod for "2013-11-01"
+  And there is a pod for "2013-12-01"
+  And the date is "2013-09-10"
+  And I claim the gift code when I sign up
+  Then the pod for "2013-09-01" should be shipped to me
+  When the date is "2013-09-11"
+  And the gift code shipment generator runs
+  Then the pod for "2013-09-01" should not be shipped to me again
+  When the date is "2013-10-10"
+  And the gift code shipment generator runs
+  Then the pod for "2013-10-01" should be shipped to me
+  When the date is "2013-11-10"
+  And the gift code shipment generator runs
+  Then the pod for "2013-11-01" should be shipped to me
+  When the date is "2013-12-10"
+  And the gift code shipment generator runs
+  Then the pod for "2013-12-01" should be not shipped to me
