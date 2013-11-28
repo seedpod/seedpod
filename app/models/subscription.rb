@@ -3,7 +3,7 @@ class Subscription < ActiveRecord::Base
   has_many :payments, dependent: :destroy
   belongs_to :gift_code, dependent: :destroy
   
-  validates :gocardless_id, uniqueness: true
+  validates :gocardless_id, uniqueness: true, allow_nil: true
   
   before_destroy :cancel!
   after_create :set_cancellation_date_from_gift_code!
