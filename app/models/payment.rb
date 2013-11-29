@@ -2,7 +2,7 @@ class Payment < ActiveRecord::Base
   belongs_to :subscription
   belongs_to :pod
 
-  validates :gocardless_id, presence: true, uniqueness: true
+  validates :gocardless_id, uniqueness: true, allow_nil: true
   validates :state, inclusion: %w{pending paid failed refunded retrying cancelled}
 
   def paid!(amount, time)

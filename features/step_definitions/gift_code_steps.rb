@@ -116,7 +116,7 @@ Then(/^I should recieve an email with the gift code$/) do
     When they open the email
     Then they should see "Your SeedPod Gift Code" in the email subject
     And they should see "#{@gift_code.code}" in the email body
-    And they should see "#{@gift_code.months} months" in the email body
+    And they should see "#{@gift_code.months} month" in the email body
     And they should see "#{@gift_code.price_string}" in the email body
   }
 end
@@ -127,7 +127,7 @@ Then(/^I should recieve an email reciept$/) do
     When they open the email
     Then they should see "Your SeedPod Gift Code Receipt" in the email subject
     And they should not see "#{@gift_code.code}," in the email body
-    And they should see "#{@gift_code.months} months" in the email body
+    And they should see "#{@gift_code.months} month" in the email body
     And they should see "#{@gift_code.price_string}" in the email body
     And they should see "#{CGI.escapeHTML(@gift_code.recipient_name)}" in the email body
     And they should see "#{@gift_code.recipient_email}" in the email body
@@ -160,7 +160,7 @@ Then(/^I should receive an email with my gift code$/) do
     When they open the email
     Then they should see "Your SeedPod Gift Code" in the email subject
     And they should see "#{@gift_code.code}" in the email body
-    And they should see "#{@gift_code.months} months" in the email body
+    And they should see "#{@gift_code.months} month" in the email body
     And they should see "#{CGI.escapeHTML(@gift_code.recipient_name)}" in the email body
     And they should see "#{CGI.escapeHTML(@gift_code.purchaser_name)}" in the email body
   }
@@ -201,4 +201,46 @@ end
 Given(/^the gift code was not paid for$/) do
   @gift_code.paid = false
   @gift_code.save!
+end
+
+When(/^I enter my gift code$/) do
+  fill_in 'user_gift_code', with: @gift_code.code
+end
+
+When(/^I enter a made\-up gift code$/) do
+  fill_in 'user_gift_code', with: "deadc0de"
+end
+
+Then(/^I should see an invalid gift code error$/) do
+  page.should have_text("Gift code does not exist")
+end
+
+Then(/^the gift code should be associated with my subscription$/) do
+  user = User.last
+  user.subscriptions.count.should == 1
+  sub = user.subscriptions.first
+  sub.gift_code.should == @gift_code
+  sub.cancelled_at.to_s.should == (sub.created_at + @gift_code.months.months).to_s
+  user.subscriptions.active.should == sub
+end
+
+Given(/^the gift code has already been used$/) do
+  FactoryGirl.create(:subscription, gift_code: @gift_code)
+end
+
+Then(/^I should see an already\-used gift code error$/) do
+  page.should have_text("Gift code has already been used")
+end
+
+Given(/^the gift code lasts for (\d+) months$/) do |num|
+  @gift_code.update_attributes!(months: num.to_i)
+end
+
+Given(/^I claim the gift code when I sign up$/) do
+  step "I have previously registered"
+  @user.subscriptions.create(gift_code_id: @gift_code.id)
+end
+
+When(/^the gift code shipment generator runs$/) do
+  GiftCode.generate_shipments!
 end

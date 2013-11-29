@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131122141031) do
+ActiveRecord::Schema.define(version: 20131125211230) do
 
   create_table "admins", force: true do |t|
     t.string   "email",               null: false
@@ -34,7 +34,6 @@ ActiveRecord::Schema.define(version: 20131122141031) do
     t.string   "code"
     t.datetime "claimed_at"
     t.integer  "months"
-    t.integer  "user_id"
     t.boolean  "send_to_recipient"
     t.string   "purchaser_name"
     t.string   "purchaser_email"
@@ -46,8 +45,6 @@ ActiveRecord::Schema.define(version: 20131122141031) do
     t.boolean  "paid",              default: false
     t.boolean  "sent",              default: false
   end
-
-  add_index "gift_codes", ["user_id"], name: "index_gift_codes_on_user_id"
 
   create_table "instructions", force: true do |t|
     t.string   "summary"
@@ -115,6 +112,7 @@ ActiveRecord::Schema.define(version: 20131122141031) do
     t.datetime "cancelled_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "gift_code_id"
   end
 
   add_index "subscriptions", ["user_id"], name: "index_subscriptions_on_user_id"

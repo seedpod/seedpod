@@ -5,7 +5,7 @@ FactoryGirl.define do
     code "deadbeef"
     claimed_at nil
     months 12
-    user nil
+    subscription nil
     purchaser_name { Faker::Name.name }
     purchaser_email { Faker::Internet.email }
     send_to_recipient false

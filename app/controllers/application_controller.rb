@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   before_filter :configure_permitted_parameters, if: :devise_controller?
  
   def configure_permitted_parameters
-    extras = :name, :address_street, :address_locality, :address_region, :address_postcode
+    extras = :name, :address_street, :address_locality, :address_region, :address_postcode, :gift_code
     devise_parameter_sanitizer.for(:sign_up) << extras
     devise_parameter_sanitizer.for(:account_update) << extras
   end

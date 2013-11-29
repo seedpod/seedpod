@@ -21,7 +21,7 @@ Then(/^the user should get a shipped email$/) do
     Then "#{@user.email}" should receive an email
     When they open the email
     Then they should see "Your SeedPod is on its way!" in the email subject
-    And they should see "Hi #{@user.name}," in the email body
+    And they should see "Hi #{CGI.escapeHTML(@user.name)}," in the email body
   }
 end
 
@@ -45,3 +45,19 @@ Given(/^the previous pod was not shipped to me$/) do
   nil
 end
 
+Then(/^the pod for "(.*?)" should be shipped to me$/) do |date|
+  pod = Pod.where(month: Date.parse(date).beginning_of_month)
+  @user.subscriptions.active.payments.count.should == @user.shipments.count
+  @user.shipments.where(pod_id: pod).count.should == 1
+end
+
+Then(/^the pod for "(.*?)" should not be shipped to me again$/) do |date|
+  pod = Pod.where(month: Date.parse(date).beginning_of_month)
+  @user.subscriptions.active.payments.count.should == @user.shipments.count
+  @user.shipments.where(pod_id: pod).count.should == 1
+end
+
+Then(/^the pod for "(.*?)" should be not shipped to me$/) do |date|
+  pod = Pod.where(month: Date.parse(date).beginning_of_month)
+  @user.shipments.where(pod_id: pod).count.should == 0
+end

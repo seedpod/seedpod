@@ -36,3 +36,6 @@ en:
       subject: Your SeedPod Gift Code
   send_gift_code_to_purchaser:  "I would like to receive the gift code, and give the gift myself"
   send_gift_code_to_recipient:  "I would like the gift code to be emailed directly to the recipent"
+  signup_button_big: Proceed to secure GoCardless payment page
+  signup_button_small: Proceed to payment
+  signup_button_with_gift_code: Join SeedPod
