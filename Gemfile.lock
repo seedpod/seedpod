@@ -1,12 +1,11 @@
 GIT
-  remote: git://github.com/davebrace/rails_admin.git
-  revision: c6f6ff3110210ee90125a7258fc3fc1186f23088
-  branch: use-static-bootstrap-2
+  remote: git://github.com/sferik/rails_admin.git
+  revision: 0d35cc64c4a8791d8167eca5137416101792515f
   specs:
     rails_admin (0.5.0)
       builder (~> 3.1)
       coffee-rails (~> 4.0)
-      font-awesome-rails (~> 3.0)
+      font-awesome-rails (>= 3.0)
       haml (~> 4.0)
       jquery-rails (~> 3.0)
       jquery-ui-rails (~> 4.0)
@@ -17,13 +16,6 @@ GIT
       remotipart (~> 1.0)
       safe_yaml (~> 0.9)
       sass-rails (~> 4.0)
-
-GIT
-  remote: git://github.com/thomas-mcdonald/bootstrap-sass.git
-  revision: efab96f854dc8b08d46297b9af313fbe815124ac
-  specs:
-    bootstrap-sass (3.0.2.1)
-      sass (~> 3.2)
 
 GEM
   remote: https://rubygems.org/
@@ -68,6 +60,8 @@ GEM
     atomic (1.1.14)
     backports (3.3.5)
     bcrypt-ruby (3.1.2)
+    bootstrap-sass (3.0.2.1)
+      sass (~> 3.2)
     builder (3.1.4)
     capybara (2.1.0)
       mime-types (>= 1.16)
@@ -143,7 +137,7 @@ GEM
     faraday_middleware (0.9.0)
       faraday (>= 0.7.4, < 0.9)
     ffi (1.9.3)
-    font-awesome-rails (3.2.1.3)
+    font-awesome-rails (4.0.3.0)
       railties (>= 3.2, < 5.0)
     formatador (0.2.4)
     gh (0.13.0)
@@ -375,7 +369,7 @@ PLATFORMS
 
 DEPENDENCIES
   activemerchant
-  bootstrap-sass!
+  bootstrap-sass (~> 3.0.2)
   capybara-mechanize
   coffee-rails (~> 4.0.0)
   coveralls
