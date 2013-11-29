@@ -6,6 +6,8 @@ Feature: Claiming gift codes
 @javascript
 Scenario: Sign up with a gift code
   Given a gift code has been bought for me
+  And there is a pod for the current month
+  And there is a pod for next month
   When I visit the sign up page
   And I fill in my details
   And I enter my gift code
