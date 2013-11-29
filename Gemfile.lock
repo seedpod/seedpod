@@ -116,7 +116,7 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
-    docile (1.1.0)
+    docile (1.1.1)
     domain_name (0.5.15)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (0.9.0)
@@ -194,7 +194,7 @@ GEM
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     kramdown (1.2.0)
-    launchy (2.4.0)
+    launchy (2.4.2)
       addressable (~> 2.3)
     letter_opener (1.1.2)
       launchy (~> 2.2)
@@ -216,7 +216,7 @@ GEM
       ntlm-http (~> 0.1, >= 0.1.1)
       webrobots (>= 0.0.9, < 0.2)
     method_source (0.8.2)
-    mime-types (1.25)
+    mime-types (1.25.1)
     mini_portile (0.5.2)
     minitest (4.7.5)
     money (6.0.0)
@@ -241,7 +241,7 @@ GEM
       multi_xml (~> 0.5)
       rack (~> 1.2)
     orm_adapter (0.5.0)
-    pg (0.16.0)
+    pg (0.17.0)
     poltergeist (1.4.1)
       capybara (~> 2.1.0)
       cliver (~> 0.2.1)
@@ -332,7 +332,7 @@ GEM
     timecop (0.6.3)
     timers (1.1.0)
     tins (0.13.1)
-    travis (1.6.2)
+    travis (1.6.3)
       addressable (~> 2.3)
       backports
       faraday (~> 0.8.7)
@@ -397,7 +397,7 @@ DEPENDENCIES
   kramdown
   launchy
   letter_opener
-  pg (= 0.16.0)
+  pg
   poltergeist
   pry
   rack-google-analytics
