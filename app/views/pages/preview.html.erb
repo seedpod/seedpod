@@ -4,7 +4,7 @@
 
 <div class="aboutUs">
 	<p>SeedPod has been designed to take the hassle and stress out of growing your own vegetables. There's no longer any need to research endless books and websites to see which seeds to grow when and no more forgetting what you are supposed to do with your plants over the months. And the reward for growing your own? Well that's easy - year round delicious food, zero food miles and a happy, healthy lifestyle. Subscribe to SeedPod and you'll get two things to make growing your own cheep and simple: two packets of vegetable seeds per month and personalised monthly growing advice taylored to eactly what you are growing and when you are growing it. 
-	  		
+<div id='instructions' class="row">		  		
 	  <div class="col-md-12">
 		  <div class="boxes">
 		  <p>
@@ -13,7 +13,7 @@
 		  <p>
 	    <%= image_tag "seeds.jpg", :class => 'img-responsive pull-left', :width => '400' %>
 			<div class="aboutColumns">
-			We've designed a delivery programme that will allow you to grow food throughout the year. It's varied and includes a range of vegetables to supplement your household diet. All of our seeds are chosen to be simple and easy to grow, with almost no equipment or prior knowledge required. Our complete (provisional) timetable can be viewed here to give you an idea of what you can expect each month. Many of our seeds have received the presigious Award of Garden Merit from the Royal Horticultural Society, meaning that they produce excellent quality and quantity veggies. 
+			We've designed a delivery programme that will allow you to grow food throughout the year. It's varied and includes a range of vegetables to supplement your household diet. All of our seeds are chosen to be simple and easy to grow, with almost no equipment or prior knowledge required. Our complete (provisional) timetable can be viewed <%= link_to "here", page_path("calendar") %> to give you an idea of what you can expect each month. Many of our seeds have received the presigious Award of Garden Merit from the Royal Horticultural Society, meaning that they produce excellent quality and quantity veggies. 
 		</div>
 		</div>
 		  </p>
@@ -26,7 +26,7 @@
 		  <p>
 			<%= image_tag "website2.jpg", :class => 'img-responsive pull-right', :width => '400' %>
 		  	<div class="aboutColumns">
-				A big problem many initially enthusaistic gardeners face is remembering what they are supposed to do with their plants once they appear out of the soil. Books and websites always give a large range of dates when things might need to be done; but, because we know when you planted, we can tailor our advice specifically to you and your plants. Each month you'll get access to your personalised growing programme on our website that will tell you how to plant this month's seeds and how to care for the ones already growing. A taster of what you might receive can be seen here. As you can see, we keep it simple and to the point.
+				A big problem many initially enthusaistic gardeners face is remembering what they are supposed to do with their plants once they appear out of the soil. Books and websites always give a large range of dates when things might need to be done; but, because we know when you planted, we can tailor our advice specifically to you and your plants. Each month you'll get access to your personalised growing programme on our website that will tell you how to plant this month's seeds and how to care for the ones already growing. A taster of what you might receive can be seen <%= link_to "here", page_path("example") %>. As you can see, we keep it simple and to the point.
 		    </div>
 		</div>
 		  </p>
@@ -34,9 +34,6 @@
 	</div>
 <p>   
 Find out more on our <%= link_to "Any Questions", page_path("faq") %> page or, if you like what you see, then you can subscribe today for just £6.00 (inc. VAT) per month, with free delivery and no contractual tie-in or cancellation fee. <%= link_to "Subscribe", new_user_session_path %> via our secure direct debit with GoCardless, or <%= link_to "buy a gift subscription", new_gift_code_path %> for 3,6,9 or 12 months with PayPal. 
-
-	  <p><%= image_tag "https://s3-eu-west-1.amazonaws.com/gocardless/images/public/buttons/updated/pay-with-gc-small.png", :class => 'img-responsive' %></p>
-	  <p><%= image_tag "https://www.paypalobjects.com/webstatic/mktg/logo/bdg_now_accepting_pp_2line_w.png", :class => 'img-responsive' %></p>
 
 
   <% unless signed_in? %>
