@@ -3,148 +3,42 @@
 </h1>
 
 <div class="aboutUs">
-	<p>SeedPod has been designed to be incredibly simple and convenient, and can be explained in three easy steps to make your growing experience hassle-free:
-	</p>
-	
+	<p>SeedPod has been designed to take the hassle and stress out of growing your own vegetables. There's no longer any need to research endless books and websites to see which seeds to grow when and no more forgetting what you are supposed to do with your plants over the months. And the reward for growing your own? Well that's easy - year round delicious food, zero food miles and a happy, healthy lifestyle. Subscribe to SeedPod and you'll get two things to make growing your own cheep and simple: two packets of vegetable seeds per month and personalised monthly growing advice taylored to eactly what you are growing and when you are growing it. 
+	  		
+	  <div class="col-md-12">
+		  <div class="boxes">
+		  <p>
+		  	<div class="miniAboutTitle">Receive two vegetable seed varieties each month</div>
+		  </p>
+		  <p>
+	    <%= image_tag "seeds.jpg", :class => 'img-responsive pull-left', :width => '400' %>
+			<div class="aboutColumns">
+			We've designed a delivery programme that will allow you to grow food throughout the year. It's varied and includes a range of vegetables to supplement your household diet. All of our seeds are chosen to be simple and easy to grow, with almost no equipment or prior knowledge required. Our complete (provisional) timetable can be viewed here to give you an idea of what you can expect each month. Many of our seeds have received the presigious Award of Garden Merit from the Royal Horticultural Society, meaning that they produce excellent quality and quantity veggies. 
+		</div>
+		</div>
+		  </p>
+	  </div>		
+	  <div class="col-md-12">
+		  <div class="boxes">
+		  <p>
+		  	<div class="miniAboutTitle">Access your own personalised growing guidance</div>
+		  </p>
+		  <p>
+			<%= image_tag "website2.jpg", :class => 'img-responsive pull-right', :width => '400' %>
+		  	<div class="aboutColumns">
+				A big problem many initially enthusaistic gardeners face is remembering what they are supposed to do with their plants once they appear out of the soil. Books and websites always give a large range of dates when things might need to be done; but, because we know when you planted, we can tailor our advice specifically to you and your plants. Each month you'll get access to your personalised growing programme on our website that will tell you how to plant this month's seeds and how to care for the ones already growing. A taster of what you might receive can be seen here. As you can see, we keep it simple and to the point.
+		    </div>
+		</div>
+		  </p>
+	  </div>	
+	</div>
 <p>   
-	<div class="panel-group" id="accordion">
-	    <div class="panel panel-default">
-	      <div class="panel-heading">
-	        <h4 class="panel-title">
-	          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
-	  			<div class="miniAboutTitle hidden-xs">1. Subscribe via a secure direct debit managed by GoCardless</div>
-				<div class="mobileAboutTitle visible-xs">1. Subscribe via secure direct debit managed by GoCardless</div>
-	          </a>
-	        </h4>
-	      </div>
-	      <div id="collapseFive" class="panel-collapse collapse">
-	        <div class="panel-body">	
-			   	<p>
-				<div align="center">For just £6.00 (inc. VAT) per month, with free delivery, and with no contractual tie-in or cancellation fee.</div>
-				</p>
-	  	      </div>
-	    </div>
-	  </div>
-   
-	  <div class="panel panel-default">
-	    <div class="panel-heading">
-	      <h4 class="panel-title">
-	        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-				<div class="miniAboutTitle hidden-xs">2. Receive two different varieties of vegetable seeds every month</div>
-				<div class="mobileAboutTitle visible-xs">2. Receive two different vegetable seed varieties each month</div>
-	        </a>
-	      </h4>
-	    </div>
-	    <div id="collapseOne" class="panel-collapse collapse">
-	      <div class="panel-body">			
-			  <p>
-			<div id='instructions' class="row">	
-			  <div class="col-md-12">
-				  <div class="boxes">
-				 	  	<div class="miniAboutTitle">Delivery Dates</div>
-				  	  <p>
-				We've designed a delivery programme that will allow you to grow food throughout the year. It's varied and includes a range of vegetables to supplement your household diet. Subject to availability, subscribers will receive the following two varieties each month:
-				</p>
-	
-				  	<ul>
-					<li><strong>October 2013:</strong> Peas (Douce Provence); Lettuce (Brian)</li>
-					<li><strong>November 2013:</strong> Broad Beans (Aquadulce); Chives</li>
-					<li><strong>December 2013:</strong> Cucumber (Burpless Tasty); Chilli (F1 Rodeo)</li>
-					<li><strong>January 2014:</strong> Cauliflower (All year round); Radish (Cherry Bell)</li>
-					<li><strong>February 2014:</strong> Onions (Rijnsburger 5); Parsnips (White Gem)</li>
-					<li><strong>March 2014:</strong> Cabbage (Glory of Enkuizen); Leek (Lyon 2 Prizetaker)</li>
-					<li><strong>April 2014:</strong> Courgette (Zucchini); Tomatoes (Tiny Tim)</li>
-					<li><strong>May 2014:</strong> Runner Beans (Kelveden Marvel); Winter Squash (Waltham Butternut)</li>
-					<li><strong>June 2014:</strong> French Beans (Tendergreen); Sweetcorn (F1 Sundance)</li>
-					<li><strong>July 2014:</strong> Beetroot (Boltardy); Spinach (F1 Renegade)</li>
-					<li><strong>August 2014:</strong> Carrots (F1 Flyaway); Turnips (Goldana)</li>
-					<li><strong>September 2014:</strong> Pak Choi (F1 Hanakan); Rocket (Cultivated Rocket)</li>
-				</ul>
-				</div>
-			</div>
+Find out more on our <%= link_to "Any Questions", page_path("faq") %> page or, if you like what you see, then you can subscribe today for just £6.00 (inc. VAT) per month, with free delivery and no contractual tie-in or cancellation fee. <%= link_to "Subscribe", new_user_session_path %> via our secure direct debit with GoCardless, or <%= link_to "buy a gift subscription", new_gift_code_path %> for 3,6,9 or 12 months with PayPal. 
 
-		</p>
-		  </div>
-	    </div>
-	  </div>
-  </div>
-   
-  
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4 class="panel-title">
-            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-  				<div class="miniAboutTitle hidden-xs">3. Access your own personalised growing guidance</div>
-				<div class="mobileAboutTitle visible-xs">3. Access personalised growing guidance</div>
-            </a>
-          </h4>
-        </div>
-        <div id="collapseTwo" class="panel-collapse collapse">
-          <div class="panel-body">	
-	  	  	<div class="miniAboutTitle">Guidance Examples</div>
-	  <p>
-	  You'll see below a taster of what to expect from the monthly guidance, which is personalised to your own account: you'll only receive information relevant to the seeds you've received. As you can see, we keep it simple and to the point. Find out more on our <%= link_to "Any Questions", page_path("faq") %> page or, if you like what you see, <%= link_to "Subscribe", new_user_session_path %> today.
-	  </p>
-
-	  <div id='instructions' class="row">	
-	    <div class="col-md-12">
-	  	  <div class="boxes">
-	  	 	  	<div class="miniAboutTitle">Sweetcorn</div>
-	  	  	  <p>
-	  		<%= image_tag 'sweetcorn.jpg', class: "img-responsive pull-right", width:"400" %>
-	  		It's sweetcorn time! And trust me, you've never truly tasted sweetcorn until it's been picked seconds before steaming and eating - utterly delicious. So, here's how we do it:
-	  		<ol>
-	  		<li>First of all - this is one of the few crops that needs some consideration as to its location. The seeds or seedlings need lots of warmth and sunshine, and to be sown so the plants will grow in a grid pattern (ie three rows of four plants rather than one long row of twelve) to aid pollination. Also remember to dig in some compost or manure before you plant to help them grow big and strong. </li>
-	  		<li>Sow the seeds directly into the soil by making holes at least 30cm apart and a couple of cms deep. Drop a seed in each hole, fill with soil, and water well. It's important to keep them watered - which could mean remembering to water every day during the heat of summer. </li>
-	  		<li>The seeds will need conditions to reach approximately 18 degrees Celsius in order to start growing, so if it's chilly where you are, cover the soil with a clear plastic sheet or fleece to keep the soil warm. You should start to see your seedlings sprout in around 2 weeks, and if there are gaps in your grid of plants after three weeks, then sow any spare seeds to fill in. </li>
-	  	</ol>
-	  	</p>
-	  	</div>
-	  </div>
-
-	    <div class="col-md-4">
-	  	<div class="boxes">
-	  
-	  	  	<div class="miniAboutTitle">French Beans</div>
-	  
-	  		<%= image_tag 'french.jpg', class: "img-responsive", Vspace:"10" %>
-	  		<p>Your second packet of seeds for this month contains French Beans. These produce lots of beans over a good few weeks so can make a plentiful and reliable crop.</p><p> Plant two beans every 25cm in a line. French bean plants will grow approximately 5ft tall and the shoots will need something to climb; so, either plant in one long line close to a wall or fence, or in two rows about 80cm apart so that you can build them a bamboo and string A-frame. </p>
-	  	</div>
-	  </div>
-	  
-	    <div class="col-md-8">
-	    	<div class="boxes">
-	  
-	  	  	<div class="miniAboutTitle">Runner Beans</div>
-	  
-	  		<%= image_tag 'runner.jpg', class: "img-responsive pull-left", width:"250", Hspace:"10", Vspace:"10" %>
-	  		<p>By now you should have some strong little runner bean plants. </p><p>They are going to grow to approximately 6ft in height and will need something against which to climb, so put a trellis on the wall or fence, or build a simple frame out of bamboo, but make sure it's at least 6ft tall and sturdy. You won't need to tie the plants to the trellis or frame - they will just wrap themselves around.</p> <p>If you have any gaps in between plants, remember to use any spare seeds, and if two plants grew too close together, remove the weakest plant.</p>
-	  	</div>
-	  </div>
-	    <div class="col-md-8">
-	  	<div class="boxes">
-	 
-	  	  	<div class="miniAboutTitle">Courgette</div>
-	  
-	  	  <p>
-	    		<%= image_tag 'courgette.jpg', class: "img-responsive pull-right", width:"240", Hspace:"10", Vspace:"10" %>
-	  		You should now be beginning to see some flowers and baby courgettes on your plant. Courgette plants produce a bountiful crop, so harvest them regularly when each fruit is 15-20cm in length, and remember to keep on top of them: it only takes a couple of days and they will grow to become marrows. The flowers are also tasty, so don't throw them away when you pick your fruit - simply add them in to a stir fry instead. </p><p>When picking each courgette, simply twist and pull, but be careful - the leaves and fruit have tiny hairs that can irritate your skin, so you may wish to wear gloves. You may also start to notice some white dusty marks on the larger leaves - don't worry this is quite common and is not harmful to you or the plant.
-	  	</p>
-	  	</div>
-	  </div>
-	  </div>
-	  </div>
+	  <p><%= image_tag "https://s3-eu-west-1.amazonaws.com/gocardless/images/public/buttons/updated/pay-with-gc-small.png", :class => 'img-responsive' %></p>
+	  <p><%= image_tag "https://www.paypalobjects.com/webstatic/mktg/logo/bdg_now_accepting_pp_2line_w.png", :class => 'img-responsive' %></p>
 
 
-  </p>
-      </div>
-    </div>
-  </div>
-  <p>
-<div class="col-md-4">	
-</div>
-  <div class="col-md-4">
-  <p>
   <% unless signed_in? %>
     <div class='form-group'>
     	<div align="center">
