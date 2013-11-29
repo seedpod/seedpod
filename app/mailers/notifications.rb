@@ -15,6 +15,7 @@ class Notifications < ActionMailer::Base
     @code = code.code
     @months = code.months
     @price = code.price_string
+    @purchaser_name = code.purchaser_name
     mail to: code.purchaser_email
   end
   
