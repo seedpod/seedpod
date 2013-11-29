@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   
   has_many :subscriptions, dependent: :destroy do
     def active
-      where(cancelled_at: nil).first
+      where("(gift_code_id IS NOT NULL AND cancelled_at > ?) OR (cancelled_at IS NULL)", DateTime.now).first
     end
   end
   has_many :payments, through: :subscriptions
@@ -19,6 +19,10 @@ class User < ActiveRecord::Base
   validates :address_locality, :presence => true
   #validates :address_region  , :presence => true
   validates :address_postcode, :presence => true
+
+  # fake accessor for gift codes on signup and use custom validator to check it
+  attr_accessor :gift_code
+  validates :gift_code, gift_code: true
 
   rails_admin do
     edit do

@@ -4,7 +4,7 @@
 <div class=aboutUs>
 	<p>
 	<div class="hidden-xs progressBar">
-		Subscribe <i class="icon-long-arrow-right"></i> <span class="progressHighlight">Account Details</span> <i class="icon-long-arrow-right"></i> GoCardless Payment Page <i class="icon-long-arrow-right"></i> Confirmation
+		Subscribe <i class="icon-long-arrow-right"></i> <span class="progressHighlight">Account Details</span> <span id='payment-progress'><i class="icon-long-arrow-right"></i> GoCardless Payment Page </span><i class="icon-long-arrow-right"></i> Confirmation
 	</div>
 	</p>
 	<p>
@@ -41,6 +41,14 @@
 				<%= f.password_field :password_confirmation, :required => true %>
 			</div>
 		</div>
+
+	  <div class='form-group'>
+			<%= f.label :gift_code, :class => 'col-lg-4 control-label' %>
+		  <div class='col-lg-12'>
+				<%= f.text_field :gift_code %>
+			</div>
+		</div>
+
 	</fieldset>
 </div>
   <div class="col-md-6">
@@ -81,16 +89,35 @@
 </div>
 </p>
 
-<div align="center">
+
+<script>
+  $(function() {
+    $('#user_gift_code').on("input", null, null, function(){
+      if ($('#user_gift_code')[0].value.match(/[0-9a-f]{8}/)) {
+        $('#pricing-details').slideUp();
+        $('#payment-progress').fadeOut();
+        $('.signup-button-small').val("<%= t(:signup_button_with_gift_code) %>");
+        $('.signup-button-big').val("<%= t(:signup_button_with_gift_code) %>");
+      } else {
+        $('#pricing-details').slideDown();
+        $('#payment-progress').fadeIn();
+        $('.signup-button-small').val("<%= t(:signup_button_small) %>");
+        $('.signup-button-big').val("<%= t(:signup_button_big) %>");
+      }
+    });
+  });
+</script>
+
+<div align="center" id='pricing-details'>
 	<p>Subscribe today for just £6.00 (inc. VAT) per month, with free delivery, and no contractual tie-in or cancellation fee.</p>
 </div>
 
   <div class='form-group'>
 	  <div class='visible-xs col-lg-12'>
-			<%= f.submit "Proceed to payment", class: 'btn btn-primary btn-block btn-lg' %>
+			<%= f.submit t(:signup_button_small), class: 'signup-button-small btn btn-primary btn-block btn-lg' %>
 		</div>
 	  <div class='hidden-xs col-lg-12'>
-			<%= f.submit "Proceed to secure GoCardless payment page", class: 'btn btn-primary btn-block btn-lg' %>
+			<%= f.submit t(:signup_button_big), class: 'signup-button-big btn btn-primary btn-block btn-lg' %>
 		</div>
 	</div>
 </div>

@@ -1,5 +1,5 @@
 class GiftCode < ActiveRecord::Base
-  belongs_to :user
+  has_one :subscription
 
   validates :code, uniqueness: true, presence: true
   validates :months, presence: true
@@ -68,6 +68,23 @@ class GiftCode < ActiveRecord::Base
   def deliver!
     Notifications.gift_code(self).deliver
     update_attributes!(sent: true)    
+  end
+
+  def used_this_month?
+    subscription.user.shipment_for(Pod.currently_shipping).present?
+  end
+
+  def use!
+    if subscription && subscription.payments.count < months
+      payment = subscription.payments.create
+      payment.paid!(0, DateTime.now)
+    end
+  end
+
+  def self.generate_shipments!
+    Subscription.where("gift_code_id IS NOT NULL").each do |sub|
+      sub.gift_code.use! unless sub.gift_code.used_this_month?
+    end
   end
 
 end
