@@ -35,7 +35,7 @@ Scenario: Buy a gift code but forget recipient details
 
 Scenario: Use button from homepage to buy gift
   When I visit the homepage
-  And I click the "G I F T" link
+  And I click the "BUY A GIFT SUBSCRIPTION" link
   Then I should see the "Gift Subscriptions" page
   
 Scenario: When I buy a gift code I get redirected to the gift code page

@@ -1,11 +1,22 @@
-<p>Congratulations <%= @recipient_name %>, you are the lucky recipient of a SeedPod gift subscription from <%= @purchaser_name %>!</p>
+<div style="border-width: 4px; border-style: solid; border-color: rgb(120/162/47); "> 
+<div style="margin-left: 10px;">
+<div style="font-family: gill sans;">
+<div align="right">
+</p>
+	<img src="http://farm6.staticflickr.com/5473/9577220966_83466c00c6.jpg" 
+		width="300">
+</p>
+</div>
+<p>To: <%= @recipient_name %>,</p>
+	
+<p>Congratulations! You've been sent a <strong><%= @months %> month SeedPod subscription</strong> by <%= @purchaser_name %> - you lucky thing!</p>
 
-<p>
-	Your subscription means you will be sent two different varieties of vegetable seeds every month for <%= @months %> months, as well as having access to our unique guided growing programme to help you sow the seeds, and to nurture the plants. We'll even advise you when it may be best to harvest the veg.
+
+<p>Your gift means you will be sent two different varieties of vegetable seeds each month, as well as gaining access to a unique guided growing programme to help you sow the seeds, and to nurture the plants. We even help you harvest the veg at the right time. 
 </p>
 
 <p>
-	In order to start receiving your seeds you will need to create an account on our website at <a href='http://getseedpod.com'>http://getseedpod.com</a>. By clicking 'subscribe' on the site you will be asked to enter your preferred delivery details. You will also have the option of entering your unique gift code which is "<%= @code %>".
+	To start receiving your seeds you'll need to create an account on the <a href='http://www.getseedpod.com/users/sign_up'>SeedPod</a> website, and choose your preferred delivery details. You'll also be able to enter your unique gift code which is "<strong><%= @code %></strong>" (don't lose it!).
 </p>
 
 <p>
@@ -15,4 +26,8 @@
 <p>Best wishes,
 	the SeedPod team</p>
 
-<p>SeedPod is a limited company registered in England and Wales. Registered number: 8469306. Registered office: 39 Bargate Rise, Godalming, Surrey, GU7 2LR.</p>
+<div style="font-size: smaller;"><p>SeedPod is a limited company registered in England and Wales. Registered number: 8469306. Registered office: 39 Bargate Rise, Godalming, Surrey, GU7 2LR.</p>
+</div>
+</div>
+</div>
+</div>
