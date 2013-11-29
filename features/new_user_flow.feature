@@ -6,7 +6,7 @@ Feature: New user flow
 Scenario: I can click a button on the homepage to sign up
   When I visit the homepage
   And I click the "Get Growing" link
-  And I click the "S U B S C R I B E" link
+  And I click the "SUBSCRIBE" link
   Then I should see the "Account Details" page
 
 Scenario: Clicking the How it Works link should show me the How it Works page
