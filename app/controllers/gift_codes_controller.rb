@@ -70,6 +70,7 @@ class GiftCodesController < ApplicationController
         amount: @gift_code.price*100
       }]
     )
+    raise response.inspect unless response.token.present?
     PayPalGateway.redirect_url_for(response.token)
   end
 
