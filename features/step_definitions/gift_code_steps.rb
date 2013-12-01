@@ -3,8 +3,9 @@ When(/^I visit the gift code purchase page$/) do
 end
 
 When(/^I select a gifting option$/) do
-  select '6 Months - £34.20', from: 'gift_code[months]'
+  select '6 Months', from: 'gift_code[months]'
   @months = 6
+  @price_string = "£34.20"
 end
 
 When(/^I enter my details as the purchaser$/) do
