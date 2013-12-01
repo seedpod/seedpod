@@ -195,6 +195,7 @@
           including a <strong><%= discount_string(length) %> discount</strong>
         <% end %>
         : £<%= price_string(length) %>
+        (Organic: £<%= price_string(length, true) %>)
       </li>
     <% end %>
 	</ul>

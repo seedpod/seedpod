@@ -12,7 +12,8 @@
 		<thead>
 			<tr>
 			<td>Length</td>
-			<td>Total Cost</td>
+			<td>Standard</td>
+			<td>Organic</td>
 			<td>Saving</td>
 			</tr>
 		</thead>
@@ -21,7 +22,7 @@
   			<tr>
   				<td><%= length %> months</td>
   				<td>£<%= price_string(length)%></td>
-  				<td><%= discount_string(length) %></td>
+  				<td>£<%= price_string(length, true)%></td>
   				<td><%= discount_string(length) if Pod.discount(months: length) > 0 %></td>
   			</tr>
       <% end %>
