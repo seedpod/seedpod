@@ -1,8 +1,8 @@
 module GiftCodesHelper
 
   def gift_code_options_for_select
-    GiftCode.prices.map do |choice|
-      ["#{choice[0]} Months - £%.2f" % choice[1], choice[0]]
+    [3,6,9,12].map do |length|
+      ["#{length} Months - £%.2f" % Pod.price(months: length), length]
     end
   end
 

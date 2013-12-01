@@ -36,15 +36,6 @@ class GiftCode < ActiveRecord::Base
     "#{months} month subscription"
   end
   
-  def self.prices
-    {
-      3  => Pod.price(months: 3),
-      6  => Pod.price(months: 6),
-      9  => Pod.price(months: 9),
-      12 => Pod.price(months: 12),
-    }
-  end
-
   def mark_as_paid!
     update_attributes!(paid: true)
     if send_to_recipient
