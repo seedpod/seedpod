@@ -26,4 +26,22 @@ class Pod < ActiveRecord::Base
     shipments.where(user: user).first.present?
   end
   
+  def self.price(months: 1, organic: false)
+    base_price = 6 * months
+    case months
+    when 1..5
+      base_price
+    when 6..8
+      (base_price * 0.95).round(2)
+    when 9..11
+      (base_price * 0.90).round(2)
+    else
+      (base_price * 0.85).round(2)
+    end
+  end
+  
+  def self.price_string(months: 1, organic: false)
+    "%.2f" % price(months: months, organic: organic)
+  end
+  
 end

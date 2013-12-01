@@ -25,11 +25,11 @@ class GiftCode < ActiveRecord::Base
   end
   
   def price_string
-    "£%.2f" % price
+    Pod.price_string(months: months)
   end
   
   def price
-    GiftCode.prices[months]
+    Pod.price(months: months)
   end
   
   def description
@@ -38,10 +38,10 @@ class GiftCode < ActiveRecord::Base
   
   def self.prices
     {
-      3  => 18.00,
-      6  => 34.20,
-      9  => 48.60,
-      12 => 61.20,
+      3  => Pod.price(months: 3),
+      6  => Pod.price(months: 6),
+      9  => Pod.price(months: 9),
+      12 => Pod.price(months: 12),
     }
   end
 

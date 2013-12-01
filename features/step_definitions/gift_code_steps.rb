@@ -118,7 +118,7 @@ Then(/^I should recieve an email with the gift code$/) do
     And they should see "#{CGI.escapeHTML(@gift_code.purchaser_name)}" in the email body
     And they should see "#{@gift_code.code}" in the email body
     And they should see "#{@gift_code.months} month" in the email body
-    And they should see "#{@gift_code.price_string}" in the email body
+    And they should see "£#{@gift_code.price_string}" in the email body
   }
 end
 
@@ -129,7 +129,7 @@ Then(/^I should recieve an email reciept$/) do
     Then they should see "Your SeedPod Gift Code Receipt" in the email subject
     And they should not see "#{@gift_code.code}," in the email body
     And they should see "#{@gift_code.months} month" in the email body
-    And they should see "#{@gift_code.price_string}" in the email body
+    And they should see "£#{@gift_code.price_string}" in the email body
     And they should see "#{CGI.escapeHTML(@gift_code.recipient_name)}" in the email body
     And they should see "#{@gift_code.send_date.to_s(:long)}" in the email body
   }
