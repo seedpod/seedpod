@@ -24,10 +24,6 @@ class GiftCode < ActiveRecord::Base
   	end
   end
   
-  def price_string
-    Pod.price_string(months: months)
-  end
-  
   def price
     Pod.price(months: months)
   end

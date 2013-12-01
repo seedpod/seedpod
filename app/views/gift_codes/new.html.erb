@@ -20,7 +20,7 @@
       <% gift_code_lengths.each do |length| %>
   			<tr>
   				<td><%= length %> months</td>
-  				<td>£<%= Pod.price_string(months: length)%></td>
+  				<td>£<%= price_string(length)%></td>
   				<td><%= discount_string(length) %></td>
   			</tr>
       <% end %>

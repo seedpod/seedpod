@@ -47,8 +47,4 @@ class Pod < ActiveRecord::Base
     (Pod.base_price_per_month(organic: organic) * months * (1.0-Pod.discount(months: months))).round(2)
   end
   
-  def self.price_string(months: 1, organic: false)
-    "%.2f" % price(months: months, organic: organic)
-  end
-  
 end

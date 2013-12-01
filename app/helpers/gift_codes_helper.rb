@@ -14,4 +14,8 @@ module GiftCodesHelper
     (Pod.discount(months: months) * 100).to_i.to_s + "%"
   end
 
+  def price_string(months, organic = false)
+    "%.2f" % Pod.price(months: months, organic: organic)
+  end
+
 end
