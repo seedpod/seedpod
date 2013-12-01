@@ -48,7 +48,7 @@ class GiftCodesController < ApplicationController
   end
   
   def gift_code_params
-    params[:gift_code].permit(:months, :purchaser_name, :purchaser_email, :send_to_recipient, :recipient_email, :recipient_name, :send_date)
+    params[:gift_code].permit(:months, :organic, :purchaser_name, :purchaser_email, :send_to_recipient, :recipient_email, :recipient_name, :send_date)
   end
 
   def paypal_checkout_url
