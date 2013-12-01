@@ -15,10 +15,11 @@ class SubscriptionsController < ApplicationController
         redirect_to root_path
       end
     else
+      organic = params[:organic]
       url = GoCardless.new_subscription_url(
         :interval_unit   => "month",
         :interval_length => 1,
-        :amount          => price_string(1),
+        :amount          => price_string(1, organic),
         :name            => t(:seedpod),
         :description     => t(:tagline),
         :state           => params[:user_id],

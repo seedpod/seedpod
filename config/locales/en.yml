@@ -15,6 +15,7 @@ en:
         address_region: County
         address_postcode: Postcode
         remember_me: Keep me logged in
+        organic: Standard or Organic option?
       gift_code:        
         months: Which gift would you like to give?
         purchaser_name: Your name

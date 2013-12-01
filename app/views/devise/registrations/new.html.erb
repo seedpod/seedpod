@@ -43,6 +43,13 @@
 		</div>
 
 	  <div class='form-group'>
+			<%= f.label :organic, :class => 'col-lg-4 control-label' %>
+		  <div class='col-lg-8'>
+				<%= f.select :organic, organic_options_for_select %>
+			</div>
+		</div>
+		
+	  <div class='form-group'>
 			<%= f.label :gift_code, :class => 'col-lg-4 control-label' %>
 		  <div class='col-lg-8'>
 				<%= f.text_field :gift_code %>
