@@ -18,7 +18,7 @@ class SubscriptionsController < ApplicationController
       url = GoCardless.new_subscription_url(
         :interval_unit   => "month",
         :interval_length => 1,
-        :amount          => "6.00",
+        :amount          => price_string(1),
         :name            => t(:seedpod),
         :description     => t(:tagline),
         :state           => params[:user_id],
