@@ -1,12 +1,11 @@
-Feature Buying organic subscription
+Feature: Buying organic subscription
 	In order to be able to purchase an organic subscription
 	As a member of the public
 	I want to be able to choose an organic option
 	
-Scenario: Buy an organic option
-Select organic charged the right amount
+Scenario: Select organic charged the right amount
 	When I select organic option 
-	I should see price as £7.00
+	Then I should see price as "£7.00"
 	
 Scenario: Send to GoCardless
 	When I select organic option
@@ -22,7 +21,7 @@ Scenario: Send to GoCardless
 
 Scenario: Buy a non-organic option
 	When I select non-organic option
-	Then I should see price as £6.00
+	Then I should see price as "£6.00"
 	
 Scenario: Send to GoCardless non-organic
 	When I select non-organic option
