@@ -10,13 +10,6 @@ module GiftCodesHelper
     end
   end
   
-  def gift_code_organic_options_for_select
-    [
-      [t(:non_organic), false],
-      [t(:organic), true]
-    ]
-  end
-
   def discount_string(months)
     (Pod.discount(months: months) * 100).to_i.to_s + "%"
   end

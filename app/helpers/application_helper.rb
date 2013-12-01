@@ -13,4 +13,11 @@ module ApplicationHelper
     end
   end
   
+  def organic_options_for_select
+    [
+      [t(:non_organic), false],
+      [t(:organic), true]
+    ]
+  end
+
 end
