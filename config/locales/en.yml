@@ -23,6 +23,7 @@ en:
         recipient_name: Recipient name
         recipient_email: Recipient email
         send_date: When should we send the email?
+        organic: Standard or Organic option?
   notifications:
     shipped:
       subject: Your SeedPod is on its way!
