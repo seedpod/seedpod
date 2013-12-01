@@ -22,6 +22,7 @@
   				<td><%= length %> months</td>
   				<td>£<%= price_string(length)%></td>
   				<td><%= discount_string(length) %></td>
+  				<td><%= discount_string(length) if Pod.discount(months: length) > 0 %></td>
   			</tr>
       <% end %>
 		</tbody>
