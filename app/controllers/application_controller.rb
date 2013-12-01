@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  include PodsHelper
+  
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
@@ -15,9 +17,4 @@ class ApplicationController < ActionController::Base
     redirect_to new_user_session_path unless signed_in?
   end
   
-  def price_string(months, organic = false)
-    "%.2f" % Pod.price(months: months, organic: organic)
-  end
-  helper_method :price_string
-
 end

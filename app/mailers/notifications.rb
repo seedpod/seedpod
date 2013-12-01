@@ -1,5 +1,5 @@
 class Notifications < ActionMailer::Base
-  include GiftCodesHelper
+  include PodsHelper
   
   default from: 'greetings@getseedpod.com', bcc: 'admin@getseedpod.com'
   
