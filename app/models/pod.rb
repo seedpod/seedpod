@@ -6,8 +6,13 @@ class Pod < ActiveRecord::Base
     object_label_method :to_param
   end
   
-  def shipping_crops
-    instructions.where(ship: true).map{|x| x.crop}
+  def shipping_crops(organic = false)
+    crops = instructions.where(ship: true).map{|x| x.crop}
+    if organic
+      crops = crops.select{|x| x.organic == true}
+    else
+      crops = crops.select{|x| x.non_organic == true}
+    end
   end
   
   def self.find_by_date(date)
