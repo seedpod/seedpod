@@ -13,11 +13,11 @@ require 'spec_helper'
 describe GiftCodesHelper do
 
   it "should generate options for gift code selection properly" do
-    helper.gift_code_options_for_select.should == [
-      [ "3 Months - £18.00", 3 ],
-      [ "6 Months - £34.20", 6 ],
-      [ "9 Months - £48.60", 9 ],
-      ["12 Months - £61.20", 12],
+    helper.gift_code_length_options_for_select.should == [
+      [ "3 Months", 3 ],
+      [ "6 Months", 6 ],
+      [ "9 Months", 9 ],
+      ["12 Months", 12],
     ]
   end
 
