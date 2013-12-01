@@ -28,10 +28,6 @@ class GiftCode < ActiveRecord::Base
     Pod.price(months: months)
   end
   
-  def description
-    "#{months} month subscription"
-  end
-  
   def mark_as_paid!
     update_attributes!(paid: true)
     if send_to_recipient
