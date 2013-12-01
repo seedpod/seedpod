@@ -15,4 +15,9 @@ class ApplicationController < ActionController::Base
     redirect_to new_user_session_path unless signed_in?
   end
   
+  def price_string(months, organic = false)
+    "%.2f" % Pod.price(months: months, organic: organic)
+  end
+  helper_method :price_string
+
 end
