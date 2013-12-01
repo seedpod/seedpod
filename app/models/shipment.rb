@@ -5,7 +5,7 @@ class Shipment < ActiveRecord::Base
   after_save :send_shipment_email
 
   def crops
-    pod.instructions.map{|x| x.ship ? x.crop : nil}.compact
+    pod.shipping_crops
   end
   
   def ship!

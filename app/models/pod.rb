@@ -6,6 +6,10 @@ class Pod < ActiveRecord::Base
     object_label_method :to_param
   end
   
+  def shipping_crops
+    instructions.where(ship: true).map{|x| x.crop}
+  end
+  
   def self.find_by_date(date)
     Pod.where(month: Date.strptime(date, "%Y-%m")).first
   end
