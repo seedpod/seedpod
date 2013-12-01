@@ -19,22 +19,22 @@
 		<tbody>
 			<tr>
 				<td>3 months</td>
-				<td>£18.00</td>
+				<td>£<%= Pod.price_string(months: 3)%></td>
 				<td>0%</td>
 			</tr>
 			<tr>
 				<td>6 months</td>
-				<td>£34.20</td>
+				<td>£<%= Pod.price_string(months: 6)%></td>
 				<td>5%</td>
 			</tr>
 			<tr>
 				<td>9 months</td>
-				<td>£48.60</td>
+				<td>£<%= Pod.price_string(months: 9)%></td>
 				<td>10%</td>
 			</tr>
 			<tr>
 				<td>12 months</td>
-				<td>£61.20</td>
+				<td>£<%= Pod.price_string(months: 12)%></td>
 				<td>15%</td>
 			</tr>
 		</tbody>
