@@ -188,10 +188,15 @@
 	<strong>What range of gift subscriptions do you provide?</strong> We offer a fantastic range of gift subscriptions, most of which include a discount when compared to our standard month-by-month payment option:
 	
 	<ul>
-	<li>3-month gift subscription: £<%= price_string(3)%></li>
-	<li>6-month gift subscription including a <strong><%= discount_string(6) %> discount</strong>: £<%= price_string(6)%></li>
-	<li>9-month gift subscription including a <strong><%= discount_string(9) %> discount</strong>: £<%= price_string(9)%></li>
-	<li>12-month gift subscription including a <strong><%= discount_string(12) %> discount</strong>: £<%= price_string(12)%></li>
+    <% gift_code_lengths.each do |length| %>
+    	<li>
+        <%= length %>-month gift subscription
+        <% if Pod.discount(months: length) > 0 %>
+          including a <strong><%= discount_string(length) %> discount</strong>
+        <% end %>
+        : £<%= price_string(length) %>
+      </li>
+    <% end %>
 	</ul>
 </p>
 
