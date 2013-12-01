@@ -8,21 +8,24 @@ class SubscriptionsController < ApplicationController
     if params[:gift_code]
       code = GiftCode.where(code: params[:gift_code], paid: true).first
       if code && code.subscription.nil?
-        # Create subscription with expiry date
-        @user.subscriptions.create(gift_code_id: code.id)
+        # Create subscription
+        @user.subscriptions.create(gift_code_id: code.id, organic: code.organic)
         redirect_to getting_started_pods_path
       else
         redirect_to root_path
       end
     else
+      # Create subscription
       organic = params[:organic]
+      sub = @user.subscriptions.create(organic: organic)
+      # Send to gocardless for payment
       url = GoCardless.new_subscription_url(
         :interval_unit   => "month",
         :interval_length => 1,
         :amount          => price_string(1, organic),
         :name            => t(:seedpod),
         :description     => t(:tagline),
-        :state           => params[:user_id],
+        :state           => sub.id,
         :redirect_uri    => confirm_user_subscription_url(@user),
         :cancel_uri      => edit_user_registration_url(@user),
         :user            => {
@@ -39,15 +42,15 @@ class SubscriptionsController < ApplicationController
   end
 
   def confirm    
-    if params[:state].to_i == @user.id
+    if sub = @user.subscriptions.where(id: params[:state].to_i).first
       # Confirm with gocardless
       GoCardless.confirm_resource(params)
       # Store subscription ID
-      @user.subscriptions.create(gocardless_id: params[:resource_id])
+      sub.update_attributes!(gocardless_id: params[:resource_id])
       # Send back to main page
       redirect_to root_path
     else
-      raise "Wrong user!"
+      raise "Wrong user or subscription!"
     end
   rescue GoCardless::ApiError => ex
     raise

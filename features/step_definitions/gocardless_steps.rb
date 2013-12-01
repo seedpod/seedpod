@@ -9,7 +9,7 @@ When(/^GoCardless sends a subscription confirmation$/) do
     resource_id:   "ABC123",
     resource_type: "subscription",
     signature:     "blah",
-    state:         "#{@user.id}",
+    state:         "#{@subscription.id}",
   }
   GoCardless.should_receive(:confirm_resource).once.and_return(true)
   url = confirm_user_subscription_path(@user)+'?'+options.to_query
