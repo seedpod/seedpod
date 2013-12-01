@@ -40,7 +40,11 @@ class Pod < ActiveRecord::Base
   end
   
   def self.base_price_per_month(organic: false)
-    6.00
+    if organic
+      Pod.base_price_per_month + 1.00
+    else
+      6.00
+    end
   end
   
   def self.price(months: 1, organic: false)
