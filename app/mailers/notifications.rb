@@ -25,6 +25,7 @@ class Notifications < ActionMailer::Base
     @recipient_name = code.recipient_name
     @recipient_email = code.recipient_email
     @send_date = code.send_date
+    @purchaser_name = code.purchaser_name
     mail to: code.purchaser_email
   end
 
