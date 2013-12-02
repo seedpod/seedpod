@@ -41,16 +41,23 @@ Scenario: Send to GoCardless non-organic
 	And I should be charged the non-organic amount
 	And my subscription should be marked as non-organic
 
-Scenario: purchase and receive organic
-	Given that I have purchased an organic seedpod
-	And my pod has not yet been shipped
-	Then I should be visisble on the shipments page
-	And I should be tagged as having the organic shipment
-	
-Scenario: paying and getting organic pod
-	Given that I have paid for this months pod
-	And I have paid the organic price
-	Then I should be tagged as having paid for this month's organic pod
+Scenario: shipping organic
+  Given I am signed in as an administrator
+  And there is a user
+  And the subscription is organic
+  And that user has paid for the next pod
+  When I visit the shipping list for the next pod
+  Then I should see the user in the shipping list
+  And they should be listed as receiving organic seeds
+  	
+Scenario: shipping non-organic
+  Given I am signed in as an administrator
+  And there is a user
+  And the subscription is non-organic
+  And that user has paid for the next pod
+  When I visit the shipping list for the next pod
+  Then I should see the user in the shipping list
+  And they should be listed as receiving non-organic seeds
 	
 Scenario: view organic advice
 	Given that I have paid for this month's organic pod

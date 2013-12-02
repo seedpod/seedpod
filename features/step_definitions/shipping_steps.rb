@@ -61,3 +61,13 @@ Then(/^the pod for "(.*?)" should be not shipped to me$/) do |date|
   pod = Pod.where(month: Date.parse(date).beginning_of_month)
   @user.shipments.where(pod_id: pod).count.should == 0
 end
+
+Then(/^they should be listed as receiving organic seeds$/) do
+  page.should have_text("Organic")
+  page.should_not have_text("Standard")
+end
+
+Then(/^they should be listed as receiving non\-organic seeds$/) do
+  page.should have_text("Standard")
+  page.should_not have_text("Organic")
+end
