@@ -13,11 +13,16 @@ module ApplicationHelper
     end
   end
   
-  def organic_options_for_select
-    [
+  def organic_options_for_select(include_price: false)
+    x = [
       [t(:non_organic), false],
       [t(:organic), true]
     ]
+    if include_price
+      x[0][0] += " - £#{price_string(1, false)} per month"
+      x[1][0] += " - £#{price_string(1, true)} per month"
+    end
+    x
   end
 
 end

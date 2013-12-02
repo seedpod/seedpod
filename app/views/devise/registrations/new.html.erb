@@ -45,7 +45,7 @@
 	  <div class='form-group'>
 			<%= f.label :organic, :class => 'col-lg-4 control-label' %>
 		  <div class='col-lg-8'>
-				<%= f.select :organic, organic_options_for_select %>
+				<%= f.select :organic, organic_options_for_select(include_price: true) %>
 			</div>
 		</div>
 		
@@ -116,8 +116,20 @@
 </script>
 
 <div align="center" id='pricing-details'>
-	<p>Subscribe today for just £<%= price_string(1) %> (inc. VAT) per month, with free delivery, and no contractual tie-in or cancellation fee.</p>
+	<p>Subscribe today for just <span id='price'>£<%= price_string(1) %></span> (inc. VAT) per month, with free delivery, and no contractual tie-in or cancellation fee.</p>
 </div>
+
+<script>
+  $('#user_organic').change(function(){
+    var organic = $('#user_organic')[0].value;
+    prices = {
+      <% [false, true].each do |state| %>
+        <%= state %>: "£<%= price_string(1, state) %>",
+      <% end %> 
+    };    
+    $('#price').html(prices[organic]);
+  });
+</script>
 
   <div class='form-group'>
 	  <div class='visible-xs col-lg-12'>
