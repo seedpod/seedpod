@@ -10,6 +10,7 @@ Scenario: Gocardless tells us when subscriptions have been set up
   When GoCardless sends a subscription confirmation
   Then my subscription details should be stored
   #And I should be able to see my subscription ID on my account page
+  And I should see the "Get ready..." page
   
 Scenario: Gocardless tells us a subscription is cancelled
   Given I have a subscription set up
