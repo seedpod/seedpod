@@ -247,6 +247,17 @@ end
 When(/^the gift code shipment generator runs$/) do
   GiftCode.generate_shipments!
 end
+
+When(/^the gift code should be marked as organic$/) do
+  GiftCode.count.should == 1
+  GiftCode.last.organic.should == true
+end
+
+When(/^the gift code should be marked as non\-organic$/) do
+  GiftCode.count.should == 1
+  GiftCode.last.organic.should == false
+end
+
 Given(/^an organic gift code has been bought for me$/) do
   @gift_code = FactoryGirl.create(:gift_code, paid: true, organic: true)
 end

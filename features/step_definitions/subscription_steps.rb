@@ -41,3 +41,10 @@ Then(/^my subscription should be marked as organic$/) do
   @subscription.organic.should == true
 end
 
+Given(/^the subscription is organic$/) do
+  @subscription.update_attributes!(organic: true)
+end
+
+Given(/^the subscription is non-organic$/) do
+  @subscription.update_attributes!(organic: false)
+end
