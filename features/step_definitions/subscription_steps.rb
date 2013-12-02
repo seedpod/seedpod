@@ -30,3 +30,12 @@ end
 Then(/^I should not see a subscription warning$/) do
   page.should_not have_text("You don't have an active subscription right now")
 end
+
+Then(/^my subscription should be marked as non\-organic$/) do
+  @subscription.organic.should == false
+end
+
+Then(/^my subscription should be marked as organic$/) do
+  @subscription.organic.should == true
+end
+

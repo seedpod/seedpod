@@ -2,6 +2,10 @@ Feature: Buying organic subscription
 	In order to be able to purchase an organic subscription
 	As a member of the public
 	I want to be able to choose an organic option
+
+Background:
+  Given there is a pod for the current month
+  And there is a pod for next month
 	
 @javascript
 Scenario: Select organic charged the right amount
@@ -71,9 +75,22 @@ Scenario: Buying an non-organic gift subscription
   And I select "Standard"
 	Then I should see "£34.20"
 
+@javascript
 Scenario: Using an organic gift code
-	Given that I enter an organic gift code
-	And I have entered all other details
-	Then I should have an instant "paid for organic current month pod" tag 
+  Given an organic gift code has been bought for me
+  When I visit the sign up page
+  And I fill in my details
+  And I enter my gift code
+  And I click the "Join SeedPod" button
+  Then the gift code should be associated with my subscription
+	And my subscription should be marked as organic
 
-
+@javascript
+Scenario: Using a non-organic gift code
+  Given an non-organic gift code has been bought for me
+  When I visit the sign up page
+  And I fill in my details
+  And I enter my gift code
+  And I click the "Join SeedPod" button
+  Then the gift code should be associated with my subscription
+	And my subscription should be marked as non-organic

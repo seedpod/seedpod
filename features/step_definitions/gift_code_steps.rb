@@ -221,10 +221,10 @@ end
 Then(/^the gift code should be associated with my subscription$/) do
   user = User.last
   user.subscriptions.count.should == 1
-  sub = user.subscriptions.first
-  sub.gift_code.should == @gift_code
-  sub.cancelled_at.to_s.should == (sub.created_at + @gift_code.months.months).to_s
-  user.subscriptions.active.should == sub
+  @subscription = user.subscriptions.first
+  @subscription.gift_code.should == @gift_code
+  @subscription.cancelled_at.to_s.should == (@subscription.created_at + @gift_code.months.months).to_s
+  user.subscriptions.active.should == @subscription
 end
 
 Given(/^the gift code has already been used$/) do
@@ -246,4 +246,11 @@ end
 
 When(/^the gift code shipment generator runs$/) do
   GiftCode.generate_shipments!
+end
+Given(/^an organic gift code has been bought for me$/) do
+  @gift_code = FactoryGirl.create(:gift_code, paid: true, organic: true)
+end
+
+Given(/^an non\-organic gift code has been bought for me$/) do
+  step "a gift code has been bought for me"
 end
