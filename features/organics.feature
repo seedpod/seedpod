@@ -57,11 +57,20 @@ Scenario: view organic advice
 	And my pod has been shipped
 	Then I should see this month's organic advice
 	
+@javascript
 Scenario: Buying an organic gift subscription
-	Given that I am on the buy a gift page
-	And that I have selected the organic option
-	Then I should see the organic price options
+  When I visit the gift code purchase page
+  And I select "3 Months"
+  And I select "Organic"
+	Then I should see "£21.00"
 	
+@javascript
+Scenario: Buying an non-organic gift subscription
+  When I visit the gift code purchase page
+  And I select "6 Months"
+  And I select "Standard"
+	Then I should see "£34.20"
+
 Scenario: Using an organic gift code
 	Given that I enter an organic gift code
 	And I have entered all other details
