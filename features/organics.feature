@@ -64,19 +64,29 @@ Scenario: view organic advice
 	And my pod has been shipped
 	Then I should see this month's organic advice
 	
-@javascript
+@javascript @mechanize @vcr @hostname
 Scenario: Buying an organic gift subscription
   When I visit the gift code purchase page
   And I select "3 Months"
   And I select "Organic"
 	Then I should see "£21.00"
+  When I enter my details as the purchaser
+  And I click the "pay-with-paypal" button
+  And the gift code should be marked as organic
+  And I should be charged "£21.00"
+  And I should be charged for "3 month organic"
 	
-@javascript
+@javascript @mechanize @vcr @hostname
 Scenario: Buying an non-organic gift subscription
   When I visit the gift code purchase page
   And I select "6 Months"
   And I select "Standard"
 	Then I should see "£34.20"
+  When I enter my details as the purchaser
+  And I click the "pay-with-paypal" button
+  And the gift code should be marked as non-organic
+  And I should be charged "£34.20"
+  And I should be charged for "6 month standard"
 
 @javascript
 Scenario: Using an organic gift code
