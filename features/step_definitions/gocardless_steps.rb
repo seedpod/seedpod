@@ -3,6 +3,14 @@ Then(/^I should be sent to gocardless to set up my subscription$/) do
   page.current_path.should == "/connect/subscriptions/new"
 end
 
+Then(/^I should be charged the organic amount$/) do
+  page.current_url.should include('subscription%5Bamount%5D=7.00')
+end
+
+Then(/^I should be charged the non-organic amount$/) do
+  page.current_url.should include('subscription%5Bamount%5D=6.00')
+end
+
 When(/^GoCardless sends a subscription confirmation$/) do
   options = {
     resource_uri:  "http://gocardless.com/subscriptions/ABC123",
