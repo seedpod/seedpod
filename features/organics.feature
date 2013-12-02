@@ -3,9 +3,12 @@ Feature: Buying organic subscription
 	As a member of the public
 	I want to be able to choose an organic option
 	
+@javascript
 Scenario: Select organic charged the right amount
-	When I select organic option 
-	Then I should see price as "£7.00"
+  When I visit the sign up page
+  And I fill in my details
+	And I select "Organic"
+	Then I should see "£7.00"
 	
 Scenario: Send to GoCardless
 	When I select organic option
@@ -19,9 +22,12 @@ Scenario: Send to GoCardless
 	Then I should be redirected to GoCardless 
 	And I should be charged the organic amount
 
+@javascript
 Scenario: Buy a non-organic option
-	When I select non-organic option
-	Then I should see price as "£6.00"
+  When I visit the sign up page
+  And I fill in my details
+	And I select "Standard"
+	Then I should see "£6.00"
 	
 Scenario: Send to GoCardless non-organic
 	When I select non-organic option
