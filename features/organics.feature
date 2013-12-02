@@ -14,17 +14,15 @@ Scenario: Select organic charged the right amount
 	And I select "Organic"
 	Then I should see "£7.00"
 	
+@mechanize @vcr @hostname
 Scenario: Send to GoCardless
-	When I select organic option
-	And I have entered my email address
-	And I have entered my password
-	And I have entered my name
-	And I have entered my address
-	And I have confirmed my password
-	And I have entered my postcode
-	And I click the Proceed to secure GoCardless payment page
-	Then I should be redirected to GoCardless 
+  When I visit the sign up page
+  And I fill in my details
+	And I select "Organic"
+  And I click the "Proceed to secure GoCardless payment page" button
+  Then I should be sent to gocardless to set up my subscription
 	And I should be charged the organic amount
+	And my subscription should be marked as organic
 
 @javascript
 Scenario: Buy a non-organic option
@@ -33,17 +31,15 @@ Scenario: Buy a non-organic option
 	And I select "Standard"
 	Then I should see "£6.00"
 	
+@mechanize @vcr @hostname
 Scenario: Send to GoCardless non-organic
-	When I select non-organic option
-	And I have entered my email address
-	And I have entered my password
-	And I have entered my name
-	And I have entered my address
-	And I have confirmed my password
-	And I have entered my postcode
-	And I click the Proceed to secure GoCardless payment page
-	Then I should be redirected to GoCardless 
+  When I visit the sign up page
+  And I fill in my details
+	And I select "Standard"
+  And I click the "Proceed to secure GoCardless payment page" button
+  Then I should be sent to gocardless to set up my subscription
 	And I should be charged the non-organic amount
+	And my subscription should be marked as non-organic
 
 Scenario: purchase and receive organic
 	Given that I have purchased an organic seedpod

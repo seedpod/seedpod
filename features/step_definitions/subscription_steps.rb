@@ -32,10 +32,12 @@ Then(/^I should not see a subscription warning$/) do
 end
 
 Then(/^my subscription should be marked as non\-organic$/) do
+  @subscription ||= User.last.subscriptions.last
   @subscription.organic.should == false
 end
 
 Then(/^my subscription should be marked as organic$/) do
+  @subscription ||= User.last.subscriptions.last
   @subscription.organic.should == true
 end
 
