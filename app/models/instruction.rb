@@ -9,7 +9,16 @@ class Instruction < ActiveRecord::Base
   end
   
   def visible_to?(user)
-    ship == true || crop.shipped_to?(user)
+    (ship == true || crop.shipped_to?(user)) && organic_match?(user)
+  end
+  
+  def organic_match?(user)
+    s = Shipment.where(user: user, pod: pod).first
+    if s
+      return true if s.organic? && (crop.organic == true)
+      return true if !s.organic? && (crop.non_organic == true)
+    end
+    false
   end
   
 end

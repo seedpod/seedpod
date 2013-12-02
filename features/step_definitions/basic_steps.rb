@@ -33,6 +33,10 @@ Then(/^I should see "(.*?)"$/) do |text|
   page.should have_text(text)
 end
 
+Then(/^I should not see "(.*?)"$/) do |text|
+  page.should_not have_text(text)
+end
+
 Then(/^I should see the homepage$/) do
   page.should have_selector('.tagline')
   page.should have_selector('a', text: "How it Works")

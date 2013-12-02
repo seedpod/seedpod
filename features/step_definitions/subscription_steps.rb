@@ -4,7 +4,8 @@ Then(/^my subscription details should be stored$/) do
 end
 
 Given(/^I have a subscription set up$/) do
-  @subscription = FactoryGirl.create :subscription, user: @user
+  @subscription = @user.subscriptions.first || FactoryGirl.create(:subscription, user: @user)
+  @subscription.update_attributes(gocardless_id: 'ABC123')
   @user.subscribed?.should be_true
 end
 

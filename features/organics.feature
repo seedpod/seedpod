@@ -6,7 +6,10 @@ Feature: Buying organic subscription
 Background:
   Given there is a pod for the current month
   And there is a pod for next month
-	
+  And the current pod has a crop "Carrots" which is organic
+  And the current pod has a crop "Turnips" which is non-organic
+  And the current pod has a crop "Swedes" which is organic and non-organic
+  	
 @javascript
 Scenario: Select organic charged the right amount
   When I visit the sign up page
@@ -45,25 +48,48 @@ Scenario: shipping organic
   Given I am signed in as an administrator
   And there is a user
   And the subscription is organic
-  And that user has paid for the next pod
-  When I visit the shipping list for the next pod
+  And that user has paid for the current pod
+  When I visit the shipping list for the current pod
   Then I should see the user in the shipping list
   And they should be listed as receiving organic seeds
+  And I should see "Carrots"
+  And I should see "Swedes"
   	
 Scenario: shipping non-organic
   Given I am signed in as an administrator
   And there is a user
   And the subscription is non-organic
-  And that user has paid for the next pod
-  When I visit the shipping list for the next pod
+  And that user has paid for the current pod
+  When I visit the shipping list for the current pod
   Then I should see the user in the shipping list
   And they should be listed as receiving non-organic seeds
+  And I should see "Swedes"
+  And I should see "Turnips"
 	
 Scenario: view organic advice
-	Given that I have paid for this month's organic pod
-	And my pod has been shipped
-	Then I should see this month's organic advice
+  Given I am signed in
+  And I have a subscription set up
+  And the subscription is organic
+  And I have paid for the current pod
+  And the current pod has been shipped to me
+  When I visit the current pod
+  Then I should see content for the current pod
+  And I should see "Carrots"
+  And I should see "Swedes"
+  And I should not see "Turnips"
 	
+Scenario: view non-organic advice
+  Given I am signed in
+  And I have a subscription set up
+  And the subscription is non-organic
+  And I have paid for the current pod
+  And the current pod has been shipped to me
+  When I visit the current pod
+  Then I should see content for the current pod
+  And I should not see "Carrots"
+  And I should see "Swedes"
+  And I should see "Turnips"
+
 @javascript @mechanize @vcr @hostname
 Scenario: Buying an organic gift subscription
   When I visit the gift code purchase page

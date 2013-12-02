@@ -2,6 +2,10 @@ When(/^I visit the shipping list for the next pod$/) do
   visit pod_shipments_path(@next_pod)
 end
 
+When(/^I visit the shipping list for the current pod$/) do
+  visit pod_shipments_path(@current_pod)
+end
+
 Then(/^I should see the user in the shipping list$/) do
   page.should have_text(@user.email)
   page.should have_text(@user.name)
