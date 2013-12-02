@@ -75,6 +75,9 @@ Then(/^I should receive a welcome email$/) do
     When I open the email
     Then I should see "Welcome to SeedPod!" in the email subject
     And I should see "Hi #{CGI.escapeHTML(@user.name)}," in the email body
+    And I should see "8 and 14" in the email body
+    And I should see "direct debit" in the email body
+    And I should see "GoCardless" in the email body
   }
 end
 

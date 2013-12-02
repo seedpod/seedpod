@@ -3,6 +3,12 @@ class Notifications < ActionMailer::Base
   
   def welcome(user)
     @greeting = "Hi #{user.name},"
+    @gift_code = user.subscriptions.active.gift_code.present?
+    mail to: user.email
+  end
+
+  def gift_code_welcome(user)
+    @greeting = "Hi #{user.name},"
     mail to: user.email
   end
 

@@ -14,7 +14,19 @@
 </p>
 
 <p>
-	We will despatch your first pod as soon as the first payment of your direct debit is cleared by your bank. Which means you'll receive your first pod, some chilli peppers and some cucumber, between 8 and 14 calendar days from now. You'll also gain access to the accompanying guidance on our website at the same time - but don't worry as we'll let you know as soon as your pod has been shipped.
+  We will despatch your first pod 
+	<% if @gift_code %>
+    immediately,
+  <% else %>
+    as soon as the first payment of your direct debit is cleared by your bank,
+  <% end %>
+  which means you'll receive your first pod, some chilli peppers and some cucumber, between
+	<% if @gift_code %>
+    2 and 6
+  <% else %>
+    8 and 14
+  <% end %>
+  calendar days from now. You'll also gain access to the accompanying guidance on our website at the same time - but don't worry as we'll let you know as soon as your pod has been shipped.
 </p>
 	
 <p>
@@ -26,7 +38,12 @@
 <p>Best wishes,
 	the SeedPod team</p>
 
-<p>If you would like to amend your billing details you will need to login to your <a href="https://gocardless.com/users/sign_in">GoCardless</a> account. If you would like to amend the delivery details you can do so within your <a href="http://www.getseedpod.com/users/edit">Account Settings</a> on our website. Here you'll also find details as to how you can cancel your subscription and close your account, which you can do at any time.</p>
+<p>
+	<% unless @gift_code %>
+    If you would like to amend your billing details you will need to login to your <a href="https://gocardless.com/users/sign_in">GoCardless</a> account. 
+  <% end %>
+  If you would like to amend the delivery details you can do so within your <a href="http://www.getseedpod.com/users/edit">Account Settings</a> on our website. Here you'll also find details as to how you can cancel your subscription and close your account, which you can do at any time.
+</p>
 	
 
 <div style="font-size: smaller;"><p>SeedPod is a limited company registered in England and Wales. Registered number: 8469306. Registered office: 39 Bargate Rise, Godalming, Surrey, GU7 2LR.</p>
