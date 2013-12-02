@@ -16,7 +16,7 @@ class SubscriptionsController < ApplicationController
       end
     else
       # Create subscription
-      organic = params[:organic]
+      organic = params[:organic] == "true"
       sub = @user.subscriptions.create(organic: organic)
       # Send to gocardless for payment
       url = GoCardless.new_subscription_url(
