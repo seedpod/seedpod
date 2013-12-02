@@ -44,7 +44,7 @@ class SubscriptionsController < ApplicationController
       # Store subscription ID
       @user.subscriptions.create(gocardless_id: params[:resource_id])
       # Send back to main page
-      redirect_to root_path
+      redirect_to getting_started_pods_path
     else
       raise "Wrong user!"
     end
