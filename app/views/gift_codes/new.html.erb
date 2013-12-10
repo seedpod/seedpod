@@ -12,8 +12,8 @@
 		<thead>
 			<tr>
 			<td>Length</td>
-			<td><%= t(:non_organic) %></td>
 			<td><%= t(:organic) %></td>
+			<td><%= t(:non_organic) %></td>
 			<td>Saving</td>
 			</tr>
 		</thead>
@@ -21,8 +21,8 @@
       <% gift_code_lengths.each do |length| %>
   			<tr>
   				<td><%= length %> months</td>
-  				<td>£<%= price_string(length)%></td>
   				<td>£<%= price_string(length, true)%></td>
+  				<td>£<%= price_string(length)%></td>
   				<td><%= discount_string(length) if Pod.discount(months: length) > 0 %></td>
   			</tr>
       <% end %>

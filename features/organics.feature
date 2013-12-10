@@ -31,14 +31,14 @@ Scenario: Send to GoCardless
 Scenario: Buy a non-organic option
   When I visit the sign up page
   And I fill in my details
-	And I select "Standard - £5.95 per month"
+	And I select "Non-organic - £5.95 per month"
 	Then I should see "just £5.95 (inc. VAT)"
 	
 @mechanize @vcr @hostname
 Scenario: Send to GoCardless non-organic
   When I visit the sign up page
   And I fill in my details
-	And I select "Standard"
+	And I select "Non-organic"
   And I click the "Proceed to secure GoCardless payment page" button
   Then I should be sent to gocardless to set up my subscription
 	And I should be charged the non-organic amount
@@ -106,7 +106,7 @@ Scenario: Buying an organic gift subscription
 Scenario: Buying an non-organic gift subscription
   When I visit the gift code purchase page
   And I select "6 Months"
-  And I select "Standard"
+  And I select "Non-organic"
 	Then I should see "£33.92"
   When I enter my details as the purchaser
   And I click the "pay-with-paypal" button
