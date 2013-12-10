@@ -3,13 +3,21 @@ Then(/^I should be sent to gocardless to set up my subscription$/) do
   page.current_path.should == "/connect/subscriptions/new"
 end
 
+Then(/^I should be charged the organic amount$/) do
+  page.current_url.should include('subscription%5Bamount%5D=6.95')
+end
+
+Then(/^I should be charged the non-organic amount$/) do
+  page.current_url.should include('subscription%5Bamount%5D=5.95')
+end
+
 When(/^GoCardless sends a subscription confirmation$/) do
   options = {
     resource_uri:  "http://gocardless.com/subscriptions/ABC123",
     resource_id:   "ABC123",
     resource_type: "subscription",
     signature:     "blah",
-    state:         "#{@user.id}",
+    state:         "#{@subscription.id}",
   }
   GoCardless.should_receive(:confirm_resource).once.and_return(true)
   url = confirm_user_subscription_path(@user)+'?'+options.to_query

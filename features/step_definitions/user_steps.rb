@@ -1,5 +1,6 @@
 Given(/^I have previously registered$/) do
   @user = FactoryGirl.create :user
+  @subscription = @user.subscriptions.create
 end
 
 Given(/^I am signed in$/) do

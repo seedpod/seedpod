@@ -48,7 +48,7 @@ class GiftCodesController < ApplicationController
   end
   
   def gift_code_params
-    params[:gift_code].permit(:months, :purchaser_name, :purchaser_email, :send_to_recipient, :recipient_email, :recipient_name, :send_date)
+    params[:gift_code].permit(:months, :organic, :purchaser_name, :purchaser_email, :send_to_recipient, :recipient_email, :recipient_name, :send_date)
   end
 
   def paypal_checkout_url
@@ -65,13 +65,17 @@ class GiftCodesController < ApplicationController
       no_shipping: 'true',
       items: [{
         name: "SeedPod Gift Code", 
-        description: @gift_code.description, 
+        description: gift_code_description(@gift_code), 
         quantity: "1", 
         amount: @gift_code.price*100
       }]
     )
     raise response.inspect unless response.token.present?
     PayPalGateway.redirect_url_for(response.token)
+  end
+
+  def gift_code_description(code)
+    "#{code.months} month #{(code.organic ? t(:organic) : t(:non_organic)).downcase} subscription"
   end
 
 end

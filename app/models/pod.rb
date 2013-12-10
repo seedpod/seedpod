@@ -6,6 +6,15 @@ class Pod < ActiveRecord::Base
     object_label_method :to_param
   end
   
+  def shipping_crops(organic = false)
+    crops = instructions.where(ship: true).map{|x| x.crop}
+    if organic
+      crops = crops.select{|x| x.organic == true}
+    else
+      crops = crops.select{|x| x.non_organic == true}
+    end
+  end
+  
   def self.find_by_date(date)
     Pod.where(month: Date.strptime(date, "%Y-%m")).first
   end
@@ -24,6 +33,31 @@ class Pod < ActiveRecord::Base
 
   def shipped_to?(user)
     shipments.where(user: user).first.present?
+  end
+  
+  def self.discount(months: 1)
+    case months
+    when 1..5
+      0
+    when 6..8
+      0.05
+    when 9..11
+      0.10
+    else
+      0.15
+    end
+  end
+  
+  def self.base_price_per_month(organic: false)
+    if organic
+      Pod.base_price_per_month + 1.00
+    else
+      5.95
+    end
+  end
+  
+  def self.price(months: 1, organic: false)
+    (Pod.base_price_per_month(organic: organic) * months * (1.0-Pod.discount(months: months))).round(2)
   end
   
 end

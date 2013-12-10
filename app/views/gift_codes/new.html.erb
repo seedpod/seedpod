@@ -12,31 +12,20 @@
 		<thead>
 			<tr>
 			<td>Length</td>
-			<td>Total Cost</td>
+			<td><%= t(:organic) %></td>
+			<td><%= t(:non_organic) %></td>
 			<td>Saving</td>
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td>3 months</td>
-				<td>£18.00</td>
-				<td>0%</td>
-			</tr>
-			<tr>
-				<td>6 months</td>
-				<td>£34.20</td>
-				<td>5%</td>
-			</tr>
-			<tr>
-				<td>9 months</td>
-				<td>£48.60</td>
-				<td>10%</td>
-			</tr>
-			<tr>
-				<td>12 months</td>
-				<td>£61.20</td>
-				<td>15%</td>
-			</tr>
+      <% gift_code_lengths.each do |length| %>
+  			<tr>
+  				<td><%= length %> months</td>
+  				<td>£<%= price_string(length, true)%></td>
+  				<td>£<%= price_string(length)%></td>
+  				<td><%= discount_string(length) if Pod.discount(months: length) > 0 %></td>
+  			</tr>
+      <% end %>
 		</tbody>
 	</table>
 	</div>
@@ -53,10 +42,24 @@
     <div class='form-group'>
     	<%= f.label :months, :class => 'col-lg-4 control-label' %>
       <div class='col-lg-8'>
-    		<%= f.select :months, gift_code_options_for_select, :required => true %>
+    		<%= f.select :months, gift_code_length_options_for_select, :required => true %>
     	</div>
     </div>
 		
+    <div class='form-group'>
+    	<%= f.label :organic, :class => 'col-lg-4 control-label' %>
+      <div class='col-lg-8'>
+    		<%= f.select :organic, organic_options_for_select, :required => true %>
+    	</div>
+    </div>
+		
+    <div class='form-group' id='price-row' style='display:none'>
+    	<%= f.label "Price", :class => 'col-lg-4 control-label' %>
+      <div class='col-lg-8'>
+    		<p id='price' class='form-control-static'>£xx.xx</p>
+    	</div>
+    </div>
+
     <div class='form-group'>
     	<%= f.label :purchaser_name, :class => 'col-lg-4 control-label' %>
       <div class='col-lg-8'>
@@ -79,7 +82,34 @@
     </div>
     
     <script>
+
+      function updatePrice() {
+        var months = $('#gift_code_months')[0].value;
+        var organic = $('#gift_code_organic')[0].value;
+        prices = {
+          <% [false, true].each do |organic| %>
+            <%= organic %>: {
+              <% gift_code_lengths.each do |length| %>
+                <%= length %>: "£<%= price_string(length, organic) %>",
+              <% end %>
+            },
+          <% end %>
+          
+        };    
+        $('#price').html(prices[organic][months]);
+      }
+
       $(function() {
+
+        $('#gift_code_months').change(function(){
+          updatePrice();
+        });
+        $('#gift_code_organic').change(function(){
+          updatePrice();
+        });
+        updatePrice();
+        $('#price-row').show();
+        
         $('#recipient-details').hide();
         $('#gift_code_send_to_recipient').change(function(){
           if ($('#gift_code_send_to_recipient')[0].value == "false") {
@@ -89,6 +119,7 @@
           }
         });
       });
+
     </script>
     
     <div id='recipient-details'>

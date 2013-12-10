@@ -15,6 +15,7 @@ en:
         address_region: County
         address_postcode: Postcode
         remember_me: Keep me logged in
+        organic: Organic?
       gift_code:        
         months: Which gift would you like to give?
         purchaser_name: Your name
@@ -23,6 +24,7 @@ en:
         recipient_name: Recipient name
         recipient_email: Recipient email
         send_date: When should we send the email?
+        organic: Organic?
   notifications:
     shipped:
       subject: Your SeedPod is on its way!
@@ -39,3 +41,5 @@ en:
   signup_button_big: Proceed to secure GoCardless payment page
   signup_button_small: Proceed to payment
   signup_button_with_gift_code: Join SeedPod
+  organic: Organic
+  non_organic: Non-organic

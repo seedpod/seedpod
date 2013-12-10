@@ -65,6 +65,12 @@ Given(/^that user has paid for the next pod$/) do
   }
 end
 
+Given(/^that user has paid for the current pod$/) do
+  steps %{
+    Given I have paid for the current pod
+  }
+end
+
 Given(/^I have not yet paid for any pods$/) do
   @user.subscriptions.active.payments.should be_empty
 end
