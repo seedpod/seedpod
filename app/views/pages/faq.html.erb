@@ -55,7 +55,7 @@
 </p>
 
 <p>
-	<strong>How much is a individual monthly subscription?</strong> For only £6.95 each month (or £<%= price_string(1) %> £5.95 if you choose the non-organic option) you will receive two different types of herb or vegetable seeds. You will also have access to our timely guidance on how to sow, grow and crop your plants.
+	<strong>How much is a individual monthly subscription?</strong> For only £6.95 each month (or £<%= price_string(1) %> if you choose the non-organic option) you will receive two different types of herb or vegetable seeds. You will also have access to our timely guidance on how to sow, grow and crop your plants.
 </p>
 
 <p>
@@ -193,9 +193,9 @@
         <%= length %>-month gift subscription
         <% if Pod.discount(months: length) > 0 %>
           including a <strong><%= discount_string(length) %> discount</strong>
-        <% end %>
-        : £<%= price_string(length) %>
-        (<%= t(:organic) %>: £<%= price_string(length, true) %>)
+        <% end %>:
+        <%= t(:organic) %> £<%= price_string(length, true) %>
+        (Non-organic £<%= price_string(length) %>)
       </li>
     <% end %>
 	</ul>
