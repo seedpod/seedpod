@@ -57,13 +57,13 @@ end
 Given(/^I have created a gift code$/) do
   @gift_code = FactoryGirl.create(:gift_code)
   @months = 12
-  @price_string = "£61.20"
+  @price_string = "£60.69"
 end
 
 Given(/^I have paid for the gift code with PayPal$/) do
   mock = Object.new
   mock.should_receive(:success?).and_return(true)
-  PayPalGateway.should_receive(:purchase).with(6120, {currency: "GBP", locale: "en", ip: "127.0.0.1", payer_id: "PAYER_ID", token: "TOKEN"}).once.and_return(mock)
+  PayPalGateway.should_receive(:purchase).with(6069, {currency: "GBP", locale: "en", ip: "127.0.0.1", payer_id: "PAYER_ID", token: "TOKEN"}).once.and_return(mock)
   visit gift_code_confirm_path(@gift_code, token: 'TOKEN', PayerID: 'PAYER_ID')
 end
 
@@ -71,7 +71,7 @@ Given(/^I the PayPal response was invalid$/) do
   mock = Object.new
   mock.should_receive(:success?).and_return(false)
   mock.should_receive(:message).and_return("PayPal exploded!")
-  PayPalGateway.should_receive(:purchase).with(6120, {currency: "GBP", locale: "en", ip: "127.0.0.1", payer_id: "PAYER_ID", token: "TOKEN"}).once.and_return(mock)
+  PayPalGateway.should_receive(:purchase).with(6069, {currency: "GBP", locale: "en", ip: "127.0.0.1", payer_id: "PAYER_ID", token: "TOKEN"}).once.and_return(mock)
   visit gift_code_confirm_path(@gift_code, token: 'TOKEN', PayerID: 'PAYER_ID')
 end
 

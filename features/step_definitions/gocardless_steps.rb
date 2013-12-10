@@ -4,11 +4,11 @@ Then(/^I should be sent to gocardless to set up my subscription$/) do
 end
 
 Then(/^I should be charged the organic amount$/) do
-  page.current_url.should include('subscription%5Bamount%5D=7.00')
+  page.current_url.should include('subscription%5Bamount%5D=6.95')
 end
 
 Then(/^I should be charged the non-organic amount$/) do
-  page.current_url.should include('subscription%5Bamount%5D=6.00')
+  page.current_url.should include('subscription%5Bamount%5D=5.95')
 end
 
 When(/^GoCardless sends a subscription confirmation$/) do

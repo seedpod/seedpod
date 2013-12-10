@@ -27,7 +27,7 @@ describe GiftCode do
 
   it "calculates prices from months" do
     code = GiftCode.create(months: 3)
-    code.price.should == 18.0
+    code.price.should == 17.85
   end
 
 end
