@@ -5,7 +5,13 @@ class Shipment < ActiveRecord::Base
   after_save :send_shipment_email
 
   def crops
-    pod.instructions.map{|x| x.ship ? x.crop : nil}.compact
+    pod.shipping_crops(organic?)
+  end
+  
+  def organic?
+    payment = user.payments.where(pod: pod).first
+    subscription = payment.subscription
+    subscription.organic
   end
   
   def ship!

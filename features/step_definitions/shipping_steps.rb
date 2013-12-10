@@ -2,6 +2,10 @@ When(/^I visit the shipping list for the next pod$/) do
   visit pod_shipments_path(@next_pod)
 end
 
+When(/^I visit the shipping list for the current pod$/) do
+  visit pod_shipments_path(@current_pod)
+end
+
 Then(/^I should see the user in the shipping list$/) do
   page.should have_text(@user.email)
   page.should have_text(@user.name)
@@ -60,4 +64,14 @@ end
 Then(/^the pod for "(.*?)" should be not shipped to me$/) do |date|
   pod = Pod.where(month: Date.parse(date).beginning_of_month)
   @user.shipments.where(pod_id: pod).count.should == 0
+end
+
+Then(/^they should be listed as receiving organic seeds$/) do
+  page.should have_text("Organic")
+  page.should_not have_text("Non-organic")
+end
+
+Then(/^they should be listed as receiving non\-organic seeds$/) do
+  page.should have_text("Non-organic")
+  page.should_not have_text("Organic")
 end

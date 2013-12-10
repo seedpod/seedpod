@@ -4,7 +4,8 @@ Then(/^my subscription details should be stored$/) do
 end
 
 Given(/^I have a subscription set up$/) do
-  @subscription = FactoryGirl.create :subscription, user: @user
+  @subscription = @user.subscriptions.first || FactoryGirl.create(:subscription, user: @user)
+  @subscription.update_attributes(gocardless_id: 'ABC123')
   @user.subscribed?.should be_true
 end
 
@@ -29,4 +30,22 @@ end
 
 Then(/^I should not see a subscription warning$/) do
   page.should_not have_text("You don't have an active subscription right now")
+end
+
+Then(/^my subscription should be marked as non\-organic$/) do
+  @subscription ||= User.last.subscriptions.last
+  @subscription.organic.should == false
+end
+
+Then(/^my subscription should be marked as organic$/) do
+  @subscription ||= User.last.subscriptions.last
+  @subscription.organic.should == true
+end
+
+Given(/^the subscription is organic$/) do
+  @subscription.update_attributes!(organic: true)
+end
+
+Given(/^the subscription is non-organic$/) do
+  @subscription.update_attributes!(organic: false)
 end

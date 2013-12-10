@@ -18,4 +18,4 @@
 /.env
 /coverage/
 .DS_Store
-.env.swp
+.env*

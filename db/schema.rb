@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131125211230) do
+ActiveRecord::Schema.define(version: 20131201171437) do
 
   create_table "admins", force: true do |t|
     t.string   "email",               null: false
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 20131125211230) do
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "organic",     default: false
+    t.boolean  "non_organic", default: true
   end
 
   create_table "gift_codes", force: true do |t|
@@ -44,6 +46,7 @@ ActiveRecord::Schema.define(version: 20131125211230) do
     t.datetime "updated_at"
     t.boolean  "paid",              default: false
     t.boolean  "sent",              default: false
+    t.boolean  "organic"
   end
 
   create_table "instructions", force: true do |t|
@@ -113,6 +116,7 @@ ActiveRecord::Schema.define(version: 20131125211230) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "gift_code_id"
+    t.boolean  "organic"
   end
 
   add_index "subscriptions", ["user_id"], name: "index_subscriptions_on_user_id"

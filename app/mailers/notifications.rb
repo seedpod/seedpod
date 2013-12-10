@@ -1,4 +1,6 @@
 class Notifications < ActionMailer::Base
+  include PodsHelper
+  
   default from: 'greetings@getseedpod.com', bcc: 'admin@getseedpod.com'
   
   def welcome(user)
@@ -14,14 +16,14 @@ class Notifications < ActionMailer::Base
   def gift_code_receipt_without_recipient(code)
     @code = code.code
     @months = code.months
-    @price = code.price_string
+    @price = price_string(code.months)
     @purchaser_name = code.purchaser_name
     mail to: code.purchaser_email
   end
   
   def gift_code_receipt_with_recipient(code)
     @months = code.months
-    @price = code.price_string
+    @price = price_string(code.months)
     @recipient_name = code.recipient_name
     @recipient_email = code.recipient_email
     @send_date = code.send_date

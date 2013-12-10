@@ -8,6 +8,10 @@ Given(/^I fill in:$/) do |table|
   end
 end
 
+When(/^I select "(.*?)"$/) do |selection|
+  select selection
+end
+
 When(/^I click the "(.*?)" link$/) do |label|
   click_link(label)
 end
@@ -23,6 +27,14 @@ end
 Then(/^I should see the signed\-in homepage$/) do
   page.should have_selector('.tagline')
   page.should have_selector('a', text: "Growing Guidance")
+end
+
+Then(/^I should see "(.*?)"$/) do |text|
+  page.should have_text(text)
+end
+
+Then(/^I should not see "(.*?)"$/) do |text|
+  page.should_not have_text(text)
 end
 
 Then(/^I should see the homepage$/) do

@@ -24,27 +24,10 @@ class GiftCode < ActiveRecord::Base
   	end
   end
   
-  def price_string
-    "£%.2f" % price
-  end
-  
   def price
-    GiftCode.prices[months]
+    Pod.price(months: months, organic: organic)
   end
   
-  def description
-    "#{months} month subscription"
-  end
-  
-  def self.prices
-    {
-      3  => 18.00,
-      6  => 34.20,
-      9  => 48.60,
-      12 => 61.20,
-    }
-  end
-
   def mark_as_paid!
     update_attributes!(paid: true)
     if send_to_recipient

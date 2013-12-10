@@ -19,7 +19,7 @@
       <div id="collapseFive" class="panel-collapse collapse">
         <div class="panel-body">	
   <p>
-  	<strong>How much space will I need?</strong> Our growing programme is perfect for small family gardens. If you don't have enough space to plant all the seeds each month, you can stagger your sowing to extend the cropping period. We will soon be adding smaller 'window-box' and larger 'allotment' options; please contact us if these would be of interest to you. 
+  	<strong>How much space will I need?</strong> Our growing programme is perfect for small family gardens. If you don't have enough space to plant all the seeds each month, you can stagger your sowing to extend the cropping period. 
 </p>
 
   <p>	
@@ -55,7 +55,7 @@
 </p>
 
 <p>
-	<strong>How much is a individual monthly subscription?</strong> For only £6.00 each month (including VAT) you will receive two different types of herb or vegetable seeds. You will also have access to our timely guidance on how to sow, grow and crop your plants.
+	<strong>How much is a individual monthly subscription?</strong> For only £6.95 each month (or £<%= price_string(1) %> if you choose the non-organic option) you will receive two different types of herb or vegetable seeds. You will also have access to our timely guidance on how to sow, grow and crop your plants.
 </p>
 
 <p>
@@ -122,7 +122,7 @@
     <div id="collapseThree" class="panel-collapse collapse">
       <div class="panel-body">	
 <p>
-	<strong>Are the seeds organic?</strong> Our seeds have been specially selected to be easily grown, and to maximise the amount of produce, therfore not all our seeds are organic. Where possible, they remain untreated. We will be adding the option for an exclusively organic vegetable seed subscription very soon indeed. 
+	<strong>Are the seeds organic?</strong> We offer organic seeds by default, although you can opt out and choose the non-organic package if you prefer. All our seeds have been specially selected to be easily grown, and to maximise the amount of produce. Where possible, the non-organic seeds remain untreated. Most of our organic seeds (and even some of our non-organic ones) have received the Award of Garden Merit by the Royal Horticultural Society.
 </p>
 
 <p>
@@ -188,10 +188,16 @@
 	<strong>What range of gift subscriptions do you provide?</strong> We offer a fantastic range of gift subscriptions, most of which include a discount when compared to our standard month-by-month payment option:
 	
 	<ul>
-	<li>3-month gift subscription: £18.00</li>
-	<li>6-month gift subscription including a <strong>5% discount</strong>: £34.20</li>
-	<li>9-month gift subscription including a <strong>10% discount</strong>: £48.60</li>
-	<li>12-month gist subscription including a <strong>15% discount</strong>: £61.20</li>
+    <% gift_code_lengths.each do |length| %>
+    	<li>
+        <%= length %>-month gift subscription
+        <% if Pod.discount(months: length) > 0 %>
+          including a <strong><%= discount_string(length) %> discount</strong>
+        <% end %>:
+        <%= t(:organic) %> £<%= price_string(length, true) %>
+        (Non-organic £<%= price_string(length) %>)
+      </li>
+    <% end %>
 	</ul>
 </p>
 
