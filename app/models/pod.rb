@@ -52,7 +52,7 @@ class Pod < ActiveRecord::Base
     if organic
       Pod.base_price_per_month + 1.00
     else
-      6.00
+      5.95
     end
   end
   
