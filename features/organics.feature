@@ -32,7 +32,7 @@ Scenario: Buy a non-organic option
   When I visit the sign up page
   And I fill in my details
 	And I select "Non-organic - £5.95 per month"
-	Then I should see "just £5.95"
+	Then I should see "just £5.95 per month"
 	
 @mechanize @vcr @hostname
 Scenario: Send to GoCardless non-organic
