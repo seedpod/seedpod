@@ -24,7 +24,21 @@
       </div>
   
     <% end %>
+	<% if admin_signed_in? %>
+		<div class="boxes">
+    		<div class=miniAboutTitle><%= instruction.crop.name %></div>
+
+    		<% if instruction.image_url %>
+      	  		<%= image_tag instruction.image_url, class: "img-responsive pull-right", width:"300" %>
+    		<% end %>
+    		<p><b><%= kramdown instruction.summary %></b></p>
+
+    		<p><%= kramdown instruction.detail %></p>
+  	  	</div>
+  	<% end %>
 
   <% end %>
 </div>  
 </div>
+
+
