@@ -19,3 +19,11 @@ When(/^I fill in my admin login details$/) do
   fill_in "admin_email"    , with: @admin.email
   fill_in "admin_password" , with: "password"
 end
+
+When(/^I visit the administration area$/) do
+  visit '/administration'
+end
+
+Then(/^I should be denied access$/) do
+  page.should have_text("You need to log in or subscribe before continuing.")
+end
