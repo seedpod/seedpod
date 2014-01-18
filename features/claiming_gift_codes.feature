@@ -15,6 +15,7 @@ Scenario: Sign up with a gift code
   Then I should see the getting started page
   And I should not see a subscription warning
   And the gift code should be associated with my subscription
+  And I should receive a gift code welcome email
 
 @javascript
 Scenario: Sign up with a made-up gift code
