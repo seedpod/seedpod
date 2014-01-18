@@ -5,9 +5,17 @@
     <%= @pod.summary %>
   </p>
 
+<% if previous_pod = @pod.previous_pod(current_user) %>
+  <%= link_to('← Previous month', previous_pod) %>
+<% end %>
+
+<% if next_pod = @pod.next_pod(current_user) %>
+  <%= link_to('Next month →', next_pod, class: "pull-right", display: "inline-block") %>
+<% end %>
+<div class="clearfix"></div>
 
 <div class="row" id="instructions">
-	
+
   <% @pod.instructions.each do |instruction| %>
     <% if admin_signed_in? || instruction.visible_to?(current_user) %>
 
@@ -21,11 +29,11 @@
 
         <p><%= kramdown instruction.detail %></p>
       </div>
-  
+
     <% end %>
 
   <% end %>
-</div>  
+</div>
 </div>
 
 
