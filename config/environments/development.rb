@@ -30,3 +30,5 @@ Seedpod::Application.configure do
 end
 
 GoCardless.environment = :sandbox
+
+Faker::Config.locale = 'en-gb'
