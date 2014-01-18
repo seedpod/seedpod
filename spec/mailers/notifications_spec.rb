@@ -16,7 +16,7 @@ describe Notifications do
     end
 
     it "renders the body" do
-      mail.body.encoded.should match("Hi #{@user.name},")
+      mail.body.encoded.should match("Hi #{CGI.escapeHTML(@user.name)},")
     end
   end
 

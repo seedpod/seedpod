@@ -1,22 +1,7 @@
-Feature: Pod visibility to admins
-  In order to plan future pods
-  As an administrator
-  I want to be able to see everything
+Feature: Admin login
+  In order to look after the site
+  I want to be able to log in as an administrator
 
-Background:
-  Given there is a pod for the current month
-  And there is a pod for next month
-  And there is a pod for last month
-  And I am signed in as an administrator
-
-Scenario: Admins can see the current pod
-  When I visit the current pod
-  Then I should see content for the current pod
-
-Scenario: Admins cannot see next month's pod
-  When I visit the next pod
-  Then I should see content for the next pod
-
-Scenario: Admins can see past pods
-  When I visit the previous pod
-  Then I should see content for the previous pod
+Scenario: Administration site is not accessible without signing in as an admin
+  When I visit the administration area
+  Then I should be denied access

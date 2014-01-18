@@ -248,6 +248,18 @@ When(/^the gift code shipment generator runs$/) do
   GiftCode.generate_shipments!
 end
 
+Then(/^I should receive a gift code welcome email$/) do
+  steps %{
+    Then "#{@user_email}" should receive an email
+    When I open the email
+    Then I should see "Welcome to SeedPod!" in the email subject
+    And I should see "Hi #{CGI.escapeHTML(@user_name)}," in the email body
+    And I should see "2 and 6" in the email body
+    And I should not see "direct debit" in the email body
+    And I should not see "GoCardless" in the email body
+  }
+end
+
 When(/^the gift code should be marked as organic$/) do
   GiftCode.count.should == 1
   GiftCode.last.organic.should == true

@@ -10,6 +10,7 @@ class SubscriptionsController < ApplicationController
       if code && code.subscription.nil?
         # Create subscription
         @user.subscriptions.create(gift_code_id: code.id, organic: code.organic)
+        Notifications.welcome(@user).deliver        
         redirect_to getting_started_pods_path
       else
         redirect_to root_path
