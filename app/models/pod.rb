@@ -48,16 +48,24 @@ class Pod < ActiveRecord::Base
     end
   end
   
-  def self.base_price_per_month(organic: false)
+  def self.base_price_per_month(organic: false, size: "medium")
+    base = 0
     if organic
-      Pod.base_price_per_month + 1.00
+      base = Pod.base_price_per_month + 1.00
     else
-      5.95
+      base = 5.95
     end
+    case size
+    when "small"
+      base -= 1.50
+    when "large"
+      base += 1.50
+    end
+    base
   end
   
-  def self.price(months: 1, organic: false)
-    (Pod.base_price_per_month(organic: organic) * months * (1.0-Pod.discount(months: months))).round(2)
+  def self.price(months: 1, organic: false, size: "medium")
+    (Pod.base_price_per_month(organic: organic, size: size) * months * (1.0-Pod.discount(months: months))).round(2)
   end
   
 end

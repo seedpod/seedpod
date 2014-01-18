@@ -45,7 +45,14 @@
 	  <div class='form-group'>
 			<%= f.label :organic, :class => 'col-lg-4 control-label' %>
 		  <div class='col-lg-8'>
-				<%= f.select :organic, organic_options_for_select(include_price: true) %>
+				<%= f.select :organic, organic_options_for_select %>
+			</div>
+		</div>
+		
+	  <div class='form-group'>
+		    <%= f.label :size, :class => 'col-lg-4 control-label' %>
+		  <div class='col-lg-8'>
+			    <%= f.select :size, size_options_for_select %>
 			</div>
 		</div>
 		
@@ -116,18 +123,32 @@
 </script>
 
 <div align="center" id='pricing-details'>
-	<p>Subscribe today for just <span id='price'>£<%= price_string(1, true) %></span> per month, with free delivery, and no contractual tie-in or cancellation fee.</p>
+	<p>Subscribe today for just <span id='price'>£<%= price_string(1, true, "small") %></span> per month, with free delivery, and no contractual tie-in or cancellation fee.</p>
 </div>
 
 <script>
+
+  function update_price() {
+	  var organic = $('#user_organic')[0].value;
+	  var size = $('#user_size')[0].value;
+	  prices = {
+  	    <% [false, true].each do |organic_state| %>
+		  <%= organic_state %>: {
+		  	<% ["small", "medium", "large"].each do |size_state| %>
+  	          <%= size_state %>: "£<%= price_string(1, organic_state, size_state) %>",
+	      	<% end %> 
+		  },
+	    <% end %> 
+	  };    
+	  $('#price').html(prices[organic][size]);
+  }
+
   $('#user_organic').change(function(){
-    var organic = $('#user_organic')[0].value;
-    prices = {
-      <% [false, true].each do |state| %>
-        <%= state %>: "£<%= price_string(1, state) %>",
-      <% end %> 
-    };    
-    $('#price').html(prices[organic]);
+	update_price();
+  });
+
+  $('#user_size').change(function(){
+	update_price();
   });
 </script>
 
