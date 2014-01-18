@@ -35,5 +35,11 @@ Admin.create(
 
 User.create(
   email: 'robinson.ran@gmail.com',
-  password: 'testing-only'
+  password: 'testing-only',
+  password_confirmation: 'testing-only',
+  name:              Faker::Name.name,
+  address_street:    Faker::Address.street_address,
+  address_locality:  Faker::Address.city,
+  address_region:    Faker::Address.state,
+  address_postcode:  Faker::Address.postcode,
 )
