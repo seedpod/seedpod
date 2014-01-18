@@ -9,7 +9,7 @@ carrots = Crop.create(
           )
 
 pod     = Pod.create(
-            month: Date.new(2013,8),
+            month: Date.today.beginning_of_month,
             published: true
           )
 
