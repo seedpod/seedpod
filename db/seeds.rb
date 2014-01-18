@@ -32,7 +32,8 @@ Admin.create(
   email: 'admin@getseedpod.com',
   password: 'testing-only'
 )
-User.create{
+
+User.create(
   email: 'robinson.ran@gmail.com',
   password: 'testing-only'
-}
+)
