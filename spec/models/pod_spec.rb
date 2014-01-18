@@ -16,4 +16,20 @@ describe Pod do
     end
   end
 
+  it "generates future pods automatically" do
+    Pod.count.should == 0
+    Pod.generate_future_pods!
+    Pod.count.should == 12
+    Pod.first.month.should == Date.today.beginning_of_month
+    Pod.last.month.should == (Date.today + 11.months).beginning_of_month
+  end
+
+  it "doesn't double-generate pods" do
+    Pod.count.should == 0
+    Pod.generate_future_pods!
+    Pod.count.should == 12
+    Pod.generate_future_pods!
+    Pod.count.should == 12
+  end
+
 end
