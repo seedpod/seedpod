@@ -7,14 +7,4 @@ FactoryGirl.define do
     published true
   end
 
-  factory :next_pod, class: Pod do
-    month (Date.today + 1.month).beginning_of_month
-    published true
-  end
-
-  factory :previous_pod, class: Pod do
-    month (Date.today-1.month).beginning_of_month
-    published true
-  end
-
 end

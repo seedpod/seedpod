@@ -1,17 +1,21 @@
 Given(/^there is a pod for "(.*?)"$/) do |date|
-  @pod = FactoryGirl.create :pod, month: Date.parse(date).beginning_of_month
+  date = Date.parse(date).beginning_of_month
+  @pod = Pod.where(month: date).first || FactoryGirl.create(:pod, month: date)
 end
 
 Given(/^there is a pod for the current month$/) do
-  @current_pod = FactoryGirl.create :pod
+  date = Date.today.beginning_of_month
+  @current_pod = Pod.where(month: date).first || FactoryGirl.create(:pod, month: date)
 end
 
 Given(/^there is a pod for next month$/) do
-  @next_pod = FactoryGirl.create :next_pod
+  date = (Date.today + 1.month).beginning_of_month
+  @next_pod = Pod.where(month: date).first || FactoryGirl.create(:pod, month: date)
 end
 
 Given(/^there is a pod for last month$/) do
-  @previous_pod = FactoryGirl.create :previous_pod
+  date = (Date.today - 1.month).beginning_of_month
+  @previous_pod = Pod.where(month: date).first || FactoryGirl.create(:pod, month: date)
 end
 
 When(/^I visit the current pod$/) do
