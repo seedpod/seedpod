@@ -9,8 +9,7 @@
 <div class="row" id="instructions">
 	
   <% @pod.instructions.each do |instruction| %>
-
-    <% if instruction.visible_to?(current_user) %>
+    <% if admin_signed_in? || instruction.visible_to?(current_user) %>
 
     	<div class="boxes">
         <div class=miniAboutTitle><%= instruction.crop.name %></div>
@@ -28,3 +27,5 @@
   <% end %>
 </div>  
 </div>
+
+

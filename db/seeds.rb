@@ -9,7 +9,7 @@ carrots = Crop.create(
           )
 
 pod     = Pod.create(
-            month: Date.new(2013,8),
+            month: Date.today.beginning_of_month,
             published: true
           )
 
@@ -32,7 +32,8 @@ Admin.create(
   email: 'admin@getseedpod.com',
   password: 'testing-only'
 )
-User.create{
+
+User.create(
   email: 'robinson.ran@gmail.com',
   password: 'testing-only'
-}
+)
