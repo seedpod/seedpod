@@ -32,4 +32,11 @@ describe Pod do
     Pod.count.should == 12
   end
 
+  it "generates future pods when we save an instruction" do
+    Pod.delete_all
+    FactoryGirl.create(:instruction)
+    Pod.count.should == 12
+  end
+
+
 end
