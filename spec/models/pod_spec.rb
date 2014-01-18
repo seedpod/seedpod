@@ -17,7 +17,7 @@ describe Pod do
   end
 
   it "generates future pods automatically" do
-    Pod.count.should == 0
+    Pod.delete_all
     Pod.generate_future_pods!
     Pod.count.should == 12
     Pod.first.month.should == Date.today.beginning_of_month
@@ -25,7 +25,7 @@ describe Pod do
   end
 
   it "doesn't double-generate pods" do
-    Pod.count.should == 0
+    Pod.delete_all
     Pod.generate_future_pods!
     Pod.count.should == 12
     Pod.generate_future_pods!
