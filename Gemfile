@@ -58,7 +58,7 @@ gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 3.0.2'
 gem 'gocardless'
 gem 'devise', '~> 3.1.0'
-gem 'rails_admin', github: 'sferik/rails_admin'
+gem 'rails_admin'
 gem "high_voltage"
 gem 'rack-google-analytics'
 
