@@ -15,13 +15,13 @@ body.homepage {
   background-attachment: fixed;
 
   #myCarousel {
-    
+
     padding-bottom: 40px;
-    
+
     .carousel-indicators {
       bottom: 10px;
     }
-    
+
     .carousel-inner{
     	line-height:40px;
     	text-align:center;
@@ -29,34 +29,34 @@ body.homepage {
     }
 
   }
-  
+
   .carousel-control {
     background: none;
     left: auto;
     right: auto;
   }
-  
+
   #logo {
     padding-top: 30px;
   }
-  
+
   .navbar {
-    
+
     opacity: 1.0;
-    background-color: rgb(198,218,196);	
+    background-color: rgb(198,218,196);
 
     a, .navbar-toggle {
     	color: #503e2b;
     }
-    
+
   }
   .off {
 	  padding: 10px;
   }
-  
+
   .social {
-    
-    .icon-twitter, .icon-facebook, .icon-envelope, .icon-cog, .icon-signout, .icon-signin {
+
+    .icon-twitter, .icon-facebook, .icon-envelope, .icon-cog, .icon-signout, .icon-signin, .icon-truck, .icon-dashboard {
       color: #503e2b;
     }
     .icon-circle{
