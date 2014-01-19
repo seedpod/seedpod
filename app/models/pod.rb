@@ -6,12 +6,20 @@ class Pod < ActiveRecord::Base
     object_label_method :to_param
   end
   
-  def shipping_crops(organic = false)
+  def shipping_crops(organic = false, size = "medium")
     crops = instructions.where(ship: true).map{|x| x.crop}
     if organic
       crops = crops.select{|x| x.organic == true}
     else
       crops = crops.select{|x| x.non_organic == true}
+    end
+    case size
+    when "small"
+      crops = crops.select{|x| x.small == true}
+    when "large"
+      crops = crops.select{|x| x.large == true}
+    else
+      crops = crops.select{|x| x.medium == true}
     end
   end
   

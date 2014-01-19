@@ -9,7 +9,7 @@ class Instruction < ActiveRecord::Base
   end
   
   def visible_to?(user)
-    (ship == true || crop.shipped_to?(user)) && organic_match?(user)
+    (ship == true || crop.shipped_to?(user)) && organic_match?(user) && size_match?(user)
   end
   
   def organic_match?(user)
@@ -21,4 +21,13 @@ class Instruction < ActiveRecord::Base
     false
   end
   
+  def size_match?(user)
+    s = Shipment.where(user: user, pod: pod).first
+    if s
+      return true if s.size == "small" && (crop.small == true)
+      return true if s.size == "medium" && (crop.medium == true)
+      return true if s.size == "large" && (crop.large == true)
+    end
+    false
+  end
 end

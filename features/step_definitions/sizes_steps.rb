@@ -19,11 +19,11 @@ Given(/^the current pod has a crop "(.*?)" which is "(.*?)" "(.*?)"$/) do |name,
       crop_options[:non_organic] = true
   end
   case size
-    when "balcony"
+    when "small"
       crop_options[:small] = true
-    when "garden"
+    when "medium"
       crop_options[:medium] = true
-    when "allotment"
+    when "large"
       crop_options[:large] = true
   end
   @crop = FactoryGirl.create(:crop, crop_options)
@@ -44,11 +44,11 @@ Given(/^that crop is also "(.*?)" "(.*?)"$/) do |size, is_organic|
       crop_options[:non_organic] = true
   end
   case size
-    when "balcony"
+    when "small"
       crop_options[:small] = true
-    when "garden"
+    when "medium"
       crop_options[:medium] = true
-    when "allotment"
+    when "large"
       crop_options[:large] = true
   end
   @crop.update_attributes!(crop_options)
