@@ -9,7 +9,7 @@ Background:
 Scenario: I can click a link on the homepage to sign in
   When I visit the homepage
   And I click the "signin-link" link
-  Then I should see the "Get Growing" page
+  Then I should see the "Sign In" page
 
 Scenario: I can sign in
   When I visit the sign in page
