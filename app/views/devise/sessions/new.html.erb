@@ -1,5 +1,5 @@
 <h1 class="hugeTitle">
-  	Get Growing
+  	Sign In 
 </h1>
 
 <div class ="aboutUs">
@@ -44,38 +44,34 @@
 		
             </fieldset>
           <% end %>
+	      <p>By signing in you agree to our <%= link_to "Terms & Conditions", page_path("terms") %>.</p>
+		  <p>We use cookies throughout our website. For more information please see our <%= link_to "Privacy & Cookies", page_path("privacy_and_cookies") %> page.</p>
         </div>
       </p>
-      <p>By signing in you agree to our <%= link_to "Terms & Conditions", page_path("terms") %>.</p>
-	  <p>We use cookies throughout our website. For more information please see our <%= link_to "Privacy & Cookies", page_path("privacy_and_cookies") %> page.</p>
+
 
     </div>
 
     <div class="col-md-6">
       <div class="boxes">
-        <p><div class="miniAboutTitle">Join us!</div></p>
         <fieldset>
-		<p>Subscribe today for just £<%= price_string(1, true) %> (or £<%=price_string(1) %> for non-organic) per month and our unique growing programme will provide:</p>
-        <ul>
-          <li>Two varieties of seasonally appropriate vegetable seeds each month</li> 
-          <li>Access to your own personalised step-by-step growing guidance, tailored to the seeds you've received, and detailing advice on sowing your seeds, caring for your plants, and when may be the best time to harvest your crop.</li> 
-          <li>'Get Ready' advice to prepare for your first pod</li> 
-        </ul>
+			 <p><div class="miniAboutTitle">Join Us!</div></p>
+			<div align="center">
+		<p>Not yet a member?</p>
+	</div>
         <div class='form-group'>
           <div class='col-lg-12'>
             <%= link_to "SUBSCRIBE", new_user_registration_path, class: 'btn btn-lg btn-primary btn-block' %>
           </div>
         </div>
-		
-       	<p>This month's organic pod contains seeds to grow beetroot, as well as hot peppers, and the non-organic pod contains cauliflower and radish. They're only available for those joining before Friday 17 January. Don't miss out, join today!</p>
-		<p>Alternatively why not give a SeedPod subscription as a gift, and give a friend a great start to the New Year?</p>
+		<div align="center">
+		<p>Our subscriptions also make a great gifts - they'll love you forever!</p>
+	</div>
         <div class='form-group'>
           <div class='col-lg-12'>
 				<%= link_to "BUY A GIFT SUBSCRIPTION", new_gift_code_path, class: 'btn btn-lg btn-primary btn-block' %>
             </div>
           </div>
-          <p>Need more info? Check out our <%= link_to "How it Works", page_path("preview") %> page, or take a look at our <%= link_to "Frequently Asked Questions", page_path("faq") %>.</p>
-  
         </fieldset>
       </div>
     </div>
