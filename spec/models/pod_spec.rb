@@ -16,4 +16,27 @@ describe Pod do
     end
   end
 
+  it "generates future pods automatically" do
+    Pod.delete_all
+    Pod.generate_future_pods!
+    Pod.count.should == 12
+    Pod.first.month.should == Date.today.beginning_of_month
+    Pod.last.month.should == (Date.today + 11.months).beginning_of_month
+  end
+
+  it "doesn't double-generate pods" do
+    Pod.delete_all
+    Pod.generate_future_pods!
+    Pod.count.should == 12
+    Pod.generate_future_pods!
+    Pod.count.should == 12
+  end
+
+  it "generates future pods when we save an instruction" do
+    Pod.delete_all
+    FactoryGirl.create(:instruction)
+    Pod.count.should == 12
+  end
+
+
 end

@@ -1,7 +1,9 @@
 class Pod < ActiveRecord::Base
   has_many :instructions
   has_many :shipments
-
+  
+  validates :month, uniqueness: true
+  
   rails_admin do
     object_label_method :to_param
   end
@@ -82,6 +84,12 @@ class Pod < ActiveRecord::Base
 
   def self.price(months: 1, organic: false)
     (Pod.base_price_per_month(organic: organic) * months * (1.0-Pod.discount(months: months))).round(2)
+  end
+  
+  def self.generate_future_pods!
+    (0...12).each do |month|
+      Pod.create(month: (Date.today + month.months).beginning_of_month)
+    end
   end
 
 end
