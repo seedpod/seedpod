@@ -4,25 +4,39 @@
 </div>
 </div>
 <div class="social">
-  
+
+<% if admin_signed_in? %>
+  <span class='icon-stack icon-2x'>
+    <%= link_to"
+      <i class='icon-circle icon-stack-base'></i>
+      <i class='icon-truck'></i>".html_safe, pod_shipments_path(Pod.currently_shipping), title: 'Shipments', :'data-toggle'=>"tooltip", :'data-placement' => 'bottom', :class => 'tooltip-enable' %>
+  </span>
+
+  <span class='icon-stack icon-2x'>
+    <%= link_to"
+      <i class='icon-circle icon-stack-base'></i>
+      <i class='icon-dashboard'></i>".html_safe, '/administration', title: 'Administration', :'data-toggle'=>"tooltip", :'data-placement' => 'bottom', :class => 'tooltip-enable' %>
+  </span>
+<% end %>
+
   <span class='icon-stack icon-2x'>
     <%= link_to"
   	  <i class='icon-circle icon-stack-base'></i>
   	  <i class='icon-twitter'></i>".html_safe, 'https://twitter.com/seedpod', title: 'Twitter', :'data-toggle'=>"tooltip", :'data-placement' => 'bottom', :class => 'tooltip-enable' %>
   </span>
-  
+
   <span class='icon-stack icon-2x'>
     <%= link_to"
   	  <i class='icon-circle icon-stack-base'></i>
   	  <i class='icon-facebook'></i>".html_safe, 'https://www.facebook.com/getseedpod', title: 'Facebook', :'data-toggle'=>"tooltip", :'data-placement' => 'bottom', :class => 'tooltip-enable' %>
   </span>
-  
+
   <span class='icon-stack icon-2x'>
     <%= link_to"
   	  <i class='icon-circle icon-stack-base'></i>
   	  <i class='icon-envelope'></i>".html_safe, 'mailto:greetings@getseedpod.com', title: 'Contact Us', :'data-toggle'=>"tooltip", :'data-placement' => 'bottom', :class => 'tooltip-enable' %>
   </span>
-  
+
   <% if signed_in? %>
     <span class='icon-stack icon-2x'>
       <%= link_to"
@@ -34,13 +48,6 @@
   	  	<i class='icon-circle icon-stack-base'></i>
   	  	<i class='icon-signout'></i>".html_safe, destroy_user_session_path, method: :delete, title: 'Sign out', :'data-toggle'=>"tooltip", :'data-placement' => 'bottom', :class => 'tooltip-enable' %>
     </span>
-        
-    <% if admin_signed_in? %>
-  	  <ul class="nav pull-left">
-	      <li><%= link_to 'Shipments', pod_shipments_path(Pod.currently_shipping) %></li>
-	      <li><%= link_to 'Administration', '/administration' %></li>
-      </ul>
-	  <% end %>
 	<% else %>
     <span class='icon-stack icon-2x'>
       <%= link_to"
@@ -48,11 +55,11 @@
     	  <i class='icon-signin'></i>".html_safe, new_user_session_path, title: 'Sign in', id: 'signin-link' , :'data-toggle'=>"tooltip", :'data-placement' => 'bottom', :class => 'tooltip-enable' %>
     </span>
 	<% end %>
-  
+
   <script>
     $(document).ready(function() {
       $('.tooltip-enable').tooltip();
     });
   </script>
-  
-</div> 
+
+</div>
