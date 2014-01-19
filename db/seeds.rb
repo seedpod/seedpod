@@ -42,24 +42,18 @@ Instruction.create(
   detail: 'Bacon ipsum dolor sit amet nisi broccoli in voluptate broccoli broccoli irure broccoli broccoli broccoli dolor broccoli qui. Broccoli broccoli broccoli laboris ex elit pariatur broccoli broccoli broccoli adipisicing broccoli deserunt exercitation broccoli. Fugiat nostrud in aute anim consequat broccoli nisi eiusmod duis broccoli ut. Est broccoli broccoli broccoli esse, duis broccoli laborum broccoli cupidatat sunt officia. Broccoli broccoli anim elit aliquip, ex broccoli. Esse ut incididunt irure ut broccoli magna. Mollit non excepteur ullamco broccoli. Ut broccoli broccoli, broccoli tempor laborum broccoli. Broccoli adipisicing aute ea broccoli ut. Broccoli irure ex, culpa mollit broccoli reprehenderit elit broccoli veniam broccoli ut dolore pariatur proident. Ut laborum qui in sunt.'
 )
 
+password = 'testing-only'
+
 Admin.create(
   email: 'admin@getseedpod.com',
-  password: 'testing-only'
+  password: password
 )
 
-user = User.create(
-  email: 'robinson.ran@gmail.com',
-  password: 'testing-only',
-  name:              Faker::Name.name,
-  address_street:    Faker::Address.street_address,
-  address_locality:  Faker::Address.city,
-  address_region:    Faker::Address.state,
-  address_postcode:  Faker::Address.postcode,
-)
+user = FactoryGirl.create :user
+user.update_attributes!(email: 'robinson.ran@gmail.com', password: password, password_confirmation: password)
 
-subscription = Subscription.create(
-  user: user
-)
+subscription = FactoryGirl.create :subscription
+subscription.update_attributes!(user: user)
 
 Payment.create(
   subscription: subscription,
