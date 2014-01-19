@@ -18,12 +18,13 @@ class SubscriptionsController < ApplicationController
     else
       # Create subscription
       organic = params[:organic] == "true"
-      sub = @user.subscriptions.create(organic: organic)
+      size = params[:size]
+      sub = @user.subscriptions.create(organic: organic, size: size)
       # Send to gocardless for payment
       url = GoCardless.new_subscription_url(
         :interval_unit   => "month",
         :interval_length => 1,
-        :amount          => price_string(1, organic),
+        :amount          => price_string(1, organic, size),
         :name            => t(:seedpod),
         :description     => t(:tagline),
         :state           => sub.id,

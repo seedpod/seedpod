@@ -59,7 +59,7 @@ class Pod < ActiveRecord::Base
     when "small"
       base -= 1.00
     when "large"
-      base += 1.00
+      base += 1.50
     end
     base
   end

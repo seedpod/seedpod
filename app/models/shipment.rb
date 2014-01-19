@@ -14,6 +14,12 @@ class Shipment < ActiveRecord::Base
     subscription.organic
   end
   
+  def size
+    payment = user.payments.where(pod: pod).first
+    subscription = payment.subscription
+    subscription.size
+  end
+  
   def ship!
     update_attributes!(shipped: true)
   end
