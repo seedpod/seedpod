@@ -24,7 +24,6 @@ module ApplicationHelper
     x = [
       [t(:small), "small"],
       [t(:medium), "medium"],
-      [t(:large), "large"]
     ]
   end
   

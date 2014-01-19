@@ -49,6 +49,8 @@ Scenario: shipping small organic
   And they should be listed as receiving "small" seeds
   And I should see "Chard"
   And I should see "Peas"
+  And I should not see "Swedes"
+  And I should not see "Onions"
 		
 Scenario: view small organic advice
   Given I am signed in
@@ -60,7 +62,7 @@ Scenario: view small organic advice
   Then I should see content for the current pod
   And I should see "Chard"
   And I should see "Peas"
-  And I should not see "Sweeds"
+  And I should not see "Swedes"
   And I should not see "Onions"		
 
 @javascript @mechanize @vcr @hostname
@@ -72,13 +74,15 @@ Scenario: Buying a small organic gift subscription
 	Then I should see "17.85"
   When I enter my details as the purchaser
   And I click the "pay-with-paypal" button
-  And the gift code should be marked as "small" "organic"
+  And the gift code should be marked as "small"
+  And the gift code should be marked as organic
   And I should be charged "17.85"
-  And I should be charged for "3 month small organic"
+  And I should be charged for "3 month balcony or"
 	
 @javascript
 Scenario: Using a small organic gift code
-  Given a "small" "organic" gift code has been bought for me
+  Given an organic gift code has been bought for me
+   And that gift code is "small"
   When I visit the sign up page
   And I fill in my details
   And I enter my gift code
@@ -140,13 +144,15 @@ Scenario: Buying a small non-organic gift subscription
 	Then I should see "14.85"
   When I enter my details as the purchaser
   And I click the "pay-with-paypal" button
-  And the gift code should be marked as "small" "non-organic"
+  And the gift code should be marked as "small"
+  And the gift code should be marked as non-organic
   And I should be charged "14.85"
-  And I should be charged for "3 month small non-organic"
+  And I should be charged for "3 month balcony no"
 	
 @javascript
 Scenario: Using a small non-organic gift code
-  Given a "small" "non-organic" gift code has been bought for me
+  Given an non-organic gift code has been bought for me
+    And that gift code is "small"
   When I visit the sign up page
   And I fill in my details
   And I enter my gift code
@@ -208,13 +214,15 @@ Scenario: view large organic advice
 #	Then I should see "25.35"
 #  When I enter my details as the purchaser
 #  And I click the "pay-with-paypal" button
-#  And the gift code should be marked as "large" "organic"
+#  And the gift code should be marked as "large"
+#  And the gift code should be marked as organic
 #  And I should be charged "25.35"
-#  And I should be charged for "3 month large organic"
+#  And I should be charged for "3 month allotment or"
 
 @javascript
 Scenario: Using an large organic gift code
-  Given an "large" "organic" gift code has been bought for me
+  Given an organic gift code has been bought for me
+    And that gift code is "large"
   When I visit the sign up page
   And I fill in my details
   And I enter my gift code
@@ -276,13 +284,15 @@ Scenario: view large non-organic advice
 #	Then I should see "22.35"
 #  When I enter my details as the purchaser
 #  And I click the "pay-with-paypal" button
-#  And the gift code should be marked as "large" "non-organic"
+#  And the gift code should be marked as "large"
+#  And the gift code should be marked as non-organic
 #  And I should be charged "22.35"
-#  And I should be charged for "3 month large non-organic"	
+#  And I should be charged for "3 month allotment no"	
 	
 @javascript
 Scenario: Using an large non-organic gift code
-  Given an "large" "non-organic" gift code has been bought for me
+  Given an non-organic gift code has been bought for me
+    And that gift code is "large"
   When I visit the sign up page
   And I fill in my details
   And I enter my gift code

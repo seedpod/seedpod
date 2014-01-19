@@ -74,14 +74,12 @@ Then(/^they should be listed as receiving "(.*?)" seeds$/) do |is_size|
   page.should have_text(is_size)
 end
 
-When(/^the gift code should be marked as "(.*?)" "(.*?)"$/) do |arg1, arg2|
-  pending # express the regexp above with the code you wish you had
+When(/^the gift code should be marked as "(.*?)"$/) do |is_size|
+  GiftCode.count.should == 1
+  GiftCode.last.size.should == is_size
 end
 
-Given(/^a "(.*?)" "(.*?)" gift code has been bought for me$/) do |arg1, arg2|
-  pending # express the regexp above with the code you wish you had
-end
-
-Given(/^an "(.*?)" "(.*?)" gift code has been bought for me$/) do |arg1, arg2|
-  pending # express the regexp above with the code you wish you had
+Given(/^that gift code is "(.*?)"$/) do |is_size|
+  @gift_code.size = is_size
+  @gift_code.save
 end

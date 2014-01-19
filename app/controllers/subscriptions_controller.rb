@@ -9,7 +9,7 @@ class SubscriptionsController < ApplicationController
       code = GiftCode.where(code: params[:gift_code], paid: true).first
       if code && code.subscription.nil?
         # Create subscription
-        @user.subscriptions.create(gift_code_id: code.id, organic: code.organic)
+        @user.subscriptions.create(gift_code_id: code.id, organic: code.organic, size: code.size)
         Notifications.welcome(@user).deliver        
         redirect_to getting_started_pods_path
       else
