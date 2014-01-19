@@ -6,30 +6,81 @@
 		Know someone who would love to grow their own, but has never managed to get started? Perhaps you're looking for an original gift that's fun and great for the environment? We think our monthly vegetable seed and advice subscriptions make perfect gifts, especially as we cater for different budgets, and offer discounts too:
 	</p>
 	<p>
-  	<div class="col-lg-6">
-	<div class="table-responsive">
+
+  
+  <ul class="nav nav-tabs">
+	  <li class="active"><a href="#organic" data-toggle="tab"><strong>Organic Calendar</strong></a></li>
+	  <li><a href="#nonOrganic" data-toggle="tab"><strong>Non-Organic Calendar</strong></a></li>
+  </ul>	
+    <div class="tab-content">
+	  <div class="tab-pane active" id="organic">
+  		<div class="col-lg-6">
+		  <div class="table-responsive">
 	<table class="table table-striped">
 		<thead>
 			<tr>
-			<td>Length</td>
-			<td><%= t(:organic) %></td>
-			<td><%= t(:non_organic) %></td>
-			<td>Saving</td>
+				<td>Length</td>
+				<td><%= t(:small) %></td>
+				<td><%= t(:medium) %></td>
+				<td>Saving</td>
 			</tr>
-		</thead>
+		</thread>
 		<tbody>
-      <% gift_code_lengths.each do |length| %>
-  			<tr>
-  				<td><%= length %> months</td>
-  				<td>£<%= price_string(length, true)%></td>
-  				<td>£<%= price_string(length)%></td>
-  				<td><%= discount_string(length) if Pod.discount(months: length) > 0 %></td>
-  			</tr>
-      <% end %>
+	 	   <% gift_code_lengths.each do |length| %>
+	 	  <tr>
+			  <td><%= length %> months</td>
+			  <td>£<%= price_string(length, true, "small")%></td>
+			  <td>£<%= price_string(length, true, "medium")%></td>
+			  <td><%= discount_string(length) if Pod.discount(months: length) > 0 %></td>
+		  </tr>
+		  <% end %>		
 		</tbody>
 	</table>
-	</div>
-	</div>
+</div>
+</div>
+</div>
+	  <div class="tab-pane" id="nonOrganic">
+  		<div class="col-lg-6">
+		  <div class="table-responsive">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<td>Length</td>
+				<td><%= t(:small) %></td>
+				<td><%= t(:medium) %></td>
+				<td>Saving</td>
+			</tr>
+		</thread>
+		<tbody>
+	 	   <% gift_code_lengths.each do |length| %>
+	 	  <tr>
+			  <td><%= length %> months</td>
+			  <td>£<%= price_string(length, false, "small")%></td>
+			  <td>£<%= price_string(length, false, "medium")%></td>
+			  <td><%= discount_string(length) if Pod.discount(months: length) > 0 %></td>
+		  </tr>
+		  <% end %>		
+		</tbody>
+	</table>
+</div>
+</div>
+</div>
+</div>
+
+
+					
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 </p>
 	<p>
 	It really is easy peasy. Simply choose the length of the subscription you would like to buy, choose either an organic or non-organic growing programme, enter your details, and pay via PayPal. With a gift voucher you can choose to print or email the unique code to the lucky recipient yourself, or instead let us email them directly on their special day! All they need to do is create their own SeedPod account with their gift code, and their first seeds will be with them in no time at all. Everytime they take a bite from one of their delicious homegrown vegetables, they will think of you! 
@@ -52,6 +103,13 @@
     		<%= f.select :organic, organic_options_for_select, :required => true %>
     	</div>
     </div>
+	
+    <div class='form-group'>
+	    <%= f.label :size, :class => 'col-lg-4 control-label' %>
+	  <div class='col-lg-8'>
+		    <%= f.select :size, size_options_for_select %>
+		</div>
+	</div>
 		
     <div class='form-group' id='price-row' style='display:none'>
     	<%= f.label "Price", :class => 'col-lg-4 control-label' %>
@@ -86,17 +144,22 @@
       function updatePrice() {
         var months = $('#gift_code_months')[0].value;
         var organic = $('#gift_code_organic')[0].value;
+		var size = $('#gift_code_size')[0].value;
         prices = {
-          <% [false, true].each do |organic| %>
-            <%= organic %>: {
+          <% [false, true].each do |organic_state| %>
+            <%= organic_state %>: {
               <% gift_code_lengths.each do |length| %>
-                <%= length %>: "£<%= price_string(length, organic) %>",
+                <%= length %>: {
+			  	  <% ["small", "medium", "large"].each do |size_state| %>
+					"<%= size_state %>": "£<%= price_string(length, organic_state, size_state) %>",	
+                  <% end %>
+				},
               <% end %>
             },
           <% end %>
           
         };    
-        $('#price').html(prices[organic][months]);
+        $('#price').html(prices[organic][months][size]);
       }
 
       $(function() {
@@ -107,6 +170,9 @@
         $('#gift_code_organic').change(function(){
           updatePrice();
         });
+	    $('#gift_code_size').change(function(){
+	  	  updatePrice();
+	    });
         updatePrice();
         $('#price-row').show();
         

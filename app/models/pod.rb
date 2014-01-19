@@ -57,9 +57,9 @@ class Pod < ActiveRecord::Base
     end
     case size
     when "small"
-      base -= 1.50
+      base -= 1.00
     when "large"
-      base += 1.50
+      base += 1.00
     end
     base
   end

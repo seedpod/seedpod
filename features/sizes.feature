@@ -25,7 +25,7 @@ Scenario: Select balcony organic charged the right amount
   And I fill in my details
 	And I select "Balcony"
 	And I select "Organic"
-	Then I should see "just £5.45 per month"
+	Then I should see "just £5.95 per month"
 	
 @mechanize @vcr @hostname
 Scenario: Send to GoCardless balcony organic
@@ -68,11 +68,11 @@ Scenario: Buying a balcony organic gift subscription
   And I select "3 Months"
   And I select "Balcony"
   And I select "Organic"
-	Then I should see "16.35"
+	Then I should see "17.85"
   When I enter my details as the purchaser
   And I click the "pay-with-paypal" button
   And the gift code should be marked as "balcony" "organic"
-  And I should be charged "16.35"
+  And I should be charged "17.85"
   And I should be charged for "3 month balcony organic"
 	
 @javascript
@@ -92,7 +92,7 @@ Scenario: Select balcony non-organic charged the right amount
   And I fill in my details
 	And I select "Balcony"
 	And I select "Non-organic"
-	Then I should see "just £4.45 per month"
+	Then I should see "just £4.95 per month"
 	
 @mechanize @vcr @hostname
 Scenario: Send to GoCardless balcony non-organic
@@ -135,11 +135,11 @@ Scenario: Buying a balcony non-organic gift subscription
   And I select "3 Months"
   And I select "Balcony"
   And I select "Non-organic"
-	Then I should see "13.35"
+	Then I should see "14.85"
   When I enter my details as the purchaser
   And I click the "pay-with-paypal" button
   And the gift code should be marked as "balcony" "non-organic"
-  And I should be charged "13.35"
+  And I should be charged "14.85"
   And I should be charged for "3 month balcony non-organic"
 	
 @javascript
