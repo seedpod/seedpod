@@ -9,7 +9,7 @@
 	</p>
 	<p>
 		
-<p>Joining SeedPod is incredibly simple. Just enter your details, select whether you'd prefer to receive organic or non-organic vegetable seeds, and select the size of growing space you have available.</p>
+<p>Joining SeedPod is incredibly simple. Just enter your details, select whether you'd prefer to receive organic or non-organic vegetable seeds, and select the size of growing space you have available. If you would like more details on the available options then take a look at our <%= link_to "How it Works", page_path("preview") %> page.</p>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'form-horizontal'}) do |f| %>
   <%= devise_error_messages! %>
@@ -52,7 +52,7 @@
 	  <div class='form-group'>
 		    <%= f.label :size, :class => 'col-lg-4 control-label' %>
 		  <div class='col-lg-8'>
-			    <%= f.select :size, size_options_for_select %>
+			    <%= f.select :size, size_options_for_select, selected: "medium" %>
 			</div>
 		</div>
 		
