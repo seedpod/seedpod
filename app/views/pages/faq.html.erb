@@ -19,7 +19,7 @@
       <div id="collapseFive" class="panel-collapse collapse">
         <div class="panel-body">	
   <p>
-  	<strong>How much space will I need?</strong> Our growing programme is perfect for small family gardens. If you don't have enough space to plant all the seeds each month, you can stagger your sowing to extend the cropping period. 
+  	<strong>How much space will I need?</strong> Our growing programme is perfect for a range of spaces. The 'Balcony' option is perfect if you live in a flat, and will be growing in pots. The 'Garden' option is more suitable for a small family garden. But if you don't have enough space to plant all the seeds each month, you can stagger your sowing to extend the cropping period. 
 </p>
 
   <p>	
@@ -35,7 +35,7 @@
 </p>
 
   <p>
-  	<strong>How many people will I be able to feed?</strong> The vegetable growing programme is intended to supplement the diet of a couple, or a small family, depending on the amount of growing space that is set aside. We are not suggesting that SeedPod alone will be able to feed a whole family, and there will certainly be occasions during the year when you have too much produce, and other times when you have too little. But through the clever use of storage and preserving techniques you should be able to enjoy your home-grown food all year round.	
+  	<strong>How many people will I be able to feed?</strong> The vegetable growing programme is intended to supplement diets, and shouldn't be relied upon alone. The 'Balcony' option may supplement the diet of a couple, whilst the 'Garden' option would suit a small family. There will certainly be occasions during the year when you have too much produce, and other times when you have too little. But through the clever use of storage and preserving techniques you should be able to enjoy your home-grown food all year round.	
   </p>
       </div>
     </div>
@@ -55,11 +55,11 @@
 </p>
 
 <p>
-	<strong>How much is a individual monthly subscription?</strong> For only £6.95 each month (or £<%= price_string(1) %> if you choose the non-organic option) you will receive two different types of herb or vegetable seeds. You will also have access to our timely guidance on how to sow, grow and crop your plants.
+	<strong>How much is a individual monthly subscription?</strong> The price of subscriptions vary depending on whether you choose organic or non-organic programme, and depending on the size option you choose. Full details can be found on our <%= link_to "Subscribe", new_user_registration_path %> page.
 </p>
 
 <p>
-	<strong>What form of payment do you accept?</strong> We only accept payment by Direct Debit using GoCardless. They are a British company who specialise in providing secure methods of online payment.  
+	<strong>What form of payment do you accept?</strong> We only accept payment by Direct Debit using GoCardless for our individual subscriptions. They are a British company who specialise in providing secure methods of online payment. PayPal can be used to pay for our range of gift subscriptions. 
 </p>
 
 <p>
@@ -104,7 +104,7 @@
 </p>
 
 <p>	
-    <strong>Why does it take so long to receive my first SeedPod?</strong> We despatch your seeds once the first Direct Debit payment has been authorised by your bank. This process of making the first payment via Direct Debit can take slightly longer than payments by debit card or credit card. You can follow how quickly this process takes by signing into your GoCardless account. 
+    <strong>Why does it take so long to receive my first SeedPod?</strong> We despatch your seeds once the first Direct Debit payment has been authorised by your bank. This process of making the first payment via Direct Debit can take slightly longer than payments by debit card or credit card. You can follow how quickly this process takes by signing into your GoCardless account. If you are entering a gift code then a delivery will be sent within 48 working hours. 
 </p>
 
     </div>
@@ -158,7 +158,7 @@
     <div class="panel-heading">
       <h4 class="panel-title">
         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseSix">
-			<div class="faqTitle">Environment</div>
+			<div class="faqTitle">Environmental Impact</div>
         </a>
       </h4>
     </div>
@@ -169,7 +169,7 @@
 </p>
 
 <p>
-	<strong>What are food miles?</strong> This is the distance that items of food have travelled in order to reach your plate from wherever it was produced. Home growing your own food means you can reduce the amount of energy used to transport food around the globe, thereby reducing the harmful impact upon the environment.
+	<strong>What are food miles?</strong> This is the distance that items of food have travelled in order to reach your plate from wherever it was produced. Home growing your own food means you can reduce the amount of energy used and emissions generated to transport food around the globe, thereby reducing the harmful impact upon the environment.
     </div>
   </div>
 </div>
@@ -185,20 +185,7 @@
     <div id="collapseSeven" class="panel-collapse collapse">
       <div class="panel-body">	
 <p>
-	<strong>What range of gift subscriptions do you provide?</strong> We offer a fantastic range of gift subscriptions, most of which include a discount when compared to our standard month-by-month payment option:
-	
-	<ul>
-    <% gift_code_lengths.each do |length| %>
-    	<li>
-        <%= length %>-month gift subscription
-        <% if Pod.discount(months: length) > 0 %>
-          including a <strong><%= discount_string(length) %> discount</strong>
-        <% end %>:
-        <%= t(:organic) %> £<%= price_string(length, true) %>
-        (Non-organic £<%= price_string(length) %>)
-      </li>
-    <% end %>
-	</ul>
+	<strong>What range of gift subscriptions do you provide?</strong> We offer a fantastic range of gift subscriptions, most of which include a discount when compared to our standard month-by-month payment option. Check out our Gift Subscriptions page for the latest range of offers.
 </p>
 
 <p>

@@ -14,8 +14,8 @@ Background:
 Scenario: Select organic charged the right amount
   When I visit the sign up page
   And I fill in my details
-	And I select "Organic - £6.95 per month"
-	Then I should see "just £6.95 per month"
+	And I select "Organic"
+	Then I should see "£6.95 per month"
 	
 @mechanize @vcr @hostname
 Scenario: Send to GoCardless
@@ -31,8 +31,8 @@ Scenario: Send to GoCardless
 Scenario: Buy a non-organic option
   When I visit the sign up page
   And I fill in my details
-	And I select "Non-organic - £5.95 per month"
-	Then I should see "just £5.95 per month"
+	And I select "Non-organic"
+	Then I should see "£5.95 per month"
 	
 @mechanize @vcr @hostname
 Scenario: Send to GoCardless non-organic

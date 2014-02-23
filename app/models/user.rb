@@ -25,7 +25,8 @@ class User < ActiveRecord::Base
   validates :gift_code, gift_code: true
 
   # fake accessor for organic option, passed through on signup
-  attr_accessor :organic
+  attr_accessor :organic, :size
+  
 
   rails_admin do
     edit do

@@ -1,5 +1,5 @@
 Given(/^there is a crop called "(.*?)"$/) do |crop_name|
-  FactoryGirl.create :crop, name: crop_name
+  FactoryGirl.create :crop, name: crop_name, medium: true
 end
 
 Given(/^the current pod has instructions and shipping for "(.*?)"$/) do |crop_name|

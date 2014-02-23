@@ -9,7 +9,7 @@ class SubscriptionsController < ApplicationController
       code = GiftCode.where(code: params[:gift_code], paid: true).first
       if code && code.subscription.nil?
         # Create subscription
-        @user.subscriptions.create(gift_code_id: code.id, organic: code.organic)
+        @user.subscriptions.create(gift_code_id: code.id, organic: code.organic, size: code.size)
         Notifications.welcome(@user).deliver        
         redirect_to getting_started_pods_path
       else
@@ -18,12 +18,13 @@ class SubscriptionsController < ApplicationController
     else
       # Create subscription
       organic = params[:organic] == "true"
-      sub = @user.subscriptions.create(organic: organic)
+      size = params[:size]
+      sub = @user.subscriptions.create(organic: organic, size: size)
       # Send to gocardless for payment
       url = GoCardless.new_subscription_url(
         :interval_unit   => "month",
         :interval_length => 1,
-        :amount          => price_string(1, organic),
+        :amount          => price_string(1, organic, size),
         :name            => t(:seedpod),
         :description     => t(:tagline),
         :state           => sub.id,

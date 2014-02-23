@@ -25,7 +25,7 @@ class GiftCode < ActiveRecord::Base
   end
   
   def price
-    Pod.price(months: months, organic: organic)
+    Pod.price(months: months, organic: organic, size: size)
   end
   
   def mark_as_paid!

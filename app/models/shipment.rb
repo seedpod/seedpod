@@ -5,13 +5,19 @@ class Shipment < ActiveRecord::Base
   after_save :send_shipment_email
 
   def crops
-    pod.shipping_crops(organic?)
+    pod.shipping_crops(organic?, size)
   end
   
   def organic?
     payment = user.payments.where(pod: pod).first
     subscription = payment.subscription
     subscription.organic
+  end
+  
+  def size
+    payment = user.payments.where(pod: pod).first
+    subscription = payment.subscription
+    subscription.size
   end
   
   def ship!

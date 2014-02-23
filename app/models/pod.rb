@@ -7,13 +7,26 @@ class Pod < ActiveRecord::Base
   rails_admin do
     object_label_method :to_param
   end
+<<<<<<< HEAD
 
   def shipping_crops(organic = false)
+=======
+  
+  def shipping_crops(organic = false, size = "medium")
+>>>>>>> Additional-size-options
     crops = instructions.where(ship: true).map{|x| x.crop}
     if organic
       crops = crops.select{|x| x.organic == true}
     else
       crops = crops.select{|x| x.non_organic == true}
+    end
+    case size
+    when "small"
+      crops = crops.select{|x| x.small == true}
+    when "large"
+      crops = crops.select{|x| x.large == true}
+    else
+      crops = crops.select{|x| x.medium == true}
     end
   end
 
@@ -77,17 +90,36 @@ class Pod < ActiveRecord::Base
       0.15
     end
   end
+<<<<<<< HEAD
 
   def self.base_price_per_month(organic: false)
+=======
+  
+  def self.base_price_per_month(organic: false, size: "medium")
+    base = 0
+>>>>>>> Additional-size-options
     if organic
-      Pod.base_price_per_month + 1.00
+      base = Pod.base_price_per_month + 1.00
     else
-      5.95
+      base = 5.95
     end
+    case size
+    when "small"
+      base -= 1.00
+    when "large"
+      base += 1.50
+    end
+    base
   end
+<<<<<<< HEAD
 
   def self.price(months: 1, organic: false)
     (Pod.base_price_per_month(organic: organic) * months * (1.0-Pod.discount(months: months))).round(2)
+=======
+  
+  def self.price(months: 1, organic: false, size: "medium")
+    (Pod.base_price_per_month(organic: organic, size: size) * months * (1.0-Pod.discount(months: months))).round(2)
+>>>>>>> Additional-size-options
   end
 
   def self.generate_future_pods!

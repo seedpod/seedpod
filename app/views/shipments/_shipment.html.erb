@@ -3,6 +3,7 @@
   <td><%= shipment.user.name %></td>
   <td><%= shipment.user.address %></td>
   <td><%= shipment.organic? ? t(:organic) : t(:non_organic) %></td>
+  <td><%= shipment.size %></td>
   <td><%= shipment.crops.map{|x| x.name}.join(', ') %></td>
   <td>
     <% if shipment.shipped %>
