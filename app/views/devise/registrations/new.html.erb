@@ -9,7 +9,7 @@
 	</p>
 	<p>
 		
-<p>Joining SeedPod is incredibly simple. Just enter your details, select whether you'd prefer to receive organic or non-organic vegetable seeds, and select the size of growing space you have available. If you would like more details on the available options then take a look at our <%= link_to "How it Works", page_path("preview") %> page.</p>
+<p>Joining SeedPod is incredibly simple. Just enter your details, select whether you'd prefer to receive organic or non-organic vegetable seeds, and select the size of growing space you have available. Choose 'balcony' to receive just one variety per month, designed for growing in containers or pots. Choose 'garden' for two different vegetable varieties each month. If you would like more details on the available options then take a look at our <%= link_to "How it Works", page_path("preview") %> page.</p>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'form-horizontal'}) do |f| %>
   <%= devise_error_messages! %>
@@ -123,7 +123,7 @@
 </script>
 
 <div align="center" id='pricing-details'>
-	<p>Subscribe today for just <span id='price'>£<%= price_string(1, true, "small") %></span> per month, with free delivery, and no contractual tie-in or cancellation fee.</p>
+	<p>Price for your selection: <strong><span id='price'>£<%= price_string(1, true, "small") %></span></strong> per month, with free delivery, and no contractual tie-in or cancellation fee.</p>
 </div>
 
 <script>
