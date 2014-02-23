@@ -25,7 +25,7 @@ Scenario: Select small organic charged the right amount
   And I fill in my details
 	And I select "Balcony"
 	And I select "Organic"
-	Then I should see "just £5.95 per month"
+	Then I should see "£5.95 per month"
 	
 @mechanize @vcr @hostname
 Scenario: Send to GoCardless small organic
@@ -97,7 +97,7 @@ Scenario: Select small non-organic charged the right amount
   And I fill in my details
 	And I select "Balcony"
 	And I select "Non-organic"
-	Then I should see "just £4.95 per month"
+	Then I should see "£4.95 per month"
 	
 @mechanize @vcr @hostname
 Scenario: Send to GoCardless small non-organic
@@ -167,7 +167,7 @@ Scenario: Using a small non-organic gift code
 #  And I fill in my details
 #	And I select "Allotment"
 #	And I select "Organic"
-#	Then I should see "just £8.45 per month"
+#	Then I should see "£8.45 per month"
 	
 #@mechanize @vcr @hostname
 #Scenario: Send to GoCardless large organic
@@ -237,7 +237,7 @@ Scenario: Using an large organic gift code
 #  And I fill in my details
 #	And I select "Allotment"
 #	And I select "Non-organic"
-#	Then I should see "just £7.45 per month"
+#	Then I should see "£7.45 per month"
 
 #@mechanize @vcr @hostname
 #Scenario: Send to GoCardless large non-organic
