@@ -22,14 +22,14 @@ class Notifications < ActionMailer::Base
   def gift_code_receipt_without_recipient(code)
     @code = code.code
     @months = code.months
-    @price = price_string(code.months)
+    @price = price_string(code.months, code.organic, code.size)
     @purchaser_name = code.purchaser_name
     mail to: code.purchaser_email
   end
   
   def gift_code_receipt_with_recipient(code)
     @months = code.months
-    @price = price_string(code.months)
+    @price = price_string(code.months, code.organic, code.size)
     @recipient_name = code.recipient_name
     @recipient_email = code.recipient_email
     @send_date = code.send_date
