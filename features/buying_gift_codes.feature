@@ -59,6 +59,8 @@ Scenario: When my payment is cancelled, I get sent to the homepage
   
 Scenario: When I have selected to get the gift code myself I should see the gift code  
   Given I have created a gift code
+  And that gift code is non-organic
+  And that gift code is size "small"
   And I have selected to receive the code myself
   And I have paid for the gift code with PayPal
   Then I should see the "Purchase Complete" page
@@ -76,6 +78,8 @@ Scenario: When I have selected the recipient to get the gift code I cannot see i
   
 Scenario: Gift codes for today are emailed immediately
   Given I have created a gift code
+  And that gift code is organic
+  And that gift code is size "large"
   And I have selected the recipient to receive the gift code today
   And I have paid for the gift code with PayPal
   Then I should see the "Purchase Complete" page

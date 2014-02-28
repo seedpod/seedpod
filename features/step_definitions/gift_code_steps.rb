@@ -5,7 +5,6 @@ end
 When(/^I select a gifting option$/) do
   select '6 Months', from: 'gift_code[months]'
   @months = 6
-  @price_string = "£34.20"
 end
 
 When(/^I enter my details as the purchaser$/) do
@@ -57,13 +56,27 @@ end
 Given(/^I have created a gift code$/) do
   @gift_code = FactoryGirl.create(:gift_code)
   @months = 12
-  @price_string = "£60.69"
+end
+
+Given(/^that gift code is non-organic$/) do
+  @gift_code.organic = false
+  @gift_code.save
+end
+
+Given(/^that gift code is organic$/) do
+  @gift_code.organic = true
+  @gift_code.save
+end
+
+Given(/^that gift code is size "(.*?)"$/) do |size|
+  @gift_code.size = size
+  @gift_code.save
 end
 
 Given(/^I have paid for the gift code with PayPal$/) do
   mock = Object.new
   mock.should_receive(:success?).and_return(true)
-  PayPalGateway.should_receive(:purchase).with(6069, {currency: "GBP", locale: "en", ip: "127.0.0.1", payer_id: "PAYER_ID", token: "TOKEN"}).once.and_return(mock)
+  PayPalGateway.should_receive(:purchase).with(@gift_code.price*100.to_i, {currency: "GBP", locale: "en", ip: "127.0.0.1", payer_id: "PAYER_ID", token: "TOKEN"}).once.and_return(mock)
   visit gift_code_confirm_path(@gift_code, token: 'TOKEN', PayerID: 'PAYER_ID')
 end
 
@@ -121,7 +134,7 @@ Then(/^I should recieve an email with the gift code$/) do
     And they should see "#{CGI.escapeHTML(@gift_code.purchaser_name)}" in the email body
     And they should see "#{@gift_code.code}" in the email body
     And they should see "#{@gift_code.months} month" in the email body
-    And they should see "#{@price_string}" in the email body
+    And they should see "#{@gift_code.price}" in the email body
   }
 end
 
@@ -132,7 +145,7 @@ Then(/^I should recieve an email reciept$/) do
     Then they should see "Your SeedPod Gift Code Receipt" in the email subject
     And they should not see "#{@gift_code.code}," in the email body
     And they should see "#{@gift_code.months} month" in the email body
-    And they should see "#{@price_string}" in the email body
+    And they should see "#{@gift_code.price}" in the email body
     And they should see "#{CGI.escapeHTML(@gift_code.recipient_name)}" in the email body
     And they should see "#{@gift_code.send_date.to_s(:long)}" in the email body
   }
