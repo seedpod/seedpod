@@ -1,11 +1,13 @@
+[![Build Status](http://img.shields.io/travis/seedpod/seedpod.svg)](https://travis-ci.org/seedpod/seedpod)
+[![Dependency Status](http://img.shields.io/gemnasium/seedpod/seedpod.svg)](https://gemnasium.com/seedpod/seedpod)
+[![Coverage Status](http://img.shields.io/coveralls/seedpod/seedpod.svg)](https://coveralls.io/r/seedpod/seedpod)
+[![Code Climate](http://img.shields.io/codeclimate/github/seedpod/seedpod.svg)](https://codeclimate.com/github/seedpod/seedpod)
+[![License](http://img.shields.io/:license-mit-blue.svg)](http://seedpod.mit-license.org)
+[![Badges](http://img.shields.io/:badges-6/6-ff6799.svg)](https://github.com/pikesley/badger)
+
 # Seedpod
 
 The source code that runs the http://getseedpod.com site.
-
-[![Build Status](https://travis-ci.org/seedpod/seedpod.png?branch=master)](https://travis-ci.org/seedpod/seedpod)
-[![Coverage Status](https://coveralls.io/repos/seedpod/seedpod/badge.png)](https://coveralls.io/r/seedpod/seedpod)
-[![Dependency Status](https://gemnasium.com/seedpod/seedpod.png)](https://gemnasium.com/seedpod/seedpod)
-[![Code Climate](https://codeclimate.com/github/seedpod/seedpod.png)](https://codeclimate.com/github/seedpod/seedpod)
 
 ## License
 
