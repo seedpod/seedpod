@@ -3,17 +3,10 @@
 </h1>
 <div class="aboutUs">
   <p>
-    Know someone who would love to grow their own, but has never managed to get started? Perhaps you're looking for an original gift that's fun and great for the environment? We think our monthly vegetable seed and advice subscriptions make perfect gifts, especially as we cater for different budgets, and offer discounts too. Everytime they take a bite from one of their delicious homegrown vegetables, they will think of you!
+    Know someone who would love to grow their own, but has never managed to get started? Perhaps you're looking for an original gift that's fun and great for the environment? We think our monthly vegetable seed and advice subscriptions make perfect gifts, especially as we cater for different budgets, and offer discounts too. Every time they take a bite from one of their delicious homegrown vegetables, they will think of you!
   </p>
   <div style='max-width: 700px; margin-left: auto; margin-right:auto'>
-    <ul class="nav nav-tabs">
-      <li class="active">
-        <a href="#organic" data-toggle="tab"><strong>Organic</strong></a>
-      </li>
-      <li>
-        <a href="#nonOrganic" data-toggle="tab"><strong>Non-Organic</strong></a>
-      </li>
-    </ul>
+
     <div class="tab-content">
       <div class="tab-pane active" id="organic">
         <div class="col-lg-12">
@@ -112,17 +105,19 @@
     </div>
   </div>
   <div class='form-group'>
-    <%= f.label :organic, :class => 'col-lg-4 control-label' %>
-    <div class='col-lg-8'>
-      <%= f.select :organic, organic_options_for_select, :required => true %>
-    </div>
-  </div>
-  <div class='form-group'>
     <%= f.label :size, :class => 'col-lg-4 control-label' %>
     <div class='col-lg-8'>
       <%= f.select :size, size_options_for_select %>
     </div>
   </div>
+<div class='invisible'>
+ <div class='form-group'>
+    <%= f.label :organic, :class => 'col-lg-4 control-label' %>
+    <div class='col-lg-8'>
+      <%= f.select :organic, organic_options_for_select, :required => true %>
+    </div>
+  </div>
+</div>
   <div class='form-group' id='price-row' style='display:none'>
     <%= f.label "Price", :class => 'col-lg-4 control-label' %>
     <div class='col-lg-8'>

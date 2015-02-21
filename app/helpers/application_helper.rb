@@ -15,15 +15,15 @@ module ApplicationHelper
   
   def organic_options_for_select
     x = [
-      [t(:organic), true],
-      [t(:non_organic), false]
+      [t(:non_organic), true],
+      [t(:organic), false]
     ]
   end
 
   def size_options_for_select
     x = [
-      [t(:small), "small"],
       [t(:medium), "medium"],
+      [t(:small), "small"],
     ]
   end
   
