@@ -24,7 +24,7 @@ Scenario: Select small organic charged the right amount
   When I visit the sign up page
   And I fill in my details
 	And I select "Balcony"
-	And I select "Organic"
+	And I select "Non-Organic"
 	Then I should see "£5.95 per month"
 	
 @mechanize @vcr @hostname
@@ -32,11 +32,11 @@ Scenario: Send to GoCardless small organic
   When I visit the sign up page
   And I fill in my details
 	And I select "Balcony"
-	And I select "Organic"
+	And I select "Non-Organic"
   And I click the "Proceed to secure GoCardless payment page" button
   Then I should be sent to gocardless to set up my subscription
 	And I should be charged "5.95" by GoCardless
-	And my subscription should be marked as "small" "organic"
+	And my subscription should be marked as "small" "non-organic"
 
 Scenario: shipping small organic
   Given I am signed in as an administrator
@@ -70,25 +70,25 @@ Scenario: Buying a small organic gift subscription
   When I visit the gift code purchase page
   And I select "3 Months"
   And I select "Balcony"
-  And I select "Organic"
+  And I select "Non-Organic"
 	Then I should see "17.85"
   When I enter my details as the purchaser
   And I click the "pay-with-paypal" button
   And the gift code should be marked as "small"
-  And the gift code should be marked as organic
+  And the gift code should be marked as non-organic
   And I should be charged "17.85"
   And I should be charged for "3 month balcony or"
 	
 @javascript
 Scenario: Using a small organic gift code
-  Given an organic gift code has been bought for me
+  Given a non-organic gift code has been bought for me
    And that gift code is "small"
   When I visit the sign up page
   And I fill in my details
   And I enter my gift code
   And I click the "Join SeedPod" button
   Then the gift code should be associated with my subscription
-	And my subscription should be marked as "small" "organic"
+	And my subscription should be marked as "small" "non-organic"
 
 		
 @javascript

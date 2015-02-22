@@ -10,22 +10,8 @@ Background:
   And the current pod has a crop "Turnips" which is non-organic
   And the current pod has a crop "Swedes" which is organic and non-organic
   	
-@javascript
-Scenario: Select organic charged the right amount
-  When I visit the sign up page
-  And I fill in my details
-	And I select "Organic"
-	Then I should see "£6.95 per month"
-	
-@mechanize @vcr @hostname
-Scenario: Send to GoCardless
-  When I visit the sign up page
-  And I fill in my details
-	And I select "Organic"
-  And I click the "Proceed to secure GoCardless payment page" button
-  Then I should be sent to gocardless to set up my subscription
-	And I should be charged the organic amount
-	And my subscription should be marked as organic
+
+
 
 @javascript
 Scenario: Buy a non-organic option
@@ -94,7 +80,7 @@ Scenario: view non-organic advice
 Scenario: Buying an organic gift subscription
   When I visit the gift code purchase page
   And I select "3 Months"
-  And I select "Organic"
+  And I select "Non-Organic"
 	Then I should see "£20.85"
   When I enter my details as the purchaser
   And I click the "pay-with-paypal" button
